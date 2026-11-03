@@ -3,6 +3,7 @@ import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import {
+  KCL_SIX_CORE_SERVICES,
   PRIMARY_SERVICES_DATA,
   PAKISTAN_SPECIALIST_SERVICES,
 } from "@/content/services";
@@ -11,84 +12,9 @@ import { CtaBanner } from "@/components/sections/CtaBanner";
 export const metadata = buildMetadata({
   title: "International Aviation Support Services | KCL",
   description:
-    "Explore KCL flight permits, ground handling, aviation fuel, flight planning, airport slots, dispatch assistance and crew logistics.",
+    "Explore KCL's six core aviation services: flight permission facilitation, ground handling, catering services, fuel supply, crew accommodation and 24/7 support.",
   path: "/services",
 });
-
-const SERVICE_CATEGORIES = [
-  {
-    code: "01",
-    title: "Permissions",
-    summary:
-      "Overflight and landing permission assistance, including scheduled and non-scheduled operating contexts. KCL coordinates requests; relevant authorities grant approvals.",
-    links: [
-      { label: "Overflight Permits", href: "/services/overflight-permits" },
-      { label: "Landing Permits", href: "/services/landing-permits" },
-      { label: "Scheduled Flights", href: "/services/scheduled-flights" },
-      {
-        label: "Charter & Non-Scheduled",
-        href: "/services/non-scheduled-flights",
-      },
-      {
-        label: "Pakistan Flight Permissions",
-        href: "/pakistan/flight-permissions",
-      },
-    ],
-  },
-  {
-    code: "02",
-    title: "Airport and Aircraft Services",
-    summary:
-      "Ground handling coordination, fuel arrangements and catering requests based on aircraft, airport, timing and provider availability.",
-    links: [
-      { label: "Ground Handling", href: "/services/ground-handling" },
-      { label: "Aviation Fuel", href: "/services/aviation-fuel" },
-      { label: "Inflight Catering", href: "/services/inflight-catering" },
-    ],
-  },
-  {
-    code: "03",
-    title: "Planning and Dispatch",
-    summary:
-      "Flight planning assistance, operational updates and dispatch-related coordination where relevant to the itinerary.",
-    links: [
-      {
-        label: "Flight Planning & Dispatch",
-        href: "/services/flight-planning-dispatch",
-      },
-      {
-        label: "International Flight Support",
-        href: "/services/international-flight-support",
-      },
-      { label: "Operations Support", href: "/services/operations-support" },
-    ],
-  },
-  {
-    code: "04",
-    title: "Slots and Airport Coordination",
-    summary:
-      "Support for airport slot-related inquiries and other applicable arrival or departure requirements, subject to airport procedures.",
-    links: [
-      {
-        label: "Airport Slot Coordination",
-        href: "/services/airport-slot-coordination",
-      },
-      { label: "Landing Permits", href: "/services/landing-permits" },
-    ],
-  },
-  {
-    code: "05",
-    title: "Crew Logistics",
-    summary:
-      "Hotel and local transport coordination to support layovers, overnight stops and other mission requirements.",
-    links: [
-      {
-        label: "Crew Accommodation & Transport",
-        href: "/services/crew-logistics",
-      },
-    ],
-  },
-];
 
 export default function ServicesOverviewPage() {
   return (
@@ -99,7 +25,7 @@ export default function ServicesOverviewPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
             <span className="font-mono text-xs uppercase tracking-wider text-[#E8A200] bg-[#133661] border border-slate-600 px-3 py-1 inline-block">
-              KCL INTERNATIONAL FLIGHT SUPPORT · SERVICE DIRECTORY
+              KCL INTERNATIONAL FLIGHT SUPPORT · CORE SERVICE DIRECTORY
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               International Aviation Support Services
@@ -108,9 +34,10 @@ export default function ServicesOverviewPage() {
               Connected Support for Complex Flight Operations.
             </p>
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-              A flight rarely depends on one service alone. Permissions,
-              handling, fuel, airport arrangements and crew logistics must fit
-              the same itinerary. KCL brings these requirements into a
+              A flight rarely depends on one service alone. Flight permission
+              facilitation, ground handling, catering services, fuel supply,
+              crew accommodation arrangements, and 24/7 operational support must
+              fit the same itinerary. KCL brings these requirements into a
               coordinated conversation so operators can plan with greater
               clarity.
             </p>
@@ -118,75 +45,146 @@ export default function ServicesOverviewPage() {
         </div>
       </section>
 
-      {/* Grouped Service Categories */}
+      {/* Six Core Services Grid (Primary Reference: kclpk.org/Services.html) */}
       <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="max-w-3xl space-y-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+              SIX CORE SERVICES · PRIMARY OPERATIONAL PORTFOLIO
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
+              KCL&apos;s Six Core Aviation Support Services
+            </h2>
+            <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
+              Based on KCL&apos;s established service portfolio, we assist
+              commercial airlines, charter operators, cargo carriers, and
+              private aviation teams across six core operational pillars:
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICE_CATEGORIES.map((cat) => (
+            {KCL_SIX_CORE_SERVICES.map((pillar) => (
               <div
-                key={cat.code}
+                key={pillar.code}
                 className="bg-[#F6F8FB] border border-[#CBD5E1] p-6 flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-2.5">
                   <span className="font-mono text-xs font-bold text-[#0B2545] bg-white border border-[#CBD5E1] px-2.5 py-0.5 inline-block">
-                    CATEGORY {cat.code}
+                    {pillar.code}
                   </span>
-                  <h2 className="text-xl font-bold text-[#0B2545]">
-                    {cat.title}
-                  </h2>
+                  <h3 className="text-xl font-bold text-[#0B2545]">
+                    <Link
+                      href={pillar.primaryHref}
+                      className="hover:underline underline-offset-4"
+                    >
+                      {pillar.title}
+                    </Link>
+                  </h3>
                   <p className="text-sm text-[#16202B] leading-relaxed">
-                    {cat.summary}
+                    {pillar.summary}
                   </p>
                 </div>
-                <ul className="pt-4 border-t border-slate-200 space-y-1.5 text-sm font-semibold">
-                  {cat.links.map((link) => (
-                    <li key={link.href}>
+                <div className="pt-4 border-t border-slate-200 space-y-2">
+                  <Link
+                    href={pillar.primaryHref}
+                    className="block text-sm font-bold text-[#0B2545] hover:text-[#133661] underline underline-offset-4"
+                  >
+                    {pillar.primaryLabel} →
+                  </Link>
+                  <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-[#5C6B7A]">
+                    {pillar.subLinks.map((sub) => (
                       <Link
-                        href={link.href}
-                        className="text-[#0B2545] hover:text-[#133661] underline underline-offset-4"
+                        key={sub.href}
+                        href={sub.href}
+                        className="hover:text-[#0B2545] underline underline-offset-2"
                       >
-                        {link.label} →
+                        {sub.label}
                       </Link>
-                    </li>
-                  ))}
-                </ul>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
+          </div>
 
-            {/* Practical starting point card */}
-            <div className="bg-[#0B2545] text-white border border-[#0B2545] p-6 flex flex-col justify-between space-y-4">
-              <div className="space-y-2.5">
-                <span className="font-mono text-xs font-bold text-[#E8A200] bg-[#133661] border border-slate-600 px-2.5 py-0.5 inline-block">
-                  HOW TO BEGIN
-                </span>
-                <h2 className="text-xl font-bold text-white">
-                  A Practical Starting Point
-                </h2>
-                <p className="text-sm text-slate-200 leading-relaxed">
-                  Share the operator, aircraft, route, UTC timings and services
-                  needed. Our team can identify the relevant coordination
-                  discussion and outstanding information.
-                </p>
-              </div>
-              <div className="pt-4 border-t border-slate-700">
+          {/* Scheduled vs Non-Scheduled Filing & Scope Boundary */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div className="lg:col-span-4 bg-[#F6F8FB] border border-[#CBD5E1] p-6 space-y-2.5">
+              <span className="font-mono text-xs text-[#5C6B7A] uppercase block">
+                SCHEDULED OPERATIONS
+              </span>
+              <h3 className="text-lg font-bold text-[#0B2545]">
+                Scheduled Flight Filing
+              </h3>
+              <p className="text-sm text-[#16202B] leading-relaxed">
+                Seasonal and recurring airline flight permission applications,
+                schedule information, and fleet amendments.
+              </p>
+              <div className="pt-2 flex flex-wrap gap-3 text-xs font-bold text-[#0B2545]">
                 <Link
-                  href="/request-flight-support"
-                  className="w-full min-h-[44px] px-4 py-2.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  href="/services/scheduled-flights"
+                  className="underline underline-offset-4"
                 >
-                  Start a Flight Support Inquiry →
+                  Scheduled Flights →
+                </Link>
+                <Link
+                  href="/schedule-filing"
+                  className="underline underline-offset-4"
+                >
+                  Pakistan Schedule Filing →
                 </Link>
               </div>
+            </div>
+
+            <div className="lg:col-span-4 bg-[#F6F8FB] border border-[#CBD5E1] p-6 space-y-2.5">
+              <span className="font-mono text-xs text-[#5C6B7A] uppercase block">
+                NON-SCHEDULED &amp; CHARTER
+              </span>
+              <h3 className="text-lg font-bold text-[#0B2545]">
+                Non-Scheduled &amp; Charter Filing
+              </h3>
+              <p className="text-sm text-[#16202B] leading-relaxed">
+                Ad-hoc passenger and cargo charters, business aviation, ferry
+                flights, and technical refueling stops.
+              </p>
+              <div className="pt-2 flex flex-wrap gap-3 text-xs font-bold text-[#0B2545]">
+                <Link
+                  href="/services/non-scheduled-flights"
+                  className="underline underline-offset-4"
+                >
+                  Charter &amp; Non-Scheduled →
+                </Link>
+                <Link
+                  href="/non-schedule-filing"
+                  className="underline underline-offset-4"
+                >
+                  Pakistan Non-Schedule Filing →
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 bg-white border-l-4 border-[#0B2545] border border-[#CBD5E1] p-6 space-y-2">
+              <span className="font-mono text-xs font-bold text-[#0B2545] uppercase block">
+                OPERATIONAL SCOPE NOTE
+              </span>
+              <p className="text-xs text-[#16202B] leading-relaxed">
+                KCL specializes exclusively in B2B aircraft operations and
+                flight support—permissions, ground handling, catering, fuel,
+                crew accommodation, and 24/7 operational coordination. KCL does
+                not provide passenger ticket sales, GDS distribution, travel
+                agency services, or commercial GSA representation.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Complete 12-Service Directory */}
+      {/* Complete Service Specifications */}
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="max-w-3xl space-y-2">
             <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
-              COMPLETE SERVICE SPECIFICATIONS
+              DETAILED SERVICE GUIDES
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               Explore Individual Flight Support Pages

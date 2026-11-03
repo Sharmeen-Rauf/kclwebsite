@@ -8,15 +8,14 @@ import { SITE_CONFIG } from "@/lib/utils";
 const INITIAL_STATE: ActionState = { status: "idle" };
 
 const SERVICE_OPTIONS = [
-  { id: "overflight-permits", label: "Overflight Permission Coordination" },
-  { id: "landing-permits", label: "Landing Permission Coordination" },
+  { id: "overflight-permits", label: "Flight Permission: Overflight Permit" },
+  { id: "landing-permits", label: "Flight Permission: Landing Permit" },
   { id: "pakistan-permissions", label: "Pakistan Flight Permissions (OPKR/OPLR)" },
-  { id: "ground-handling", label: "Ground Handling Coordination" },
-  { id: "aviation-fuel", label: "Aviation Fuel Arrangements" },
-  { id: "flight-planning-dispatch", label: "Flight Planning & Dispatch Assistance" },
-  { id: "airport-slot-coordination", label: "Airport Slot Coordination" },
-  { id: "crew-logistics", label: "Crew Hotel & Transportation" },
-  { id: "inflight-catering", label: "Inflight Catering Coordination" },
+  { id: "ground-handling", label: "Ground Handling" },
+  { id: "inflight-catering", label: "Catering Services" },
+  { id: "aviation-fuel", label: "Fuel Supply" },
+  { id: "crew-logistics", label: "Accommodation Arrangements (Hotel & Transport)" },
+  { id: "operations-support", label: "24/7 Operational Support" },
 ];
 
 interface PermitRequestFormProps {
@@ -212,7 +211,7 @@ export function PermitRequestForm({
       {/* Step 3: Services Needed */}
       <fieldset className="bg-[#F6F8FB] border border-[#CBD5E1] p-4">
         <legend className="text-xs font-mono uppercase text-[#0B2545] font-bold px-1">
-          Step 3 — Services Needed (Select All Relevant Areas)
+          Step 3 — Core Services Needed (Select All Relevant Areas)
         </legend>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 mt-2">
           {SERVICE_OPTIONS.map((svc) => (

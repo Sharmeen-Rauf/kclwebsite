@@ -9,7 +9,7 @@ import { CtaBanner } from "@/components/sections/CtaBanner";
 export const metadata = buildMetadata({
   title: "About KCL | International Aviation Support Company",
   description:
-    "Discover KCL International Flight Support, its Kashmirwala Group heritage and aviation coordination services for airline and charter operations.",
+    "Discover KCL International Flight Support, its Kashmirwala Group heritage and six core aviation services for airline and charter operations.",
   path: "/about",
 });
 
@@ -30,7 +30,7 @@ const WORKING_PHILOSOPHY = [
     step: "03",
     name: "Identify dependencies",
     description:
-      "Recognize how flight permissions, airport slots, ground handling, fuel, planning, and crew arrangements interact.",
+      "Recognize how flight permissions, ground handling, catering, fuel, and crew accommodation interact.",
   },
   {
     step: "04",
@@ -64,8 +64,9 @@ export default function AboutPage() {
               Kashmir Corporation (Pvt.) Ltd. connects an established business
               heritage with a practical approach to modern aviation operations.
               KCL International Flight Support works with aviation stakeholders
-              seeking coordinated assistance across permissions, flight planning
-              and essential trip arrangements.
+              seeking coordinated assistance across flight permission
+              facilitation, ground handling, catering services, fuel supply,
+              crew accommodation arrangements, and 24/7 operational support.
             </p>
           </div>
         </div>
@@ -101,24 +102,30 @@ export default function AboutPage() {
 
             <div className="lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
               <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
-                SERVICE AREAS &amp; STAKEHOLDERS
+                SIX CORE SERVICES &amp; STAKEHOLDERS
               </span>
               <h2 className="text-2xl font-bold text-[#0B2545]">
                 What KCL Supports &amp; Who We Work With
               </h2>
               <p className="text-[#16202B] text-base leading-relaxed">
-                Our areas of work include flight permission coordination, ground
-                handling arrangements, aviation fuel, flight planning
-                assistance, airport slot coordination, operational dispatch
-                support, crew hotel and transport, and in-flight catering
-                coordination. Each service is subject to the applicable
-                authority or provider arrangements.
+                KCL&apos;s six core services encompass{" "}
+                <strong>Flight Permission Facilitation</strong> (scheduled and
+                non-scheduled overflight and landing permits),{" "}
+                <strong>Ground Handling</strong>,{" "}
+                <strong>Catering Services</strong>,{" "}
+                <strong>Fuel Supply</strong>,{" "}
+                <strong>Accommodation Arrangements</strong> (crew hotels and
+                transport), and <strong>24/7 Operational Support</strong>, along
+                with connected flight planning and airport slot inquiries. Each
+                service is subject to the applicable authority or provider
+                arrangements.
               </p>
               <p className="text-[#16202B] text-base leading-relaxed">
-                KCL&apos;s services are positioned for scheduled airlines,
-                charter operators, private and business aviation teams, cargo
-                carriers and operations departments coordinating complex
-                itineraries.
+                KCL&apos;s services are positioned strictly for B2B aircraft
+                operations—scheduled airlines, charter operators, private and
+                business aviation teams, cargo carriers, and flight dispatch
+                departments. We do not offer passenger ticket sales, GDS
+                distribution, travel agency services, or commercial GSA sales.
               </p>
             </div>
           </div>
@@ -179,10 +186,10 @@ export default function AboutPage() {
                   Pakistan Flight Permissions →
                 </Link>
                 <Link
-                  href="/services/international-flight-support"
+                  href="/services"
                   className="text-[#0B2545] underline underline-offset-4"
                 >
-                  International Flight Support →
+                  Explore Six Core Services →
                 </Link>
               </div>
             </div>

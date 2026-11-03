@@ -8,8 +8,9 @@ import { SITE_CONFIG } from "@/lib/utils";
 const PRIMARY_NAV = [
   { label: "Services", href: "/services" },
   { label: "Pakistan Permits", href: "/pakistan/flight-permissions" },
+  { label: "Schedule Filing", href: "/schedule-filing" },
+  { label: "Non-Schedule Filing", href: "/non-schedule-filing" },
   { label: "Resources", href: "/aviation-resources" },
-  { label: "Insights", href: "/insights" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ] as const;
@@ -53,7 +54,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-3.5 py-2.5 min-h-[44px] inline-flex items-center text-sm font-medium transition-colors border-b-2 ${
+                  className={`px-3 py-2.5 min-h-[44px] inline-flex items-center text-sm font-medium transition-colors border-b-2 ${
                     isActive
                       ? "border-[#E8A200] text-white bg-[#133661]/60"
                       : "border-transparent text-slate-200 hover:text-white hover:bg-[#133661]/40"
@@ -125,32 +126,32 @@ export function Header() {
           })}
           <div className="pt-3 mt-3 border-t border-slate-800 grid grid-cols-2 gap-2 text-sm">
             <Link
-              href="/services/scheduled-flights"
+              href="/services/ground-handling"
               onClick={() => setMobileOpen(false)}
               className="px-3 py-2.5 min-h-[44px] bg-[#0B2545] text-slate-200 border border-slate-700"
             >
-              Scheduled Flights
+              Ground Handling
             </Link>
             <Link
-              href="/services/non-scheduled-flights"
+              href="/services/inflight-catering"
               onClick={() => setMobileOpen(false)}
               className="px-3 py-2.5 min-h-[44px] bg-[#0B2545] text-slate-200 border border-slate-700"
             >
-              Charter &amp; Non-Scheduled
+              Catering Services
             </Link>
             <Link
-              href="/services/flight-planning-dispatch"
+              href="/services/aviation-fuel"
               onClick={() => setMobileOpen(false)}
               className="px-3 py-2.5 min-h-[44px] bg-[#0B2545] text-slate-200 border border-slate-700"
             >
-              Planning &amp; Dispatch
+              Fuel Supply
             </Link>
             <Link
-              href="/customer-support"
+              href="/services/crew-logistics"
               onClick={() => setMobileOpen(false)}
               className="px-3 py-2.5 min-h-[44px] bg-[#0B2545] text-slate-200 border border-slate-700"
             >
-              Customer Support
+              Crew Accommodation
             </Link>
           </div>
         </nav>

@@ -17,7 +17,7 @@ export const REAL_CLIENTS: AirlineClient[] = [
     logo: "/img/client-qantas.svg",
     alt: "Qantas Airways (ICAO: QFA) client logo",
     summary:
-      "Overflight permission coordination and operational flight support across Pakistan Flight Information Regions.",
+      "Overflight permission facilitation and operational flight support across Pakistan Flight Information Regions.",
   },
   {
     name: "Royal Brunei Airlines",
@@ -27,7 +27,7 @@ export const REAL_CLIENTS: AirlineClient[] = [
     logo: "/img/client-royal-brunei.svg",
     alt: "Royal Brunei Airlines (ICAO: RBA) client logo",
     summary:
-      "Scheduled and non-scheduled flight permission representation and airway clearance support.",
+      "Scheduled and non-scheduled flight permission facilitation and airway clearance coordination.",
   },
   {
     name: "Air Mauritius",
@@ -37,7 +37,7 @@ export const REAL_CLIENTS: AirlineClient[] = [
     logo: "/img/client-air-mauritius.svg",
     alt: "Air Mauritius (ICAO: MAU) client logo",
     summary:
-      "Authorized flight permission filing and dispatch liaison with Pakistan aviation authorities.",
+      "Authorized flight permission filing and operational liaison with Pakistan aviation authorities.",
   },
   {
     name: "Cambodia Airways",
@@ -47,7 +47,6 @@ export const REAL_CLIENTS: AirlineClient[] = [
     logo: "/img/client-cambodia-airways.svg",
     alt: "Cambodia Airways (ICAO: KME) client logo",
     summary:
-      "Flight permission management, ground handling coordination and operational dispatch assistance.",
+      "Flight permission facilitation, ground handling coordination and 24/7 operational support.",
   },
 ];
-

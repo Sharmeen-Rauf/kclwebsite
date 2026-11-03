@@ -13,6 +13,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/about",
     "/services",
     "/pakistan/flight-permissions",
+    "/schedule-filing",
+    "/non-schedule-filing",
     "/request-flight-support",
     "/aviation-resources",
     "/insights",

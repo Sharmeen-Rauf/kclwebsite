@@ -15,9 +15,11 @@ export function Footer() {
               {SITE_CONFIG.name}
             </p>
             <p className="text-sm text-slate-300 leading-relaxed">
-              International flight support and aviation services, with a clearly
-              differentiated Pakistan flight permission specialization.
-              Associated with Kashmirwala Group (heritage dating to 1947).
+              International flight support and aviation services built on KCL&apos;s
+              six core operational pillars: Flight Permission Facilitation,
+              Ground Handling, Catering Services, Fuel Supply, Accommodation
+              Arrangements, and 24/7 Support. Associated with Kashmirwala Group
+              (heritage dating to 1947).
             </p>
             <div className="pt-2 space-y-1 font-mono text-xs text-slate-300">
               <p>Operations Tel: {SITE_CONFIG.opsPhonePlaceholder}</p>
@@ -32,10 +34,58 @@ export function Footer() {
 
           <div className="lg:col-span-3 space-y-3">
             <h2 className="text-xs font-mono uppercase tracking-wider text-[#E8A200] font-semibold">
-              International Flight Support
+              Six Core Services
             </h2>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link
+                  href="/pakistan/flight-permissions"
+                  className="hover:text-[#E8A200] transition-colors font-semibold text-white"
+                >
+                  01 · Flight Permission Facilitation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/ground-handling"
+                  className="hover:text-[#E8A200] transition-colors"
+                >
+                  02 · Ground Handling
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/inflight-catering"
+                  className="hover:text-[#E8A200] transition-colors"
+                >
+                  03 · Catering Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/aviation-fuel"
+                  className="hover:text-[#E8A200] transition-colors"
+                >
+                  04 · Fuel Supply
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/crew-logistics"
+                  className="hover:text-[#E8A200] transition-colors"
+                >
+                  05 · Accommodation Arrangements
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/operations-support"
+                  className="hover:text-[#E8A200] transition-colors"
+                >
+                  06 · 24/7 Operational Support
+                </Link>
+              </li>
+              <li className="pt-2 border-t border-slate-700/80">
                 <Link
                   href="/services/international-flight-support"
                   className="hover:text-[#E8A200] transition-colors"
@@ -59,92 +109,28 @@ export function Footer() {
                   Landing Permits
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/services/scheduled-flights"
-                  className="hover:text-[#E8A200] transition-colors"
-                >
-                  Scheduled Flight Support
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/non-scheduled-flights"
-                  className="hover:text-[#E8A200] transition-colors"
-                >
-                  Charter &amp; Non-Scheduled
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/ground-handling"
-                  className="hover:text-[#E8A200] transition-colors"
-                >
-                  Ground Handling
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/aviation-fuel"
-                  className="hover:text-[#E8A200] transition-colors"
-                >
-                  Aviation Fuel
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/flight-planning-dispatch"
-                  className="hover:text-[#E8A200] transition-colors"
-                >
-                  Flight Planning &amp; Dispatch
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/airport-slot-coordination"
-                  className="hover:text-[#E8A200] transition-colors"
-                >
-                  Airport Slot Coordination
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/crew-logistics"
-                  className="hover:text-[#E8A200] transition-colors"
-                >
-                  Crew Logistics
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/inflight-catering"
-                  className="hover:text-[#E8A200] transition-colors"
-                >
-                  Inflight Catering
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/operations-support"
-                  className="hover:text-[#E8A200] transition-colors"
-                >
-                  Operations Support
-                </Link>
-              </li>
             </ul>
           </div>
 
           <div className="lg:col-span-3 space-y-3">
             <h2 className="text-xs font-mono uppercase tracking-wider text-[#E8A200] font-semibold">
-              Pakistan &amp; Aviation Resources
+              Scheduled, Non-Scheduled &amp; Resources
             </h2>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/pakistan/flight-permissions"
-                  className="hover:text-[#E8A200] transition-colors font-semibold text-white"
+                  href="/schedule-filing"
+                  className="hover:text-[#E8A200] transition-colors"
                 >
-                  Pakistan Flight Permissions
+                  Schedule Flight Filing (Pakistan)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/non-schedule-filing"
+                  className="hover:text-[#E8A200] transition-colors"
+                >
+                  Non-Schedule &amp; Charter Filing
                 </Link>
               </li>
               <li>
@@ -241,7 +227,7 @@ export function Footer() {
                   href="/customer-support"
                   className="hover:text-[#E8A200] transition-colors"
                 >
-                  Customer Support
+                  24/7 Customer Support
                 </Link>
               </li>
               <li>
@@ -268,8 +254,9 @@ export function Footer() {
           <div>
             <p>
               © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights
-              reserved. KCL coordinates requests; aviation authorities and
-              service providers retain approval and delivery decisions.
+              reserved. KCL coordinates operational flight support requests;
+              aviation authorities and service providers retain approval and
+              delivery decisions.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-6">

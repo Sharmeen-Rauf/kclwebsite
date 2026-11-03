@@ -1815,6 +1815,98 @@ export const SERVICES_DATA: ServiceDefinition[] = [
   },
 ];
 
+export interface CoreServicePillar {
+  code: string;
+  title: string;
+  summary: string;
+  primaryHref: string;
+  primaryLabel: string;
+  subLinks: Array<{ label: string; href: string }>;
+}
+
+/**
+ * Primary reference: https://www.kclpk.org/Services.html
+ * KCL's Six Core Services:
+ * 1. Flight Permission Facilitation (Overflight & Landing; Scheduled & Non-Scheduled)
+ * 2. Ground Handling
+ * 3. Catering Services
+ * 4. Fuel Supply
+ * 5. Accommodation Arrangements
+ * 6. 24/7 Support
+ */
+export const KCL_SIX_CORE_SERVICES: CoreServicePillar[] = [
+  {
+    code: "01 · FLIGHT PERMISSIONS",
+    title: "Flight Permission Facilitation",
+    summary:
+      "Overflight and landing permission assistance for scheduled commercial airlines and non-scheduled charter, cargo, and private flights. KCL coordinates applications and documentation; civil aviation authorities retain approval authority.",
+    primaryHref: "/pakistan/flight-permissions",
+    primaryLabel: "Pakistan Flight Permissions",
+    subLinks: [
+      { label: "Overflight Permits", href: "/services/overflight-permits" },
+      { label: "Landing Permits", href: "/services/landing-permits" },
+      { label: "Scheduled Flights", href: "/services/scheduled-flights" },
+      { label: "Non-Scheduled & Charter", href: "/services/non-scheduled-flights" },
+    ],
+  },
+  {
+    code: "02 · GROUND HANDLING",
+    title: "Ground Handling",
+    summary:
+      "Turnaround and airport-side coordination including ramp services, baggage handling, aircraft servicing, crew assistance, and local logistics with authorized airport providers.",
+    primaryHref: "/services/ground-handling",
+    primaryLabel: "Ground Handling Coordination",
+    subLinks: [
+      { label: "Pakistan Landing Permits", href: "/services/landing-permit-pakistan" },
+    ],
+  },
+  {
+    code: "03 · INFLIGHT CATERING",
+    title: "Catering Services",
+    summary:
+      "Passenger and flight crew inflight meal coordination tailored to aircraft type, headcount, dietary requirements, and departure schedules through approved catering facilities.",
+    primaryHref: "/services/inflight-catering",
+    primaryLabel: "Inflight Catering Coordination",
+    subLinks: [
+      { label: "Charter & Non-Scheduled Support", href: "/services/non-scheduled-flights" },
+    ],
+  },
+  {
+    code: "04 · AVIATION FUEL",
+    title: "Fuel Supply",
+    summary:
+      "Communicating aircraft refueling requirements and coordinating fuel arrangements with approved aviation fuel suppliers around your planned arrival and departure schedule.",
+    primaryHref: "/services/aviation-fuel",
+    primaryLabel: "Aviation Fuel Arrangements",
+    subLinks: [
+      { label: "Ground Handling Coordination", href: "/services/ground-handling" },
+    ],
+  },
+  {
+    code: "05 · CREW ACCOMMODATION",
+    title: "Accommodation Arrangements",
+    summary:
+      "Practical crew hotel accommodation and airport-to-hotel ground transportation coordination aligned with flight schedules, layovers, and stopover requirements.",
+    primaryHref: "/services/crew-logistics",
+    primaryLabel: "Crew Accommodation & Transport",
+    subLinks: [
+      { label: "Scheduled Airline Support", href: "/services/scheduled-flights" },
+    ],
+  },
+  {
+    code: "06 · OPERATIONS WATCH",
+    title: "24/7 Support",
+    summary:
+      "Continuous operational communication for active flight inquiries, schedule or route amendments, aircraft changes, and cross-service trip coordination.",
+    primaryHref: "/services/operations-support",
+    primaryLabel: "Operations & Trip Support",
+    subLinks: [
+      { label: "Customer Support Desk", href: "/customer-support" },
+      { label: "International Trip Support", href: "/services/international-flight-support" },
+    ],
+  },
+];
+
 export const PRIMARY_SERVICES_DATA: ServiceDefinition[] = SERVICES_DATA.filter(
   (s) => s.category !== "Pakistan Specialization"
 );

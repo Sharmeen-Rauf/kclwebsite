@@ -13,8 +13,11 @@ type ServiceFocus =
   | "overflight-permits"
   | "landing-permits"
   | "pakistan-permissions"
-  | "ground-fuel-catering"
-  | "planning-slots-crew";
+  | "ground-handling"
+  | "aviation-fuel"
+  | "inflight-catering"
+  | "crew-logistics"
+  | "operations-support";
 
 interface NavigatorGuidance {
   title: string;
@@ -27,7 +30,7 @@ interface NavigatorGuidance {
 
 const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
   "overflight-permits": {
-    title: "Overflight Permission Inquiry Preparation",
+    title: "Overflight Permission Facilitation Preparation",
     summary:
       "An overflight may involve country-specific authorizations, route information, and operator documentation depending on the route, aircraft, and current rules.",
     preparationItems: [
@@ -35,7 +38,7 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
       "Operator name, state of registry, and operational contact details",
       "Complete planned itinerary and ATS route details",
       "Planned UTC dates and times",
-      "Purpose of operation (additional documentation varies by authority)",
+      "Purpose of operation (scheduled service or non-scheduled movement)",
     ],
     governanceNote:
       "KCL assists in preparing information and coordinating requests through appropriate channels. Regulatory decisions and processing timelines remain with the competent civil aviation authorities.",
@@ -45,13 +48,13 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
   "landing-permits": {
     title: "Landing Permission & Arrival Coordination Preparation",
     summary:
-      "A planned arrival brings together permission requirements, airport slot considerations, and ground-side arrangements across distinct processes.",
+      "A planned arrival brings together permission requirements, airport considerations, and ground-side arrangements across distinct processes.",
     preparationItems: [
       "Origin and destination airports (ICAO codes)",
       "Aircraft registration, type, and Maximum Takeoff Weight (MTOW)",
       "Operator details and purpose of flight (scheduled, charter, cargo, private, or technical stop)",
       "Estimated UTC arrival and departure times",
-      "Passenger or cargo context and any required ground, fuel, or crew services",
+      "Passenger or cargo context and any required ground, fuel, catering, or crew services",
     ],
     governanceNote:
       "Landing permissions, airport slots, and ground handling are separate processes administered by different stakeholders. All approvals remain with the relevant authorities.",
@@ -61,7 +64,7 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
   "pakistan-permissions": {
     title: "Pakistan Flight Permissions (OPKR & OPLR Specialization)",
     summary:
-      "For operations crossing Pakistan's airspace (OPKR / OPLR FIRs) or landing at Pakistani airports, KCL combines local aviation context with practical coordination for international operators.",
+      "For scheduled or non-scheduled operations crossing Pakistan's airspace (OPKR / OPLR FIRs) or landing at Pakistani airports, KCL combines local aviation context with practical coordination.",
     preparationItems: [
       "Aircraft registration, type, and operator name",
       "Planned itinerary, OPKR/OPLR route details, or intended Pakistani airport (e.g., OPKC, OPLA, OPIS)",
@@ -74,36 +77,82 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
     relatedServiceHref: "/pakistan/flight-permissions",
     relatedServiceLabel: "Pakistan Flight Permissions Hub",
   },
-  "ground-fuel-catering": {
-    title: "Ground Handling, Aviation Fuel & Inflight Catering Preparation",
+  "ground-handling": {
+    title: "Ground Handling Coordination Preparation",
     summary:
-      "Airport-side services—handling, refueling, and catering—must work around the same aircraft movement and are subject to local airport procedures and provider availability.",
+      "On arrival and departure, ramp services, baggage handling, aircraft servicing, and crew assistance must work around the same aircraft movement.",
     preparationItems: [
       "Intended airport (ICAO code) and aircraft registration/type",
       "Expected UTC arrival and departure times",
       "Specific ground handling services needed for the turnaround",
-      "Requested fuel specification and estimated uplift quantity where applicable",
-      "Passenger and crew meal counts, menu categories, and dietary notes if catering is needed",
+      "Passenger, baggage, or cargo load context",
+      "Operational contact information for schedule updates",
     ],
     governanceNote:
-      "Physical handling, fuel supply/quality certification, and food preparation remain with authorized local providers and airport stakeholders.",
+      "Ground handling arrangements depend on airport procedures, authorized service providers, and local equipment availability.",
     relatedServiceHref: "/services/ground-handling",
     relatedServiceLabel: "Ground Handling Coordination Guide",
   },
-  "planning-slots-crew": {
-    title: "Flight Planning, Airport Slots & Crew Logistics Preparation",
+  "aviation-fuel": {
+    title: "Aviation Fuel Supply Coordination Preparation",
     summary:
-      "Trip planning support, airport slot inquiries, and crew hotel/transport arrangements can be discussed alongside the wider itinerary to reduce fragmented communication.",
+      "Aircraft fuel requirements depend on the airport, timing, aircraft, and operating plan, and should be coordinated alongside arrival and ground handling times.",
     preparationItems: [
-      "Planned itinerary, airports, and requested UTC movement times",
-      "Aircraft type, registration, and operator details",
-      "Requested scope of flight planning, dispatch communication, or slot inquiry support",
-      "Crew headcount, arrival/departure schedule, room preferences, and local transport needs",
+      "Intended airport (ICAO code) and aircraft registration/type",
+      "Intended UTC date and arrival/departure times",
+      "Requested fuel specification and estimated uplift quantity where available",
+      "Operator details and operational contact information",
     ],
     governanceNote:
-      "Slot allocation remains with the airport coordinator, and the aircraft operator retains full responsibility for the flight and required dispatch decisions.",
-    relatedServiceHref: "/services/flight-planning-dispatch",
-    relatedServiceLabel: "Flight Planning & Dispatch Support Guide",
+      "Actual fuel specifications, supply availability, quality certification, and uplift procedures depend on approved aviation fuel suppliers and local airport conditions.",
+    relatedServiceHref: "/services/aviation-fuel",
+    relatedServiceLabel: "Aviation Fuel Arrangements Guide",
+  },
+  "inflight-catering": {
+    title: "Inflight Catering Services Preparation",
+    summary:
+      "A catering request is most effective when it reflects the aircraft, cabin service expectations, headcount, dietary needs, and operating time.",
+    preparationItems: [
+      "Flight date, airport (ICAO code), and planned UTC departure time",
+      "Aircraft registration and type",
+      "Number of passenger and crew meals required",
+      "Preferred menu categories and special dietary requests",
+      "Operational contact information",
+    ],
+    governanceNote:
+      "Actual food preparation, hygiene, handling, and airside delivery remain with the authorized catering provider at the airport.",
+    relatedServiceHref: "/services/inflight-catering",
+    relatedServiceLabel: "Inflight Catering Coordination Guide",
+  },
+  "crew-logistics": {
+    title: "Crew Accommodation & Transport Arrangements Preparation",
+    summary:
+      "Crew hotel and airport-to-hotel transport arrangements support stopovers and layovers around your planned flight schedule.",
+    preparationItems: [
+      "Intended city/airport and arrival/departure UTC schedule",
+      "Number of crew members and room breakdown",
+      "Room preferences and any relevant operator policy requirements",
+      "Requested airport-to-hotel or local ground transportation details",
+    ],
+    governanceNote:
+      "Hotel availability, pricing, and transport arrangements vary by location, provider, and date.",
+    relatedServiceHref: "/services/crew-logistics",
+    relatedServiceLabel: "Crew Accommodation & Transport Guide",
+  },
+  "operations-support": {
+    title: "24/7 Operational & Trip Support Preparation",
+    summary:
+      "When schedules, aircraft registrations, or routes change, timely communication helps align permissions and connected station services.",
+    preparationItems: [
+      "Operator details, aircraft registration/type, and callsign",
+      "Complete planned itinerary and UTC schedule",
+      "All requested core services (permits, handling, fuel, catering, crew hotel)",
+      "Primary 24/7 dispatch/operations contact channels",
+    ],
+    governanceNote:
+      "KCL coordinates communication across requested aviation services; regulatory authorities and local providers retain approval and delivery decisions.",
+    relatedServiceHref: "/services/operations-support",
+    relatedServiceLabel: "Operations & Trip Support Guide",
   },
 };
 
@@ -122,7 +171,10 @@ export function PermitChecker() {
     serviceFocus === "overflight-permits"
       ? "overflight"
       : serviceFocus === "landing-permits" ||
-        serviceFocus === "ground-fuel-catering"
+        serviceFocus === "ground-handling" ||
+        serviceFocus === "aviation-fuel" ||
+        serviceFocus === "inflight-catering" ||
+        serviceFocus === "crew-logistics"
       ? "landing"
       : "both";
 
@@ -155,7 +207,7 @@ export function PermitChecker() {
         <div className="lg:col-span-5 space-y-6 border-b lg:border-b-0 lg:border-r border-[#CBD5E1] pb-6 lg:pb-0 lg:pr-8">
           <fieldset>
             <legend className="block text-xs font-mono uppercase tracking-wider text-[#5C6B7A] font-semibold mb-2">
-              1. Operation Type
+              1. Operation Type (Scheduled vs. Non-Scheduled)
             </legend>
             <div className="grid grid-cols-2 gap-2.5">
               {[
@@ -211,7 +263,7 @@ export function PermitChecker() {
               htmlFor="navigator-service-focus"
               className="block text-xs font-mono uppercase tracking-wider text-[#5C6B7A] font-semibold mb-2"
             >
-              2. Primary Coordination Area
+              2. Core Service Area
             </label>
             <select
               id="navigator-service-focus"
@@ -222,19 +274,28 @@ export function PermitChecker() {
               className="w-full min-h-[44px] px-3.5 py-2.5 bg-[#F6F8FB] border border-[#CBD5E1] text-[#0B2545] font-semibold text-sm rounded-[2px]"
             >
               <option value="overflight-permits">
-                Overflight Permit Coordination
+                01a · Flight Permission: Overflight Permits
               </option>
               <option value="landing-permits">
-                Landing Permit Coordination
+                01b · Flight Permission: Landing Permits
               </option>
               <option value="pakistan-permissions">
-                Pakistan Flight Permissions (OPKR / OPLR)
+                01c · Pakistan Flight Permissions (OPKR / OPLR)
               </option>
-              <option value="ground-fuel-catering">
-                Ground Handling, Aviation Fuel &amp; Catering
+              <option value="ground-handling">
+                02 · Ground Handling Coordination
               </option>
-              <option value="planning-slots-crew">
-                Flight Planning, Airport Slots &amp; Crew Logistics
+              <option value="inflight-catering">
+                03 · Catering Services Coordination
+              </option>
+              <option value="aviation-fuel">
+                04 · Aviation Fuel Supply Coordination
+              </option>
+              <option value="crew-logistics">
+                05 · Crew Accommodation &amp; Transport Arrangements
+              </option>
+              <option value="operations-support">
+                06 · 24/7 Operational &amp; Trip Support
               </option>
             </select>
           </div>
