@@ -4,17 +4,17 @@ import { LiveClocks } from "./LiveClocks";
 
 export function OpsStrip() {
   return (
-    <div className="bg-[#061527] text-slate-200 border-b border-slate-800 text-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-11 flex items-center justify-between gap-4">
-        {/* Left: Phone, Email & Live Clocks (Single-Line Clean Layout) */}
-        <div className="flex items-center gap-4 sm:gap-6 overflow-x-auto no-scrollbar whitespace-nowrap">
+    <div className="bg-[#0B2545] text-slate-100 border-b border-[#1E3A5F] text-xs">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-between gap-4">
+        {/* Left: Operations Support, Inquiry Link & Live UTC/PKT Clocks */}
+        <div className="flex items-center gap-4 sm:gap-5 overflow-x-auto no-scrollbar whitespace-nowrap">
           <Link
             href="/customer-support"
-            className="inline-flex items-center gap-2 text-slate-200 hover:text-[#E8A200] transition-colors font-medium"
+            className="inline-flex items-center gap-2 text-slate-100 hover:text-[#F2C200] transition-colors font-medium"
             title="24/7 Flight Operations & Customer Support Desk"
           >
             <svg
-              className="w-3.5 h-3.5 text-[#E8A200] shrink-0"
+              className="w-3.5 h-3.5 text-[#F2C200] shrink-0"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -25,22 +25,22 @@ export function OpsStrip() {
             >
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-medium tracking-wide">
-              24/7 Operations Support Desk
+            <span className="text-[11px] sm:text-xs font-medium">
+              24/7 Flight Operations Desk
             </span>
           </Link>
 
-          <span className="text-slate-700 hidden sm:inline" aria-hidden="true">
+          <span className="text-slate-600 hidden sm:inline" aria-hidden="true">
             |
           </span>
 
           <Link
             href="/contact"
-            className="hidden sm:inline-flex items-center gap-2 text-slate-200 hover:text-[#E8A200] transition-colors font-medium"
+            className="hidden sm:inline-flex items-center gap-2 text-slate-100 hover:text-[#F2C200] transition-colors font-medium"
             title="Send Flight Permission or Ground Support Inquiry"
           >
             <svg
-              className="w-3.5 h-3.5 text-[#E8A200] shrink-0"
+              className="w-3.5 h-3.5 text-[#F2C200] shrink-0"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -52,20 +52,20 @@ export function OpsStrip() {
               <rect width="20" height="16" x="2" y="4" rx="2" />
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-medium tracking-wide">
-              Flight Operations &amp; Permit Inquiries
+            <span className="text-[11px] sm:text-xs font-medium">
+              Flight Permits &amp; Ground Support Inquiries
             </span>
           </Link>
 
-          <span className="text-slate-700 hidden xl:inline" aria-hidden="true">
+          <span className="text-slate-600 hidden xl:inline" aria-hidden="true">
             |
           </span>
 
           <LiveClocks />
         </div>
 
-        {/* Right: Circular Amber Social Icons & Top CTA Button */}
-        <div className="flex items-center gap-3 shrink-0">
+        {/* Right: KCL Brand-Styled Social / Action Icons & Quick Links */}
+        <div className="flex items-center gap-2.5 shrink-0">
           <div className="flex items-center gap-1.5">
             {/* Official KCL LinkedIn */}
             <a
@@ -74,7 +74,7 @@ export function OpsStrip() {
               rel="noopener noreferrer"
               aria-label="KCL International Flight Support on LinkedIn"
               title="KCL International Flight Support — LinkedIn"
-              className="w-7 h-7 rounded-full bg-[#E8A200] hover:bg-[#ffba1a] text-[#061527] flex items-center justify-center transition-transform hover:scale-105"
+              className="w-7 h-7 rounded-[2px] bg-[#133661] border border-slate-600/80 text-slate-100 hover:border-[#F2C200] hover:text-[#F2C200] flex items-center justify-center transition-colors"
             >
               <svg
                 className="w-3.5 h-3.5 fill-current"
@@ -89,15 +89,15 @@ export function OpsStrip() {
             <Link
               href="/contact"
               aria-label="Contact KCL Operations by Email"
-              title="Email / Contact KCL"
-              className="w-7 h-7 rounded-full bg-[#E8A200] hover:bg-[#ffba1a] text-[#061527] flex items-center justify-center transition-transform hover:scale-105"
+              title="Contact KCL Operations"
+              className="w-7 h-7 rounded-[2px] bg-[#133661] border border-slate-600/80 text-slate-100 hover:border-[#F2C200] hover:text-[#F2C200] flex items-center justify-center transition-colors"
             >
               <svg
                 className="w-3.5 h-3.5"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2.2"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 aria-hidden="true"
@@ -112,14 +112,14 @@ export function OpsStrip() {
               href="/customer-support"
               aria-label="24/7 Operations Support"
               title="24/7 Customer & Flight Support"
-              className="w-7 h-7 rounded-full bg-[#E8A200] hover:bg-[#ffba1a] text-[#061527] flex items-center justify-center transition-transform hover:scale-105"
+              className="w-7 h-7 rounded-[2px] bg-[#133661] border border-slate-600/80 text-slate-100 hover:border-[#F2C200] hover:text-[#F2C200] flex items-center justify-center transition-colors"
             >
               <svg
                 className="w-3.5 h-3.5"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2.2"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 aria-hidden="true"
@@ -129,12 +129,14 @@ export function OpsStrip() {
             </Link>
           </div>
 
-          <Link
-            href="/request-flight-support"
-            className="hidden sm:inline-flex items-center justify-center px-3.5 py-1.5 bg-[#E8A200] hover:bg-[#ffba1a] text-[#061527] font-extrabold text-[11px] uppercase tracking-wider rounded-[3px] transition-colors whitespace-nowrap"
+          <a
+            href="/files/kcl-permit-request-checklist.pdf"
+            download
+            className="hidden md:inline-flex items-center gap-1.5 px-3 py-1 bg-[#133661] hover:bg-[#1b4579] text-slate-100 border border-slate-600/80 font-mono text-[11px] rounded-[2px] transition-colors whitespace-nowrap"
           >
-            Request Flight Support
-          </Link>
+            <span className="text-[#F2C200] font-bold">PDF</span>
+            <span>Permit Checklist</span>
+          </a>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/utils";
 
 export function Footer() {
@@ -8,18 +9,28 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-700/80">
           <div className="lg:col-span-4 space-y-4">
-            <div className="inline-flex items-center gap-2 bg-[#133661] border border-[#E8A200]/70 px-3 py-1 text-xs font-mono text-[#E8A200]">
-              {SITE_CONFIG.authorityBadge}
-            </div>
+            <Link
+              href="/"
+              className="inline-block bg-white px-4 py-2.5 rounded-[2px] border border-slate-300 shadow-2xs"
+              aria-label="Kashmir Corporation (Pvt.) Ltd. Home"
+            >
+              <Image
+                src="/img/imgi_2_Sign Logo1@3x.png"
+                alt="KCL Flight Permission — Kashmir Corporation (Pvt.) Ltd. Official Logo"
+                width={170}
+                height={68}
+                className="h-11 w-auto object-contain"
+              />
+            </Link>
             <p className="text-lg font-bold text-white tracking-tight">
               {SITE_CONFIG.name}
             </p>
             <p className="text-sm text-slate-300 leading-relaxed">
-              International flight support and aviation services built on KCL&apos;s
-              six core operational pillars: Flight Permission Facilitation,
-              Ground Handling, Catering Services, Fuel Supply, Accommodation
-              Arrangements, and 24/7 Support. Associated with Kashmirwala Group
-              (heritage dating to 1947).
+              International flight support and aviation services built on
+              KCL&apos;s six core operational pillars: Flight Permission
+              Facilitation, Ground Handling, Catering Services, Fuel Supply,
+              Accommodation Arrangements, and 24/7 Support. Associated with
+              Kashmirwala Group (heritage dating to 1947).
             </p>
             <div className="pt-2 space-y-1 font-mono text-xs text-slate-300">
               <p>Operations Tel: {SITE_CONFIG.opsPhonePlaceholder}</p>

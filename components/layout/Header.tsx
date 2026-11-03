@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 interface NavDropdownItem {
@@ -132,20 +133,25 @@ export function Header() {
     <header className="sticky top-0 z-40 bg-white text-[#0B2545] border-b border-slate-200 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-4">
-          {/* Brand Logo */}
+          {/* Official KCL Brand Logo */}
           <Link
             href="/"
-            className="group flex items-center gap-3 py-2 shrink-0 focus-visible:outline-offset-4"
-            aria-label="Kashmir Corporation (Pvt.) Ltd. (KCL) Home"
+            className="group flex items-center gap-3.5 py-2 shrink-0 focus-visible:outline-offset-4"
+            aria-label="Kashmir Corporation (Pvt.) Ltd. (KCL Flight Permission) Home"
           >
-            <div className="h-11 w-12 bg-[#0B2545] border-2 border-[#E8A200] flex items-center justify-center font-mono font-bold text-base tracking-wider text-[#E8A200] rounded-[2px] shadow-2xs">
-              KCL
-            </div>
-            <div className="whitespace-nowrap">
-              <span className="block font-extrabold text-lg tracking-tight text-[#0B2545] leading-tight">
-                KASHMIR CORPORATION
+            <Image
+              src="/img/imgi_2_Sign Logo1@3x.png"
+              alt="KCL Flight Permission — Kashmir Corporation (Pvt.) Ltd. Official Logo"
+              width={180}
+              height={72}
+              priority
+              className="h-12 sm:h-13 w-auto object-contain"
+            />
+            <div className="hidden sm:block border-l border-slate-300 pl-3.5 whitespace-nowrap">
+              <span className="block font-extrabold text-sm sm:text-base tracking-tight text-[#0B2545] leading-tight">
+                Kashmir Corporation (Pvt.) Ltd.
               </span>
-              <span className="block font-mono text-[10px] tracking-widest uppercase text-[#5C6B7A] font-semibold mt-0.5">
+              <span className="block font-mono text-[10px] tracking-wider uppercase text-[#5C6B7A] font-semibold mt-0.5">
                 International Flight Support
               </span>
             </div>
@@ -234,10 +240,10 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <Link
               href="/request-flight-support"
-              className="min-h-[42px] px-4 py-2 bg-[#0B2545] hover:bg-[#133661] text-white font-bold text-xs uppercase tracking-wider rounded-[3px] inline-flex items-center justify-center gap-2 transition-colors whitespace-nowrap border-b-2 border-[#E8A200]"
+              className="min-h-[42px] px-4 py-2 bg-[#0B2545] hover:bg-[#133661] text-white font-bold text-xs uppercase tracking-wider rounded-[2px] inline-flex items-center justify-center gap-2 transition-colors whitespace-nowrap border-b-2 border-[#F2C200]"
             >
-              <span>Permit &amp; Support Form</span>
-              <span className="text-[#E8A200] font-mono">→</span>
+              <span>Request Flight Support</span>
+              <span className="text-[#F2C200] font-mono">→</span>
             </Link>
           </div>
 
@@ -245,7 +251,7 @@ export function Header() {
           <div className="flex lg:hidden items-center gap-2">
             <Link
               href="/request-flight-support"
-              className="min-h-[40px] px-3 py-2 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-xs rounded-[2px] inline-flex items-center justify-center whitespace-nowrap"
+              className="min-h-[40px] px-3 py-2 bg-[#0B2545] hover:bg-[#133661] text-white font-bold text-xs rounded-[2px] inline-flex items-center justify-center whitespace-nowrap border-b-2 border-[#F2C200]"
             >
               Request Support
             </Link>
@@ -257,9 +263,9 @@ export function Header() {
               aria-label={
                 mobileOpen ? "Close navigation menu" : "Open navigation menu"
               }
-              className="min-h-[40px] min-w-[44px] px-2.5 py-2 text-white bg-[#0B2545] hover:bg-[#133661] rounded-[2px] inline-flex items-center justify-center"
+              className="min-h-[40px] min-w-[44px] px-2.5 py-2 text-[#0B2545] bg-[#F6F8FB] border border-slate-300 rounded-[2px] inline-flex items-center justify-center"
             >
-              <span className="font-mono text-xs font-semibold">
+              <span className="font-mono text-xs font-bold">
                 {mobileOpen ? "CLOSE" : "MENU"}
               </span>
             </button>

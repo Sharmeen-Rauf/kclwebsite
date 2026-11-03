@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { buildMetadata } from "@/lib/seo";
 import { SITE_CONFIG } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
@@ -94,9 +95,18 @@ export default function ContactPage() {
 
             <aside className="lg:col-span-5 space-y-6">
               <div className="bg-white border border-[#CBD5E1] p-6 space-y-4">
-                <span className="font-mono text-xs uppercase text-[#E8A200] bg-[#0B2545] px-2.5 py-1 inline-block font-semibold">
-                  APPROVAL REQUIRED BEFORE LIVE PUBLICATION
-                </span>
+                <div className="border-b border-[#CBD5E1] pb-3">
+                  <Image
+                    src="/img/imgi_2_Sign Logo1@3x.png"
+                    alt="KCL Flight Permission — Kashmir Corporation (Pvt.) Ltd. Official Logo"
+                    width={150}
+                    height={60}
+                    className="h-10 w-auto object-contain mb-3"
+                  />
+                  <span className="font-mono text-xs uppercase text-[#E8A200] bg-[#0B2545] px-2.5 py-1 inline-block font-semibold">
+                    APPROVAL REQUIRED BEFORE LIVE PUBLICATION
+                  </span>
+                </div>
                 <h2 className="text-xl font-bold text-[#0B2545]">
                   Contact Information — Verification Note
                 </h2>

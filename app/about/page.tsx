@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { buildMetadata } from "@/lib/seo";
 import { SITE_CONFIG } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
@@ -195,9 +196,18 @@ export default function AboutPage() {
             </div>
 
             <div className="lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
-              <span className="font-mono text-xs uppercase text-[#E8A200] bg-[#0B2545] px-2.5 py-1 inline-block font-semibold">
-                PUBLISHING BLOCK · MANAGEMENT VERIFICATION
-              </span>
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#CBD5E1] pb-4">
+                <Image
+                  src="/img/imgi_2_Sign Logo1@3x.png"
+                  alt="KCL Flight Permission — Kashmir Corporation (Pvt.) Ltd. Official Logo"
+                  width={160}
+                  height={64}
+                  className="h-11 w-auto object-contain"
+                />
+                <span className="font-mono text-xs uppercase text-[#E8A200] bg-[#0B2545] px-2.5 py-1 inline-block font-semibold">
+                  PUBLISHING BLOCK · MANAGEMENT VERIFICATION
+                </span>
+              </div>
               <h2 className="text-2xl font-bold text-[#0B2545]">
                 Credentials and Leadership
               </h2>
