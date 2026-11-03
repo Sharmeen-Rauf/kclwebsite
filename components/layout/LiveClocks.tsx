@@ -35,18 +35,18 @@ export function LiveClocks() {
 
   return (
     <div
-      className="flex items-center gap-3 font-mono text-xs tracking-tight text-slate-200"
+      className="hidden xl:flex items-center gap-2 font-mono text-[11px] tracking-tight text-slate-200 whitespace-nowrap"
       aria-label="Live aviation operations clocks in UTC and Pakistan Standard Time"
     >
-      <span className="inline-flex items-center gap-1.5 bg-[#133661] px-2 py-0.5 rounded-[2px] border border-slate-600/60">
-        <span className="text-[#E8A200] font-semibold">UTC</span>
+      <span className="inline-flex items-center gap-1.5 bg-[#112A4A] px-2 py-0.5 rounded-[2px] border border-slate-700">
+        <span className="h-1.5 w-1.5 rounded-full bg-[#E8A200]" aria-hidden="true" />
+        <span className="text-[#E8A200] font-bold">UTC</span>
         <span>{times ? times.utc : "--:--:--Z"}</span>
       </span>
-      <span className="inline-flex items-center gap-1.5 bg-[#133661] px-2 py-0.5 rounded-[2px] border border-slate-600/60">
-        <span className="text-[#E8A200] font-semibold">OPKC/PKT</span>
+      <span className="inline-flex items-center gap-1.5 bg-[#112A4A] px-2 py-0.5 rounded-[2px] border border-slate-700">
+        <span className="text-[#E8A200] font-bold">PKT</span>
         <span>{times ? times.pkt : "--:--:-- PKT"}</span>
       </span>
     </div>
   );
 }
-
