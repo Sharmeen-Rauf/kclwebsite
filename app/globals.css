@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0B2545;
+  --color-navy-dark: #07192F;
+  --color-navy-light: #133661;
+  --color-surface: #F6F8FB;
+  --color-panel: #FFFFFF;
+  --color-ink: #16202B;
+  --color-steel: #5C6B7A;
+  --color-amber: #E8A200;
+  --color-amber-hover: #CC8E00;
+  --color-border: #CBD5E1;
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    background-color: #F6F8FB;
+    color: #16202B;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #0B2545;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+  }
+
+  p, li {
+    max-width: 72ch;
+  }
+
+  :focus-visible {
+    outline: 2px solid #E8A200;
+    outline-offset: 2px;
+  }
+}
+
+@keyframes drawAirway {
+  from {
+    stroke-dashoffset: 600;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.airway-route-line {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 0;
+  animation: drawAirway 1.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .airway-route-line {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

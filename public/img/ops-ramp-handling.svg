@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#0B2545"/>
+  <g stroke="#1E3A5F" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/>
+    <line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/>
+    <line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+  <rect x="40" y="40" width="720" height="420" fill="none" stroke="#E8A200" stroke-width="1.5"/>
+  <text x="70" y="90" font-family="monospace" font-size="14" fill="#E8A200">PHOTO SLOT: /public/img/ops-ramp-handling.svg</text>
+  <text x="70" y="130" font-family="sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">Aircraft Ramp &amp; Ground Turnaround Coordination</text>
+  <text x="70" y="165" font-family="monospace" font-size="14" fill="#CBD5E1">AIRPORTS: OPKC (Karachi) | OPLA (Lahore) | OPIS (Islamabad)</text>
+  <path d="M 120 340 L 680 340" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 6"/>
+  <polygon points="370,260 440,300 370,310" fill="#E8A200"/>
+  <text x="70" y="420" font-family="monospace" font-size="12" fill="#94A3B8">Replace with client photography in /public/img</text>
+</svg>
+
