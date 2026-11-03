@@ -96,15 +96,15 @@ export default async function CountryPermitDetailPage({
         ]}
       />
 
-      <section className="bg-[#0B2545] text-white py-12 sm:py-16 border-b border-slate-700">
+      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-8 space-y-4">
+            <div className="lg:col-span-8 space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
               <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
-                <span className="bg-[#133661] border border-[#E8A200] text-[#E8A200] px-2.5 py-1 font-semibold">
+                <span className="bg-white/10 backdrop-blur-sm border border-[#F2C200] text-[#F2C200] px-2.5 py-1 font-semibold">
                   ISO: {guide.isoCode}
                 </span>
-                <span className="bg-[#133661] border border-slate-600 text-slate-200 px-2.5 py-1">
+                <span className="bg-white/10 backdrop-blur-sm border border-white/25 text-slate-100 px-2.5 py-1">
                   FIR: {guide.firCodes.join(" / ")}
                 </span>
               </div>
@@ -113,11 +113,11 @@ export default async function CountryPermitDetailPage({
                 {guide.countryName} Overflight &amp; Landing Permit Guide
               </h1>
 
-              <p className="text-lg sm:text-xl font-semibold text-[#E8A200]">
+              <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
                 Dispatch Planning Reference for OPKR &amp; OPLR Airspace and International Aerodromes.
               </p>
 
-              <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
                 {guide.summary}
               </p>
 
@@ -126,39 +126,39 @@ export default async function CountryPermitDetailPage({
                   href={`/request-permit?country=${encodeURIComponent(
                     guide.countryName
                   )}`}
-                  className="min-h-[48px] px-6 py-3 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="min-h-[48px] px-6 py-3 bg-[#F2C200] hover:bg-[#E8A200] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Coordinate a {guide.countryName} Permit
                 </Link>
                 <a
                   href="/files/kcl-permit-request-checklist.pdf"
                   download
-                  className="min-h-[48px] px-5 py-3 bg-[#133661] hover:bg-slate-700 text-white border border-slate-500 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="min-h-[48px] px-5 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Download Permit Checklist (PDF)
                 </a>
               </div>
             </div>
 
-            <div className="lg:col-span-4 bg-[#07192F] border border-slate-700 p-5 space-y-3 font-mono text-xs">
-              <div className="border-b border-slate-700 pb-2 text-[#E8A200] font-semibold">
+            <div className="lg:col-span-4 bg-black/45 backdrop-blur-md border border-white/20 p-5 space-y-3 font-mono text-xs rounded-[2px]">
+              <div className="border-b border-white/20 pb-2 text-[#F2C200] font-semibold">
                 AIRSPACE &amp; AUTHORITY DATA
               </div>
               <div>
-                <span className="text-slate-400 block">CIVIL AVIATION AUTHORITY</span>
+                <span className="text-slate-300 block">CIVIL AVIATION AUTHORITY</span>
                 <span className="text-white font-semibold">
                   {guide.caaAuthorityName}
                 </span>
               </div>
               <div>
-                <span className="text-slate-400 block">FLIGHT INFORMATION REGIONS</span>
+                <span className="text-slate-300 block">FLIGHT INFORMATION REGIONS</span>
                 <span className="text-white font-semibold">
                   {guide.firCodes.join(", ")}
                 </span>
               </div>
               <div>
-                <span className="text-slate-400 block">FILING NOTES</span>
-                <span className="text-slate-300 font-sans text-xs">
+                <span className="text-slate-300 block">FILING NOTES</span>
+                <span className="text-slate-200 font-sans text-xs">
                   {guide.airwaysNotes}
                 </span>
               </div>

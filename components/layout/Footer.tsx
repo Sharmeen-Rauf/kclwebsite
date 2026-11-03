@@ -22,9 +22,6 @@ export function Footer() {
                 className="h-11 w-auto object-contain"
               />
             </Link>
-            <p className="text-lg font-bold text-white tracking-tight">
-              {SITE_CONFIG.name}
-            </p>
             <p className="text-sm text-slate-300 leading-relaxed">
               International flight support and aviation services built on
               KCL&apos;s six core operational pillars: Flight Permission

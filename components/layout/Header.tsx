@@ -136,25 +136,17 @@ export function Header() {
           {/* Official KCL Brand Logo */}
           <Link
             href="/"
-            className="group flex items-center gap-3.5 py-2 shrink-0 focus-visible:outline-offset-4"
+            className="group flex items-center py-2 shrink-0 focus-visible:outline-offset-4"
             aria-label="Kashmir Corporation (Pvt.) Ltd. (KCL Flight Permission) Home"
           >
             <Image
               src="/img/imgi_2_Sign Logo1@3x.png"
               alt="KCL Flight Permission — Kashmir Corporation (Pvt.) Ltd. Official Logo"
-              width={180}
-              height={72}
+              width={190}
+              height={76}
               priority
-              className="h-12 sm:h-13 w-auto object-contain"
+              className="h-12 sm:h-14 w-auto object-contain"
             />
-            <div className="hidden sm:block border-l border-slate-300 pl-3.5 whitespace-nowrap">
-              <span className="block font-extrabold text-sm sm:text-base tracking-tight text-[#0B2545] leading-tight">
-                Kashmir Corporation (Pvt.) Ltd.
-              </span>
-              <span className="block font-mono text-[10px] tracking-wider uppercase text-[#5C6B7A] font-semibold mt-0.5">
-                International Flight Support
-              </span>
-            </div>
           </Link>
 
           {/* Desktop Navigation — Clean Single Row with Dropdowns */}

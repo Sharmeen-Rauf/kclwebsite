@@ -1,12 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import { LiveClocks } from "./LiveClocks";
 
 export function OpsStrip() {
   return (
     <div className="bg-[#0B2545] text-slate-100 border-b border-[#1E3A5F] text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-between gap-4">
-        {/* Left: Operations Support, Inquiry Link & Live UTC/PKT Clocks */}
+        {/* Left: Operations Support & Inquiry Links */}
         <div className="flex items-center gap-4 sm:gap-5 overflow-x-auto no-scrollbar whitespace-nowrap">
           <Link
             href="/customer-support"
@@ -56,12 +55,6 @@ export function OpsStrip() {
               Flight Permits &amp; Ground Support Inquiries
             </span>
           </Link>
-
-          <span className="text-slate-600 hidden xl:inline" aria-hidden="true">
-            |
-          </span>
-
-          <LiveClocks />
         </div>
 
         {/* Right: KCL Brand-Styled Social / Action Icons & Quick Links */}

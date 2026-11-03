@@ -87,15 +87,15 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       />
 
       {/* Hero Header */}
-      <section className="bg-[#0B2545] text-white py-12 sm:py-16 border-b border-slate-700">
+      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-8 space-y-4">
+            <div className="lg:col-span-8 space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
               <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
-                <span className="bg-[#133661] border border-[#E8A200] text-[#E8A200] px-2.5 py-1 font-semibold">
+                <span className="bg-white/10 backdrop-blur-sm border border-[#F2C200] text-[#F2C200] px-2.5 py-1 font-semibold">
                   {service.code}
                 </span>
-                <span className="bg-[#133661] border border-slate-600 text-slate-200 px-2.5 py-1">
+                <span className="bg-white/10 backdrop-blur-sm border border-white/25 text-slate-100 px-2.5 py-1">
                   {service.category.toUpperCase()}
                 </span>
               </div>
@@ -104,55 +104,55 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 {service.h1}
               </h1>
 
-              <p className="text-lg sm:text-xl font-semibold text-[#E8A200]">
+              <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
                 {service.heroHeadline}
               </p>
 
-              <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
                 {service.introParagraph}
               </p>
 
               <div className="pt-2 flex flex-wrap gap-3">
                 <Link
                   href={requestHref}
-                  className="min-h-[48px] px-6 py-3 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="min-h-[48px] px-6 py-3 bg-[#F2C200] hover:bg-[#E8A200] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   {service.heroCtaLabel}
                 </Link>
                 <Link
                   href="/pakistan/flight-permissions"
-                  className="min-h-[48px] px-5 py-3 bg-[#133661] hover:bg-slate-700 text-white border border-slate-500 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="min-h-[48px] px-5 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Pakistan Flight Permissions
                 </Link>
               </div>
             </div>
 
-            <div className="lg:col-span-4 bg-[#07192F] border border-slate-700 p-5 space-y-4 font-mono text-xs">
-              <div className="border-b border-slate-700 pb-2 text-[#E8A200] font-semibold">
+            <div className="lg:col-span-4 bg-black/45 backdrop-blur-md border border-white/20 p-5 space-y-4 font-mono text-xs rounded-[2px]">
+              <div className="border-b border-white/20 pb-2 text-[#F2C200] font-semibold">
                 SERVICE COORDINATION BRIEF
               </div>
               <div>
-                <span className="text-slate-400 block">PLANNING TIMELINE</span>
+                <span className="text-slate-300 block">PLANNING TIMELINE</span>
                 <span className="text-white font-semibold">
                   {service.typicalLeadTimePlaceholder}
                 </span>
               </div>
               <div>
-                <span className="text-slate-400 block">SERVICE CATEGORY</span>
+                <span className="text-slate-300 block">SERVICE CATEGORY</span>
                 <span className="text-white font-semibold">
                   {service.category}
                 </span>
               </div>
               <div>
-                <span className="text-slate-400 block">DELIVERY MODEL</span>
+                <span className="text-slate-300 block">DELIVERY MODEL</span>
                 <span className="text-white font-semibold">
                   Operational Coordination &amp; Stakeholder Liaison
                 </span>
               </div>
               <div>
-                <span className="text-slate-400 block">APPROVAL AUTHORITY</span>
-                <span className="text-slate-300 font-sans text-xs">
+                <span className="text-slate-300 block">APPROVAL AUTHORITY</span>
+                <span className="text-slate-200 font-sans text-xs">
                   Relevant Civil Aviation Authorities &amp; Airport Stakeholders
                 </span>
               </div>

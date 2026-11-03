@@ -3,22 +3,22 @@ import React from "react";
 export function AirwaysHeroMap() {
   return (
     <div
-      className="bg-[#07192F] border border-slate-700 p-4 sm:p-5 relative overflow-hidden"
+      className="bg-black/40 backdrop-blur-md border border-white/20 p-4 sm:p-5 relative overflow-hidden rounded-[2px] shadow-2xl"
       aria-label="En-route aeronautical chart of Pakistan Karachi (OPKR) and Lahore (OPLR) Flight Information Regions"
     >
-      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-3 border-b border-slate-700/80 font-mono text-[11px] text-slate-300">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-3 border-b border-white/15 font-mono text-[11px] text-slate-200">
         <div className="flex items-center gap-2">
-          <span className="inline-block h-2 w-2 bg-[#E8A200]" />
+          <span className="inline-block h-2 w-2 bg-[#F2C200]" />
           <span className="font-semibold text-white">
             EN-ROUTE CHART // OPKR &amp; OPLR FIR
           </span>
         </div>
-        <span className="text-slate-400">SCALE: SCHEMATIC // H24 WATCH</span>
+        <span className="text-slate-300">SCALE: SCHEMATIC // H24 WATCH</span>
       </div>
 
       <svg
         viewBox="0 0 620 430"
-        className="w-full h-auto block bg-[#0B2545] border border-slate-700/90"
+        className="w-full h-auto block bg-black/25 border border-white/15"
         role="img"
         aria-labelledby="airways-chart-title airways-chart-desc"
       >
@@ -32,7 +32,7 @@ export function AirwaysHeroMap() {
         </desc>
 
         {/* Coordinate Graticule Grid */}
-        <g stroke="#16355D" strokeWidth="1">
+        <g stroke="rgba(255,255,255,0.12)" strokeWidth="1">
           <line x1="0" y1="70" x2="620" y2="70" />
           <line x1="0" y1="150" x2="620" y2="150" />
           <line x1="0" y1="230" x2="620" y2="230" />
@@ -47,7 +47,8 @@ export function AirwaysHeroMap() {
 
         {/* Coordinate Labels */}
         <g
-          fill="#64748B"
+          fill="#CBD5E1"
+          fillOpacity="0.7"
           fontFamily="ui-monospace, SFMono-Regular, monospace"
           fontSize="9"
         >
@@ -80,9 +81,9 @@ export function AirwaysHeroMap() {
         {/* FIR Boundary Polygon (OPKR & OPLR Schematic) */}
         <polygon
           points="95,295 160,210 275,180 345,75 450,48 510,115 475,215 395,285 320,385 170,395"
-          fill="#102E56"
-          fillOpacity="0.65"
-          stroke="#475569"
+          fill="#FFFFFF"
+          fillOpacity="0.06"
+          stroke="rgba(255,255,255,0.45)"
           strokeWidth="1.5"
           strokeDasharray="6 4"
         />
@@ -93,7 +94,7 @@ export function AirwaysHeroMap() {
           y1="196"
           x2="455"
           y2="232"
-          stroke="#64748B"
+          stroke="rgba(255,255,255,0.35)"
           strokeWidth="1.2"
           strokeDasharray="3 3"
         />
@@ -105,10 +106,10 @@ export function AirwaysHeroMap() {
             y="328"
             width="110"
             height="20"
-            fill="#07192F"
-            stroke="#334155"
+            fill="rgba(0,0,0,0.65)"
+            stroke="rgba(255,255,255,0.25)"
           />
-          <text x="135" y="341" fill="#CBD5E1" fontSize="10" fontWeight="bold">
+          <text x="135" y="341" fill="#F8FAFC" fontSize="10" fontWeight="bold">
             FIR: OPKR (SOUTH)
           </text>
 
@@ -117,10 +118,10 @@ export function AirwaysHeroMap() {
             y="42"
             width="110"
             height="20"
-            fill="#07192F"
-            stroke="#334155"
+            fill="rgba(0,0,0,0.65)"
+            stroke="rgba(255,255,255,0.25)"
           />
-          <text x="272" y="55" fill="#CBD5E1" fontSize="10" fontWeight="bold">
+          <text x="272" y="55" fill="#F8FAFC" fontSize="10" fontWeight="bold">
             FIR: OPLR (NORTH)
           </text>
         </g>
@@ -130,7 +131,7 @@ export function AirwaysHeroMap() {
         <path
           d="M 30 335 L 250 330 L 465 255 L 600 235"
           fill="none"
-          stroke="#E8A200"
+          stroke="#F2C200"
           strokeWidth="2.2"
           className="airway-route-line"
         />
@@ -139,7 +140,7 @@ export function AirwaysHeroMap() {
         <path
           d="M 140 55 L 385 95 L 445 165 L 595 190"
           fill="none"
-          stroke="#E8A200"
+          stroke="#F2C200"
           strokeWidth="2.2"
           className="airway-route-line"
         />
@@ -148,7 +149,7 @@ export function AirwaysHeroMap() {
         <path
           d="M 250 330 L 365 205 L 415 110"
           fill="none"
-          stroke="#93C5FD"
+          stroke="#E2E8F0"
           strokeWidth="1.6"
           className="airway-route-line"
         />
@@ -157,7 +158,7 @@ export function AirwaysHeroMap() {
         <path
           d="M 45 225 L 235 215 L 445 165"
           fill="none"
-          stroke="#93C5FD"
+          stroke="#E2E8F0"
           strokeWidth="1.5"
           strokeDasharray="5 3"
         />
@@ -173,11 +174,11 @@ export function AirwaysHeroMap() {
             y="318"
             width="34"
             height="14"
-            fill="#07192F"
-            stroke="#E8A200"
+            fill="rgba(0,0,0,0.75)"
+            stroke="#F2C200"
             strokeWidth="0.8"
           />
-          <text x="127" y="328" fill="#E8A200">
+          <text x="127" y="328" fill="#F2C200">
             G214
           </text>
 
@@ -186,11 +187,11 @@ export function AirwaysHeroMap() {
             y="236"
             width="36"
             height="14"
-            fill="#07192F"
-            stroke="#E8A200"
+            fill="rgba(0,0,0,0.75)"
+            stroke="#F2C200"
             strokeWidth="0.8"
           />
-          <text x="510" y="246" fill="#E8A200">
+          <text x="510" y="246" fill="#F2C200">
             N644
           </text>
 
@@ -199,11 +200,11 @@ export function AirwaysHeroMap() {
             y="62"
             width="34"
             height="14"
-            fill="#07192F"
-            stroke="#E8A200"
+            fill="rgba(0,0,0,0.75)"
+            stroke="#F2C200"
             strokeWidth="0.8"
           />
-          <text x="240" y="72" fill="#E8A200">
+          <text x="240" y="72" fill="#F2C200">
             L509
           </text>
 
@@ -212,11 +213,11 @@ export function AirwaysHeroMap() {
             y="168"
             width="36"
             height="14"
-            fill="#07192F"
-            stroke="#E8A200"
+            fill="rgba(0,0,0,0.75)"
+            stroke="#F2C200"
             strokeWidth="0.8"
           />
-          <text x="517" y="178" fill="#E8A200">
+          <text x="517" y="178" fill="#F2C200">
             A466
           </text>
         </g>
@@ -224,15 +225,15 @@ export function AirwaysHeroMap() {
         {/* Primary ICAO Airport Waypoints */}
         {/* OPKC - Karachi */}
         <g transform="translate(250, 330)">
-          <circle r="6" fill="#0B2545" stroke="#E8A200" strokeWidth="2" />
-          <circle r="2.5" fill="#E8A200" />
+          <circle r="6" fill="rgba(0,0,0,0.8)" stroke="#F2C200" strokeWidth="2" />
+          <circle r="2.5" fill="#F2C200" />
           <rect
             x="10"
             y="-10"
             width="105"
             height="22"
-            fill="#07192F"
-            stroke="#E8A200"
+            fill="rgba(0,0,0,0.75)"
+            stroke="#F2C200"
             strokeWidth="1"
           />
           <text
@@ -249,15 +250,15 @@ export function AirwaysHeroMap() {
 
         {/* OPLA - Lahore */}
         <g transform="translate(445, 165)">
-          <circle r="6" fill="#0B2545" stroke="#E8A200" strokeWidth="2" />
-          <circle r="2.5" fill="#E8A200" />
+          <circle r="6" fill="rgba(0,0,0,0.8)" stroke="#F2C200" strokeWidth="2" />
+          <circle r="2.5" fill="#F2C200" />
           <rect
             x="10"
             y="-12"
             width="102"
             height="22"
-            fill="#07192F"
-            stroke="#E8A200"
+            fill="rgba(0,0,0,0.75)"
+            stroke="#F2C200"
             strokeWidth="1"
           />
           <text
@@ -274,15 +275,15 @@ export function AirwaysHeroMap() {
 
         {/* OPIS - Islamabad */}
         <g transform="translate(415, 110)">
-          <circle r="6" fill="#0B2545" stroke="#E8A200" strokeWidth="2" />
-          <circle r="2.5" fill="#E8A200" />
+          <circle r="6" fill="rgba(0,0,0,0.8)" stroke="#F2C200" strokeWidth="2" />
+          <circle r="2.5" fill="#F2C200" />
           <rect
             x="10"
             y="-14"
             width="116"
             height="22"
-            fill="#07192F"
-            stroke="#E8A200"
+            fill="rgba(0,0,0,0.75)"
+            stroke="#F2C200"
             strokeWidth="1"
           />
           <text
@@ -299,13 +300,13 @@ export function AirwaysHeroMap() {
 
         {/* OPPS - Peshawar */}
         <g transform="translate(385, 95)">
-          <circle r="4.5" fill="#0B2545" stroke="#93C5FD" strokeWidth="1.8" />
+          <circle r="4.5" fill="rgba(0,0,0,0.8)" stroke="#E2E8F0" strokeWidth="1.8" />
           <text
             x="-92"
             y="4"
             fontFamily="ui-monospace, SFMono-Regular, monospace"
             fontSize="10"
-            fill="#CBD5E1"
+            fill="#F1F5F9"
           >
             OPPS · PESHAWAR
           </text>
@@ -313,13 +314,13 @@ export function AirwaysHeroMap() {
 
         {/* OPMT - Multan */}
         <g transform="translate(365, 205)">
-          <circle r="4.5" fill="#0B2545" stroke="#93C5FD" strokeWidth="1.8" />
+          <circle r="4.5" fill="rgba(0,0,0,0.8)" stroke="#E2E8F0" strokeWidth="1.8" />
           <text
             x="9"
             y="14"
             fontFamily="ui-monospace, SFMono-Regular, monospace"
             fontSize="10"
-            fill="#CBD5E1"
+            fill="#F1F5F9"
           >
             OPMT · MULTAN
           </text>
@@ -327,34 +328,33 @@ export function AirwaysHeroMap() {
 
         {/* OPQT - Quetta */}
         <g transform="translate(235, 215)">
-          <circle r="4.5" fill="#0B2545" stroke="#93C5FD" strokeWidth="1.8" />
+          <circle r="4.5" fill="rgba(0,0,0,0.8)" stroke="#E2E8F0" strokeWidth="1.8" />
           <text
             x="-86"
             y="-8"
             fontFamily="ui-monospace, SFMono-Regular, monospace"
             fontSize="10"
-            fill="#CBD5E1"
+            fill="#F1F5F9"
           >
             OPQT · QUETTA
           </text>
         </g>
       </svg>
 
-      <div className="mt-3 pt-3 border-t border-slate-700/80 grid grid-cols-3 gap-2 font-mono text-[11px] text-slate-300">
+      <div className="mt-3 pt-3 border-t border-white/15 grid grid-cols-3 gap-2 font-mono text-[11px] text-slate-200">
         <div>
-          <span className="text-slate-400 block">KARACHI FIR</span>
+          <span className="text-slate-300 block">KARACHI FIR</span>
           <span className="text-white font-semibold">OPKR // FL150–UNL</span>
         </div>
         <div>
-          <span className="text-slate-400 block">LAHORE FIR</span>
+          <span className="text-slate-300 block">LAHORE FIR</span>
           <span className="text-white font-semibold">OPLR // FL150–UNL</span>
         </div>
         <div>
-          <span className="text-slate-400 block">AGENT STATUS</span>
-          <span className="text-[#E8A200] font-semibold">AFPA AUTHORIZED</span>
+          <span className="text-slate-300 block">AGENT STATUS</span>
+          <span className="text-[#F2C200] font-semibold">AFPA AUTHORIZED</span>
         </div>
       </div>
     </div>
   );
 }
-

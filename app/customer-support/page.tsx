@@ -19,19 +19,19 @@ export default function CustomerSupportPage() {
         items={[{ name: "Customer Support", path: "/customer-support" }]}
       />
 
-      <section className="bg-[#0B2545] text-white py-12 sm:py-16 border-b border-slate-700">
+      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#E8A200] bg-[#133661] border border-slate-600 px-3 py-1 inline-block">
+          <div className="max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
               ACTIVE INQUIRIES &amp; COORDINATION UPDATES
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Aviation Customer Support &amp; Operations Contact
             </h1>
-            <p className="text-lg sm:text-xl font-semibold text-[#E8A200]">
+            <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
               Clear Answers for Active Aviation Inquiries.
             </p>
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
               Use this page to reach the appropriate KCL team regarding an
               existing request, requested service or operational question.
               Include only the information needed to identify the matter and

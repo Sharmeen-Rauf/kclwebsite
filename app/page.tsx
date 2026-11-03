@@ -28,26 +28,40 @@ export default function HomePage() {
     <>
       <JsonLd data={buildFaqJsonLd(HOME_FAQS)} />
 
-      {/* 1. Signature Hero Section */}
-      <section className="bg-[#0B2545] text-white border-b border-slate-700 py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-6 space-y-5">
-              <div className="inline-flex items-center gap-2 bg-[#133661] border border-[#E8A200] px-3.5 py-1.5 font-mono text-xs text-[#E8A200] font-semibold">
+      {/* 1. Signature Hero Section with Aviation Background Image & Transparent Overlay */}
+      <section className="relative overflow-hidden text-white border-b border-slate-800 py-14 lg:py-20">
+        {/* Background Aircraft & Airport Ramp Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/img/hero-flight-ops.jpg"
+            alt="Commercial airliner and executive business jet on an international airport apron at dusk with ground support equipment"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          {/* Translucent dark cinematic gradient overlay (No solid blue block) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/35" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-6 space-y-5 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px] shadow-2xl">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-[#F2C200]/80 px-3.5 py-1.5 font-mono text-xs text-[#F2C200] font-semibold">
                 <span>KCL INTERNATIONAL FLIGHT SUPPORT</span>
                 <span>·</span>
                 <span>{SITE_CONFIG.authorityBadge}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.55rem] font-bold text-white leading-[1.15] tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.55rem] font-bold text-white leading-[1.15] tracking-tight drop-shadow-xs">
                 International Flight Support &amp; Aviation Services
               </h1>
 
-              <p className="text-lg sm:text-xl font-semibold text-[#E8A200]">
+              <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
                 International Flight Support. Coordinated with Confidence.
               </p>
 
-              <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
                 Across international flight operations, the details matter.
                 Kashmir Corporation (Pvt.) Ltd. supports airlines, charter
                 operators, cargo carriers and business aviation teams with
@@ -59,27 +73,27 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
                 <Link
                   href="/request-flight-support"
-                  className="min-h-[48px] px-6 py-3.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm tracking-tight inline-flex items-center justify-center rounded-[2px] transition-colors"
+                  className="min-h-[48px] px-6 py-3.5 bg-[#F2C200] hover:bg-[#E8A200] text-[#0B2545] font-bold text-sm tracking-tight inline-flex items-center justify-center rounded-[2px] transition-colors shadow-md"
                 >
                   Request Flight Support
                 </Link>
                 <Link
                   href="/services"
-                  className="min-h-[48px] px-5 py-3.5 bg-[#133661] hover:bg-slate-700 text-white border border-slate-500 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
+                  className="min-h-[48px] px-5 py-3.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
                 >
                   Explore Six Core Services
                 </Link>
               </div>
 
-              <div className="pt-4 border-t border-slate-700/80 grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs text-slate-300">
+              <div className="pt-4 border-t border-white/20 grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs text-slate-200">
                 <div>
-                  <span className="text-[#E8A200] font-semibold block">
+                  <span className="text-[#F2C200] font-semibold block">
                     SCHEDULE &amp; CHARTER
                   </span>
                   <span>Overflight &amp; landing permits</span>
                 </div>
                 <div>
-                  <span className="text-[#E8A200] font-semibold block">
+                  <span className="text-[#F2C200] font-semibold block">
                     PAKISTAN FOCUS
                   </span>
                   <Link
@@ -90,7 +104,7 @@ export default function HomePage() {
                   </Link>
                 </div>
                 <div>
-                  <span className="text-[#E8A200] font-semibold block">
+                  <span className="text-[#F2C200] font-semibold block">
                     INQUIRY CHECKLIST
                   </span>
                   <a

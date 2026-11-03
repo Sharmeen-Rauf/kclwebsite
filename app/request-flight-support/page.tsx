@@ -61,19 +61,19 @@ export default async function RequestFlightSupportPage({
         ]}
       />
 
-      <section className="bg-[#0B2545] text-white py-10 sm:py-14 border-b border-slate-700">
+      <section className="kcl-hero-bg text-white py-10 sm:py-14 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-3">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#E8A200] bg-[#133661] border border-slate-600 px-3 py-1 inline-block">
+          <div className="max-w-3xl space-y-3 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
               FLIGHT SUPPORT INQUIRY · {SITE_CONFIG.authorityBadge}
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Request Flight Support &amp; Permit Coordination
             </h1>
-            <p className="text-lg font-semibold text-[#E8A200]">
+            <p className="text-lg font-semibold text-[#F2C200]">
               Tell Us About Your Operation. We&apos;ll Help Identify the Next Steps.
             </p>
-            <p className="text-base text-slate-200 leading-relaxed">
+            <p className="text-base text-slate-100 leading-relaxed">
               Whether your itinerary is confirmed or still being planned, start
               with the information available. KCL can use your inquiry to
               understand the requested permission and service coordination

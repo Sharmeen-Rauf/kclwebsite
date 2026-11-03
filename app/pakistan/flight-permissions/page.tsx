@@ -46,19 +46,19 @@ export default function PakistanFlightPermissionsPage() {
         ]}
       />
 
-      <section className="bg-[#0B2545] text-white py-12 sm:py-16 border-b border-slate-700">
+      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#E8A200] bg-[#133661] border border-slate-600 px-3 py-1 inline-block">
+          <div className="max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
               PAKISTAN SPECIALIZATION · {SITE_CONFIG.authorityBadge}
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Flight Permission Services in Pakistan
             </h1>
-            <p className="text-lg sm:text-xl font-semibold text-[#E8A200]">
+            <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
               Flight Permission Services in Pakistan, Explained Clearly.
             </p>
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
               Planning an operation involving Pakistan? Kashmir Corporation
               assists eligible aviation operators with flight permission
               coordination, including applicable overflight, landing and
@@ -69,13 +69,13 @@ export default function PakistanFlightPermissionsPage() {
             <div className="pt-2 flex flex-wrap gap-3">
               <Link
                 href="/request-flight-support?country=Pakistan"
-                className="min-h-[48px] px-6 py-3 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="min-h-[48px] px-6 py-3 bg-[#F2C200] hover:bg-[#E8A200] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 Discuss Pakistan Flight Permissions
               </Link>
               <Link
                 href="/permit-directory/pakistan"
-                className="min-h-[48px] px-5 py-3 bg-[#133661] hover:bg-slate-700 text-white border border-slate-500 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="min-h-[48px] px-5 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 Pakistan FIR &amp; Airport Reference
               </Link>
