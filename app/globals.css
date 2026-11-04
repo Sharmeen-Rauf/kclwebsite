@@ -35,6 +35,12 @@
     min-height: 100vh;
     overflow-x: hidden;
     line-height: 1.65;
+    background-color: #F6F9FC;
+    background-image:
+      radial-gradient(circle at 92% 8%, rgba(19, 160, 216, 0.06) 0%, transparent 45%),
+      radial-gradient(circle at 8% 92%, rgba(11, 37, 69, 0.04) 0%, transparent 40%),
+      linear-gradient(180deg, #F6F9FC 0%, #FFFFFF 100%);
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -132,9 +138,9 @@
   background-image:
     linear-gradient(
       90deg,
-      rgba(11, 37, 69, 0.85) 0%,
-      rgba(11, 37, 69, 0.65) 55%,
-      rgba(11, 37, 69, 0.35) 100%
+      rgba(11, 37, 69, 0.90) 0%,
+      rgba(11, 37, 69, 0.70) 55%,
+      rgba(20, 64, 110, 0.45) 100%
     ),
     url("/img/hero-flight-ops.jpg");
   background-size: cover;
@@ -142,9 +148,75 @@
   background-repeat: no-repeat;
 }
 
+/* Hero Slow Zoom Animation (20 seconds from 1.0 to 1.06) */
+@keyframes heroSlowZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.06);
+  }
+}
+
+.hero-zoom-photo {
+  animation: heroSlowZoom 20s ease-out forwards;
+  will-change: transform;
+}
+
+/* Section Headings Fade-Up Animation (400ms, opacity 0->1, translateY 12px->0) */
+.heading-fade-init {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.heading-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Button Arrow Hover 4px Shift */
+.btn-arrow {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.kcl-btn-primary:hover .btn-arrow,
+.kcl-btn-outline-navy:hover .btn-arrow,
+.kcl-btn-outline-white:hover .btn-arrow,
+.group:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Flight Path Divider Plane Traverse Animation */
+@keyframes planeTraverse {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+.plane-traverse {
+  animation: planeTraverse 3.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .hero-zoom-photo {
+    animation: none !important;
+    transform: none !important;
   }
   .airway-route-line {
     animation: none !important;
@@ -153,6 +225,27 @@
   .logo-marquee-track {
     animation: none !important;
     transform: none !important;
+  }
+  .heading-fade-init {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .heading-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .plane-traverse {
+    animation: none !important;
+    opacity: 0.7 !important;
+    offset-distance: 50% !important;
+  }
+  .route-progress-bar {
+    display: none !important;
+  }
+  .btn-arrow {
+    transform: none !important;
+    transition: none !important;
   }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

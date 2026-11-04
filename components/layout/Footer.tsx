@@ -9,15 +9,15 @@ export function Footer() {
 
   return (
     <footer aria-label="Site Footer" className="bg-white text-[#16202B]">
-      {/* (a) Unique Aviation Gold Pre-Footer Banner */}
+      {/* (a) Executive Navy Gradient Pre-Footer Banner */}
       <section
         aria-label="Flight Itinerary Support"
-        className="relative overflow-hidden bg-gradient-to-r from-[#F4C400] via-[#F6CA18] to-[#F4C400] border-t-2 border-b-2 border-[#E2B300] py-8 sm:py-10 text-[#0B2545]"
+        className="relative overflow-hidden bg-gradient-to-r from-[#0B2545] via-[#0F3560] to-[#14406E] border-t border-b border-[#1E4B7A] py-8 sm:py-10 text-white"
       >
         {/* Subtle Airplane Silhouette Background Watermark */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-10 -bottom-14 sm:-bottom-10 opacity-[0.08] text-[#0B2545]"
+          className="pointer-events-none absolute -right-10 -bottom-14 sm:-bottom-10 opacity-[0.06] text-white"
         >
           <svg
             className="w-80 h-80 sm:w-96 sm:h-96"
@@ -32,7 +32,7 @@ export function Footer() {
           {/* Left: Airplane Icon, Eyebrow, Heading & Paragraph */}
           <div className="flex items-start gap-4 sm:gap-5 max-w-3xl">
             <div
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#0B2545] text-[#F4C400] flex items-center justify-center shrink-0 shadow-md mt-1"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center shrink-0 shadow-md mt-1"
               aria-hidden="true"
             >
               <svg
@@ -45,32 +45,32 @@ export function Footer() {
             </div>
 
             <div className="space-y-1.5">
-              <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#0B2545]/80 block">
+              <span className="font-mono text-xs uppercase tracking-wider font-bold text-slate-300 block">
                 FLIGHT ITINERARY COORDINATION
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B2545] tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
                 Planning a Flight? Send Us Your Itinerary.
               </h2>
-              <p className="text-[15px] sm:text-base text-[#0B2545]/90 leading-relaxed font-medium">
+              <p className="text-[15px] sm:text-base text-slate-200/90 leading-relaxed font-medium">
                 Share your route string, aircraft specifications, UTC schedule, and ground requirements. Our 24/7 operations desk will review authority clearance pathways and confirm your operational plan.
               </p>
             </div>
           </div>
 
-          {/* Right: Navy Action Button with 24/7 response badge */}
+          {/* Right: Action Button with 24/7 response badge */}
           <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end gap-2.5 shrink-0 self-stretch sm:self-auto">
             <Link
               href="/request-flight-support"
-              className="w-full sm:w-auto bg-[#0B2545] hover:bg-[#133661] text-white px-7 py-3.5 rounded-[3px] font-bold text-sm sm:text-base inline-flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg transition-all group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4C400]"
+              className="w-full sm:w-auto bg-white hover:bg-slate-100 text-[#0B2545] px-7 py-3.5 rounded-[3px] font-bold text-sm sm:text-base inline-flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg transition-all group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2545]"
             >
               <span>Request Flight Support</span>
-              <span className="transition-transform group-hover:translate-x-1 font-bold">
+              <span className="btn-arrow font-bold">
                 →
               </span>
             </Link>
-            <span className="text-xs font-semibold text-[#0B2545]/85 inline-flex items-center gap-1.5 self-center lg:self-end">
+            <span className="text-xs font-semibold text-slate-300 inline-flex items-center gap-1.5 self-center lg:self-end">
               <span
-                className="w-2 h-2 rounded-full bg-[#0B2545] animate-pulse"
+                className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"
                 aria-hidden="true"
               />
               24/7 Active Operations Desk · Fast Turnaround

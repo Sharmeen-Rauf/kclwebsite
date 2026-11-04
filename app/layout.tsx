@@ -1,9 +1,12 @@
+import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { OpsStrip } from "@/components/layout/OpsStrip";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { RouteProgressBar } from "@/components/ui/RouteProgressBar";
+import { HeadingObserver } from "@/components/ui/HeadingObserver";
 import {
   JsonLd,
   buildOrganizationJsonLd,
@@ -48,7 +51,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${jakarta.variable} ${plexMono.variable}`}>
-      <body className="flex flex-col min-h-screen bg-[#F6F8FB] text-[#16202B]">
+      <body className="flex flex-col min-h-screen text-[#16202B]">
+        <Suspense fallback={null}>
+          <RouteProgressBar />
+        </Suspense>
+        <HeadingObserver />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-[#E8A200] focus:text-[#0B2545] focus:px-4 focus:py-2 focus:font-bold"

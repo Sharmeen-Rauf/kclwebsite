@@ -10,6 +10,7 @@ import { HOME_FAQS } from "@/content/faqs";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
 import { newsRepository } from "@/lib/data/news-repository";
+import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 
 export const metadata = buildMetadata({
   title:
@@ -192,9 +193,9 @@ export default async function HomePage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-center hero-zoom-photo"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/85 via-[#0B2545]/60 to-[#0B2545]/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/90 via-[#0B2545]/70 to-[#14406E]/45" />
           {/* Very faint route line-art background (no chart box, flight levels, or airway codes) */}
           <svg
             viewBox="0 0 1440 640"
@@ -207,6 +208,7 @@ export default async function HomePage() {
               stroke="#FFFFFF"
               strokeWidth="1.5"
               strokeDasharray="6 6"
+              className="airway-route-line"
             />
             <path
               d="M-40 240 C 340 290, 740 350, 1140 280 C 1300 250, 1410 210, 1520 180"
@@ -396,7 +398,7 @@ export default async function HomePage() {
               <Link
                 key={service.number}
                 href={service.href}
-                className={`group relative overflow-hidden rounded-[6px] border border-white/20 flex flex-col justify-between p-4 sm:p-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white motion-reduce:transition-none ${service.gridSpan}`}
+                className={`group relative overflow-hidden rounded-[6px] border border-white/20 flex flex-col justify-between p-4 sm:p-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white hover:-translate-y-1 focus-visible:-translate-y-1 transition-all duration-300 ease-out motion-reduce:transition-none motion-reduce:transform-none ${service.gridSpan}`}
               >
                 {/* Full-bleed background photo */}
                 <Image
@@ -446,6 +448,8 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <FlightPathDivider variant="curve-down" />
+
       {/* 3. Interactive Flight Support Navigator */}
       <section
         id="permit-checker"
@@ -473,6 +477,8 @@ export default async function HomePage() {
           <PermitChecker />
         </div>
       </section>
+
+      <FlightPathDivider variant="curve-up" />
 
       {/* 4. Where We Support — Worldwide Operational Coverage */}
       <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
@@ -632,6 +638,8 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <FlightPathDivider variant="curve-down" />
+
       {/* 5. How Coordination Works */}
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -643,6 +651,8 @@ export default async function HomePage() {
           <RequestTrackerPreview />
         </div>
       </section>
+
+      <FlightPathDivider variant="curve-up" />
 
       {/* 6. Aviation Resources */}
       <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
@@ -763,6 +773,8 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <FlightPathDivider variant="curve-down" />
 
       {/* 7. Frequently Asked Questions */}
       <section className="py-14 sm:py-20 bg-[#F6F8FB] border-b border-[#CBD5E1]">
