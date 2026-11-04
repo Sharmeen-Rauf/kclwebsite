@@ -81,7 +81,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* Left: Vertically Centered Hero Headline, Subtext & Two Outline Buttons */}
             <div className="lg:col-span-7 space-y-4 my-auto">
-              <h1 className="text-2xl sm:text-3xl lg:text-[36px] xl:text-[40px] font-bold text-white leading-[1.18] tracking-tight max-w-xl">
+              <h1 className="text-2xl sm:text-3xl lg:text-[40px] xl:text-[44px] font-bold text-white leading-[1.16] tracking-tight max-w-xl">
                 International Flight Permissions, Filed and Followed Up by an
                 AFPA Authorized Agent
               </h1>
@@ -95,14 +95,14 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
                 <Link
                   href="#permit-checker"
-                  className="kcl-btn-outline-white min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Check Requirements
                 </Link>
                 <a
                   href="/files/kcl-permit-request-checklist.pdf"
                   download
-                  className="kcl-btn-outline-white min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Download Checklist
                 </a>
