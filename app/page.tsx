@@ -8,6 +8,7 @@ import { RequestTrackerPreview } from "@/components/sections/RequestTrackerPrevi
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { REAL_CLIENTS } from "@/content/clients";
 import { HOME_FAQS } from "@/content/faqs";
+import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
 import { newsRepository } from "@/lib/data/news-repository";
 
@@ -762,29 +763,21 @@ export default async function HomePage() {
       </section>
 
       {/* 7. Frequently Asked Questions */}
-      <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 space-y-2">
+      <section className="py-14 sm:py-20 bg-[#F6F8FB] border-b border-[#CBD5E1]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="space-y-2.5 text-center sm:text-left">
             <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               FREQUENTLY ASKED QUESTIONS
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               International Flight Support &amp; Permit Coordination Q&amp;A
             </h2>
+            <p className="text-[15px] text-[#5C6B7A]">
+              Clear answers to common questions about permit lead times, Pakistan flight clearances, and multi-service flight coordination.
+            </p>
           </div>
 
-          <div className="divide-y divide-[#CBD5E1] border border-[#CBD5E1] bg-white">
-            {HOME_FAQS.map((faq) => (
-              <div key={faq.question} className="p-6">
-                <h3 className="text-lg font-bold text-[#0B2545] mb-2">
-                  {faq.question}
-                </h3>
-                <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
+          <FaqAccordion items={HOME_FAQS} defaultOpenIndex={0} />
         </div>
       </section>
 
