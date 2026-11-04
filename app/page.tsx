@@ -763,20 +763,28 @@ export default async function HomePage() {
 
       {/* 7. Frequently Asked Questions */}
       <section className="py-14 sm:py-20 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="space-y-2.5 text-center sm:text-left">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              FREQUENTLY ASKED QUESTIONS
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              International Flight Support &amp; Permit Coordination Q&amp;A
-            </h2>
-            <p className="text-[15px] text-[#5C6B7A]">
-              Clear answers to common questions about permit lead times, Pakistan flight clearances, and multi-service flight coordination.
-            </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="space-y-2">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-bold block">
+                FAQS
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0B2545]">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-[15px] sm:text-base text-[#5C6B7A]">
+                Still have a question about flight support, permit lead times, or ground operations?
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="shrink-0 bg-[#0B2545] hover:bg-[#133661] text-white text-sm font-semibold px-5 py-2.5 rounded-full inline-flex items-center gap-2 transition-colors self-start md:self-auto shadow-2xs"
+            >
+              <span>↗</span> Let&apos;s talk
+            </Link>
           </div>
 
-          <FaqAccordion items={HOME_FAQS} defaultOpenIndex={0} />
+          <FaqAccordion items={HOME_FAQS} initialVisibleCount={6} />
         </div>
       </section>
     </>

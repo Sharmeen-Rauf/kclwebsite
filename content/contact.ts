@@ -19,3 +19,4 @@ export const CONTACT_DETAILS: ContactDetails = {
   address: "",
   linkedinUrl: "https://www.linkedin.com/company/kcl-international-flight-support/",
 };
+

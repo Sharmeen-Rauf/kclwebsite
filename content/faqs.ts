@@ -7,21 +7,41 @@ export const HOME_FAQS: FaqItem[] = [
   {
     question: "What does international flight support include?",
     answer:
-      "Depending on an operator’s requirements, support may include permit coordination, airport services, fuel arrangements, flight planning assistance and crew logistics.",
+      "Depending on an operator's mission requirements, international flight support includes overflight and landing permit facilitation, ground handling coordination, aviation fuel supply, flight planning assistance, catering arrangements, and crew layover logistics.",
   },
   {
     question: "Can KCL assist with flight permits in Pakistan?",
     answer:
-      "KCL’s existing website identifies scheduled and non-scheduled flight permission facilitation as a core service. Specific authorizations remain subject to the applicable authority.",
+      "Yes. Kashmir Corporation (Pvt.) Ltd. specializes in scheduled seasonal timetable filings and ad-hoc non-scheduled overflight and landing permission coordination across Karachi (OPKR) and Lahore (OPLR) Flight Information Regions.",
   },
   {
     question: "Can multiple services be requested together?",
     answer:
-      "Yes. Provide the complete itinerary and required services in one inquiry so the coordination scope can be reviewed.",
+      "Yes. Operators can submit complete route strings and required services (permits, handling, fuel, catering, and crew hotels) in a single inquiry so our 24/7 operations desk coordinates the entire operational scope concurrently.",
   },
   {
     question: "Who makes the final decision on an overflight or landing permission?",
     answer:
-      "All regulatory approvals, operating conditions, and airport slot allocations remain with the responsible civil aviation authorities and airport coordinators. KCL assists with information preparation and coordination through applicable channels.",
+      "All regulatory approvals, route conditions, and operating windows remain under the sovereign authority of the destination state's civil aviation authorities and military liaison bodies. KCL ensures complete, error-free documentation packages and tracks filings through official channels.",
+  },
+  {
+    question: "What documents are required to apply for a flight permit?",
+    answer:
+      "Standard requirements include the operator's Air Operator Certificate (AOC), Certificate of Airworthiness, Certificate of Registration, worldwide third-party liability insurance, noise certificate, complete UTC schedule, MTOW, and passenger/cargo declarations.",
+  },
+  {
+    question: "How much lead time is typically required for permit clearance?",
+    answer:
+      "Lead times vary by jurisdiction and operation category. Standard overflight permits typically take 24 to 72 hours, while non-scheduled charter landings, diplomatic flights, or extra-section commercial schedules may require 4 to 7 working days.",
+  },
+  {
+    question: "What is the difference between an overflight and a landing permit?",
+    answer:
+      "An overflight permit authorizes an aircraft to enter, transit, and exit sovereign airspace and FIRs without landing. A landing permit authorizes a touchdown at a specific airport for commercial traffic, tech stops, or crew changes, requiring synchronized ramp handling and slot approvals.",
+  },
+  {
+    question: "How does KCL handle short-notice charter or emergency flights?",
+    answer:
+      "Our operations desk is staffed 24/7 to receive and prioritize urgent requests for medical evacuation (medevac), humanitarian relief, technical fuel stops, and urgent business charter clearances with expedited authority liaison.",
   },
 ];
