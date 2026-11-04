@@ -647,7 +647,10 @@ export default async function HomePage() {
       {/* 6. Aviation Resources */}
       <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="max-w-3xl space-y-3">
+          <div className="max-w-3xl space-y-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+              AVIATION RESOURCES
+            </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               Practical Guides for Flight Operations Teams
             </h2>
@@ -662,11 +665,11 @@ export default async function HomePage() {
               {featuredPosts.map((post) => (
                 <article
                   key={post.slug}
-                  className="bg-white border border-[#CBD5E1] hover:border-[#0B2545] p-6 rounded-[2px] transition-colors flex flex-col justify-between space-y-3"
+                  className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] p-6 rounded-[2px] transition-colors flex flex-col justify-between space-y-3"
                 >
                   <div className="space-y-2">
                     <div className="flex flex-wrap items-center gap-2.5 text-xs">
-                      <span className="font-semibold text-[#0B2545] uppercase tracking-wider">
+                      <span className="font-semibold text-[#B88200] uppercase tracking-wider">
                         {post.category}
                       </span>
                       <span className="text-[#5C6B7A]">·</span>
@@ -694,18 +697,18 @@ export default async function HomePage() {
                   <div className="pt-2">
                     <Link
                       href={`/insights/${post.slug}`}
-                      className="text-[15px] font-semibold text-[#0B2545] hover:underline underline-offset-4 inline-flex items-center gap-1.5"
+                      className="text-[15px] font-semibold text-[#0B2545] group-hover:text-[#B88200] hover:underline underline-offset-4 inline-flex items-center gap-1.5 transition-colors"
                     >
-                      Read guide <span aria-hidden="true">→</span>
+                      Read guide <span aria-hidden="true" className="group-hover:translate-x-0.5 transition-transform">→</span>
                     </Link>
                   </div>
                 </article>
               ))}
             </div>
 
-            {/* Right 1/3 width: Quick Tools Panel */}
+            {/* Right 1/3 width: Quick Tools Panel with subtle yellow top border */}
             <div className="lg:col-span-4">
-              <div className="border border-[#CBD5E1] bg-[#F6F8FB] p-6 rounded-[2px] space-y-5">
+              <div className="border border-[#CBD5E1] border-t-2 border-t-[#F4C400] bg-[#F6F8FB] p-6 rounded-[2px] space-y-5">
                 <div>
                   <h3 className="text-xl font-bold text-[#0B2545]">
                     Quick Tools
@@ -723,12 +726,12 @@ export default async function HomePage() {
                       className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] p-4 rounded-[2px] transition-colors block space-y-1.5"
                     >
                       <div className="flex items-center justify-between text-[#0B2545]">
-                        <h4 className="text-[15px] font-bold group-hover:underline underline-offset-2">
+                        <h4 className="text-[15px] font-bold group-hover:text-[#B88200] group-hover:underline underline-offset-2 transition-colors">
                           {tool.name}
                         </h4>
                         <span
                           aria-hidden="true"
-                          className="text-[#0B2545] transition-transform group-hover:translate-x-1"
+                          className="text-[#0B2545] group-hover:text-[#B88200] transition-all group-hover:translate-x-1"
                         >
                           →
                         </span>
@@ -747,13 +750,13 @@ export default async function HomePage() {
           <div className="pt-6 border-t border-[#CBD5E1] flex flex-wrap items-center justify-between gap-4">
             <Link
               href="/insights"
-              className="text-base font-bold text-[#0B2545] hover:underline underline-offset-4 inline-flex items-center gap-1.5"
+              className="text-base font-bold text-[#0B2545] hover:text-[#B88200] hover:underline underline-offset-4 inline-flex items-center gap-1.5 transition-colors"
             >
               View all guides <span aria-hidden="true">→</span>
             </Link>
             <Link
               href="/tools"
-              className="text-base font-bold text-[#0B2545] hover:underline underline-offset-4 inline-flex items-center gap-1.5"
+              className="text-base font-bold text-[#0B2545] hover:text-[#B88200] hover:underline underline-offset-4 inline-flex items-center gap-1.5 transition-colors"
             >
               View all tools <span aria-hidden="true">→</span>
             </Link>
