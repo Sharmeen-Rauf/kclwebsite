@@ -6,9 +6,6 @@ import { QuickPermitRequestCard } from "@/components/sections/QuickPermitRequest
 import { PermitChecker } from "@/components/sections/PermitChecker";
 import { RequestTrackerPreview } from "@/components/sections/RequestTrackerPreview";
 import { CtaBanner } from "@/components/sections/CtaBanner";
-import {
-  PRIMARY_SERVICES_DATA,
-} from "@/content/services";
 import { REAL_CLIENTS } from "@/content/clients";
 import { HOME_FAQS } from "@/content/faqs";
 import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
@@ -422,98 +419,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Complete Service Specification Ledger */}
-      <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
-            <div className="space-y-2">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-                DETAILED SERVICE GUIDES
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-                Permissions, Ground Support &amp; Operational Coordination
-              </h2>
-              <p className="text-[#16202B] text-base">
-                Explore dedicated operational guides for overflight and landing
-                permissions, scheduled and non-scheduled flights, ground
-                handling, catering, fuel, and crew accommodation.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/pakistan/flight-permissions"
-                className="kcl-btn-outline-navy px-4 py-2.5 min-h-[44px] text-sm font-semibold inline-flex items-center rounded-[2px]"
-              >
-                Pakistan Flight Permissions →
-              </Link>
-              <Link
-                href="/services"
-                className="kcl-btn-outline-navy px-4 py-2.5 min-h-[44px] text-sm font-semibold inline-flex items-center rounded-[2px]"
-              >
-                View All Services →
-              </Link>
-            </div>
-          </div>
-
-          <div className="overflow-x-auto border border-[#CBD5E1]">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-[#0B2545] text-white font-mono text-xs uppercase">
-                  <th className="py-3.5 px-4 border-r border-slate-700">
-                    Code
-                  </th>
-                  <th className="py-3.5 px-4 border-r border-slate-700">
-                    Service Area
-                  </th>
-                  <th className="py-3.5 px-4 border-r border-slate-700">
-                    Coordination Scope
-                  </th>
-                  <th className="py-3.5 px-4 border-r border-slate-700">
-                    Planning Notice
-                  </th>
-                  <th className="py-3.5 px-4">Guide</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#CBD5E1] text-sm">
-                {PRIMARY_SERVICES_DATA.map((service) => (
-                  <tr
-                    key={service.slug}
-                    className="hover:bg-[#F6F8FB] transition-colors"
-                  >
-                    <td className="py-4 px-4 font-mono text-xs font-semibold text-[#5C6B7A] border-r border-[#CBD5E1] whitespace-nowrap">
-                      {service.code}
-                    </td>
-                    <td className="py-4 px-4 font-bold text-[#0B2545] border-r border-[#CBD5E1]">
-                      <Link
-                        href={`/services/${service.slug}`}
-                        className="hover:underline underline-offset-4"
-                      >
-                        {service.shortTitle}
-                      </Link>
-                    </td>
-                    <td className="py-4 px-4 text-[#16202B] border-r border-[#CBD5E1]">
-                      {service.whatItIs[0]}
-                    </td>
-                    <td className="py-4 px-4 font-mono text-xs text-[#5C6B7A] border-r border-[#CBD5E1]">
-                      {service.typicalLeadTimePlaceholder}
-                    </td>
-                    <td className="py-4 px-4 whitespace-nowrap">
-                      <Link
-                        href={`/services/${service.slug}`}
-                        className="font-semibold text-[#0B2545] hover:text-[#133661] underline underline-offset-4"
-                      >
-                        Explore →
-                      </Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Where We Support — Worldwide Operational Coverage */}
+      {/* 4. Where We Support — Worldwide Operational Coverage */}
       <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
