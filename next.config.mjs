@@ -84,6 +84,11 @@ const nextConfig = {
         destination: '/customer-support',
         permanent: true,
       },
+      {
+        source: '/services/crew-accommodation',
+        destination: '/services/crew-logistics',
+        permanent: true,
+      },
     ];
   },
 };
