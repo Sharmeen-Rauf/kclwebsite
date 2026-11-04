@@ -29,7 +29,10 @@ export default function HomePage() {
       <JsonLd data={buildFaqJsonLd(HOME_FAQS)} />
 
       {/* 1. Split Hero with Quick Permit Request Panel */}
-      <section className="relative overflow-hidden text-white border-b border-slate-800 pt-28 pb-14 sm:pt-32 sm:pb-18 lg:pt-36 lg:pb-22">
+      <section
+        data-hero-section
+        className="relative overflow-hidden text-white border-b border-slate-800 pt-22 pb-5 sm:pt-24 sm:pb-6 lg:pt-24 lg:pb-7"
+      >
         {/* Background Aircraft / Ramp Photo with Navy Overlay & Faint Route Line-Art */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -72,33 +75,34 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left: Single H1, One-Sentence Subhead & Two Action Buttons */}
-            <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-white leading-[1.15] tracking-tight">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+            {/* Left: Single H1, One-Sentence Subhead & Two Secondary Outline Buttons */}
+            <div className="lg:col-span-7 space-y-4">
+              <h1 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white leading-[1.15] tracking-tight">
                 Pakistan Flight Permissions, Filed and Followed Up by an AFPA
                 Authorized Agent
               </h1>
 
-              <p className="text-base sm:text-lg lg:text-xl text-slate-100 leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-100 leading-relaxed max-w-2xl">
                 Overflight and landing permits for schedule and non-schedule
                 flights, with handling, catering, fuel and crew hotels arranged
                 by the same desk.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
-                <Link
-                  href="/request-permit"
-                  className="min-h-[48px] px-6 py-3.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm tracking-tight inline-flex items-center justify-center rounded-[2px] transition-colors shadow-md"
-                >
-                  Request a Permit
-                </Link>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
                 <Link
                   href="#permit-checker"
-                  className="min-h-[48px] px-6 py-3.5 bg-transparent hover:bg-white/10 text-white border border-white/60 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
+                  className="min-h-[44px] px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white border border-white/60 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
                 >
                   Check Requirements
                 </Link>
+                <a
+                  href="/files/kcl-permit-request-checklist.pdf"
+                  download
+                  className="min-h-[44px] px-5 py-2.5 bg-transparent hover:bg-white/10 text-white border border-white/50 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
+                >
+                  Download Checklist
+                </a>
               </div>
             </div>
 
@@ -113,41 +117,41 @@ export default function HomePage() {
       {/* Single-Row Trust Strip Directly Below Hero */}
       <section
         aria-label="Operational Credentials and Airline References"
-        className="bg-white border-b border-[#CBD5E1] py-4"
+        className="bg-white border-b border-[#CBD5E1] py-2.5"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap lg:flex-nowrap items-center justify-between gap-4">
+          <div className="flex flex-wrap lg:flex-nowrap items-center justify-between gap-3">
             {/* Three Verified Trust Badges */}
-            <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 text-xs font-bold text-[#0B2545]">
-              <span className="inline-flex items-center gap-2 bg-[#F6F8FB] border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-bold text-[#0B2545]">
+              <span className="inline-flex items-center gap-1.5 bg-[#F6F8FB] border border-[#CBD5E1] px-2.5 py-1 rounded-[2px]">
                 <span className="h-2 w-2 rounded-full bg-[#E8A200]" />
                 AFPA Authorized
               </span>
-              <span className="inline-flex items-center gap-2 bg-[#F6F8FB] border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
+              <span className="inline-flex items-center gap-1.5 bg-[#F6F8FB] border border-[#CBD5E1] px-2.5 py-1 rounded-[2px]">
                 <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
                 24/7 Ops Desk
               </span>
-              <span className="inline-flex items-center gap-2 bg-[#F6F8FB] border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
+              <span className="inline-flex items-center gap-1.5 bg-[#F6F8FB] border border-[#CBD5E1] px-2.5 py-1 rounded-[2px]">
                 <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
                 Schedule &amp; Non-Schedule
               </span>
             </div>
 
             {/* Four Confirmed Client Logos */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5">
               {REAL_CLIENTS.map((client) => (
                 <Link
                   key={client.icao}
                   href="/clients"
                   title={`${client.name} (${client.icao})`}
-                  className="bg-[#F6F8FB] hover:bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-[2px] inline-flex items-center transition-colors"
+                  className="bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1 rounded-[2px] inline-flex items-center justify-center transition-colors shadow-2xs"
                 >
                   <Image
                     src={client.logo}
                     alt={client.alt}
-                    width={110}
-                    height={32}
-                    className="h-7 w-auto object-contain"
+                    width={120}
+                    height={34}
+                    className="h-6 sm:h-7 w-auto object-contain"
                   />
                 </Link>
               ))}

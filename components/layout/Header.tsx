@@ -150,18 +150,31 @@ const PRIMARY_NAV: NavItem[] = [
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isPastHero, setIsPastHero] = useState(false);
 
   const hasHero = isHeroRoute(pathname);
-  const isTransparent = hasHero && !isScrolled && !mobileOpen;
+  const isTransparent = hasHero && !isPastHero && !mobileOpen;
 
   useEffect(() => {
     function handleScroll() {
-      setIsScrolled(window.scrollY > 24);
+      const heroEl = document.querySelector(
+        "[data-hero-section], .kcl-hero-bg"
+      );
+      if (heroEl) {
+        const rect = heroEl.getBoundingClientRect();
+        // Keep navbar transparent while over the hero section; turn white once hero ends (80px header height)
+        setIsPastHero(rect.bottom <= 80);
+      } else {
+        setIsPastHero(window.scrollY > 24);
+      }
     }
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, [pathname]);
 
   return (
@@ -170,7 +183,7 @@ export function Header() {
         hasHero ? "-mb-20" : ""
       } ${
         isTransparent
-          ? "bg-transparent text-white border-b border-white/15"
+          ? "bg-transparent text-white border-b border-transparent"
           : "bg-white/98 backdrop-blur-md text-[#0B2545] border-b border-slate-200 shadow-xs"
       }`}
     >
@@ -291,20 +304,14 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <Link
               href="/request-flight-support"
-              className={`min-h-[42px] px-4 py-2 font-bold text-sm capitalize rounded-[2px] inline-flex items-center justify-center gap-2 transition-colors whitespace-nowrap ${
+              className={`min-h-[40px] px-4 py-2 font-bold text-sm capitalize rounded-[2px] inline-flex items-center justify-center gap-2 transition-colors whitespace-nowrap ${
                 isTransparent
-                  ? "bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] shadow-sm"
+                  ? "bg-white/10 hover:bg-white/20 text-white border border-white/50"
                   : "bg-[#0B2545] hover:bg-[#133661] text-white border-b-2 border-[#F2C200]"
               }`}
             >
               <span>Request Flight Support</span>
-              <span
-                className={`font-mono ${
-                  isTransparent ? "text-[#0B2545]" : "text-[#F2C200]"
-                }`}
-              >
-                →
-              </span>
+              <span className="font-mono text-[#F2C200]">→</span>
             </Link>
           </div>
 

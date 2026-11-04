@@ -63,13 +63,13 @@ export default function ClientsPage() {
                     </span>
                   </div>
 
-                  <div className="my-4 bg-[#F6F8FB] border border-[#CBD5E1] p-4 flex items-center justify-center">
+                  <div className="my-4 bg-white border border-[#CBD5E1] p-5 flex items-center justify-center h-24">
                     <Image
                       src={client.logo}
                       alt={client.alt}
                       width={240}
                       height={64}
-                      className="h-16 w-auto object-contain"
+                      className="max-h-14 w-auto object-contain"
                     />
                   </div>
 

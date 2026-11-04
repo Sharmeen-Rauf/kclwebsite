@@ -39,13 +39,13 @@ export function ClientStrip({ compact = false }: ClientStripProps) {
               key={client.icao}
               className="bg-[#F6F8FB] border border-[#CBD5E1] p-4 flex flex-col justify-between"
             >
-              <div className="mb-3">
+              <div className="mb-3 bg-white border border-slate-200 p-3 flex items-center justify-center h-20">
                 <Image
                   src={client.logo}
                   alt={client.alt}
                   width={220}
                   height={64}
-                  className="w-full h-14 object-contain bg-white border border-slate-200"
+                  className="max-h-12 w-auto object-contain"
                 />
               </div>
               <div className="flex items-center justify-between text-xs border-t border-slate-200 pt-2">
