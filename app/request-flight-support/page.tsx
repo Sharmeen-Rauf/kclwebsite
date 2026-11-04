@@ -32,6 +32,10 @@ interface RequestFlightSupportPageProps {
     permitType?: string;
     country?: string;
     service?: string;
+    from?: string;
+    to?: string;
+    date?: string;
+    email?: string;
   }>;
 }
 
@@ -50,6 +54,10 @@ export default async function RequestFlightSupportPage({
       : "overflight";
   const defaultCountry = params.country || "";
   const defaultService = params.service || "";
+  const defaultRouteFrom = params.from?.toUpperCase() || "";
+  const defaultRouteTo = params.to?.toUpperCase() || "";
+  const defaultDateUtc = params.date || "";
+  const defaultEmail = params.email || "";
 
   return (
     <>
@@ -135,6 +143,10 @@ export default async function RequestFlightSupportPage({
                 defaultPermitType={defaultPermitType}
                 defaultCountry={defaultCountry}
                 defaultService={defaultService}
+                defaultRouteFrom={defaultRouteFrom}
+                defaultRouteTo={defaultRouteTo}
+                defaultDateUtc={defaultDateUtc}
+                defaultEmail={defaultEmail}
               />
             </div>
 

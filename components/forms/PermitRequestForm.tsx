@@ -23,12 +23,20 @@ interface PermitRequestFormProps {
   defaultPermitType?: "overflight" | "landing" | "both";
   defaultCountry?: string;
   defaultService?: string;
+  defaultRouteFrom?: string;
+  defaultRouteTo?: string;
+  defaultDateUtc?: string;
+  defaultEmail?: string;
 }
 
 export function PermitRequestForm({
   defaultFlightType = "non-schedule",
   defaultPermitType = "overflight",
   defaultService = "",
+  defaultRouteFrom = "",
+  defaultRouteTo = "",
+  defaultDateUtc = "",
+  defaultEmail = "",
 }: PermitRequestFormProps) {
   const [state, formAction, isPending] = useActionState(
     submitPermitRequestAction,
@@ -247,6 +255,7 @@ export function PermitRequestForm({
               name="routeFrom"
               type="text"
               required
+              defaultValue={defaultRouteFrom}
               placeholder="Origin ICAO/Airport"
               aria-label="Origin Airport ICAO or City"
               className="w-full min-h-[44px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] font-mono text-sm text-[#16202B] uppercase rounded-[2px]"
@@ -256,6 +265,7 @@ export function PermitRequestForm({
               name="routeTo"
               type="text"
               required
+              defaultValue={defaultRouteTo}
               placeholder="Dest ICAO/Airport"
               aria-label="Destination Airport ICAO or City"
               className="w-full min-h-[44px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] font-mono text-sm text-[#16202B] uppercase rounded-[2px]"
@@ -281,6 +291,7 @@ export function PermitRequestForm({
             name="dateTimeUtc"
             type="text"
             required
+            defaultValue={defaultDateUtc}
             placeholder="e.g., 18 NOV 2026 · ETD 0430Z / ETA 0915Z"
             className="w-full min-h-[44px] px-3.5 py-2 bg-[#F6F8FB] border border-[#CBD5E1] font-mono text-sm text-[#16202B] rounded-[2px]"
           />
@@ -352,6 +363,7 @@ export function PermitRequestForm({
             name="email"
             type="email"
             required
+            defaultValue={defaultEmail}
             placeholder="ops@operator.com"
             className="w-full min-h-[44px] px-3.5 py-2 bg-[#F6F8FB] border border-[#CBD5E1] text-sm text-[#16202B] rounded-[2px]"
           />

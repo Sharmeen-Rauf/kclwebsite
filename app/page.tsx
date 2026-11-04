@@ -2,9 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { buildMetadata } from "@/lib/seo";
-import { SITE_CONFIG } from "@/lib/utils";
-import { AirwaysHeroMap } from "@/components/sections/AirwaysHeroMap";
-import { ClientStrip } from "@/components/sections/ClientStrip";
+import { QuickPermitRequestCard } from "@/components/sections/QuickPermitRequestCard";
 import { PermitChecker } from "@/components/sections/PermitChecker";
 import { RequestTrackerPreview } from "@/components/sections/RequestTrackerPreview";
 import { CtaBanner } from "@/components/sections/CtaBanner";
@@ -12,13 +10,15 @@ import {
   KCL_SIX_CORE_SERVICES,
   PRIMARY_SERVICES_DATA,
 } from "@/content/services";
+import { REAL_CLIENTS } from "@/content/clients";
 import { HOME_FAQS } from "@/content/faqs";
 import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata = buildMetadata({
-  title: "International Flight Support & Aviation Services | KCL",
+  title:
+    "Pakistan Flight Permissions & Aviation Support | AFPA Authorized Agent — KCL",
   description:
-    "KCL coordinates flight permission facilitation, ground handling, catering services, fuel supply, crew accommodation and 24/7 support for airline and charter operations.",
+    "Overflight and landing permits for schedule and non-schedule flights, with ground handling, catering, fuel and crew hotels arranged by Kashmir Corporation (Pvt.) Ltd.",
   path: "/",
   omitTitleSuffix: true,
 });
@@ -28,98 +28,129 @@ export default function HomePage() {
     <>
       <JsonLd data={buildFaqJsonLd(HOME_FAQS)} />
 
-      {/* 1. Signature Hero Section with Aviation Background Image & Transparent Overlay */}
-      <section className="relative overflow-hidden text-white border-b border-slate-800 py-14 lg:py-20">
-        {/* Background Aircraft & Airport Ramp Image */}
+      {/* 1. Split Hero with Quick Permit Request Panel */}
+      <section className="relative overflow-hidden text-white border-b border-slate-800 pt-12 pb-14 sm:pt-16 sm:pb-18 lg:pt-20 lg:pb-22">
+        {/* Background Aircraft / Ramp Photo with Navy Overlay & Faint Route Line-Art */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/img/hero-flight-ops.jpg"
-            alt="Commercial airliner and executive business jet on an international airport apron at dusk with ground support equipment"
+            alt="Commercial aircraft and business jet on an international airport ramp with ground support equipment"
             fill
             priority
             sizes="100vw"
             className="object-cover object-center"
           />
-          {/* Translucent dark cinematic gradient overlay (No solid blue block) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#07192F]/92 via-[#0B2545]/82 to-[#0B2545]/70" />
+          {/* Very faint route line-art background (no chart box, flight levels, or airway codes) */}
+          <svg
+            viewBox="0 0 1440 640"
+            fill="none"
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+          >
+            <path
+              d="M-60 490 C 280 420, 620 260, 1020 220 C 1220 200, 1360 150, 1500 110"
+              stroke="#F2C200"
+              strokeWidth="1.5"
+              strokeDasharray="6 6"
+            />
+            <path
+              d="M-40 240 C 340 290, 740 350, 1140 280 C 1300 250, 1410 210, 1520 180"
+              stroke="#FFFFFF"
+              strokeWidth="1.2"
+            />
+            <path
+              d="M420 620 C 560 450, 720 310, 910 120"
+              stroke="#FFFFFF"
+              strokeWidth="1"
+              strokeDasharray="4 5"
+            />
+            <circle cx="515" cy="340" r="4" fill="#F2C200" />
+            <circle cx="775" cy="275" r="4" fill="#FFFFFF" />
+            <circle cx="885" cy="145" r="4" fill="#F2C200" />
+          </svg>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6 space-y-5 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px] shadow-2xl">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-[#F2C200]/80 px-3.5 py-1.5 font-mono text-xs text-[#F2C200] font-semibold">
-                <span>KCL INTERNATIONAL FLIGHT SUPPORT</span>
-                <span>·</span>
-                <span>{SITE_CONFIG.authorityBadge}</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.55rem] font-bold text-white leading-[1.15] tracking-tight drop-shadow-xs">
-                International Flight Support &amp; Aviation Services
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left: Single H1, One-Sentence Subhead & Two Action Buttons */}
+            <div className="lg:col-span-7 space-y-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-white leading-[1.15] tracking-tight">
+                Pakistan Flight Permissions, Filed and Followed Up by an AFPA
+                Authorized Agent
               </h1>
 
-              <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
-                International Flight Support. Coordinated with Confidence.
+              <p className="text-base sm:text-lg lg:text-xl text-slate-100 leading-relaxed max-w-2xl">
+                Overflight and landing permits for schedule and non-schedule
+                flights, with handling, catering, fuel and crew hotels arranged
+                by the same desk.
               </p>
 
-              <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
-                Across international flight operations, the details matter.
-                Kashmir Corporation (Pvt.) Ltd. supports airlines, charter
-                operators, cargo carriers and business aviation teams with
-                flight permission facilitation, ground handling, catering
-                services, fuel supply, crew accommodation arrangements and 24/7
-                operational support.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
                 <Link
-                  href="/request-flight-support"
-                  className="min-h-[48px] px-6 py-3.5 bg-[#F2C200] hover:bg-[#E8A200] text-[#0B2545] font-bold text-sm tracking-tight inline-flex items-center justify-center rounded-[2px] transition-colors shadow-md"
+                  href="/request-permit"
+                  className="min-h-[48px] px-6 py-3.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm tracking-tight inline-flex items-center justify-center rounded-[2px] transition-colors shadow-md"
                 >
-                  Request Flight Support
+                  Request a Permit
                 </Link>
                 <Link
-                  href="/services"
-                  className="min-h-[48px] px-5 py-3.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
+                  href="#permit-checker"
+                  className="min-h-[48px] px-6 py-3.5 bg-transparent hover:bg-white/10 text-white border border-white/60 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
                 >
-                  Explore Six Core Services
+                  Check Requirements
                 </Link>
-              </div>
-
-              <div className="pt-4 border-t border-white/20 grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs text-slate-200">
-                <div>
-                  <span className="text-[#F2C200] font-semibold block">
-                    SCHEDULE &amp; CHARTER
-                  </span>
-                  <span>Overflight &amp; landing permits</span>
-                </div>
-                <div>
-                  <span className="text-[#F2C200] font-semibold block">
-                    PAKISTAN FOCUS
-                  </span>
-                  <Link
-                    href="/pakistan/flight-permissions"
-                    className="underline hover:text-white"
-                  >
-                    Pakistan flight permissions →
-                  </Link>
-                </div>
-                <div>
-                  <span className="text-[#F2C200] font-semibold block">
-                    INQUIRY CHECKLIST
-                  </span>
-                  <a
-                    href="/files/kcl-permit-request-checklist.pdf"
-                    download
-                    className="underline hover:text-white"
-                  >
-                    Download PDF Guide
-                  </a>
-                </div>
               </div>
             </div>
 
-            <div className="lg:col-span-6">
-              <AirwaysHeroMap />
+            {/* Right: Quick Permit Request Card */}
+            <div className="lg:col-span-5">
+              <QuickPermitRequestCard />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Single-Row Trust Strip Directly Below Hero */}
+      <section
+        aria-label="Operational Credentials and Airline References"
+        className="bg-white border-b border-[#CBD5E1] py-4"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap lg:flex-nowrap items-center justify-between gap-4">
+            {/* Three Verified Trust Badges */}
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 text-xs font-bold text-[#0B2545]">
+              <span className="inline-flex items-center gap-2 bg-[#F6F8FB] border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
+                <span className="h-2 w-2 rounded-full bg-[#E8A200]" />
+                AFPA Authorized
+              </span>
+              <span className="inline-flex items-center gap-2 bg-[#F6F8FB] border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
+                <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
+                24/7 Ops Desk
+              </span>
+              <span className="inline-flex items-center gap-2 bg-[#F6F8FB] border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
+                <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
+                Schedule &amp; Non-Schedule
+              </span>
+            </div>
+
+            {/* Four Confirmed Client Logos */}
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+              {REAL_CLIENTS.map((client) => (
+                <Link
+                  key={client.icao}
+                  href="/clients"
+                  title={`${client.name} (${client.icao})`}
+                  className="bg-[#F6F8FB] hover:bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-[2px] inline-flex items-center transition-colors"
+                >
+                  <Image
+                    src={client.logo}
+                    alt={client.alt}
+                    width={110}
+                    height={32}
+                    className="h-7 w-auto object-contain"
+                  />
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -208,7 +239,10 @@ export default function HomePage() {
       </section>
 
       {/* 3. Interactive Flight Support Navigator */}
-      <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
+      <section
+        id="permit-checker"
+        className="scroll-mt-24 py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8 space-y-2">
             <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
@@ -426,9 +460,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Published Airline References & Visual Split Section */}
-      <ClientStrip />
-
+      {/* 6. Visual Split Section */}
       <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -480,7 +512,6 @@ export default function HomePage() {
                   alt="Aircraft ground handling and flight support coordination schematic"
                   width={800}
                   height={500}
-                  priority
                   className="w-full h-auto block"
                 />
               </div>
