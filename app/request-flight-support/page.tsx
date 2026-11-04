@@ -36,6 +36,8 @@ interface RequestFlightSupportPageProps {
     to?: string;
     date?: string;
     email?: string;
+    countries?: string;
+    notes?: string;
   }>;
 }
 
@@ -58,6 +60,11 @@ export default async function RequestFlightSupportPage({
   const defaultRouteTo = params.to?.toUpperCase() || "";
   const defaultDateUtc = params.date || "";
   const defaultEmail = params.email || "";
+  const defaultNotes =
+    params.notes ||
+    (params.countries
+      ? `Countries to overfly or land in: ${params.countries}`
+      : "");
 
   return (
     <>
@@ -147,6 +154,7 @@ export default async function RequestFlightSupportPage({
                 defaultRouteTo={defaultRouteTo}
                 defaultDateUtc={defaultDateUtc}
                 defaultEmail={defaultEmail}
+                defaultNotes={defaultNotes}
               />
             </div>
 

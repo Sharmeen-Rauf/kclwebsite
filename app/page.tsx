@@ -16,9 +16,9 @@ import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata = buildMetadata({
   title:
-    "Pakistan Flight Permissions & Aviation Support | AFPA Authorized Agent — KCL",
+    "International Flight Permissions & Overflight Permits | AFPA Authorized Agent | KCL",
   description:
-    "Overflight and landing permits for schedule and non-schedule flights, with ground handling, catering, fuel and crew hotels arranged by Kashmir Corporation (Pvt.) Ltd.",
+    "Overflight and landing permits for schedule and non-schedule flights worldwide, with handling, catering, fuel and crew hotels arranged by Kashmir Corporation (Pvt.) Ltd. in Pakistan.",
   path: "/",
   omitTitleSuffix: true,
 });
@@ -82,7 +82,8 @@ export default function HomePage() {
             {/* Left: Vertically Centered Hero Headline, Subtext & Two Outline Buttons */}
             <div className="lg:col-span-7 space-y-4 my-auto">
               <h1 className="text-2xl sm:text-3xl lg:text-[36px] xl:text-[40px] font-bold text-white leading-[1.18] tracking-tight max-w-xl">
-                Flight Permissions Worldwide, Led by Pakistan Specialists
+                International Flight Permissions, Filed and Followed Up by an
+                AFPA Authorized Agent
               </h1>
 
               <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed max-w-xl">

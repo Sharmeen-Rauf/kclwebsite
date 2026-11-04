@@ -27,6 +27,7 @@ interface PermitRequestFormProps {
   defaultRouteTo?: string;
   defaultDateUtc?: string;
   defaultEmail?: string;
+  defaultNotes?: string;
 }
 
 export function PermitRequestForm({
@@ -37,6 +38,7 @@ export function PermitRequestForm({
   defaultRouteTo = "",
   defaultDateUtc = "",
   defaultEmail = "",
+  defaultNotes = "",
 }: PermitRequestFormProps) {
   const [state, formAction, isPending] = useActionState(
     submitPermitRequestAction,
@@ -408,6 +410,7 @@ export function PermitRequestForm({
           id="notes"
           name="notes"
           rows={3}
+          defaultValue={defaultNotes}
           placeholder="Include flight purpose, callsign, route waypoints, or specific service questions. Avoid sharing sensitive personal documents through unsecured channels."
           className="w-full px-3.5 py-2 bg-[#F6F8FB] border border-[#CBD5E1] text-sm text-[#16202B] rounded-[2px]"
         />

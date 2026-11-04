@@ -1,17 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
-const PAKISTAN_AIRPORT_SUGGESTIONS = [
-  { code: "OPKC", city: "Karachi" },
-  { code: "OPLA", city: "Lahore" },
-  { code: "OPIS", city: "Islamabad" },
-  { code: "OPPS", city: "Peshawar" },
-  { code: "OPQT", city: "Quetta" },
-  { code: "OPMT", city: "Multan" },
-] as const;
+import { searchAirports, type Airport } from "@/content/airports";
 
 const ICAO_REGEX = /^[A-Z]{4}$/;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,52 +12,153 @@ type FieldName = "from" | "to" | "flightType" | "permitType" | "date" | "email";
 
 export function QuickPermitRequestCard() {
   const router = useRouter();
+
+  // Route & Autocomplete State
   const [fromIcao, setFromIcao] = useState("");
+  const [fromQuery, setFromQuery] = useState("");
+  const [fromSuggestions, setFromSuggestions] = useState<Airport[]>([]);
+  const [fromOpen, setFromOpen] = useState(false);
+
   const [toIcao, setToIcao] = useState("");
-  const [activeIcaoField, setActiveIcaoField] = useState<"from" | "to">("to");
-  const [flightType, setFlightType] = useState<"" | "schedule" | "non-schedule">(
-    ""
-  );
-  const [permitType, setPermitType] = useState<
-    "" | "overflight" | "landing" | "both"
-  >("");
+  const [toQuery, setToQuery] = useState("");
+  const [toSuggestions, setToSuggestions] = useState<Airport[]>([]);
+  const [toOpen, setToOpen] = useState(false);
+
+  const fromContainerRef = useRef<HTMLDivElement>(null);
+  const toContainerRef = useRef<HTMLDivElement>(null);
+
+  // Form Fields
+  const [flightType, setFlightType] = useState<"" | "schedule" | "non-schedule">("");
+  const [permitType, setPermitType] = useState<"" | "overflight" | "landing" | "both">("");
+  const [showRouteDetails, setShowRouteDetails] = useState(false);
+  const [countries, setCountries] = useState("");
   const [dateUtc, setDateUtc] = useState("");
   const [email, setEmail] = useState("");
 
-  const [touched, setTouched] = useState<Partial<Record<FieldName, boolean>>>(
-    {}
-  );
+  const [touched, setTouched] = useState<Partial<Record<FieldName, boolean>>>({});
   const [errors, setErrors] = useState<Partial<Record<FieldName, string>>>({});
 
-  function sanitizeIcao(val: string): string {
-    return val
-      .replace(/[^a-zA-Z]/g, "")
-      .toUpperCase()
-      .slice(0, 4);
-  }
+  // Close dropdowns on outside click
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        fromContainerRef.current &&
+        !fromContainerRef.current.contains(event.target as Node)
+      ) {
+        setFromOpen(false);
+      }
+      if (
+        toContainerRef.current &&
+        !toContainerRef.current.contains(event.target as Node)
+      ) {
+        setToOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   function handleFromChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const clean = sanitizeIcao(e.target.value);
-    setFromIcao(clean);
+    const val = e.target.value;
+    setFromQuery(val);
+    const cleanUpper = val.trim().toUpperCase();
+
+    if (ICAO_REGEX.test(cleanUpper)) {
+      setFromIcao(cleanUpper);
+    } else {
+      setFromIcao("");
+    }
+
+    if (val.trim().length >= 1) {
+      const results = searchAirports(val, 8);
+      setFromSuggestions(results);
+      setFromOpen(results.length > 0);
+    } else {
+      setFromSuggestions([]);
+      setFromOpen(false);
+    }
+
     if (errors.from) {
       setErrors((prev) => ({ ...prev, from: undefined }));
     }
   }
 
   function handleToChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const clean = sanitizeIcao(e.target.value);
-    setToIcao(clean);
+    const val = e.target.value;
+    setToQuery(val);
+    const cleanUpper = val.trim().toUpperCase();
+
+    if (ICAO_REGEX.test(cleanUpper)) {
+      setToIcao(cleanUpper);
+    } else {
+      setToIcao("");
+    }
+
+    if (val.trim().length >= 1) {
+      const results = searchAirports(val, 8);
+      setToSuggestions(results);
+      setToOpen(results.length > 0);
+    } else {
+      setToSuggestions([]);
+      setToOpen(false);
+    }
+
     if (errors.to) {
       setErrors((prev) => ({ ...prev, to: undefined }));
     }
   }
 
-  function handleIcaoBlur(field: "from" | "to", value: string) {
-    setTouched((prev) => ({ ...prev, [field]: true }));
-    if (!ICAO_REGEX.test(value)) {
+  function handleSelectAirport(field: "from" | "to", airport: Airport) {
+    if (field === "from") {
+      setFromIcao(airport.icao);
+      setFromQuery(airport.icao);
+      setFromOpen(false);
+      if (errors.from) {
+        setErrors((prev) => ({ ...prev, from: undefined }));
+      }
+    } else {
+      setToIcao(airport.icao);
+      setToQuery(airport.icao);
+      setToOpen(false);
+      if (errors.to) {
+        setErrors((prev) => ({ ...prev, to: undefined }));
+      }
+    }
+  }
+
+  function handleFromBlur() {
+    setTouched((prev) => ({ ...prev, from: true }));
+    const candidate = (fromIcao || fromQuery).trim().toUpperCase();
+    if (ICAO_REGEX.test(candidate)) {
+      setFromIcao(candidate);
+      setFromQuery(candidate);
+      if (errors.from) {
+        setErrors((prev) => ({ ...prev, from: undefined }));
+      }
+    } else {
       setErrors((prev) => ({
         ...prev,
-        [field]: "Enter a 4-letter ICAO code (A–Z).",
+        from: "Enter a valid 4-letter ICAO code (e.g. EGLL).",
+      }));
+    }
+  }
+
+  function handleToBlur() {
+    setTouched((prev) => ({ ...prev, to: true }));
+    const candidate = (toIcao || toQuery).trim().toUpperCase();
+    if (ICAO_REGEX.test(candidate)) {
+      setToIcao(candidate);
+      setToQuery(candidate);
+      if (errors.to) {
+        setErrors((prev) => ({ ...prev, to: undefined }));
+      }
+    } else {
+      setErrors((prev) => ({
+        ...prev,
+        to: "Enter a valid 4-letter ICAO code (e.g. OMDB).",
       }));
     }
   }
@@ -87,16 +180,6 @@ export function QuickPermitRequestCard() {
     }
   }
 
-  function handleSelectSuggestion(code: string) {
-    if (activeIcaoField === "from") {
-      setFromIcao(code);
-      setErrors((prev) => ({ ...prev, from: undefined }));
-    } else {
-      setToIcao(code);
-      setErrors((prev) => ({ ...prev, to: undefined }));
-    }
-  }
-
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setTouched({
@@ -108,13 +191,16 @@ export function QuickPermitRequestCard() {
       email: true,
     });
 
+    const activeFrom = (fromIcao || fromQuery).trim().toUpperCase();
+    const activeTo = (toIcao || toQuery).trim().toUpperCase();
+
     const nextErrors: Partial<Record<FieldName, string>> = {};
 
-    if (!ICAO_REGEX.test(fromIcao)) {
-      nextErrors.from = "Enter a valid 4-letter ICAO code (e.g. OMDB).";
+    if (!ICAO_REGEX.test(activeFrom)) {
+      nextErrors.from = "Enter a valid 4-letter ICAO code (e.g. EGLL).";
     }
-    if (!ICAO_REGEX.test(toIcao)) {
-      nextErrors.to = "Enter a valid 4-letter ICAO code (e.g. OPKC).";
+    if (!ICAO_REGEX.test(activeTo)) {
+      nextErrors.to = "Enter a valid 4-letter ICAO code (e.g. OMDB).";
     }
     if (!flightType) {
       nextErrors.flightType = "Select Schedule or Non-schedule.";
@@ -136,13 +222,18 @@ export function QuickPermitRequestCard() {
 
     setErrors({});
     const params = new URLSearchParams({
-      from: fromIcao,
-      to: toIcao,
+      from: activeFrom,
+      to: activeTo,
       flightType,
       permitType,
       date: dateUtc.trim(),
       email: email.trim(),
     });
+
+    if (countries.trim()) {
+      params.set("countries", countries.trim());
+      params.set("notes", `Countries to overfly or land in: ${countries.trim()}`);
+    }
 
     router.push(`/request-permit?${params.toString()}`);
   }
@@ -174,104 +265,159 @@ export function QuickPermitRequestCard() {
       >
         <input type="hidden" name="flightType" value={flightType} />
         <input type="hidden" name="permitType" value={permitType} />
+        {countries.trim() && (
+          <input type="hidden" name="countries" value={countries.trim()} />
+        )}
 
-        {/* Common Pakistan Airport Suggestions Datalist */}
-        <datalist id="pakistan-icao-airports">
-          {PAKISTAN_AIRPORT_SUGGESTIONS.map((apt) => (
-            <option key={apt.code} value={apt.code}>
-              {apt.code} — {apt.city}, Pakistan
-            </option>
-          ))}
-        </datalist>
-
-        {/* From (ICAO) & To (ICAO) */}
-        <div>
-          <div className="grid grid-cols-2 gap-3">
-            <div>
-              <label
-                htmlFor="quick-from-icao"
-                className="block text-xs font-bold text-slate-100 mb-1"
-              >
-                From (ICAO) <span className="text-slate-300">*</span>
-              </label>
-              <input
-                id="quick-from-icao"
-                name="from"
-                type="text"
-                required
-                inputMode="text"
-                autoComplete="off"
-                list="pakistan-icao-airports"
-                maxLength={4}
-                value={fromIcao}
-                onFocus={() => setActiveIcaoField("from")}
-                onChange={handleFromChange}
-                onBlur={() => handleIcaoBlur("from", fromIcao)}
-                aria-invalid={Boolean(touched.from && errors.from)}
-                aria-describedby={
-                  touched.from && errors.from ? "err-from-icao" : undefined
-                }
-                placeholder="OMDB"
-                className="w-full min-h-[40px] px-3 py-2 bg-white/10 hover:bg-white/15 focus:bg-white/15 border border-white/25 focus:border-white focus:outline-none font-mono text-sm font-bold text-white placeholder:text-slate-400 placeholder:font-normal uppercase rounded-[2px] transition-colors"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="quick-to-icao"
-                className="block text-xs font-bold text-slate-100 mb-1"
-              >
-                To (ICAO) <span className="text-slate-300">*</span>
-              </label>
-              <input
-                id="quick-to-icao"
-                name="to"
-                type="text"
-                required
-                inputMode="text"
-                autoComplete="off"
-                list="pakistan-icao-airports"
-                maxLength={4}
-                value={toIcao}
-                onFocus={() => setActiveIcaoField("to")}
-                onChange={handleToChange}
-                onBlur={() => handleIcaoBlur("to", toIcao)}
-                aria-invalid={Boolean(touched.to && errors.to)}
-                aria-describedby={
-                  touched.to && errors.to ? "err-to-icao" : undefined
-                }
-                placeholder="OPKC"
-                className="w-full min-h-[40px] px-3 py-2 bg-white/10 hover:bg-white/15 focus:bg-white/15 border border-white/25 focus:border-white focus:outline-none font-mono text-sm font-bold text-white placeholder:text-slate-400 placeholder:font-normal uppercase rounded-[2px] transition-colors"
-              />
-            </div>
-          </div>
-
-          {/* Quick-Select Common Pakistan Airports */}
-          <div className="mt-1.5 flex flex-wrap items-center gap-1 text-[11px]">
-            <span className="text-slate-300 font-medium mr-0.5">
-              Pakistan ICAO ({activeIcaoField === "from" ? "From" : "To"}):
-            </span>
-            {PAKISTAN_AIRPORT_SUGGESTIONS.map((apt) => (
-              <button
-                key={apt.code}
-                type="button"
-                onClick={() => handleSelectSuggestion(apt.code)}
-                title={`${apt.code} — ${apt.city}`}
-                className="px-1.5 py-0.5 font-mono text-[10px] font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-[2px] transition-colors cursor-pointer"
-              >
-                {apt.code}
-              </button>
-            ))}
-          </div>
-
-          {((touched.from && errors.from) || (touched.to && errors.to)) && (
-            <p
-              id={touched.from && errors.from ? "err-from-icao" : "err-to-icao"}
-              role="alert"
-              className="mt-1 text-[11px] font-semibold text-red-300"
+        {/* From (ICAO) & To (ICAO) with Worldwide Airport Autocomplete */}
+        <div className="grid grid-cols-2 gap-3">
+          {/* FROM INPUT */}
+          <div ref={fromContainerRef} className="relative">
+            <label
+              htmlFor="quick-from-icao"
+              className="block text-xs font-bold text-slate-100 mb-1"
             >
-              {(touched.from && errors.from) || (touched.to && errors.to)}
-            </p>
-          )}
+              From (ICAO) <span className="text-slate-300">*</span>
+            </label>
+            <input
+              id="quick-from-icao"
+              name="from"
+              type="text"
+              required
+              autoComplete="off"
+              value={fromQuery}
+              onChange={handleFromChange}
+              onFocus={() => {
+                if (fromQuery.trim().length >= 1) {
+                  const results = searchAirports(fromQuery, 8);
+                  setFromSuggestions(results);
+                  setFromOpen(results.length > 0);
+                }
+              }}
+              onBlur={handleFromBlur}
+              aria-invalid={Boolean(touched.from && errors.from)}
+              aria-describedby={
+                touched.from && errors.from ? "err-from-icao" : undefined
+              }
+              placeholder="e.g. EGLL"
+              className="w-full min-h-[40px] px-3 py-2 bg-white/10 hover:bg-white/15 focus:bg-white/15 border border-white/25 focus:border-white focus:outline-none font-mono text-sm font-bold text-white placeholder:text-slate-400 placeholder:font-normal uppercase rounded-[2px] transition-colors"
+            />
+
+            {/* Worldwide Autocomplete Dropdown for From */}
+            {fromOpen && fromSuggestions.length > 0 && (
+              <ul
+                role="listbox"
+                aria-label="Airport suggestions for departure"
+                className="absolute left-0 right-0 top-full mt-1 z-50 max-h-56 overflow-y-auto bg-[#07192F] border border-white/30 rounded-[2px] shadow-2xl divide-y divide-white/10 text-left"
+              >
+                {fromSuggestions.map((apt) => (
+                  <li key={`from-${apt.icao}`}>
+                    <button
+                      type="button"
+                      onMouseDown={(e) => {
+                        e.preventDefault();
+                        handleSelectAirport("from", apt);
+                      }}
+                      className="w-full px-3 py-2 text-left hover:bg-white/15 focus:bg-white/15 transition-colors cursor-pointer block"
+                    >
+                      <div className="flex items-baseline gap-1.5 text-xs text-white">
+                        <span className="font-mono font-bold text-white shrink-0">
+                          {apt.icao}
+                        </span>
+                        <span className="text-slate-300 truncate">
+                          · {apt.name} · {apt.city}, {apt.country}
+                        </span>
+                      </div>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {touched.from && errors.from && (
+              <p
+                id="err-from-icao"
+                role="alert"
+                className="mt-1 text-[11px] font-semibold text-red-300"
+              >
+                {errors.from}
+              </p>
+            )}
+          </div>
+
+          {/* TO INPUT */}
+          <div ref={toContainerRef} className="relative">
+            <label
+              htmlFor="quick-to-icao"
+              className="block text-xs font-bold text-slate-100 mb-1"
+            >
+              To (ICAO) <span className="text-slate-300">*</span>
+            </label>
+            <input
+              id="quick-to-icao"
+              name="to"
+              type="text"
+              required
+              autoComplete="off"
+              value={toQuery}
+              onChange={handleToChange}
+              onFocus={() => {
+                if (toQuery.trim().length >= 1) {
+                  const results = searchAirports(toQuery, 8);
+                  setToSuggestions(results);
+                  setToOpen(results.length > 0);
+                }
+              }}
+              onBlur={handleToBlur}
+              aria-invalid={Boolean(touched.to && errors.to)}
+              aria-describedby={
+                touched.to && errors.to ? "err-to-icao" : undefined
+              }
+              placeholder="e.g. OMDB"
+              className="w-full min-h-[40px] px-3 py-2 bg-white/10 hover:bg-white/15 focus:bg-white/15 border border-white/25 focus:border-white focus:outline-none font-mono text-sm font-bold text-white placeholder:text-slate-400 placeholder:font-normal uppercase rounded-[2px] transition-colors"
+            />
+
+            {/* Worldwide Autocomplete Dropdown for To */}
+            {toOpen && toSuggestions.length > 0 && (
+              <ul
+                role="listbox"
+                aria-label="Airport suggestions for destination"
+                className="absolute left-0 right-0 top-full mt-1 z-50 max-h-56 overflow-y-auto bg-[#07192F] border border-white/30 rounded-[2px] shadow-2xl divide-y divide-white/10 text-left"
+              >
+                {toSuggestions.map((apt) => (
+                  <li key={`to-${apt.icao}`}>
+                    <button
+                      type="button"
+                      onMouseDown={(e) => {
+                        e.preventDefault();
+                        handleSelectAirport("to", apt);
+                      }}
+                      className="w-full px-3 py-2 text-left hover:bg-white/15 focus:bg-white/15 transition-colors cursor-pointer block"
+                    >
+                      <div className="flex items-baseline gap-1.5 text-xs text-white">
+                        <span className="font-mono font-bold text-white shrink-0">
+                          {apt.icao}
+                        </span>
+                        <span className="text-slate-300 truncate">
+                          · {apt.name} · {apt.city}, {apt.country}
+                        </span>
+                      </div>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {touched.to && errors.to && (
+              <p
+                id="err-to-icao"
+                role="alert"
+                className="mt-1 text-[11px] font-semibold text-red-300"
+              >
+                {errors.to}
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Flight type toggle */}
@@ -381,6 +527,41 @@ export function QuickPermitRequestCard() {
             >
               {errors.permitType}
             </p>
+          )}
+        </div>
+
+        {/* Collapsed link: Add route details */}
+        <div className="pt-0.5">
+          <button
+            type="button"
+            onClick={() => setShowRouteDetails((prev) => !prev)}
+            aria-expanded={showRouteDetails}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-200 hover:text-white transition-colors cursor-pointer underline underline-offset-4 decoration-slate-400"
+          >
+            <span>{showRouteDetails ? "− Hide route details" : "+ Add route details"}</span>
+          </button>
+
+          {showRouteDetails && (
+            <div className="mt-2 space-y-1">
+              <label
+                htmlFor="quick-countries"
+                className="block text-xs font-bold text-slate-100"
+              >
+                Countries to overfly or land in{" "}
+                <span className="text-[11px] font-normal text-slate-300">
+                  (Optional)
+                </span>
+              </label>
+              <input
+                id="quick-countries"
+                name="countries"
+                type="text"
+                value={countries}
+                onChange={(e) => setCountries(e.target.value)}
+                placeholder="e.g. Iran, Turkey, Germany, United Kingdom"
+                className="w-full min-h-[38px] px-3 py-1.5 bg-white/10 hover:bg-white/15 focus:bg-white/15 border border-white/25 focus:border-white focus:outline-none text-xs text-white placeholder:text-slate-400 placeholder:font-normal rounded-[2px] transition-colors"
+              />
+            </div>
           )}
         </div>
 
