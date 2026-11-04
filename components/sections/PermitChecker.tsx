@@ -190,7 +190,7 @@ export function PermitChecker() {
     <div className="kcl-card bg-white border border-[#CBD5E1]">
       <div className="bg-[#0B2545] text-white px-6 py-4 flex flex-wrap items-center justify-between gap-4 border-b border-[#CBD5E1]">
         <div>
-          <span className="font-mono text-xs uppercase tracking-wider text-slate-300 block">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#F4C400] font-bold block">
             PRE-INQUIRY PREPARATION GUIDE
           </span>
           <h2 className="no-accent-bar text-xl font-bold text-white mt-0.5">
@@ -206,7 +206,7 @@ export function PermitChecker() {
         {/* Controls Column */}
         <div className="lg:col-span-5 space-y-6 border-b lg:border-b-0 lg:border-r border-[#CBD5E1] pb-6 lg:pb-0 lg:pr-8">
           <fieldset>
-            <legend className="block text-xs font-mono uppercase tracking-wider text-[#5C6B7A] font-semibold mb-2">
+            <legend className="block text-xs font-mono uppercase tracking-wider text-[#B88200] font-bold mb-2">
               1. Operation Type (Scheduled vs. Non-Scheduled)
             </legend>
             <div className="grid grid-cols-2 gap-2.5">
@@ -261,7 +261,7 @@ export function PermitChecker() {
           <div>
             <label
               htmlFor="navigator-service-focus"
-              className="block text-xs font-mono uppercase tracking-wider text-[#5C6B7A] font-semibold mb-2"
+              className="block text-xs font-mono uppercase tracking-wider text-[#B88200] font-bold mb-2"
             >
               2. Core Service Area
             </label>
@@ -331,7 +331,7 @@ export function PermitChecker() {
           <div>
             <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-4 border-b border-[#CBD5E1]">
               <div>
-                <span className="text-xs font-mono uppercase text-[#5C6B7A]">
+                <span className="text-xs font-mono uppercase text-[#B88200] font-bold">
                   PREPARATION GUIDANCE ·{" "}
                   {operationCategory.replace(/-/g, " ").toUpperCase()}
                 </span>

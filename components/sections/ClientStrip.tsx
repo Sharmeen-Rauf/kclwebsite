@@ -16,7 +16,7 @@ export function ClientStrip({ compact = false }: ClientStripProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div>
-            <p className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold">
+            <p className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold">
               PUBLISHED CORPORATE REFERENCES · SUBJECT TO MANAGEMENT REVIEW
             </p>
             <h2 className="text-lg sm:text-xl font-bold text-[#0B2545]">

@@ -49,7 +49,7 @@ export default function ServicesOverviewPage() {
       <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="max-w-3xl space-y-2">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               OPERATIONAL SERVICES · PRIMARY SERVICE DIRECTORY
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
@@ -183,7 +183,7 @@ export default function ServicesOverviewPage() {
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="max-w-3xl space-y-2">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               DETAILED SERVICE GUIDES
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">

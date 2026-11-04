@@ -130,7 +130,7 @@ export default async function InsightsPage() {
 
           {/* Recommended Launch Articles / Guides */}
           <div className="space-y-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               CORE OPERATIONAL GUIDES
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
@@ -174,7 +174,7 @@ export default async function InsightsPage() {
 
           {/* Full In-Depth Reference Articles from /content/news */}
           <div className="space-y-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               IN-DEPTH REFERENCE ARTICLES
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">

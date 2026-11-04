@@ -148,7 +148,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
             <div className="shrink-0 flex items-center gap-3">
-              <span className="text-xs font-mono uppercase tracking-wider font-bold text-[#5C6B7A]">
+              <span className="text-xs font-mono uppercase tracking-wider font-bold text-[#B88200]">
                 Trusted by operators
               </span>
               <span
@@ -213,7 +213,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="max-w-3xl space-y-3">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
                 CORE OPERATIONAL SERVICES · KCL FLIGHT SUPPORT
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
@@ -297,7 +297,7 @@ export default function HomePage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8 space-y-2">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               FLIGHT SUPPORT NAVIGATOR · PREPARATION GUIDE
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
@@ -321,7 +321,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
             <div className="space-y-2">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
                 DETAILED SERVICE GUIDES
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
@@ -412,7 +412,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="max-w-3xl space-y-3">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
                 GLOBAL REACH · LOCAL SPECIALIZATION
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
@@ -427,7 +427,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="bg-[#F6F8FB] border border-[#CBD5E1] p-3.5 rounded-[2px] max-w-sm">
-              <span className="text-xs font-mono font-bold text-[#0B2545] block mb-1">
+              <span className="text-xs font-mono font-bold text-[#B88200] block mb-1">
                 OPERATIONAL NOTE
               </span>
               <p className="text-xs text-[#5C6B7A] leading-snug">
@@ -474,7 +474,7 @@ export default function HomePage() {
                 className="kcl-card bg-[#F6F8FB] border border-[#CBD5E1] p-4 flex flex-col justify-between space-y-2.5"
               >
                 <div>
-                  <span className="font-mono text-[10px] uppercase font-bold text-[#5C6B7A] tracking-wider block">
+                  <span className="font-mono text-[10px] uppercase font-bold text-[#B88200] tracking-wider block">
                     REGION
                   </span>
                   <h3 className="text-base font-bold text-[#0B2545] mt-1">
@@ -490,7 +490,7 @@ export default function HomePage() {
 
           <div className="bg-[#0B2545] text-white p-6 rounded-[2px] flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="space-y-1">
-              <span className="font-mono text-xs text-slate-300 font-semibold block">
+              <span className="font-mono text-xs text-[#F4C400] font-bold block">
                 SPECIALIST ANCHOR · KARACHI (OPKR) &amp; LAHORE (OPLR) FIRs
               </span>
               <p className="text-sm text-slate-100 max-w-2xl">
@@ -513,7 +513,7 @@ export default function HomePage() {
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="space-y-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               OPERATIONAL COORDINATION PROCESS
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
@@ -525,7 +525,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between space-y-4">
               <div className="space-y-3">
-                <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+                <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
                   PAKISTAN SPECIALIZATION &amp; INTERNATIONAL TRIP SUPPORT
                 </span>
                 <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
@@ -570,7 +570,7 @@ export default function HomePage() {
 
             <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between space-y-4">
               <div className="space-y-3">
-                <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+                <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
                   CORPORATE HERITAGE · KASHMIRWALA GROUP (1947)
                 </span>
                 <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
@@ -619,7 +619,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-6 space-y-5">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
                 AVIATION INSIGHTS FOR OPERATORS
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
@@ -678,7 +678,7 @@ export default function HomePage() {
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 space-y-2">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               FREQUENTLY ASKED QUESTIONS
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
