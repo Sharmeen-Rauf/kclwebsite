@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -15,28 +15,6 @@ interface NavItem {
   label: string;
   href: string;
   children?: NavDropdownItem[];
-}
-
-export function isHeroRoute(pathname: string): boolean {
-  if (pathname === "/" || pathname === "/tools") return true;
-  const heroPrefixes = [
-    "/services",
-    "/pakistan",
-    "/schedule-filing",
-    "/non-schedule-filing",
-    "/about",
-    "/contact",
-    "/customer-support",
-    "/aviation-resources",
-    "/insights",
-    "/permit-directory",
-    "/request-flight-support",
-    "/request-permit",
-    "/clients",
-  ];
-  return heroPrefixes.some(
-    (p) => pathname === p || pathname.startsWith(`${p}/`)
-  );
 }
 
 const PRIMARY_NAV: NavItem[] = [
@@ -150,53 +128,15 @@ const PRIMARY_NAV: NavItem[] = [
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isPastHero, setIsPastHero] = useState(false);
-
-  const hasHero = isHeroRoute(pathname);
-  const isTransparent = hasHero && !isPastHero && !mobileOpen;
-
-  useEffect(() => {
-    function handleScroll() {
-      const heroEl = document.querySelector(
-        "[data-hero-section], .kcl-hero-bg"
-      );
-      if (heroEl) {
-        const rect = heroEl.getBoundingClientRect();
-        // Keep navbar transparent while over the hero section; turn white once hero ends (80px header height)
-        setIsPastHero(rect.bottom <= 80);
-      } else {
-        setIsPastHero(window.scrollY > 24);
-      }
-    }
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, [pathname]);
 
   return (
-    <header
-      className={`sticky top-0 z-40 h-20 transition-all duration-200 ${
-        hasHero ? "-mb-20" : ""
-      } ${
-        isTransparent
-          ? "bg-transparent text-white border-b border-transparent"
-          : "bg-white/98 backdrop-blur-md text-[#0B2545] border-b border-slate-200 shadow-xs"
-      }`}
-    >
+    <header className="sticky top-0 z-40 h-20 bg-white text-[#0B2545] border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center justify-between h-full gap-6 lg:gap-10">
-          {/* Official KCL Brand Logo (shifted slightly inward with clean gap from nav items) */}
+          {/* Original KCL Brand Logo (no white box) */}
           <Link
             href="/"
-            className={`group flex items-center shrink-0 focus-visible:outline-offset-4 transition-all ml-1 sm:ml-2 ${
-              isTransparent
-                ? "bg-white/95 px-3 py-1.5 rounded-[2px] shadow-xs"
-                : "py-1.5"
-            }`}
+            className="group flex items-center py-1.5 shrink-0 focus-visible:outline-offset-4 ml-1 sm:ml-2"
             aria-label="Kashmir Corporation (Pvt.) Ltd. (KCL Flight Permission) Home"
           >
             <Image
@@ -227,11 +167,7 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     className={`px-1.5 py-2 min-h-[44px] inline-flex items-center text-[15px] font-semibold capitalize tracking-normal whitespace-nowrap transition-colors border-b-2 ${
-                      isTransparent
-                        ? isActive
-                          ? "border-[#F2C200] text-white"
-                          : "border-transparent text-white/90 hover:text-[#F2C200] hover:border-white/40"
-                        : isActive
+                      isActive
                         ? "border-[#E8A200] text-[#0B2545]"
                         : "border-transparent text-[#16202B] hover:text-[#0B2545] hover:border-slate-300"
                     }`}
@@ -246,22 +182,14 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={`px-1.5 py-2 min-h-[44px] inline-flex items-center gap-1.5 text-[15px] font-semibold capitalize tracking-normal whitespace-nowrap transition-colors border-b-2 ${
-                      isTransparent
-                        ? isActive
-                          ? "border-[#F2C200] text-white"
-                          : "border-transparent text-white/90 hover:text-[#F2C200] hover:border-white/40"
-                        : isActive
+                      isActive
                         ? "border-[#E8A200] text-[#0B2545]"
                         : "border-transparent text-[#16202B] hover:text-[#0B2545] hover:border-slate-300"
                     }`}
                   >
                     <span>{item.label}</span>
                     <svg
-                      className={`w-3.5 h-3.5 transition-transform group-hover:rotate-180 ${
-                        isTransparent
-                          ? "text-white/75 group-hover:text-[#F2C200]"
-                          : "text-[#5C6B7A] group-hover:text-[#0B2545]"
-                      }`}
+                      className="w-3.5 h-3.5 text-[#5C6B7A] group-hover:text-[#0B2545] transition-transform group-hover:rotate-180"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -304,11 +232,7 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <Link
               href="/request-flight-support"
-              className={`min-h-[40px] px-4 py-2 font-bold text-sm capitalize rounded-[2px] inline-flex items-center justify-center gap-2 transition-colors whitespace-nowrap ${
-                isTransparent
-                  ? "bg-white/10 hover:bg-white/20 text-white border border-white/50"
-                  : "bg-[#0B2545] hover:bg-[#133661] text-white border-b-2 border-[#F2C200]"
-              }`}
+              className="min-h-[40px] px-4 py-2 bg-[#0B2545] hover:bg-[#133661] text-white font-bold text-sm capitalize rounded-[2px] inline-flex items-center justify-center gap-2 transition-colors whitespace-nowrap"
             >
               <span>Request Flight Support</span>
               <span className="font-mono text-[#F2C200]">→</span>
@@ -319,11 +243,7 @@ export function Header() {
           <div className="flex lg:hidden items-center gap-2">
             <Link
               href="/request-flight-support"
-              className={`min-h-[40px] px-3 py-2 font-bold text-xs capitalize rounded-[2px] inline-flex items-center justify-center whitespace-nowrap ${
-                isTransparent
-                  ? "bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545]"
-                  : "bg-[#0B2545] hover:bg-[#133661] text-white border-b-2 border-[#F2C200]"
-              }`}
+              className="min-h-[40px] px-3 py-2 bg-[#0B2545] hover:bg-[#133661] text-white font-bold text-xs capitalize rounded-[2px] inline-flex items-center justify-center whitespace-nowrap"
             >
               Request Support
             </Link>
@@ -335,11 +255,7 @@ export function Header() {
               aria-label={
                 mobileOpen ? "Close navigation menu" : "Open navigation menu"
               }
-              className={`min-h-[40px] min-w-[44px] px-2.5 py-2 rounded-[2px] inline-flex items-center justify-center border ${
-                isTransparent
-                  ? "text-white bg-white/10 border-white/30"
-                  : "text-[#0B2545] bg-[#F6F8FB] border-slate-300"
-              }`}
+              className="min-h-[40px] min-w-[44px] px-2.5 py-2 text-[#0B2545] bg-[#F6F8FB] border border-slate-300 rounded-[2px] inline-flex items-center justify-center"
             >
               <span className="font-mono text-xs font-bold">
                 {mobileOpen ? "Close" : "Menu"}

@@ -121,12 +121,12 @@ export function QuickPermitRequestCard() {
   }
 
   return (
-    <div className="bg-black/45 backdrop-blur-md text-white border border-white/25 rounded-[2px] p-4 sm:p-5 shadow-2xl">
-      <div className="border-b border-white/15 pb-2.5 mb-3 flex items-center justify-between gap-2">
-        <h2 className="text-base sm:text-lg font-bold text-white tracking-tight">
+    <div className="bg-white text-[#0B2545] border-t-[3px] border-t-[#E8A200] border-x border-b border-slate-200 rounded-[2px] p-5 sm:p-6 shadow-xl">
+      <div className="border-b border-slate-200 pb-3 mb-4 flex items-center justify-between gap-2">
+        <h2 className="text-lg font-bold text-[#0B2545] tracking-tight">
           Quick Permit Request
         </h2>
-        <span className="text-[11px] font-mono text-slate-200">
+        <span className="text-[11px] font-mono font-medium text-[#5C6B7A]">
           * Required fields
         </span>
       </div>
@@ -136,7 +136,7 @@ export function QuickPermitRequestCard() {
         method="GET"
         noValidate
         onSubmit={handleSubmit}
-        className="space-y-2.5"
+        className="space-y-3"
       >
         <input type="hidden" name="flightType" value={flightType} />
         <input type="hidden" name="permitType" value={permitType} />
@@ -152,13 +152,13 @@ export function QuickPermitRequestCard() {
 
         {/* From (ICAO) & To (ICAO) */}
         <div>
-          <div className="grid grid-cols-2 gap-2.5">
+          <div className="grid grid-cols-2 gap-3">
             <div>
               <label
                 htmlFor="quick-from-icao"
-                className="block text-xs font-bold text-white mb-1"
+                className="block text-xs font-bold text-[#0B2545] mb-1"
               >
-                From (ICAO) <span className="text-[#F2C200]">*</span>
+                From (ICAO) <span className="text-red-700">*</span>
               </label>
               <input
                 id="quick-from-icao"
@@ -176,15 +176,15 @@ export function QuickPermitRequestCard() {
                 aria-invalid={Boolean(errors.from)}
                 aria-describedby={errors.from ? "err-from-icao" : undefined}
                 placeholder="OMDB"
-                className="w-full min-h-[38px] px-3 py-1.5 bg-white/95 border border-slate-300 focus:border-[#F2C200] font-mono text-sm font-bold text-[#0B2545] placeholder:text-[#334155] placeholder:font-normal uppercase rounded-[2px]"
+                className="w-full min-h-[40px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] focus:border-[#0B2545] focus:outline-none font-mono text-sm font-bold text-[#0B2545] placeholder:text-[#475569] placeholder:font-normal uppercase rounded-[2px] transition-colors"
               />
             </div>
             <div>
               <label
                 htmlFor="quick-to-icao"
-                className="block text-xs font-bold text-white mb-1"
+                className="block text-xs font-bold text-[#0B2545] mb-1"
               >
-                To (ICAO) <span className="text-[#F2C200]">*</span>
+                To (ICAO) <span className="text-red-700">*</span>
               </label>
               <input
                 id="quick-to-icao"
@@ -202,14 +202,14 @@ export function QuickPermitRequestCard() {
                 aria-invalid={Boolean(errors.to)}
                 aria-describedby={errors.to ? "err-to-icao" : undefined}
                 placeholder="OPKC"
-                className="w-full min-h-[38px] px-3 py-1.5 bg-white/95 border border-slate-300 focus:border-[#F2C200] font-mono text-sm font-bold text-[#0B2545] placeholder:text-[#334155] placeholder:font-normal uppercase rounded-[2px]"
+                className="w-full min-h-[40px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] focus:border-[#0B2545] focus:outline-none font-mono text-sm font-bold text-[#0B2545] placeholder:text-[#475569] placeholder:font-normal uppercase rounded-[2px] transition-colors"
               />
             </div>
           </div>
 
-          {/* Quick-Select Common Pakistan Airports */}
+          {/* Quick-Select Common Pakistan Airports (Light chips with navy text) */}
           <div className="mt-1.5 flex flex-wrap items-center gap-1 text-[11px]">
-            <span className="text-slate-200 font-medium mr-0.5">
+            <span className="text-[#475569] font-medium mr-0.5">
               Pakistan ICAO ({activeIcaoField === "from" ? "From" : "To"}):
             </span>
             {PAKISTAN_AIRPORT_SUGGESTIONS.map((apt) => (
@@ -218,7 +218,7 @@ export function QuickPermitRequestCard() {
                 type="button"
                 onClick={() => handleSelectSuggestion(apt.code)}
                 title={`${apt.code} — ${apt.city}`}
-                className="px-1.5 py-0.5 font-mono text-[10px] font-semibold bg-white/15 hover:bg-white/25 text-white border border-white/25 rounded-[2px] transition-colors cursor-pointer"
+                className="px-1.5 py-0.5 font-mono text-[10px] font-bold bg-[#F6F8FB] hover:bg-slate-200/80 text-[#0B2545] border border-[#CBD5E1] rounded-[2px] transition-colors cursor-pointer"
               >
                 {apt.code}
               </button>
@@ -229,26 +229,26 @@ export function QuickPermitRequestCard() {
             <p
               id={errors.from ? "err-from-icao" : "err-to-icao"}
               role="alert"
-              className="mt-1 text-[11px] font-semibold text-[#FDE047]"
+              className="mt-1 text-[11px] font-semibold text-red-700"
             >
               {errors.from || errors.to}
             </p>
           )}
         </div>
 
-        {/* Flight type toggle (No default selected) */}
+        {/* Flight type toggle (No default selected; selected = navy/white, unselected = light grey/dark text) */}
         <div>
           <span
             id="quick-flight-type-label"
-            className="block text-xs font-bold text-white mb-1"
+            className="block text-xs font-bold text-[#0B2545] mb-1"
           >
-            Flight type <span className="text-[#F2C200]">*</span>
+            Flight type <span className="text-red-700">*</span>
           </span>
           <div
             role="radiogroup"
             aria-labelledby="quick-flight-type-label"
             aria-required="true"
-            className="grid grid-cols-2 gap-1.5 bg-black/35 p-1 border border-white/25 rounded-[2px]"
+            className="grid grid-cols-2 gap-1.5 bg-[#F6F8FB] p-1 border border-[#CBD5E1] rounded-[2px]"
           >
             <button
               type="button"
@@ -258,10 +258,10 @@ export function QuickPermitRequestCard() {
                 setFlightType("schedule");
                 setErrors((prev) => ({ ...prev, flightType: undefined }));
               }}
-              className={`min-h-[34px] px-3 py-1 text-xs font-bold rounded-[2px] transition-colors cursor-pointer ${
+              className={`min-h-[36px] px-3 py-1.5 text-xs font-bold rounded-[2px] transition-colors cursor-pointer ${
                 flightType === "schedule"
-                  ? "bg-white text-[#0B2545] shadow-2xs"
-                  : "text-slate-100 hover:text-white hover:bg-white/10"
+                  ? "bg-[#0B2545] text-white shadow-2xs"
+                  : "bg-[#F6F8FB] text-[#16202B] hover:bg-slate-200/70"
               }`}
             >
               Schedule
@@ -274,35 +274,38 @@ export function QuickPermitRequestCard() {
                 setFlightType("non-schedule");
                 setErrors((prev) => ({ ...prev, flightType: undefined }));
               }}
-              className={`min-h-[34px] px-3 py-1 text-xs font-bold rounded-[2px] transition-colors cursor-pointer ${
+              className={`min-h-[36px] px-3 py-1.5 text-xs font-bold rounded-[2px] transition-colors cursor-pointer ${
                 flightType === "non-schedule"
-                  ? "bg-white text-[#0B2545] shadow-2xs"
-                  : "text-slate-100 hover:text-white hover:bg-white/10"
+                  ? "bg-[#0B2545] text-white shadow-2xs"
+                  : "bg-[#F6F8FB] text-[#16202B] hover:bg-slate-200/70"
               }`}
             >
               Non-schedule
             </button>
           </div>
           {errors.flightType && (
-            <p role="alert" className="mt-1 text-[11px] font-semibold text-[#FDE047]">
+            <p
+              role="alert"
+              className="mt-1 text-[11px] font-semibold text-red-700"
+            >
               {errors.flightType}
             </p>
           )}
         </div>
 
-        {/* Permit type (No default selected) */}
+        {/* Permit type (No default selected; selected = navy/white, unselected = light grey/dark text) */}
         <div>
           <span
             id="quick-permit-type-label"
-            className="block text-xs font-bold text-white mb-1"
+            className="block text-xs font-bold text-[#0B2545] mb-1"
           >
-            Permit type <span className="text-[#F2C200]">*</span>
+            Permit type <span className="text-red-700">*</span>
           </span>
           <div
             role="radiogroup"
             aria-labelledby="quick-permit-type-label"
             aria-required="true"
-            className="grid grid-cols-3 gap-1.5 bg-black/35 p-1 border border-white/25 rounded-[2px]"
+            className="grid grid-cols-3 gap-1.5 bg-[#F6F8FB] p-1 border border-[#CBD5E1] rounded-[2px]"
           >
             {(
               [
@@ -320,10 +323,10 @@ export function QuickPermitRequestCard() {
                   setPermitType(opt.value);
                   setErrors((prev) => ({ ...prev, permitType: undefined }));
                 }}
-                className={`min-h-[34px] px-2.5 py-1 text-xs font-bold rounded-[2px] transition-colors cursor-pointer ${
+                className={`min-h-[36px] px-2.5 py-1.5 text-xs font-bold rounded-[2px] transition-colors cursor-pointer ${
                   permitType === opt.value
-                    ? "bg-white text-[#0B2545] shadow-2xs"
-                    : "text-slate-100 hover:text-white hover:bg-white/10"
+                    ? "bg-[#0B2545] text-white shadow-2xs"
+                    : "bg-[#F6F8FB] text-[#16202B] hover:bg-slate-200/70"
                 }`}
               >
                 {opt.label}
@@ -331,7 +334,10 @@ export function QuickPermitRequestCard() {
             ))}
           </div>
           {errors.permitType && (
-            <p role="alert" className="mt-1 text-[11px] font-semibold text-[#FDE047]">
+            <p
+              role="alert"
+              className="mt-1 text-[11px] font-semibold text-red-700"
+            >
               {errors.permitType}
             </p>
           )}
@@ -339,13 +345,13 @@ export function QuickPermitRequestCard() {
 
         {/* Date (UTC) & Email */}
         <div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label
                 htmlFor="quick-date-utc"
-                className="block text-xs font-bold text-white mb-1"
+                className="block text-xs font-bold text-[#0B2545] mb-1"
               >
-                Date (UTC) <span className="text-[#F2C200]">*</span>
+                Date (UTC) <span className="text-red-700">*</span>
               </label>
               <input
                 id="quick-date-utc"
@@ -358,15 +364,15 @@ export function QuickPermitRequestCard() {
                   setErrors((prev) => ({ ...prev, date: undefined }));
                 }}
                 aria-invalid={Boolean(errors.date)}
-                className="w-full min-h-[38px] px-2.5 py-1.5 bg-white/95 border border-slate-300 focus:border-[#F2C200] font-mono text-xs font-semibold text-[#0B2545] rounded-[2px]"
+                className="w-full min-h-[40px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] focus:border-[#0B2545] focus:outline-none font-mono text-xs font-semibold text-[#0B2545] rounded-[2px] transition-colors"
               />
             </div>
             <div>
               <label
                 htmlFor="quick-email"
-                className="block text-xs font-bold text-white mb-1"
+                className="block text-xs font-bold text-[#0B2545] mb-1"
               >
-                Email <span className="text-[#F2C200]">*</span>
+                Email <span className="text-red-700">*</span>
               </label>
               <input
                 id="quick-email"
@@ -380,12 +386,15 @@ export function QuickPermitRequestCard() {
                 }}
                 aria-invalid={Boolean(errors.email)}
                 placeholder="ops@airline.com"
-                className="w-full min-h-[38px] px-3 py-1.5 bg-white/95 border border-slate-300 focus:border-[#F2C200] text-xs font-medium text-[#0B2545] placeholder:text-[#334155] rounded-[2px]"
+                className="w-full min-h-[40px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] focus:border-[#0B2545] focus:outline-none text-xs font-medium text-[#0B2545] placeholder:text-[#475569] rounded-[2px] transition-colors"
               />
             </div>
           </div>
           {(errors.date || errors.email) && (
-            <p role="alert" className="mt-1 text-[11px] font-semibold text-[#FDE047]">
+            <p
+              role="alert"
+              className="mt-1 text-[11px] font-semibold text-red-700"
+            >
               {errors.date || errors.email}
             </p>
           )}
@@ -393,18 +402,18 @@ export function QuickPermitRequestCard() {
 
         <button
           type="submit"
-          className="w-full min-h-[42px] px-5 py-2.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm tracking-tight inline-flex items-center justify-center gap-2 rounded-[2px] transition-colors cursor-pointer shadow-md"
+          className="w-full min-h-[44px] px-5 py-2.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm tracking-tight inline-flex items-center justify-center gap-2 rounded-[2px] transition-colors cursor-pointer shadow-xs"
         >
           <span>Start my request</span>
           <span aria-hidden="true">→</span>
         </button>
 
         {/* One-line privacy note under the submit button */}
-        <p className="text-[11px] text-slate-200 text-center leading-snug pt-0.5">
+        <p className="text-[11px] text-[#475569] text-center leading-snug pt-0.5">
           Details are used only to coordinate your inquiry.{" "}
           <Link
             href="/privacy-policy"
-            className="underline text-white hover:text-[#F2C200]"
+            className="underline text-[#0B2545] font-semibold hover:text-[#133661]"
           >
             Privacy Policy
           </Link>

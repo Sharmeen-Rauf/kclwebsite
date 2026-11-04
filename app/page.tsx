@@ -24,16 +24,19 @@ export const metadata = buildMetadata({
 });
 
 export default function HomePage() {
+  const marqueeLoopGroup = [
+    ...REAL_CLIENTS,
+    ...REAL_CLIENTS,
+    ...REAL_CLIENTS,
+  ];
+
   return (
     <>
       <JsonLd data={buildFaqJsonLd(HOME_FAQS)} />
 
-      {/* 1. Split Hero with Quick Permit Request Panel */}
-      <section
-        data-hero-section
-        className="relative overflow-hidden text-white border-b border-slate-800 pt-22 pb-5 sm:pt-24 sm:pb-6 lg:pt-24 lg:pb-7"
-      >
-        {/* Background Aircraft / Ramp Photo with Navy Overlay & Faint Route Line-Art */}
+      {/* 1. Split Hero with Quick Permit Request Panel (min 640px / max 820px, ~82vh) */}
+      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[640px] lg:max-h-[820px] lg:h-[82vh] flex items-center py-12 lg:py-16">
+        {/* Background Aircraft / Ramp Photo with Left-to-Right Navy Gradient (85% to 35%) */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/img/hero-flight-ops.jpg"
@@ -43,7 +46,7 @@ export default function HomePage() {
             sizes="100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07192F]/92 via-[#0B2545]/82 to-[#0B2545]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/85 via-[#0B2545]/60 to-[#0B2545]/35" />
           {/* Very faint route line-art background (no chart box, flight levels, or airway codes) */}
           <svg
             viewBox="0 0 1440 640"
@@ -74,39 +77,39 @@ export default function HomePage() {
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
-            {/* Left: Single H1, One-Sentence Subhead & Two Secondary Outline Buttons */}
-            <div className="lg:col-span-7 space-y-4">
-              <h1 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white leading-[1.15] tracking-tight">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left: Single H1 (sized to avoid orphan word), One-Sentence Subhead & Secondary Outline Buttons */}
+            <div className="lg:col-span-7 space-y-5">
+              <h1 className="text-2xl sm:text-3xl lg:text-[2.1rem] xl:text-[2.25rem] font-bold text-white leading-[1.18] tracking-tight max-w-[23ch] [text-wrap:balance]">
                 Pakistan Flight Permissions, Filed and Followed Up by an AFPA
                 Authorized Agent
               </h1>
 
-              <p className="text-sm sm:text-base lg:text-lg text-slate-100 leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-2xl">
                 Overflight and landing permits for schedule and non-schedule
                 flights, with handling, catering, fuel and crew hotels arranged
                 by the same desk.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
                 <Link
                   href="#permit-checker"
-                  className="min-h-[44px] px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white border border-white/60 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
+                  className="min-h-[46px] px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white border border-white/60 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
                 >
                   Check Requirements
                 </Link>
                 <a
                   href="/files/kcl-permit-request-checklist.pdf"
                   download
-                  className="min-h-[44px] px-5 py-2.5 bg-transparent hover:bg-white/10 text-white border border-white/50 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
+                  className="min-h-[46px] px-5 py-2.5 bg-transparent hover:bg-white/10 text-white border border-white/50 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
                 >
                   Download Checklist
                 </a>
               </div>
             </div>
 
-            {/* Right: Quick Permit Request Card */}
+            {/* Right: White Quick Permit Request Card with 3px Amber Top Border */}
             <div className="lg:col-span-5">
               <QuickPermitRequestCard />
             </div>
@@ -114,47 +117,92 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Single-Row Trust Strip Directly Below Hero */}
+      {/* Separate Credentials Row Above Logo Marquee */}
       <section
-        aria-label="Operational Credentials and Airline References"
-        className="bg-white border-b border-[#CBD5E1] py-2.5"
+        aria-label="Operational Credentials"
+        className="bg-[#F6F8FB] border-b border-[#CBD5E1] py-3"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap lg:flex-nowrap items-center justify-between gap-3">
-            {/* Three Verified Trust Badges */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-bold text-[#0B2545]">
-              <span className="inline-flex items-center gap-1.5 bg-[#F6F8FB] border border-[#CBD5E1] px-2.5 py-1 rounded-[2px]">
-                <span className="h-2 w-2 rounded-full bg-[#E8A200]" />
-                AFPA Authorized
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-5 text-xs font-bold text-[#0B2545]">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
+              <span className="h-2 w-2 rounded-full bg-[#E8A200]" />
+              AFPA Authorized
+            </span>
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
+              <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
+              24/7 Ops Desk
+            </span>
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
+              <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
+              Schedule &amp; Non-Schedule
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* "Trusted by operators" Infinite Slow Logo Marquee Section */}
+      <section
+        aria-label="Trusted by operators"
+        className="bg-white border-b border-[#CBD5E1] py-5 overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+            <div className="shrink-0 flex items-center gap-3">
+              <span className="text-xs font-mono uppercase tracking-wider font-bold text-[#5C6B7A]">
+                Trusted by operators
               </span>
-              <span className="inline-flex items-center gap-1.5 bg-[#F6F8FB] border border-[#CBD5E1] px-2.5 py-1 rounded-[2px]">
-                <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
-                24/7 Ops Desk
-              </span>
-              <span className="inline-flex items-center gap-1.5 bg-[#F6F8FB] border border-[#CBD5E1] px-2.5 py-1 rounded-[2px]">
-                <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
-                Schedule &amp; Non-Schedule
-              </span>
+              <span
+                className="hidden md:inline-block h-4 w-px bg-[#CBD5E1]"
+                aria-hidden="true"
+              />
             </div>
 
-            {/* Four Confirmed Client Logos */}
-            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5">
-              {REAL_CLIENTS.map((client) => (
-                <Link
-                  key={client.icao}
-                  href="/clients"
-                  title={`${client.name} (${client.icao})`}
-                  className="bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1 rounded-[2px] inline-flex items-center justify-center transition-colors shadow-2xs"
+            <div className="relative flex-1 overflow-hidden">
+              <div className="logo-marquee-track items-center">
+                {/* First identical half */}
+                <div className="flex items-center gap-10 sm:gap-14 pr-10 sm:pr-14">
+                  {marqueeLoopGroup.map((client, idx) => (
+                    <Link
+                      key={`marquee-a-${client.icao}-${idx}`}
+                      href="/clients"
+                      title={`${client.name} (${client.icao})`}
+                      className="shrink-0 inline-flex items-center justify-center px-3 py-1.5 grayscale opacity-75 hover:grayscale-0 hover:opacity-100 focus-visible:grayscale-0 focus-visible:opacity-100 transition-all duration-300"
+                    >
+                      <Image
+                        src={client.logo}
+                        alt={client.alt}
+                        width={140}
+                        height={40}
+                        className="h-8 sm:h-9 w-auto object-contain"
+                      />
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Second identical half for seamless -50% loop */}
+                <div
+                  aria-hidden="true"
+                  className="flex items-center gap-10 sm:gap-14 pr-10 sm:pr-14"
                 >
-                  <Image
-                    src={client.logo}
-                    alt={client.alt}
-                    width={120}
-                    height={34}
-                    className="h-6 sm:h-7 w-auto object-contain"
-                  />
-                </Link>
-              ))}
+                  {marqueeLoopGroup.map((client, idx) => (
+                    <Link
+                      key={`marquee-b-${client.icao}-${idx}`}
+                      href="/clients"
+                      tabIndex={-1}
+                      title={`${client.name} (${client.icao})`}
+                      className="shrink-0 inline-flex items-center justify-center px-3 py-1.5 grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                    >
+                      <Image
+                        src={client.logo}
+                        alt=""
+                        width={140}
+                        height={40}
+                        className="h-8 sm:h-9 w-auto object-contain"
+                      />
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
