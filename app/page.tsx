@@ -29,7 +29,7 @@ export default function HomePage() {
       <JsonLd data={buildFaqJsonLd(HOME_FAQS)} />
 
       {/* 1. Split Hero with Quick Permit Request Panel */}
-      <section className="relative overflow-hidden text-white border-b border-slate-800 pt-12 pb-14 sm:pt-16 sm:pb-18 lg:pt-20 lg:pb-22">
+      <section className="relative overflow-hidden text-white border-b border-slate-800 pt-28 pb-14 sm:pt-32 sm:pb-18 lg:pt-36 lg:pb-22">
         {/* Background Aircraft / Ramp Photo with Navy Overlay & Faint Route Line-Art */}
         <div className="absolute inset-0 z-0">
           <Image

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -15,6 +15,28 @@ interface NavItem {
   label: string;
   href: string;
   children?: NavDropdownItem[];
+}
+
+export function isHeroRoute(pathname: string): boolean {
+  if (pathname === "/" || pathname === "/tools") return true;
+  const heroPrefixes = [
+    "/services",
+    "/pakistan",
+    "/schedule-filing",
+    "/non-schedule-filing",
+    "/about",
+    "/contact",
+    "/customer-support",
+    "/aviation-resources",
+    "/insights",
+    "/permit-directory",
+    "/request-flight-support",
+    "/request-permit",
+    "/clients",
+  ];
+  return heroPrefixes.some(
+    (p) => pathname === p || pathname.startsWith(`${p}/`)
+  );
 }
 
 const PRIMARY_NAV: NavItem[] = [
@@ -128,31 +150,56 @@ const PRIMARY_NAV: NavItem[] = [
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const hasHero = isHeroRoute(pathname);
+  const isTransparent = hasHero && !isScrolled && !mobileOpen;
+
+  useEffect(() => {
+    function handleScroll() {
+      setIsScrolled(window.scrollY > 24);
+    }
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 bg-white text-[#0B2545] border-b border-slate-200 shadow-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 gap-4">
-          {/* Official KCL Brand Logo */}
+    <header
+      className={`sticky top-0 z-40 h-20 transition-all duration-200 ${
+        hasHero ? "-mb-20" : ""
+      } ${
+        isTransparent
+          ? "bg-transparent text-white border-b border-white/15"
+          : "bg-white/98 backdrop-blur-md text-[#0B2545] border-b border-slate-200 shadow-xs"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex items-center justify-between h-full gap-6 lg:gap-10">
+          {/* Official KCL Brand Logo (shifted slightly inward with clean gap from nav items) */}
           <Link
             href="/"
-            className="group flex items-center py-2 shrink-0 focus-visible:outline-offset-4"
+            className={`group flex items-center shrink-0 focus-visible:outline-offset-4 transition-all ml-1 sm:ml-2 ${
+              isTransparent
+                ? "bg-white/95 px-3 py-1.5 rounded-[2px] shadow-xs"
+                : "py-1.5"
+            }`}
             aria-label="Kashmir Corporation (Pvt.) Ltd. (KCL Flight Permission) Home"
           >
             <Image
               src="/img/imgi_2_Sign Logo1@3x.png"
               alt="KCL Flight Permission — Kashmir Corporation (Pvt.) Ltd. Official Logo"
-              width={190}
-              height={76}
+              width={185}
+              height={74}
               priority
-              className="h-12 sm:h-14 w-auto object-contain"
+              className="h-11 sm:h-12 w-auto object-contain"
             />
           </Link>
 
-          {/* Desktop Navigation — Clean Single Row with Dropdowns */}
+          {/* Desktop Navigation — Capitalized (Title Case) with Balanced Spacing */}
           <nav
             aria-label="Primary Navigation"
-            className="hidden lg:flex items-center gap-1 xl:gap-2"
+            className="hidden lg:flex items-center gap-5 xl:gap-7 ml-6 xl:ml-10"
           >
             {PRIMARY_NAV.map((item) => {
               const isActive =
@@ -166,8 +213,12 @@ export function Header() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`px-3 py-2 min-h-[44px] inline-flex items-center text-[13px] font-bold uppercase tracking-wide whitespace-nowrap transition-colors border-b-2 ${
-                      isActive
+                    className={`px-1.5 py-2 min-h-[44px] inline-flex items-center text-[15px] font-semibold capitalize tracking-normal whitespace-nowrap transition-colors border-b-2 ${
+                      isTransparent
+                        ? isActive
+                          ? "border-[#F2C200] text-white"
+                          : "border-transparent text-white/90 hover:text-[#F2C200] hover:border-white/40"
+                        : isActive
                         ? "border-[#E8A200] text-[#0B2545]"
                         : "border-transparent text-[#16202B] hover:text-[#0B2545] hover:border-slate-300"
                     }`}
@@ -181,15 +232,23 @@ export function Header() {
                 <div key={item.label} className="relative group">
                   <Link
                     href={item.href}
-                    className={`px-3 py-2 min-h-[44px] inline-flex items-center gap-1.5 text-[13px] font-bold uppercase tracking-wide whitespace-nowrap transition-colors border-b-2 ${
-                      isActive
+                    className={`px-1.5 py-2 min-h-[44px] inline-flex items-center gap-1.5 text-[15px] font-semibold capitalize tracking-normal whitespace-nowrap transition-colors border-b-2 ${
+                      isTransparent
+                        ? isActive
+                          ? "border-[#F2C200] text-white"
+                          : "border-transparent text-white/90 hover:text-[#F2C200] hover:border-white/40"
+                        : isActive
                         ? "border-[#E8A200] text-[#0B2545]"
                         : "border-transparent text-[#16202B] hover:text-[#0B2545] hover:border-slate-300"
                     }`}
                   >
                     <span>{item.label}</span>
                     <svg
-                      className="w-3.5 h-3.5 text-[#5C6B7A] group-hover:text-[#0B2545] transition-transform group-hover:rotate-180"
+                      className={`w-3.5 h-3.5 transition-transform group-hover:rotate-180 ${
+                        isTransparent
+                          ? "text-white/75 group-hover:text-[#F2C200]"
+                          : "text-[#5C6B7A] group-hover:text-[#0B2545]"
+                      }`}
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -204,7 +263,7 @@ export function Header() {
 
                   {/* Hover Dropdown Menu */}
                   <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 focus-within:visible focus-within:opacity-100 transition-all duration-150 absolute left-0 top-full pt-1 w-80 z-50">
-                    <div className="bg-white border border-slate-200 shadow-lg rounded-[2px] py-2 divide-y divide-slate-100">
+                    <div className="bg-white border border-slate-200 shadow-xl rounded-[2px] py-2 divide-y divide-slate-100 text-[#0B2545]">
                       {item.children.map((sub) => (
                         <Link
                           key={sub.href}
@@ -232,10 +291,20 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <Link
               href="/request-flight-support"
-              className="min-h-[42px] px-4 py-2 bg-[#0B2545] hover:bg-[#133661] text-white font-bold text-xs uppercase tracking-wider rounded-[2px] inline-flex items-center justify-center gap-2 transition-colors whitespace-nowrap border-b-2 border-[#F2C200]"
+              className={`min-h-[42px] px-4 py-2 font-bold text-sm capitalize rounded-[2px] inline-flex items-center justify-center gap-2 transition-colors whitespace-nowrap ${
+                isTransparent
+                  ? "bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] shadow-sm"
+                  : "bg-[#0B2545] hover:bg-[#133661] text-white border-b-2 border-[#F2C200]"
+              }`}
             >
               <span>Request Flight Support</span>
-              <span className="text-[#F2C200] font-mono">→</span>
+              <span
+                className={`font-mono ${
+                  isTransparent ? "text-[#0B2545]" : "text-[#F2C200]"
+                }`}
+              >
+                →
+              </span>
             </Link>
           </div>
 
@@ -243,7 +312,11 @@ export function Header() {
           <div className="flex lg:hidden items-center gap-2">
             <Link
               href="/request-flight-support"
-              className="min-h-[40px] px-3 py-2 bg-[#0B2545] hover:bg-[#133661] text-white font-bold text-xs rounded-[2px] inline-flex items-center justify-center whitespace-nowrap border-b-2 border-[#F2C200]"
+              className={`min-h-[40px] px-3 py-2 font-bold text-xs capitalize rounded-[2px] inline-flex items-center justify-center whitespace-nowrap ${
+                isTransparent
+                  ? "bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545]"
+                  : "bg-[#0B2545] hover:bg-[#133661] text-white border-b-2 border-[#F2C200]"
+              }`}
             >
               Request Support
             </Link>
@@ -255,10 +328,14 @@ export function Header() {
               aria-label={
                 mobileOpen ? "Close navigation menu" : "Open navigation menu"
               }
-              className="min-h-[40px] min-w-[44px] px-2.5 py-2 text-[#0B2545] bg-[#F6F8FB] border border-slate-300 rounded-[2px] inline-flex items-center justify-center"
+              className={`min-h-[40px] min-w-[44px] px-2.5 py-2 rounded-[2px] inline-flex items-center justify-center border ${
+                isTransparent
+                  ? "text-white bg-white/10 border-white/30"
+                  : "text-[#0B2545] bg-[#F6F8FB] border-slate-300"
+              }`}
             >
               <span className="font-mono text-xs font-bold">
-                {mobileOpen ? "CLOSE" : "MENU"}
+                {mobileOpen ? "Close" : "Menu"}
               </span>
             </button>
           </div>
@@ -270,7 +347,7 @@ export function Header() {
         <nav
           id="mobile-primary-menu"
           aria-label="Mobile Navigation"
-          className="lg:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-6 space-y-2 shadow-lg"
+          className="lg:hidden bg-white text-[#0B2545] border-t border-slate-200 px-4 pt-3 pb-6 space-y-2 shadow-lg"
         >
           {PRIMARY_NAV.map((item) => {
             const isActive =
@@ -283,7 +360,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`block px-3 py-2.5 text-sm font-bold uppercase tracking-wide border-l-2 ${
+                  className={`block px-3 py-2.5 text-sm font-bold capitalize border-l-2 ${
                     isActive
                       ? "border-[#E8A200] bg-[#F6F8FB] text-[#0B2545]"
                       : "border-transparent text-[#16202B] hover:bg-[#F6F8FB]"
