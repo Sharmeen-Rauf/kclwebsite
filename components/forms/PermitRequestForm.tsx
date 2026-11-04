@@ -63,10 +63,10 @@ export function PermitRequestForm({
       <div
         role="region"
         aria-label="Flight Inquiry Review Preview"
-        className="bg-white border-2 border-[#0B2545] p-6 sm:p-10 space-y-6"
+        className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-10 space-y-6"
       >
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#CBD5E1] pb-4">
-          <span className="font-mono text-xs font-bold bg-[#0B2545] text-[#E8A200] px-3 py-1">
+          <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-3 py-1">
             INQUIRY REVIEW PREVIEW (BACKEND NOT YET CONNECTED)
           </span>
           <span className="font-mono text-xs text-[#5C6B7A]">
@@ -75,7 +75,7 @@ export function PermitRequestForm({
         </div>
 
         <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-[#0B2545]">
+          <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
             Review Your Flight Support Inquiry
           </h2>
           <p className="text-sm sm:text-base text-[#16202B]">{state.message}</p>
@@ -101,14 +101,14 @@ export function PermitRequestForm({
             href={`mailto:${SITE_CONFIG.opsEmailPlaceholder}?subject=${encodeURIComponent(
               `Flight Support Inquiry: ${s.operatorName} (${s.routeFrom}-${s.routeTo})`
             )}&body=${encodeURIComponent(mailtoBody)}`}
-            className="min-h-[44px] px-5 py-2.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+            className="kcl-btn-primary min-h-[44px] px-5 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
           >
             Send Via Confirmed Channel ({SITE_CONFIG.opsEmailPlaceholder})
           </a>
           <Link
             href="/request-flight-support"
             onClick={() => window.location.reload()}
-            className="min-h-[44px] px-5 py-2.5 bg-[#0B2545] text-white font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+            className="kcl-btn-outline-navy min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
           >
             Edit Inquiry Details
           </Link>
@@ -121,14 +121,14 @@ export function PermitRequestForm({
     <form
       action={formAction}
       noValidate
-      className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-6"
+      className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-6"
     >
       <div className="border-b border-[#CBD5E1] pb-4 flex flex-wrap items-center justify-between gap-2">
         <div>
           <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
             FLIGHT SUPPORT &amp; PERMIT COORDINATION INQUIRY
           </span>
-          <h2 className="text-xl font-bold text-[#0B2545]">
+          <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
             Tell Us About Your Operation
           </h2>
         </div>
@@ -430,7 +430,7 @@ export function PermitRequestForm({
         <button
           type="submit"
           disabled={isPending}
-          className="min-h-[48px] px-7 py-3 bg-[#E8A200] hover:bg-[#CC8E00] disabled:opacity-60 text-[#0B2545] font-bold text-sm tracking-tight inline-flex items-center justify-center rounded-[2px] cursor-pointer whitespace-nowrap"
+          className="kcl-btn-primary min-h-[48px] px-7 py-3 disabled:opacity-60 font-bold text-sm tracking-tight inline-flex items-center justify-center rounded-[2px] cursor-pointer whitespace-nowrap"
         >
           {isPending
             ? "Preparing Preview..."

@@ -48,17 +48,17 @@ export default function PakistanFlightPermissionsPage() {
 
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
+          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
               PAKISTAN SPECIALIZATION · {SITE_CONFIG.authorityBadge}
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Flight Permission Services in Pakistan
             </h1>
-            <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
+            <p className="text-lg sm:text-xl font-semibold text-slate-100">
               Flight Permission Services in Pakistan, Explained Clearly.
             </p>
-            <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Planning an operation involving Pakistan? Kashmir Corporation
               assists eligible aviation operators with flight permission
               coordination, including applicable overflight, landing and
@@ -69,13 +69,13 @@ export default function PakistanFlightPermissionsPage() {
             <div className="pt-2 flex flex-wrap gap-3">
               <Link
                 href="/request-flight-support?country=Pakistan"
-                className="min-h-[48px] px-6 py-3 bg-[#F2C200] hover:bg-[#E8A200] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="kcl-btn-primary min-h-[48px] px-6 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 Discuss Pakistan Flight Permissions
               </Link>
               <Link
                 href="/permit-directory/pakistan"
-                className="min-h-[48px] px-5 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="kcl-btn-outline-white min-h-[48px] px-5 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 Pakistan FIR &amp; Airport Reference
               </Link>
@@ -88,12 +88,12 @@ export default function PakistanFlightPermissionsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Core Pakistan Inquiry Categories */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-3 flex flex-col justify-between">
+            <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-3 flex flex-col justify-between">
               <div className="space-y-3">
                 <span className="font-mono text-xs font-bold text-[#0B2545] bg-[#F6F8FB] border border-[#CBD5E1] px-2.5 py-0.5 inline-block">
                   01 · PAKISTAN OVERFLIGHT INQUIRIES
                 </span>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0B2545]">
+                <h2 className="no-accent-bar text-xl sm:text-2xl font-bold text-[#0B2545]">
                   Pakistan Overflight Inquiries
                 </h2>
                 <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
@@ -106,19 +106,19 @@ export default function PakistanFlightPermissionsPage() {
               <div className="pt-4 border-t border-slate-200">
                 <Link
                   href="/services/overflight-permit-pakistan"
-                  className="text-sm font-bold text-[#0B2545] underline underline-offset-4"
+                  className="kcl-link text-sm font-bold text-[#0B2545]"
                 >
                   Explore Pakistan Overflight Permit Guide →
                 </Link>
               </div>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-3 flex flex-col justify-between">
+            <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-3 flex flex-col justify-between">
               <div className="space-y-3">
                 <span className="font-mono text-xs font-bold text-[#0B2545] bg-[#F6F8FB] border border-[#CBD5E1] px-2.5 py-0.5 inline-block">
                   02 · PAKISTAN LANDING INQUIRIES
                 </span>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0B2545]">
+                <h2 className="no-accent-bar text-xl sm:text-2xl font-bold text-[#0B2545]">
                   Pakistan Landing Inquiries
                 </h2>
                 <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
@@ -130,19 +130,19 @@ export default function PakistanFlightPermissionsPage() {
               <div className="pt-4 border-t border-slate-200">
                 <Link
                   href="/services/landing-permit-pakistan"
-                  className="text-sm font-bold text-[#0B2545] underline underline-offset-4"
+                  className="kcl-link text-sm font-bold text-[#0B2545]"
                 >
                   Explore Pakistan Landing Permit Guide →
                 </Link>
               </div>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-3 flex flex-col justify-between">
+            <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-3 flex flex-col justify-between">
               <div className="space-y-3">
                 <span className="font-mono text-xs font-bold text-[#0B2545] bg-[#F6F8FB] border border-[#CBD5E1] px-2.5 py-0.5 inline-block">
                   03 · OPERATING CONTEXTS
                 </span>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0B2545]">
+                <h2 className="no-accent-bar text-xl sm:text-2xl font-bold text-[#0B2545]">
                   Scheduled and Non-Scheduled Operations
                 </h2>
                 <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
@@ -153,25 +153,25 @@ export default function PakistanFlightPermissionsPage() {
               <div className="pt-4 border-t border-slate-200 flex flex-wrap gap-4 text-sm font-bold text-[#0B2545]">
                 <Link
                   href="/services/scheduled-flights"
-                  className="underline underline-offset-4"
+                  className="kcl-link"
                 >
                   Scheduled Flights →
                 </Link>
                 <Link
                   href="/services/non-scheduled-flights"
-                  className="underline underline-offset-4"
+                  className="kcl-link"
                 >
                   Charter &amp; Non-Scheduled →
                 </Link>
               </div>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-3 flex flex-col justify-between">
+            <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-3 flex flex-col justify-between">
               <div className="space-y-3">
                 <span className="font-mono text-xs font-bold text-[#0B2545] bg-[#F6F8FB] border border-[#CBD5E1] px-2.5 py-0.5 inline-block">
                   04 · CONNECTED SUPPORT
                 </span>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0B2545]">
+                <h2 className="no-accent-bar text-xl sm:text-2xl font-bold text-[#0B2545]">
                   Related Operational Requirements
                 </h2>
                 <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
@@ -182,19 +182,19 @@ export default function PakistanFlightPermissionsPage() {
               <div className="pt-4 border-t border-slate-200 flex flex-wrap gap-4 text-sm font-bold text-[#0B2545]">
                 <Link
                   href="/services/ground-handling"
-                  className="underline underline-offset-4"
+                  className="kcl-link"
                 >
                   Ground Handling →
                 </Link>
                 <Link
                   href="/services/aviation-fuel"
-                  className="underline underline-offset-4"
+                  className="kcl-link"
                 >
                   Aviation Fuel →
                 </Link>
                 <Link
                   href="/services/crew-logistics"
-                  className="underline underline-offset-4"
+                  className="kcl-link"
                 >
                   Crew Logistics →
                 </Link>
@@ -204,11 +204,11 @@ export default function PakistanFlightPermissionsPage() {
 
           {/* What KCL needs from you & Authorization Disclaimer */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-7 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
+            <div className="kcl-card lg:col-span-7 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
               <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
                 INQUIRY PREPARATION
               </span>
-              <h2 className="text-2xl font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
                 What KCL Needs from You
               </h2>
               <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
@@ -256,12 +256,12 @@ export default function PakistanFlightPermissionsPage() {
               </ul>
             </div>
 
-            <div className="lg:col-span-5 bg-white border-l-4 border-[#0B2545] border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between space-y-4">
+            <div className="kcl-card lg:col-span-5 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between space-y-4">
               <div className="space-y-3">
-                <span className="font-mono text-xs uppercase text-[#E8A200] bg-[#0B2545] px-2.5 py-1 inline-block font-semibold">
+                <span className="font-mono text-xs uppercase text-white bg-[#0B2545] border-b-2 border-[var(--accent)] px-2.5 py-1 inline-block font-semibold">
                   AUTHORIZATION DISCLAIMER
                 </span>
-                <h2 className="text-xl font-bold text-[#0B2545]">
+                <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
                   Regulatory Authority &amp; Current Requirements
                 </h2>
                 <p className="text-sm text-[#16202B] leading-relaxed">
@@ -274,14 +274,14 @@ export default function PakistanFlightPermissionsPage() {
                   coordination beyond Pakistan? See our dedicated{" "}
                   <Link
                     href="/services/overflight-permits"
-                    className="underline text-[#0B2545] font-semibold"
+                    className="text-[#0B2545] font-semibold"
                   >
                     International Overflight Permits
                   </Link>{" "}
                   and{" "}
                   <Link
                     href="/services/landing-permits"
-                    className="underline text-[#0B2545] font-semibold"
+                    className="text-[#0B2545] font-semibold"
                   >
                     International Landing Permits
                   </Link>{" "}
@@ -292,7 +292,7 @@ export default function PakistanFlightPermissionsPage() {
               <div className="pt-4 border-t border-[#CBD5E1]">
                 <Link
                   href="/request-flight-support?country=Pakistan"
-                  className="w-full min-h-[44px] px-4 py-2.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="kcl-btn-primary w-full min-h-[44px] px-4 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Discuss Pakistan Flight Permissions →
                 </Link>
@@ -301,12 +301,12 @@ export default function PakistanFlightPermissionsPage() {
           </div>
 
           {/* FAQ Section */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-6">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-6">
             <div>
               <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
                 FREQUENTLY ASKED QUESTIONS
               </span>
-              <h2 className="text-2xl font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
                 Pakistan Flight Permission Inquiries Q&amp;A
               </h2>
             </div>

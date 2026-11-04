@@ -99,9 +99,9 @@ export default async function CountryPermitDetailPage({
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-8 space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <div className="kcl-card lg:col-span-8 space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
               <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
-                <span className="bg-white/10 backdrop-blur-sm border border-[#F2C200] text-[#F2C200] px-2.5 py-1 font-semibold">
+                <span className="bg-white/10 backdrop-blur-sm border border-white/30 border-b-2 border-b-[var(--accent)] text-white px-2.5 py-1 font-semibold">
                   ISO: {guide.isoCode}
                 </span>
                 <span className="bg-white/10 backdrop-blur-sm border border-white/25 text-slate-100 px-2.5 py-1">
@@ -113,11 +113,11 @@ export default async function CountryPermitDetailPage({
                 {guide.countryName} Overflight &amp; Landing Permit Guide
               </h1>
 
-              <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
+              <p className="text-lg sm:text-xl font-semibold text-slate-100">
                 Dispatch Planning Reference for OPKR &amp; OPLR Airspace and International Aerodromes.
               </p>
 
-              <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
                 {guide.summary}
               </p>
 
@@ -126,22 +126,22 @@ export default async function CountryPermitDetailPage({
                   href={`/request-permit?country=${encodeURIComponent(
                     guide.countryName
                   )}`}
-                  className="min-h-[48px] px-6 py-3 bg-[#F2C200] hover:bg-[#E8A200] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="kcl-btn-primary min-h-[48px] px-6 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Coordinate a {guide.countryName} Permit
                 </Link>
                 <a
                   href="/files/kcl-permit-request-checklist.pdf"
                   download
-                  className="min-h-[48px] px-5 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="kcl-btn-outline-white min-h-[48px] px-5 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Download Permit Checklist (PDF)
                 </a>
               </div>
             </div>
 
-            <div className="lg:col-span-4 bg-black/45 backdrop-blur-md border border-white/20 p-5 space-y-3 font-mono text-xs rounded-[2px]">
-              <div className="border-b border-white/20 pb-2 text-[#F2C200] font-semibold">
+            <div className="kcl-card lg:col-span-4 bg-black/45 backdrop-blur-md border border-white/20 p-5 space-y-3 font-mono text-xs rounded-[2px]">
+              <div className="border-b border-[var(--accent)]/40 pb-2 text-white font-semibold">
                 AIRSPACE &amp; AUTHORITY DATA
               </div>
               <div>
@@ -173,8 +173,8 @@ export default async function CountryPermitDetailPage({
           <PermitChecker />
 
           {/* Primary International Airports Table */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8">
-            <h2 className="text-2xl font-bold text-[#0B2545] mb-4">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
+            <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545] mb-4">
               Primary International Aerodromes in {guide.countryName}
             </h2>
             <div className="overflow-x-auto border border-[#CBD5E1]">
@@ -231,14 +231,14 @@ export default async function CountryPermitDetailPage({
               {combinations.map((combo) => (
                 <div
                   key={combo.title}
-                  className="bg-white border border-[#CBD5E1] p-6 flex flex-col justify-between"
+                  className="kcl-card bg-white border border-[#CBD5E1] p-6 flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 pb-3 mb-4 border-b border-[#CBD5E1]">
                       <h3 className="text-xl font-bold text-[#0B2545]">
                         {combo.title}
                       </h3>
-                      <span className="font-mono text-[11px] bg-amber-50 border border-[#E8A200] text-[#0B2545] px-2 py-0.5 font-semibold">
+                      <span className="font-mono text-[11px] bg-[#F6F8FB] border border-[#CBD5E1] border-b-2 border-b-[var(--accent)] text-[#0B2545] px-2 py-0.5 font-semibold">
                         {combo.data.verificationStatus}
                       </span>
                     </div>
@@ -273,10 +273,10 @@ export default async function CountryPermitDetailPage({
                       href={`/request-permit?flightType=${combo.flightType}&permitType=${combo.permitType}&country=${encodeURIComponent(
                         guide.countryName
                       )}`}
-                      className="w-full min-h-[44px] px-4 py-2.5 bg-[#0B2545] hover:bg-[#133661] text-white font-semibold text-sm inline-flex items-center justify-between rounded-[2px]"
+                      className="kcl-btn-primary w-full min-h-[44px] px-4 py-2.5 font-semibold text-sm inline-flex items-center justify-between rounded-[2px]"
                     >
                       <span>Coordinate {combo.title}</span>
-                      <span className="font-mono text-[#E8A200]">→</span>
+                      <span className="font-mono">→</span>
                     </Link>
                   </div>
                 </div>
@@ -285,8 +285,8 @@ export default async function CountryPermitDetailPage({
           </div>
 
           {/* Country FAQs */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8">
-            <h2 className="text-2xl font-bold text-[#0B2545] mb-6">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
+            <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545] mb-6">
               Frequently Asked Questions: {guide.countryName} Flight Permissions
             </h2>
             <div className="divide-y divide-[#CBD5E1]">

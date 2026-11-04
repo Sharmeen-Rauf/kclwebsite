@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+:root {
+  --accent: #F4C400;
+  --accent-rgb: 244, 196, 0;
+}
+
 @theme {
   --color-navy: #0B2545;
   --color-navy-dark: #07192F;
@@ -8,8 +13,9 @@
   --color-panel: #FFFFFF;
   --color-ink: #16202B;
   --color-steel: #5C6B7A;
-  --color-amber: #E8A200;
-  --color-amber-hover: #CC8E00;
+  --color-amber: #F4C400;
+  --color-amber-hover: #DFB200;
+  --color-accent: #F4C400;
   --color-border: #CBD5E1;
 
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
@@ -43,9 +49,110 @@
   }
 
   :focus-visible {
-    outline: 2px solid #E8A200;
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
+}
+
+/* Signature Accent System (--accent: #F4C400 sampled from KCL logo) */
+
+/* 1. Section headings: 40px by 3px bar in --accent above the heading */
+main section h2:not(.no-accent-bar)::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+/* 2. Table header rows: 2px bottom border in --accent */
+thead tr,
+thead th {
+  border-bottom: 2px solid var(--accent) !important;
+}
+
+/* 3. Primary buttons: navy background, white text, 3px bottom border in --accent (4px on hover) */
+.kcl-btn-primary {
+  background-color: #0B2545;
+  color: #FFFFFF;
+  border-bottom: 3px solid var(--accent);
+  transition:
+    background-color 160ms ease,
+    border-bottom-width 140ms ease;
+}
+
+.kcl-btn-primary:hover {
+  background-color: #133661;
+  border-bottom-width: 4px;
+}
+
+/* 4. Outline buttons: 1px white or navy border with a 3px bottom border in --accent */
+.kcl-btn-outline-white {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-bottom: 3px solid var(--accent);
+  transition:
+    background-color 160ms ease,
+    border-bottom-width 140ms ease;
+}
+
+.kcl-btn-outline-white:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+  border-bottom-width: 4px;
+}
+
+.kcl-btn-outline-navy {
+  background-color: #FFFFFF;
+  color: #0B2545;
+  border: 1px solid #0B2545;
+  border-bottom: 3px solid var(--accent);
+  transition:
+    background-color 160ms ease,
+    border-bottom-width 140ms ease;
+}
+
+.kcl-btn-outline-navy:hover {
+  background-color: #F6F8FB;
+  border-bottom-width: 4px;
+}
+
+/* 5. Cards: 3px top border in --accent */
+.kcl-card,
+main article,
+main aside > div {
+  border-top: 3px solid var(--accent) !important;
+}
+
+/* 6. Text links: --accent underline that slides in on hover */
+.kcl-link,
+main p a:not([class*="min-h-"]):not([class*="kcl-btn"]),
+main li a:not([class*="min-h-"]):not([class*="kcl-btn"]),
+main td a:not([class*="min-h-"]):not([class*="kcl-btn"]),
+main h3 a:not([class*="min-h-"]):not([class*="kcl-btn"]) {
+  text-decoration: none !important;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  transition:
+    background-size 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 160ms ease;
+}
+
+.kcl-link:hover,
+.kcl-link:focus-visible,
+main p a:not([class*="min-h-"]):not([class*="kcl-btn"]):hover,
+main p a:not([class*="min-h-"]):not([class*="kcl-btn"]):focus-visible,
+main li a:not([class*="min-h-"]):not([class*="kcl-btn"]):hover,
+main li a:not([class*="min-h-"]):not([class*="kcl-btn"]):focus-visible,
+main td a:not([class*="min-h-"]):not([class*="kcl-btn"]):hover,
+main td a:not([class*="min-h-"]):not([class*="kcl-btn"]):focus-visible,
+main h3 a:not([class*="min-h-"]):not([class*="kcl-btn"]):hover,
+main h3 a:not([class*="min-h-"]):not([class*="kcl-btn"]):focus-visible {
+  background-size: 100% 2px;
 }
 
 @keyframes drawAirway {

@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
 
       <section className="py-12 sm:py-16 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-10 space-y-6">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-10 space-y-6">
             <header className="border-b border-[#CBD5E1] pb-4">
               <span className="font-mono text-xs text-[#5C6B7A] uppercase block">
                 LEGAL &amp; DATA PROTECTION

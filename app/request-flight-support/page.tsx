@@ -71,17 +71,17 @@ export default async function RequestFlightSupportPage({
 
       <section className="kcl-hero-bg text-white py-10 sm:py-14 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-3 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
+          <div className="kcl-card max-w-3xl space-y-3 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
               FLIGHT SUPPORT INQUIRY · {SITE_CONFIG.authorityBadge}
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Request Flight Support &amp; Permit Coordination
             </h1>
-            <p className="text-lg font-semibold text-[#F2C200]">
+            <p className="text-lg font-semibold text-slate-100">
               Tell Us About Your Operation. We&apos;ll Help Identify the Next Steps.
             </p>
-            <p className="text-base text-slate-100 leading-relaxed">
+            <p className="text-base text-slate-200 leading-relaxed">
               Whether your itinerary is confirmed or still being planned, start
               with the information available. KCL can use your inquiry to
               understand the requested permission and service coordination
@@ -96,7 +96,7 @@ export default async function RequestFlightSupportPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           {/* 4-Step Guide from V2 Section 17 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-white border border-[#CBD5E1] p-4 space-y-1.5">
+            <div className="kcl-card bg-white border border-[#CBD5E1] p-4 space-y-1.5">
               <span className="font-mono text-xs font-bold text-[#0B2545]">
                 STEP ONE — OPERATION TYPE
               </span>
@@ -105,7 +105,7 @@ export default async function RequestFlightSupportPage({
                 business/private aviation, cargo or other.
               </p>
             </div>
-            <div className="bg-white border border-[#CBD5E1] p-4 space-y-1.5">
+            <div className="kcl-card bg-white border border-[#CBD5E1] p-4 space-y-1.5">
               <span className="font-mono text-xs font-bold text-[#0B2545]">
                 STEP TWO — SERVICES NEEDED
               </span>
@@ -115,7 +115,7 @@ export default async function RequestFlightSupportPage({
                 crew logistics, catering or multiple services.
               </p>
             </div>
-            <div className="bg-white border border-[#CBD5E1] p-4 space-y-1.5">
+            <div className="kcl-card bg-white border border-[#CBD5E1] p-4 space-y-1.5">
               <span className="font-mono text-xs font-bold text-[#0B2545]">
                 STEP THREE — FLIGHT INFORMATION
               </span>
@@ -125,7 +125,7 @@ export default async function RequestFlightSupportPage({
                 operational notes.
               </p>
             </div>
-            <div className="bg-white border border-[#CBD5E1] p-4 space-y-1.5">
+            <div className="kcl-card bg-white border border-[#CBD5E1] p-4 space-y-1.5">
               <span className="font-mono text-xs font-bold text-[#0B2545]">
                 STEP FOUR — CONTACT &amp; REVIEW
               </span>
@@ -151,11 +151,11 @@ export default async function RequestFlightSupportPage({
             </div>
 
             <aside className="lg:col-span-4 space-y-6">
-              <div className="bg-white border border-[#CBD5E1] p-6 space-y-3">
-                <span className="font-mono text-xs uppercase text-[#E8A200] bg-[#0B2545] px-2.5 py-1 inline-block font-semibold">
+              <div className="kcl-card bg-white border border-[#CBD5E1] p-6 space-y-3">
+                <span className="font-mono text-xs uppercase text-white bg-[#0B2545] border-b-2 border-[var(--accent)] px-2.5 py-1 inline-block font-semibold">
                   SUBMISSION BEHAVIOR
                 </span>
-                <h2 className="text-base font-bold text-[#0B2545]">
+                <h2 className="no-accent-bar text-base font-bold text-[#0B2545]">
                   Inquiry Review Preview
                 </h2>
                 <p className="text-xs text-[#16202B] leading-relaxed">
@@ -177,8 +177,8 @@ export default async function RequestFlightSupportPage({
                 </div>
               </div>
 
-              <div className="bg-white border border-[#CBD5E1] p-6 space-y-3">
-                <h2 className="text-base font-bold text-[#0B2545]">
+              <div className="kcl-card bg-white border border-[#CBD5E1] p-6 space-y-3">
+                <h2 className="no-accent-bar text-base font-bold text-[#0B2545]">
                   Frequently Asked Questions
                 </h2>
                 <div className="space-y-3 text-xs text-[#16202B]">
@@ -196,8 +196,8 @@ export default async function RequestFlightSupportPage({
                 </div>
               </div>
 
-              <div className="bg-white border border-[#CBD5E1] p-6 space-y-3">
-                <h2 className="text-base font-bold text-[#0B2545]">
+              <div className="kcl-card bg-white border border-[#CBD5E1] p-6 space-y-3">
+                <h2 className="no-accent-bar text-base font-bold text-[#0B2545]">
                   Flight Inquiry Checklist (PDF)
                 </h2>
                 <p className="text-xs text-[#16202B]">
@@ -208,14 +208,14 @@ export default async function RequestFlightSupportPage({
                 <a
                   href="/files/kcl-permit-request-checklist.pdf"
                   download
-                  className="w-full min-h-[44px] px-4 py-2.5 bg-[#0B2545] hover:bg-[#133661] text-white font-semibold text-xs font-mono inline-flex items-center justify-center"
+                  className="kcl-btn-primary w-full min-h-[44px] px-4 py-2.5 font-semibold text-xs font-mono inline-flex items-center justify-center rounded-[2px]"
                 >
                   Download Flight Inquiry Checklist ↓
                 </a>
                 <div className="pt-2 text-xs">
                   <Link
                     href="/aviation-resources"
-                    className="font-semibold text-[#0B2545] underline underline-offset-4"
+                    className="kcl-link font-semibold text-[#0B2545]"
                   >
                     Browse Aviation Resources →
                   </Link>

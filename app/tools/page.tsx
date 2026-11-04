@@ -42,17 +42,17 @@ export default function ToolsIndexPage() {
 
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
+          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
               FLIGHT DISPATCH REFERENCE UTILITIES
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Aviation Dispatch &amp; Flight Operations Tools
             </h1>
-            <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
+            <p className="text-lg sm:text-xl font-semibold text-slate-100">
               Quick-Access Reference Tables for Flight Planning and Permit Preparation.
             </p>
-            <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Built for airline dispatchers, flight followers, and charter
               coordinators verifying aircraft nationality marks, radiotelephony
               readbacks, and UTC/PKT schedule conversions before filing.
@@ -67,16 +67,15 @@ export default function ToolsIndexPage() {
             {TOOLS_LIST.map((tool) => (
               <article
                 key={tool.href}
-                className="bg-white border border-[#CBD5E1] p-6 flex flex-col justify-between"
+                className="kcl-card bg-white border border-[#CBD5E1] p-6 flex flex-col justify-between"
               >
                 <div>
                   <span className="font-mono text-xs text-[#5C6B7A] font-semibold block mb-2">
                     {tool.code}
                   </span>
-                  <h2 className="text-xl font-bold text-[#0B2545] mb-3">
+                  <h2 className="no-accent-bar text-xl font-bold text-[#0B2545] mb-3">
                     <Link
                       href={tool.href}
-                      className="hover:underline underline-offset-4"
                     >
                       {tool.title}
                     </Link>
@@ -88,18 +87,18 @@ export default function ToolsIndexPage() {
 
                 <Link
                   href={tool.href}
-                  className="min-h-[44px] px-4 py-2.5 bg-[#0B2545] hover:bg-[#133661] text-white font-semibold text-sm inline-flex items-center justify-between rounded-[2px]"
+                  className="kcl-btn-primary min-h-[44px] px-4 py-2.5 font-semibold text-sm inline-flex items-center justify-between rounded-[2px]"
                 >
                   <span>Open Dispatch Tool</span>
-                  <span className="font-mono text-[#E8A200]">→</span>
+                  <span className="font-mono">→</span>
                 </Link>
               </article>
             ))}
           </div>
 
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h2 className="text-lg font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-lg font-bold text-[#0B2545]">
                 Preparing a Pakistan Overflight or Landing Request?
               </h2>
               <p className="text-sm text-[#16202B]">
@@ -111,7 +110,7 @@ export default function ToolsIndexPage() {
             <a
               href="/files/kcl-permit-request-checklist.pdf"
               download
-              className="min-h-[44px] px-5 py-2.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm whitespace-nowrap inline-flex items-center justify-center rounded-[2px]"
+              className="kcl-btn-primary min-h-[44px] px-5 py-2.5 font-bold text-sm whitespace-nowrap inline-flex items-center justify-center rounded-[2px]"
             >
               Download Checklist (PDF)
             </a>

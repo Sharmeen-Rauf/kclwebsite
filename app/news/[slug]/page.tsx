@@ -143,10 +143,10 @@ export default async function NewsArticlePage({
 
       <article className="py-12 sm:py-16 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-10">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-10">
             <header className="border-b border-[#CBD5E1] pb-6 mb-6 space-y-4">
               <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-[#5C6B7A]">
-                <span className="bg-[#0B2545] text-[#E8A200] px-2.5 py-1 font-semibold">
+                <span className="bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2.5 py-1 font-semibold">
                   {post.category}
                 </span>
                 <time dateTime={post.date}>Published: {post.date}</time>
@@ -180,13 +180,13 @@ export default async function NewsArticlePage({
             <div className="mt-10 pt-6 border-t border-[#CBD5E1] flex flex-wrap items-center justify-between gap-4">
               <Link
                 href="/request-permit"
-                className="min-h-[44px] px-5 py-2.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="kcl-btn-primary min-h-[44px] px-5 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 Request a Pakistan Flight Permit
               </Link>
               <Link
                 href="/services/flight-permission"
-                className="text-sm font-bold text-[#0B2545] underline underline-offset-4"
+                className="kcl-link text-sm font-bold text-[#0B2545]"
               >
                 Explore Flight Permission Hub →
               </Link>
@@ -202,7 +202,7 @@ export default async function NewsArticlePage({
                 {relatedPosts.map((rel) => (
                   <div
                     key={rel.slug}
-                    className="bg-white border border-[#CBD5E1] p-5 flex flex-col justify-between"
+                    className="kcl-card bg-white border border-[#CBD5E1] p-5 flex flex-col justify-between"
                   >
                     <div>
                       <span className="font-mono text-xs text-[#5C6B7A] block mb-1">

@@ -62,17 +62,17 @@ export default function ScheduleFilingPage() {
 
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
+          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
               IATA SEASONAL &amp; TIMETABLE OPERATIONS
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Scheduled Flight Permissions &amp; Timetable Filing in Pakistan
             </h1>
-            <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
+            <p className="text-lg sm:text-xl font-semibold text-slate-100">
               Structured Seasonal Submissions and Ongoing Fleet Revision Control.
             </p>
-            <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Commercial airlines operating regular passenger and cargo services
               across Pakistan need disciplined regulatory administration ahead
               of every IATA Summer and Winter season. As an AFPA Authorized
@@ -83,13 +83,13 @@ export default function ScheduleFilingPage() {
             <div className="pt-2 flex flex-wrap gap-3">
               <Link
                 href="/request-permit?flightType=schedule"
-                className="min-h-[48px] px-6 py-3 bg-[#F2C200] hover:bg-[#E8A200] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="kcl-btn-primary min-h-[48px] px-6 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 Discuss Seasonal Schedule Filing
               </Link>
               <Link
                 href="/non-schedule-filing"
-                className="min-h-[48px] px-5 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="kcl-btn-outline-white min-h-[48px] px-5 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 Operating an Ad-Hoc Charter Instead?
               </Link>
@@ -102,11 +102,11 @@ export default function ScheduleFilingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           {/* Why it matters + What KCL coordinates */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-7 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
+            <div className="kcl-card lg:col-span-7 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
               <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
                 OPERATIONAL CONTINUITY FOR AIRLINES
               </span>
-              <h2 className="text-2xl font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
                 Keeping Seasonal Timetables and Active Fleet Lists Aligned
               </h2>
               <p className="text-[#16202B] text-base leading-relaxed">
@@ -124,7 +124,7 @@ export default function ScheduleFilingPage() {
 
               <ul className="space-y-3 text-sm text-[#16202B] pt-2">
                 <li className="flex items-start gap-2.5">
-                  <span className="font-mono text-xs font-bold bg-[#0B2545] text-[#E8A200] px-2 py-0.5 mt-0.5">
+                  <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2 py-0.5 mt-0.5">
                     01
                   </span>
                   <span>
@@ -134,7 +134,7 @@ export default function ScheduleFilingPage() {
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="font-mono text-xs font-bold bg-[#0B2545] text-[#E8A200] px-2 py-0.5 mt-0.5">
+                  <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2 py-0.5 mt-0.5">
                     02
                   </span>
                   <span>
@@ -144,7 +144,7 @@ export default function ScheduleFilingPage() {
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="font-mono text-xs font-bold bg-[#0B2545] text-[#E8A200] px-2 py-0.5 mt-0.5">
+                  <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2 py-0.5 mt-0.5">
                     03
                   </span>
                   <span>
@@ -156,12 +156,12 @@ export default function ScheduleFilingPage() {
               </ul>
             </div>
 
-            <div className="lg:col-span-5 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between">
+            <div className="kcl-card lg:col-span-5 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between">
               <div className="space-y-4">
                 <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
                   AIRLINE PREPARATION CHECKLIST
                 </span>
-                <h2 className="text-xl font-bold text-[#0B2545]">
+                <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
                   What Operators Should Prepare for Schedule Filing
                 </h2>
                 <ul className="space-y-2.5 text-sm text-[#16202B]">
@@ -206,30 +206,30 @@ export default function ScheduleFilingPage() {
           </div>
 
           {/* Related Internal Links */}
-          <div className="bg-white border border-[#CBD5E1] p-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
             <Link
               href="/services/overflight-permit-pakistan"
-              className="p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] font-semibold text-[#0B2545]"
+              className="kcl-card p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] font-semibold text-[#0B2545]"
             >
               Pakistan Overflight Permits (OPKR/OPLR) →
             </Link>
             <Link
               href="/services/landing-permit-pakistan"
-              className="p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] font-semibold text-[#0B2545]"
+              className="kcl-card p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] font-semibold text-[#0B2545]"
             >
               Landing Permit Coordination →
             </Link>
             <Link
               href="/news/schedule-vs-non-schedule-filing-explained"
-              className="p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] font-semibold text-[#0B2545]"
+              className="kcl-card p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] font-semibold text-[#0B2545]"
             >
               Briefing: Schedule vs Non-Schedule Filing →
             </Link>
           </div>
 
           {/* FAQs */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8">
-            <h2 className="text-2xl font-bold text-[#0B2545] mb-6">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
+            <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545] mb-6">
               Frequently Asked Questions: Scheduled Flight Permissions
             </h2>
             <div className="divide-y divide-[#CBD5E1]">

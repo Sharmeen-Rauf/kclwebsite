@@ -53,7 +53,7 @@ export function PhoneticConverterClient() {
     });
 
   return (
-    <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8">
+    <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
       <div className="mb-6">
         <label
           htmlFor="callsign-input"

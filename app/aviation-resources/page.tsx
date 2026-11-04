@@ -108,17 +108,17 @@ export default function AviationResourcesPage() {
 
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
+          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
               OPERATOR RESOURCE LIBRARY · PERMIT GUIDES &amp; CHECKLISTS
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Aviation Resources, Permit Guides &amp; Checklists
             </h1>
-            <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
+            <p className="text-lg sm:text-xl font-semibold text-slate-100">
               Better Flight Questions Begin with Better Information.
             </p>
-            <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Preparing an international flight often means bringing different
               details together early. Our resource library is designed to help
               operations professionals understand terminology, prepare relevant
@@ -132,7 +132,7 @@ export default function AviationResourcesPage() {
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Publication Policy Notice */}
-          <div className="bg-white border-l-4 border-[#0B2545] border border-[#CBD5E1] p-5 sm:p-6">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-5 sm:p-6">
             <span className="font-mono text-xs font-bold text-[#0B2545] uppercase block mb-1">
               PUBLICATION POLICY &amp; REGULATORY NOTICE
             </span>
@@ -150,7 +150,7 @@ export default function AviationResourcesPage() {
             {RESOURCE_MODULES.map((item) => (
               <article
                 key={item.code}
-                className="bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between space-y-4"
+                className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
                   <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs text-[#5C6B7A]">
@@ -160,7 +160,7 @@ export default function AviationResourcesPage() {
                     <span>Last Reviewed: {item.reviewedDate}</span>
                   </div>
 
-                  <h2 className="text-xl font-bold text-[#0B2545]">
+                  <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
                     {item.title}
                   </h2>
 
@@ -184,14 +184,14 @@ export default function AviationResourcesPage() {
                     <a
                       href={item.href}
                       download
-                      className="text-[#0B2545] underline underline-offset-4"
+                      className="kcl-link text-[#0B2545]"
                     >
                       {item.ctaLabel}
                     </a>
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-[#0B2545] underline underline-offset-4"
+                      className="kcl-link text-[#0B2545]"
                     >
                       {item.ctaLabel}
                     </Link>
@@ -199,7 +199,7 @@ export default function AviationResourcesPage() {
                   {item.secondaryHref && item.secondaryCtaLabel && (
                     <Link
                       href={item.secondaryHref}
-                      className="text-[#0B2545] underline underline-offset-4"
+                      className="kcl-link text-[#0B2545]"
                     >
                       {item.secondaryCtaLabel}
                     </Link>
@@ -210,19 +210,19 @@ export default function AviationResourcesPage() {
           </div>
 
           {/* Flight Planning and Dispatch Terms Glossary */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-6">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#CBD5E1] pb-4">
               <div>
                 <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
                   OPERATIONAL TERMINOLOGY · REVIEWED 2026-11-03
                 </span>
-                <h2 className="text-2xl font-bold text-[#0B2545]">
+                <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
                   Flight Planning and Dispatch Terms
                 </h2>
               </div>
               <Link
                 href="/insights"
-                className="text-sm font-bold text-[#0B2545] underline underline-offset-4"
+                className="kcl-link text-sm font-bold text-[#0B2545]"
               >
                 Read Aviation Insights Articles →
               </Link>
@@ -232,7 +232,7 @@ export default function AviationResourcesPage() {
               {GLOSSARY_TERMS.map((entry) => (
                 <div
                   key={entry.term}
-                  className="bg-[#F6F8FB] border border-[#CBD5E1] p-4 space-y-1.5"
+                  className="kcl-card bg-[#F6F8FB] border border-[#CBD5E1] p-4 space-y-1.5"
                 >
                   <h3 className="text-base font-bold text-[#0B2545]">
                     {entry.term}

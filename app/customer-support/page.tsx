@@ -21,17 +21,17 @@ export default function CustomerSupportPage() {
 
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
+          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
               ACTIVE INQUIRIES &amp; COORDINATION UPDATES
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Aviation Customer Support &amp; Operations Contact
             </h1>
-            <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
+            <p className="text-lg sm:text-xl font-semibold text-slate-100">
               Clear Answers for Active Aviation Inquiries.
             </p>
-            <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Use this page to reach the appropriate KCL team regarding an
               existing request, requested service or operational question.
               Include only the information needed to identify the matter and
@@ -44,11 +44,11 @@ export default function CustomerSupportPage() {
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white border border-[#CBD5E1] p-6 space-y-3">
-              <span className="font-mono text-xs font-bold bg-[#0B2545] text-[#E8A200] px-2.5 py-1 inline-block">
+            <div className="kcl-card bg-white border border-[#CBD5E1] p-6 space-y-3">
+              <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2.5 py-1 inline-block">
                 01 · EXISTING REQUESTS
               </span>
-              <h2 className="text-xl font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
                 Existing Requests
               </h2>
               <p className="text-sm text-[#16202B] leading-relaxed">
@@ -57,11 +57,11 @@ export default function CustomerSupportPage() {
               </p>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] p-6 space-y-3">
-              <span className="font-mono text-xs font-bold bg-[#0B2545] text-[#E8A200] px-2.5 py-1 inline-block">
+            <div className="kcl-card bg-white border border-[#CBD5E1] p-6 space-y-3">
+              <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2.5 py-1 inline-block">
                 02 · CHANGES TO ITINERARY
               </span>
-              <h2 className="text-xl font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
                 Changes to Itinerary
               </h2>
               <p className="text-sm text-[#16202B] leading-relaxed">
@@ -71,11 +71,11 @@ export default function CustomerSupportPage() {
               </p>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] p-6 space-y-3">
-              <span className="font-mono text-xs font-bold bg-[#0B2545] text-[#E8A200] px-2.5 py-1 inline-block">
+            <div className="kcl-card bg-white border border-[#CBD5E1] p-6 space-y-3">
+              <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2.5 py-1 inline-block">
                 03 · SERVICE ISSUES
               </span>
-              <h2 className="text-xl font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
                 Service Issues
               </h2>
               <p className="text-sm text-[#16202B] leading-relaxed">
@@ -85,11 +85,11 @@ export default function CustomerSupportPage() {
             </div>
           </div>
 
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
             <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
               SUPPORT CHANNEL &amp; VERIFICATION POLICY
             </span>
-            <h2 className="text-2xl font-bold text-[#0B2545]">
+            <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
               Support Channel Information
             </h2>
             <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
@@ -157,13 +157,13 @@ export default function CustomerSupportPage() {
             <div className="pt-4 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="min-h-[44px] px-5 py-2.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="kcl-btn-primary min-h-[44px] px-5 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 Contact Customer Support
               </Link>
               <Link
                 href="/request-flight-support"
-                className="min-h-[44px] px-5 py-2.5 bg-[#0B2545] hover:bg-[#133661] text-white font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="kcl-btn-outline-navy min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 Start a New Flight Support Inquiry
               </Link>

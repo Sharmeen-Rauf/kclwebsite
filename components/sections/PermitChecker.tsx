@@ -187,13 +187,13 @@ export function PermitChecker() {
   )}&service=${encodeURIComponent(serviceFocus)}`;
 
   return (
-    <div className="bg-white border border-[#CBD5E1]">
+    <div className="kcl-card bg-white border border-[#CBD5E1]">
       <div className="bg-[#0B2545] text-white px-6 py-4 flex flex-wrap items-center justify-between gap-4 border-b border-[#CBD5E1]">
         <div>
-          <span className="font-mono text-xs uppercase tracking-wider text-[#E8A200] block">
+          <span className="font-mono text-xs uppercase tracking-wider text-slate-300 block">
             PRE-INQUIRY PREPARATION GUIDE
           </span>
-          <h2 className="text-xl font-bold text-white mt-0.5">
+          <h2 className="no-accent-bar text-xl font-bold text-white mt-0.5">
             Flight Support Navigator
           </h2>
         </div>
@@ -247,7 +247,7 @@ export function PermitChecker() {
                   <span
                     className={`block font-mono text-[11px] font-normal ${
                       operationCategory === opt.id
-                        ? "text-[#E8A200]"
+                        ? "text-slate-300"
                         : "text-[#5C6B7A]"
                     }`}
                   >
@@ -303,7 +303,7 @@ export function PermitChecker() {
           <div className="pt-2 space-y-2">
             <Link
               href={inquiryHref}
-              className="w-full min-h-[48px] px-5 py-3 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm inline-flex items-center justify-between transition-colors rounded-[2px]"
+              className="kcl-btn-primary w-full min-h-[48px] px-5 py-3 font-bold text-sm inline-flex items-center justify-between rounded-[2px]"
             >
               <span>Prepare This Flight Support Inquiry</span>
               <span className="font-mono">→</span>
@@ -311,14 +311,14 @@ export function PermitChecker() {
             <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#5C6B7A] pt-1">
               <Link
                 href={guidance.relatedServiceHref}
-                className="text-[#0B2545] font-semibold underline underline-offset-2"
+                className="text-[#0B2545] font-semibold"
               >
                 {guidance.relatedServiceLabel} →
               </Link>
               <a
                 href="/files/kcl-permit-request-checklist.pdf"
                 download
-                className="text-[#0B2545] font-semibold underline underline-offset-2"
+                className="text-[#0B2545] font-semibold"
               >
                 Inquiry Checklist (PDF)
               </a>
@@ -356,7 +356,7 @@ export function PermitChecker() {
                 {guidance.preparationItems.map((item) => (
                   <li key={item} className="flex items-start gap-2.5">
                     <span
-                      className="font-mono text-xs font-bold text-[#E8A200] bg-[#0B2545] px-1.5 py-0.5 mt-0.5"
+                      className="font-mono text-xs font-bold text-white bg-[#0B2545] border-b-2 border-[var(--accent)] px-1.5 py-0.5 mt-0.5"
                       aria-hidden="true"
                     >
                       INFO

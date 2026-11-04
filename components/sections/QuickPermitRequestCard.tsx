@@ -14,6 +14,9 @@ const PAKISTAN_AIRPORT_SUGGESTIONS = [
 ] as const;
 
 const ICAO_REGEX = /^[A-Z]{4}$/;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+type FieldName = "from" | "to" | "flightType" | "permitType" | "date" | "email";
 
 export function QuickPermitRequestCard() {
   const router = useRouter();
@@ -28,14 +31,11 @@ export function QuickPermitRequestCard() {
   >("");
   const [dateUtc, setDateUtc] = useState("");
   const [email, setEmail] = useState("");
-  const [errors, setErrors] = useState<{
-    from?: string;
-    to?: string;
-    flightType?: string;
-    permitType?: string;
-    date?: string;
-    email?: string;
-  }>({});
+
+  const [touched, setTouched] = useState<Partial<Record<FieldName, boolean>>>(
+    {}
+  );
+  const [errors, setErrors] = useState<Partial<Record<FieldName, string>>>({});
 
   function sanitizeIcao(val: string): string {
     return val
@@ -47,7 +47,7 @@ export function QuickPermitRequestCard() {
   function handleFromChange(e: React.ChangeEvent<HTMLInputElement>) {
     const clean = sanitizeIcao(e.target.value);
     setFromIcao(clean);
-    if (errors.from && ICAO_REGEX.test(clean)) {
+    if (errors.from) {
       setErrors((prev) => ({ ...prev, from: undefined }));
     }
   }
@@ -55,16 +55,34 @@ export function QuickPermitRequestCard() {
   function handleToChange(e: React.ChangeEvent<HTMLInputElement>) {
     const clean = sanitizeIcao(e.target.value);
     setToIcao(clean);
-    if (errors.to && ICAO_REGEX.test(clean)) {
+    if (errors.to) {
       setErrors((prev) => ({ ...prev, to: undefined }));
     }
   }
 
   function handleIcaoBlur(field: "from" | "to", value: string) {
-    if (value.length > 0 && !ICAO_REGEX.test(value)) {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    if (!ICAO_REGEX.test(value)) {
       setErrors((prev) => ({
         ...prev,
         [field]: "Enter a 4-letter ICAO code (A–Z).",
+      }));
+    }
+  }
+
+  function handleDateBlur(value: string) {
+    setTouched((prev) => ({ ...prev, date: true }));
+    if (!value.trim()) {
+      setErrors((prev) => ({ ...prev, date: "Select planned UTC date." }));
+    }
+  }
+
+  function handleEmailBlur(value: string) {
+    setTouched((prev) => ({ ...prev, email: true }));
+    if (!value.trim() || !EMAIL_REGEX.test(value.trim())) {
+      setErrors((prev) => ({
+        ...prev,
+        email: "Enter a valid operations email.",
       }));
     }
   }
@@ -81,7 +99,16 @@ export function QuickPermitRequestCard() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const nextErrors: typeof errors = {};
+    setTouched({
+      from: true,
+      to: true,
+      flightType: true,
+      permitType: true,
+      date: true,
+      email: true,
+    });
+
+    const nextErrors: Partial<Record<FieldName, string>> = {};
 
     if (!ICAO_REGEX.test(fromIcao)) {
       nextErrors.from = "Enter a valid 4-letter ICAO code (e.g. OMDB).";
@@ -98,7 +125,7 @@ export function QuickPermitRequestCard() {
     if (!dateUtc.trim()) {
       nextErrors.date = "Select planned UTC date.";
     }
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+    if (!email.trim() || !EMAIL_REGEX.test(email.trim())) {
       nextErrors.email = "Enter a valid operations email.";
     }
 
@@ -121,9 +148,16 @@ export function QuickPermitRequestCard() {
   }
 
   return (
-    <div className="bg-white text-[#0B2545] border-t-[3px] border-t-[#E8A200] border-x border-b border-slate-200 rounded-[2px] p-5 sm:p-6 shadow-xl">
-      <div className="border-b border-slate-200 pb-3 mb-4 flex items-center justify-between gap-2">
-        <h2 className="text-lg font-bold text-[#0B2545] tracking-tight">
+    <div
+      style={{
+        backgroundColor: "rgba(255, 255, 255, 0.9)",
+        backdropFilter: "blur(8px)",
+        WebkitBackdropFilter: "blur(8px)",
+      }}
+      className="kcl-card text-[#0B2545] border-x border-b border-slate-200/80 rounded-[2px] p-5 sm:p-6 shadow-xl"
+    >
+      <div className="border-b border-slate-200/80 pb-3 mb-4 flex items-center justify-between gap-2">
+        <h2 className="no-accent-bar text-lg font-bold text-[#0B2545] tracking-tight">
           Quick Permit Request
         </h2>
         <span className="text-[11px] font-mono font-medium text-[#5C6B7A]">
@@ -173,10 +207,12 @@ export function QuickPermitRequestCard() {
                 onFocus={() => setActiveIcaoField("from")}
                 onChange={handleFromChange}
                 onBlur={() => handleIcaoBlur("from", fromIcao)}
-                aria-invalid={Boolean(errors.from)}
-                aria-describedby={errors.from ? "err-from-icao" : undefined}
+                aria-invalid={Boolean(touched.from && errors.from)}
+                aria-describedby={
+                  touched.from && errors.from ? "err-from-icao" : undefined
+                }
                 placeholder="OMDB"
-                className="w-full min-h-[40px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] focus:border-[#0B2545] focus:outline-none font-mono text-sm font-bold text-[#0B2545] placeholder:text-[#475569] placeholder:font-normal uppercase rounded-[2px] transition-colors"
+                className="w-full min-h-[40px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] focus:border-[#0B2545] focus:outline-none font-mono text-sm font-bold text-[#0B2545] placeholder:text-[#94A3B8] placeholder:font-normal uppercase rounded-[2px] transition-colors"
               />
             </div>
             <div>
@@ -199,10 +235,12 @@ export function QuickPermitRequestCard() {
                 onFocus={() => setActiveIcaoField("to")}
                 onChange={handleToChange}
                 onBlur={() => handleIcaoBlur("to", toIcao)}
-                aria-invalid={Boolean(errors.to)}
-                aria-describedby={errors.to ? "err-to-icao" : undefined}
+                aria-invalid={Boolean(touched.to && errors.to)}
+                aria-describedby={
+                  touched.to && errors.to ? "err-to-icao" : undefined
+                }
                 placeholder="OPKC"
-                className="w-full min-h-[40px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] focus:border-[#0B2545] focus:outline-none font-mono text-sm font-bold text-[#0B2545] placeholder:text-[#475569] placeholder:font-normal uppercase rounded-[2px] transition-colors"
+                className="w-full min-h-[40px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] focus:border-[#0B2545] focus:outline-none font-mono text-sm font-bold text-[#0B2545] placeholder:text-[#94A3B8] placeholder:font-normal uppercase rounded-[2px] transition-colors"
               />
             </div>
           </div>
@@ -225,18 +263,18 @@ export function QuickPermitRequestCard() {
             ))}
           </div>
 
-          {(errors.from || errors.to) && (
+          {((touched.from && errors.from) || (touched.to && errors.to)) && (
             <p
-              id={errors.from ? "err-from-icao" : "err-to-icao"}
+              id={touched.from && errors.from ? "err-from-icao" : "err-to-icao"}
               role="alert"
               className="mt-1 text-[11px] font-semibold text-red-700"
             >
-              {errors.from || errors.to}
+              {(touched.from && errors.from) || (touched.to && errors.to)}
             </p>
           )}
         </div>
 
-        {/* Flight type toggle (No default selected; selected = navy/white, unselected = light grey/dark text) */}
+        {/* Flight type toggle */}
         <div>
           <span
             id="quick-flight-type-label"
@@ -256,6 +294,7 @@ export function QuickPermitRequestCard() {
               aria-checked={flightType === "schedule"}
               onClick={() => {
                 setFlightType("schedule");
+                setTouched((prev) => ({ ...prev, flightType: true }));
                 setErrors((prev) => ({ ...prev, flightType: undefined }));
               }}
               className={`min-h-[36px] px-3 py-1.5 text-xs font-bold rounded-[2px] transition-colors cursor-pointer ${
@@ -272,6 +311,7 @@ export function QuickPermitRequestCard() {
               aria-checked={flightType === "non-schedule"}
               onClick={() => {
                 setFlightType("non-schedule");
+                setTouched((prev) => ({ ...prev, flightType: true }));
                 setErrors((prev) => ({ ...prev, flightType: undefined }));
               }}
               className={`min-h-[36px] px-3 py-1.5 text-xs font-bold rounded-[2px] transition-colors cursor-pointer ${
@@ -283,7 +323,7 @@ export function QuickPermitRequestCard() {
               Non-schedule
             </button>
           </div>
-          {errors.flightType && (
+          {touched.flightType && errors.flightType && (
             <p
               role="alert"
               className="mt-1 text-[11px] font-semibold text-red-700"
@@ -293,7 +333,7 @@ export function QuickPermitRequestCard() {
           )}
         </div>
 
-        {/* Permit type (No default selected; selected = navy/white, unselected = light grey/dark text) */}
+        {/* Permit type */}
         <div>
           <span
             id="quick-permit-type-label"
@@ -321,6 +361,7 @@ export function QuickPermitRequestCard() {
                 aria-checked={permitType === opt.value}
                 onClick={() => {
                   setPermitType(opt.value);
+                  setTouched((prev) => ({ ...prev, permitType: true }));
                   setErrors((prev) => ({ ...prev, permitType: undefined }));
                 }}
                 className={`min-h-[36px] px-2.5 py-1.5 text-xs font-bold rounded-[2px] transition-colors cursor-pointer ${
@@ -333,7 +374,7 @@ export function QuickPermitRequestCard() {
               </button>
             ))}
           </div>
-          {errors.permitType && (
+          {touched.permitType && errors.permitType && (
             <p
               role="alert"
               className="mt-1 text-[11px] font-semibold text-red-700"
@@ -361,9 +402,12 @@ export function QuickPermitRequestCard() {
                 value={dateUtc}
                 onChange={(e) => {
                   setDateUtc(e.target.value);
-                  setErrors((prev) => ({ ...prev, date: undefined }));
+                  if (errors.date) {
+                    setErrors((prev) => ({ ...prev, date: undefined }));
+                  }
                 }}
-                aria-invalid={Boolean(errors.date)}
+                onBlur={() => handleDateBlur(dateUtc)}
+                aria-invalid={Boolean(touched.date && errors.date)}
                 className="w-full min-h-[40px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] focus:border-[#0B2545] focus:outline-none font-mono text-xs font-semibold text-[#0B2545] rounded-[2px] transition-colors"
               />
             </div>
@@ -382,27 +426,32 @@ export function QuickPermitRequestCard() {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  setErrors((prev) => ({ ...prev, email: undefined }));
+                  if (errors.email) {
+                    setErrors((prev) => ({ ...prev, email: undefined }));
+                  }
                 }}
-                aria-invalid={Boolean(errors.email)}
+                onBlur={() => handleEmailBlur(email)}
+                aria-invalid={Boolean(touched.email && errors.email)}
                 placeholder="ops@airline.com"
-                className="w-full min-h-[40px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] focus:border-[#0B2545] focus:outline-none text-xs font-medium text-[#0B2545] placeholder:text-[#475569] rounded-[2px] transition-colors"
+                className="w-full min-h-[40px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] focus:border-[#0B2545] focus:outline-none text-xs font-medium text-[#0B2545] placeholder:text-[#94A3B8] placeholder:font-normal rounded-[2px] transition-colors"
               />
             </div>
           </div>
-          {(errors.date || errors.email) && (
+          {((touched.date && errors.date) ||
+            (touched.email && errors.email)) && (
             <p
               role="alert"
               className="mt-1 text-[11px] font-semibold text-red-700"
             >
-              {errors.date || errors.email}
+              {(touched.date && errors.date) ||
+                (touched.email && errors.email)}
             </p>
           )}
         </div>
 
         <button
           type="submit"
-          className="w-full min-h-[44px] px-5 py-2.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm tracking-tight inline-flex items-center justify-center gap-2 rounded-[2px] transition-colors cursor-pointer shadow-xs"
+          className="w-full min-h-[44px] px-5 py-2.5 bg-[var(--accent)] hover:bg-[#DFB200] text-[#0B2545] font-bold text-sm tracking-tight inline-flex items-center justify-center gap-2 rounded-[2px] transition-colors cursor-pointer shadow-xs"
         >
           <span>Start my request</span>
           <span aria-hidden="true">→</span>
@@ -413,7 +462,7 @@ export function QuickPermitRequestCard() {
           Details are used only to coordinate your inquiry.{" "}
           <Link
             href="/privacy-policy"
-            className="underline text-[#0B2545] font-semibold hover:text-[#133661]"
+            className="kcl-link text-[#0B2545] font-semibold"
           >
             Privacy Policy
           </Link>

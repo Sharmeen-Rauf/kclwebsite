@@ -90,9 +90,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-8 space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <div className="kcl-card lg:col-span-8 space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
               <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
-                <span className="bg-white/10 backdrop-blur-sm border border-[#F2C200] text-[#F2C200] px-2.5 py-1 font-semibold">
+                <span className="bg-white/10 backdrop-blur-sm border border-white/30 border-b-2 border-b-[var(--accent)] text-white px-2.5 py-1 font-semibold">
                   {service.code}
                 </span>
                 <span className="bg-white/10 backdrop-blur-sm border border-white/25 text-slate-100 px-2.5 py-1">
@@ -104,32 +104,32 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 {service.h1}
               </h1>
 
-              <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
+              <p className="text-lg sm:text-xl font-semibold text-slate-100">
                 {service.heroHeadline}
               </p>
 
-              <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
                 {service.introParagraph}
               </p>
 
               <div className="pt-2 flex flex-wrap gap-3">
                 <Link
                   href={requestHref}
-                  className="min-h-[48px] px-6 py-3 bg-[#F2C200] hover:bg-[#E8A200] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="kcl-btn-primary min-h-[48px] px-6 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   {service.heroCtaLabel}
                 </Link>
                 <Link
                   href="/pakistan/flight-permissions"
-                  className="min-h-[48px] px-5 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="kcl-btn-outline-white min-h-[48px] px-5 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Pakistan Flight Permissions
                 </Link>
               </div>
             </div>
 
-            <div className="lg:col-span-4 bg-black/45 backdrop-blur-md border border-white/20 p-5 space-y-4 font-mono text-xs rounded-[2px]">
-              <div className="border-b border-white/20 pb-2 text-[#F2C200] font-semibold">
+            <div className="kcl-card lg:col-span-4 bg-black/45 backdrop-blur-md border border-white/20 p-5 space-y-4 font-mono text-xs rounded-[2px]">
+              <div className="border-b border-[var(--accent)]/40 pb-2 text-white font-semibold">
                 SERVICE COORDINATION BRIEF
               </div>
               <div>
@@ -166,11 +166,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* 1. What the Service Is & Who Needs It */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
+            <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
               <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
                 SECTION 01 · SERVICE SCOPE
               </span>
-              <h2 className="text-2xl font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
                 {service.whatItIsHeading}
               </h2>
               {service.whatItIs.map((paragraph) => (
@@ -183,17 +183,17 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               ))}
             </div>
 
-            <div className="lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
+            <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
               <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
                 SECTION 02 · OPERATOR PROFILE
               </span>
-              <h2 className="text-2xl font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
                 Who This Supports
               </h2>
               <ul className="space-y-2.5 text-sm sm:text-base text-[#16202B]">
                 {service.whoItIsFor.map((item) => (
                   <li key={item} className="flex items-start gap-2.5">
-                    <span className="font-mono text-xs font-bold text-[#E8A200] bg-[#0B2545] px-1.5 py-0.5 mt-1">
+                    <span className="font-mono text-xs font-bold text-white bg-[#0B2545] border-b-2 border-[var(--accent)] px-1.5 py-0.5 mt-1">
                       OPS
                     </span>
                     <span>{item}</span>
@@ -204,11 +204,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
 
           {/* 2. Why the Requirement Matters Operationally */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
             <span className="font-mono text-xs uppercase text-[#5C6B7A] block mb-1">
               SECTION 03 · OPERATIONAL CONSIDERATIONS
             </span>
-            <h2 className="text-2xl font-bold text-[#0B2545] mb-4">
+            <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545] mb-4">
               {service.whyItMattersHeading}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -224,11 +224,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
 
           {/* 3. What KCL Coordinates */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
             <span className="font-mono text-xs uppercase text-[#5C6B7A] block mb-1">
               SECTION 04 · COORDINATION SCOPE
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545] mb-6">
+            <h2 className="no-accent-bar text-2xl sm:text-3xl font-bold text-[#0B2545] mb-6">
               {service.sectionH2WithKeyword}
             </h2>
 
@@ -236,7 +236,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               {service.whatWeHandle.map((item, idx) => (
                 <div
                   key={item.title}
-                  className="bg-[#F6F8FB] border border-[#CBD5E1] p-5"
+                  className="kcl-card bg-[#F6F8FB] border border-[#CBD5E1] p-5"
                 >
                   <div className="font-mono text-xs text-[#5C6B7A] mb-1">
                     AREA 0{idx + 1}
@@ -254,12 +254,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
           {/* 4. Details to Prepare & 5. Coordination Process */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-5 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between">
+            <div className="kcl-card lg:col-span-5 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between">
               <div>
                 <span className="font-mono text-xs uppercase text-[#5C6B7A] block mb-1">
                   SECTION 05 · WHAT TO PREPARE
                 </span>
-                <h2 className="text-2xl font-bold text-[#0B2545] mb-4">
+                <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545] mb-4">
                   Details That Help Define Your Inquiry
                 </h2>
                 <ul className="space-y-3 text-sm text-[#16202B]">
@@ -280,27 +280,27 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 </p>
                 <Link
                   href={requestHref}
-                  className="w-full min-h-[44px] px-4 py-2.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="kcl-btn-primary w-full min-h-[44px] px-4 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   {service.heroCtaLabel} →
                 </Link>
               </div>
             </div>
 
-            <div className="lg:col-span-7 bg-white border border-[#CBD5E1] p-6 sm:p-8">
+            <div className="kcl-card lg:col-span-7 bg-white border border-[#CBD5E1] p-6 sm:p-8">
               <span className="font-mono text-xs uppercase text-[#5C6B7A] block mb-1">
                 SECTION 06 · COORDINATION WORKFLOW
               </span>
-              <h2 className="text-2xl font-bold text-[#0B2545] mb-6">
+              <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545] mb-6">
                 {service.howItWorksHeading}
               </h2>
               <ol className="space-y-5">
                 {service.howItWorks.map((step) => (
                   <li
                     key={step.step}
-                    className="border border-[#CBD5E1] bg-[#F6F8FB] p-5 flex gap-4"
+                    className="kcl-card border border-[#CBD5E1] bg-[#F6F8FB] p-5 flex gap-4"
                   >
-                    <span className="font-mono text-sm font-bold bg-[#0B2545] text-[#E8A200] px-3 py-1.5 h-fit">
+                    <span className="font-mono text-sm font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-3 py-1.5 h-fit">
                       {step.step}
                     </span>
                     <div>
@@ -318,11 +318,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
 
           {/* 6. Authority & Provider Boundaries */}
-          <div className="bg-white border-l-4 border-[#0B2545] border border-[#CBD5E1] p-6 sm:p-8">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
             <span className="font-mono text-xs uppercase text-[#5C6B7A] block mb-1">
               SECTION 07 · SERVICE BOUNDARIES &amp; GOVERNANCE
             </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#0B2545] mb-4">
+            <h2 className="no-accent-bar text-xl sm:text-2xl font-bold text-[#0B2545] mb-4">
               {service.authorityDependenciesHeading}
             </h2>
             <ul className="space-y-2.5 text-sm sm:text-base text-[#16202B]">
@@ -338,8 +338,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
 
           {/* Contextual Internal Links */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8">
-            <h2 className="text-lg font-bold text-[#0B2545] mb-4">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
+            <h2 className="no-accent-bar text-lg font-bold text-[#0B2545] mb-4">
               Connected Aviation Services, Pakistan Specialization &amp; Resources
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
@@ -347,7 +347,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 <Link
                   key={rel.slug}
                   href={`/services/${rel.slug}`}
-                  className="p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] flex flex-col justify-between"
+                  className="kcl-card p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] flex flex-col justify-between"
                 >
                   <span className="font-mono text-[11px] text-[#5C6B7A]">
                     CONNECTED SERVICE
@@ -359,7 +359,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               ))}
               <Link
                 href="/pakistan/flight-permissions"
-                className="p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] flex flex-col justify-between"
+                className="kcl-card p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] flex flex-col justify-between"
               >
                 <span className="font-mono text-[11px] text-[#5C6B7A]">
                   LOCAL SPECIALIZATION
@@ -370,7 +370,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </Link>
               <Link
                 href={service.relatedToolPath.href}
-                className="p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] flex flex-col justify-between"
+                className="kcl-card p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] flex flex-col justify-between"
               >
                 <span className="font-mono text-[11px] text-[#5C6B7A]">
                   OPERATOR RESOURCE
@@ -383,8 +383,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
 
           {/* Service FAQs */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8">
-            <h2 className="text-2xl font-bold text-[#0B2545] mb-6">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
+            <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545] mb-6">
               Frequently Asked Questions: {service.shortTitle}
             </h2>
             <div className="divide-y divide-[#CBD5E1]">

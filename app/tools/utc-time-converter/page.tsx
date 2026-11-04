@@ -28,7 +28,7 @@ export default function UtcTimeConverterPage() {
       <section className="bg-[#0B2545] text-white py-12 sm:py-16 border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#E8A200] bg-[#133661] border border-slate-600 px-3 py-1 inline-block">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-[#133661] border border-slate-600 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
               DISPATCH UTILITY // ZULU TO PKT (UTC+5)
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
@@ -36,7 +36,7 @@ export default function UtcTimeConverterPage() {
             </h1>
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Pakistan operates year-round on Pakistan Standard Time (PKT),
-              which is <span className="font-mono text-[#E8A200]">UTC+05:00</span>{" "}
+              which is <span className="font-mono text-white font-semibold">UTC+05:00</span>{" "}
               with no daylight saving time shifts. All flight permit
               applications to KCL should state timings in UTC, while crew hotel
               check-ins and local ground transport reference PKT.
@@ -49,7 +49,7 @@ export default function UtcTimeConverterPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <UtcConverterClient />
 
-          <div className="bg-white border border-[#CBD5E1] p-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 flex flex-wrap items-center justify-between gap-4 text-sm">
             <div className="space-x-4 font-semibold">
               <Link
                 href="/tools/icao-phonetic-alphabet"

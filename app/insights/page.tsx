@@ -71,17 +71,17 @@ export default async function InsightsPage() {
 
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
+          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
               AVIATION INSIGHTS · EDITORIAL GUIDES FOR OPERATORS
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Aviation Insights &amp; Flight Support Articles
             </h1>
-            <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
+            <p className="text-lg sm:text-xl font-semibold text-slate-100">
               Practical Perspectives on Aviation Operations.
             </p>
-            <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Our insights are written for the professionals who plan,
               coordinate and support aircraft movements. They focus on useful
               context and clear explanations rather than generic industry
@@ -94,13 +94,13 @@ export default async function InsightsPage() {
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Editorial Categories & News Integrity Standard */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#CBD5E1] pb-4">
               <div>
                 <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
                   EDITORIAL CATEGORIES
                 </span>
-                <h2 className="text-xl font-bold text-[#0B2545]">
+                <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
                   Topics Covered Across KCL Insights
                 </h2>
               </div>
@@ -140,7 +140,7 @@ export default async function InsightsPage() {
               {RECOMMENDED_TOPICS.map((topic) => (
                 <article
                   key={topic.title}
-                  className="bg-white border border-[#CBD5E1] p-6 flex flex-col justify-between space-y-4"
+                  className="kcl-card bg-white border border-[#CBD5E1] p-6 flex flex-col justify-between space-y-4"
                 >
                   <div className="space-y-2.5">
                     <div className="flex items-center justify-between gap-2 font-mono text-xs text-[#5C6B7A]">
@@ -162,7 +162,7 @@ export default async function InsightsPage() {
                     </span>
                     <Link
                       href={topic.serviceLink}
-                      className="text-[#0B2545] underline underline-offset-4"
+                      className="kcl-link text-[#0B2545]"
                     >
                       Related: {topic.serviceLabel} →
                     </Link>
@@ -185,7 +185,7 @@ export default async function InsightsPage() {
               {posts.map((post) => (
                 <article
                   key={post.slug}
-                  className="bg-white border border-[#CBD5E1] flex flex-col justify-between"
+                  className="kcl-card bg-white border border-[#CBD5E1] flex flex-col justify-between"
                 >
                   <div>
                     <div className="border-b border-[#CBD5E1] bg-[#0B2545]">

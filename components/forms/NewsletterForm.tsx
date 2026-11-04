@@ -54,7 +54,7 @@ export function NewsletterForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="min-h-[44px] px-5 py-2 bg-[#0B2545] hover:bg-[#133661] text-white font-semibold text-xs font-mono uppercase cursor-pointer"
+          className="kcl-btn-primary min-h-[44px] px-5 py-2 font-semibold text-xs font-mono uppercase cursor-pointer rounded-[2px]"
         >
           {isPending ? "Checking..." : "Preview"}
         </button>

@@ -9,11 +9,11 @@ export function OpsStrip() {
         <div className="flex items-center gap-4 sm:gap-5 overflow-x-auto no-scrollbar whitespace-nowrap">
           <Link
             href="/customer-support"
-            className="inline-flex items-center gap-2 text-slate-100 hover:text-[#F2C200] transition-colors font-medium"
+            className="kcl-link inline-flex items-center gap-2 text-slate-100 hover:text-white transition-colors font-medium"
             title="24/7 Flight Operations & Customer Support Desk"
           >
             <svg
-              className="w-3.5 h-3.5 text-[#F2C200] shrink-0"
+              className="w-3.5 h-3.5 text-[var(--accent)] shrink-0"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -35,11 +35,11 @@ export function OpsStrip() {
 
           <Link
             href="/contact"
-            className="hidden sm:inline-flex items-center gap-2 text-slate-100 hover:text-[#F2C200] transition-colors font-medium"
+            className="kcl-link hidden sm:inline-flex items-center gap-2 text-slate-100 hover:text-white transition-colors font-medium"
             title="Send Flight Permission or Ground Support Inquiry"
           >
             <svg
-              className="w-3.5 h-3.5 text-[#F2C200] shrink-0"
+              className="w-3.5 h-3.5 text-[var(--accent)] shrink-0"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -67,7 +67,7 @@ export function OpsStrip() {
               rel="noopener noreferrer"
               aria-label="KCL International Flight Support on LinkedIn"
               title="KCL International Flight Support — LinkedIn"
-              className="w-7 h-7 rounded-[2px] bg-[#133661] border border-slate-600/80 text-slate-100 hover:border-[#F2C200] hover:text-[#F2C200] flex items-center justify-center transition-colors"
+              className="w-7 h-7 rounded-[2px] bg-[#133661] border border-slate-600/80 text-slate-100 hover:border-[var(--accent)] hover:text-white flex items-center justify-center transition-colors"
             >
               <svg
                 className="w-3.5 h-3.5 fill-current"
@@ -83,7 +83,7 @@ export function OpsStrip() {
               href="/contact"
               aria-label="Contact KCL Operations by Email"
               title="Contact KCL Operations"
-              className="w-7 h-7 rounded-[2px] bg-[#133661] border border-slate-600/80 text-slate-100 hover:border-[#F2C200] hover:text-[#F2C200] flex items-center justify-center transition-colors"
+              className="w-7 h-7 rounded-[2px] bg-[#133661] border border-slate-600/80 text-slate-100 hover:border-[var(--accent)] hover:text-white flex items-center justify-center transition-colors"
             >
               <svg
                 className="w-3.5 h-3.5"
@@ -105,7 +105,7 @@ export function OpsStrip() {
               href="/customer-support"
               aria-label="24/7 Operations Support"
               title="24/7 Customer & Flight Support"
-              className="w-7 h-7 rounded-[2px] bg-[#133661] border border-slate-600/80 text-slate-100 hover:border-[#F2C200] hover:text-[#F2C200] flex items-center justify-center transition-colors"
+              className="w-7 h-7 rounded-[2px] bg-[#133661] border border-slate-600/80 text-slate-100 hover:border-[var(--accent)] hover:text-white flex items-center justify-center transition-colors"
             >
               <svg
                 className="w-3.5 h-3.5"
@@ -125,9 +125,9 @@ export function OpsStrip() {
           <a
             href="/files/kcl-permit-request-checklist.pdf"
             download
-            className="hidden md:inline-flex items-center gap-1.5 px-3 py-1 bg-[#133661] hover:bg-[#1b4579] text-slate-100 border border-slate-600/80 font-mono text-[11px] rounded-[2px] transition-colors whitespace-nowrap"
+            className="hidden md:inline-flex items-center gap-1.5 px-3 py-1 bg-[#133661] hover:bg-[#1b4579] text-slate-100 border border-slate-600/80 border-b-2 border-b-[var(--accent)] font-mono text-[11px] rounded-[2px] transition-colors whitespace-nowrap"
           >
-            <span className="text-[#F2C200] font-bold">PDF</span>
+            <span className="text-white font-bold">PDF</span>
             <span>Permit Checklist</span>
           </a>
         </div>

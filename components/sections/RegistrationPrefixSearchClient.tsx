@@ -16,7 +16,7 @@ export function RegistrationPrefixSearchClient() {
   );
 
   return (
-    <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-6">
+    <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div className="flex-1 max-w-xl">
           <label

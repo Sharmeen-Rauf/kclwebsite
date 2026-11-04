@@ -24,7 +24,7 @@ export function CtaBanner({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8 space-y-3">
-            <div className="inline-flex items-center gap-2 font-mono text-xs text-[#E8A200] bg-[#133661] border border-slate-600 px-3 py-1">
+            <div className="inline-flex items-center gap-2 font-mono text-xs text-slate-200 bg-[#133661] border border-slate-600 border-t-2 border-t-[var(--accent)] px-3 py-1">
               <span>KCL INTERNATIONAL FLIGHT SUPPORT</span>
               <span>·</span>
               <span>{SITE_CONFIG.authorityBadge}</span>
@@ -45,13 +45,13 @@ export function CtaBanner({
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
             <Link
               href={primaryHref}
-              className="min-h-[48px] px-6 py-3.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm text-center inline-flex items-center justify-center rounded-[2px] transition-colors"
+              className="kcl-btn-primary bg-[#133661] hover:bg-[#1A467D] min-h-[48px] px-6 py-3.5 font-bold text-sm text-center inline-flex items-center justify-center rounded-[2px]"
             >
               {primaryLabel}
             </Link>
             <Link
               href={secondaryHref}
-              className="min-h-[48px] px-6 py-3.5 bg-[#133661] hover:bg-slate-700 text-white border border-slate-500 font-semibold text-sm text-center inline-flex items-center justify-center rounded-[2px] transition-colors"
+              className="kcl-btn-outline-white min-h-[48px] px-6 py-3.5 font-semibold text-sm text-center inline-flex items-center justify-center rounded-[2px]"
             >
               {secondaryLabel}
             </Link>

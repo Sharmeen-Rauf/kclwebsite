@@ -19,10 +19,10 @@ export function ContactForm() {
       <div
         role="status"
         aria-live="polite"
-        className="bg-white border-2 border-[#0B2545] p-6 sm:p-8 space-y-5"
+        className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-5"
       >
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#CBD5E1] pb-4">
-          <span className="font-mono text-xs font-bold bg-[#0B2545] text-[#E8A200] px-2.5 py-1 inline-block">
+          <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2.5 py-1 inline-block">
             INQUIRY PREVIEW · READY TO SEND
           </span>
           <span className="font-mono text-xs text-[#5C6B7A]">
@@ -30,7 +30,7 @@ export function ContactForm() {
           </span>
         </div>
 
-        <h2 className="text-2xl font-bold text-[#0B2545]">
+        <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
           Review Your Message &amp; Send via Confirmed Channel
         </h2>
         <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
@@ -51,13 +51,13 @@ export function ContactForm() {
             href={`mailto:{{OPERATIONS_EMAIL}}?subject=${encodeURIComponent(
               state.contactPreview.subject
             )}&body=${encodeURIComponent(formattedBody)}`}
-            className="px-5 py-3 bg-[#E8A200] hover:bg-[#d19100] text-[#0B2545] font-bold text-sm rounded-[2px]"
+            className="kcl-btn-primary px-5 py-3 font-bold text-sm rounded-[2px]"
           >
             Send via Confirmed Email Channel →
           </a>
           <Link
             href="/request-flight-support"
-            className="px-4 py-3 border border-[#0B2545] text-[#0B2545] font-semibold text-xs font-mono uppercase hover:bg-[#F6F8FB]"
+            className="kcl-btn-outline-navy px-4 py-3 font-semibold text-xs font-mono uppercase rounded-[2px]"
           >
             Request Flight Support
           </Link>
@@ -70,13 +70,13 @@ export function ContactForm() {
     <form
       action={formAction}
       noValidate
-      className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-5"
+      className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-5"
     >
       <div className="border-b border-[#CBD5E1] pb-3">
         <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
           INQUIRY PREPARATION · KCL INTERNATIONAL FLIGHT SUPPORT
         </span>
-        <h2 className="text-xl font-bold text-[#0B2545]">
+        <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
           Send an Operational or Commercial Inquiry
         </h2>
         <p className="text-xs text-[#5C6B7A] mt-1">
@@ -242,7 +242,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="min-h-[48px] px-6 py-3 bg-[#0B2545] hover:bg-[#133661] text-white font-bold text-sm inline-flex items-center justify-center rounded-[2px] cursor-pointer"
+          className="kcl-btn-primary min-h-[48px] px-6 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] cursor-pointer"
         >
           {isPending ? "Preparing Preview..." : "Review Inquiry →"}
         </button>

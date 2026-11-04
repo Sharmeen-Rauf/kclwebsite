@@ -65,7 +65,7 @@ export function UtcConverterClient() {
   };
 
   return (
-    <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-8">
+    <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end border-b border-[#CBD5E1] pb-6">
         <div className="md:col-span-4">
           <label
@@ -109,8 +109,8 @@ export function UtcConverterClient() {
           </select>
         </div>
 
-        <div className="md:col-span-4 bg-[#0B2545] text-white p-3.5 border border-[#0B2545] font-mono">
-          <span className="text-[11px] text-[#E8A200] block">
+        <div className="md:col-span-4 bg-[#0B2545] text-white p-3.5 border border-[#0B2545] border-b-2 border-b-[var(--accent)] font-mono">
+          <span className="text-[11px] text-slate-300 block">
             PAKISTAN LOCAL (PKT = UTC+5)
           </span>
           <span className="text-lg font-bold">
@@ -123,7 +123,7 @@ export function UtcConverterClient() {
       </div>
 
       <div>
-        <h2 className="text-xl font-bold text-[#0B2545] mb-4">
+        <h2 className="no-accent-bar text-xl font-bold text-[#0B2545] mb-4">
           Converted Station Times Across Flight Corridors
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -133,9 +133,9 @@ export function UtcConverterClient() {
             return (
               <div
                 key={station.code}
-                className={`p-4 border ${
+                className={`kcl-card p-4 border ${
                   isPakistan
-                    ? "bg-amber-50/40 border-[#E8A200]"
+                    ? "bg-white border-[#0B2545]"
                     : "bg-[#F6F8FB] border-[#CBD5E1]"
                 }`}
               >

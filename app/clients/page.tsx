@@ -20,17 +20,17 @@ export default function ClientsPage() {
 
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
+          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
               PUBLISHED CORPORATE REFERENCES · SUBJECT TO MANAGEMENT REVIEW
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               International Airlines &amp; Operators Served by KCL
             </h1>
-            <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
+            <p className="text-lg sm:text-xl font-semibold text-slate-100">
               Operational Flight Permission Facilitation &amp; Station Coordination.
             </p>
-            <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Commercial airlines and international flight operations teams work
               with Kashmir Corporation (Pvt.) Ltd. (KCL) for flight permission
               facilitation, ground handling, catering services, fuel supply,
@@ -46,19 +46,19 @@ export default function ClientsPage() {
             {REAL_CLIENTS.map((client) => (
               <article
                 key={client.icao}
-                className="bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between"
+                className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between gap-4 pb-4 mb-4 border-b border-[#CBD5E1]">
                     <div>
-                      <h2 className="text-xl font-bold text-[#0B2545]">
+                      <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
                         {client.name}
                       </h2>
                       <p className="font-mono text-xs text-[#5C6B7A]">
                         State of Registry: {client.country}
                       </p>
                     </div>
-                    <span className="font-mono text-xs font-bold bg-[#0B2545] text-[#E8A200] px-2.5 py-1">
+                    <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2.5 py-1">
                       ICAO: {client.icao} · IATA: {client.iata}
                     </span>
                   </div>
@@ -82,7 +82,7 @@ export default function ClientsPage() {
                   <span>PUBLISHED OPERATOR REFERENCE</span>
                   <Link
                     href="/request-flight-support"
-                    className="font-sans font-bold text-[#0B2545] underline underline-offset-4"
+                    className="kcl-link font-sans font-bold text-[#0B2545]"
                   >
                     Coordinate Flight Support →
                   </Link>
@@ -91,11 +91,11 @@ export default function ClientsPage() {
             ))}
           </div>
 
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
             <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
               WHY AIRLINE OCC &amp; FLIGHT OPERATIONS TEAMS WORK WITH KCL
             </span>
-            <h2 className="text-2xl font-bold text-[#0B2545]">
+            <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
               Operational Continuity Across Scheduled Filings and Non-Scheduled Missions
             </h2>
             <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">

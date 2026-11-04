@@ -22,17 +22,17 @@ export default function PermitDirectoryIndexPage() {
 
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
+          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
               DISPATCH REFERENCE · AIRSPACE &amp; AERODROME GUIDES
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Flight Permit Directory &amp; Pre-Filing Requirements Checker
             </h1>
-            <p className="text-lg sm:text-xl font-semibold text-[#F2C200]">
+            <p className="text-lg sm:text-xl font-semibold text-slate-100">
               Prepare Complete Documentation Before Submitting Your Application.
             </p>
-            <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Every jurisdiction applies distinct documentation rules for
               scheduled and non-scheduled overflight and landing permissions.
               Use the interactive checker and country profiles below to review
@@ -65,7 +65,7 @@ export default function PermitDirectoryIndexPage() {
               {COUNTRY_PERMIT_GUIDES.map((country) => (
                 <article
                   key={country.slug}
-                  className="bg-white border border-[#CBD5E1] p-6 sm:p-8"
+                  className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-4 pb-4 mb-4 border-b border-[#CBD5E1]">
                     <div>
@@ -76,14 +76,13 @@ export default function PermitDirectoryIndexPage() {
                       <h3 className="text-2xl font-bold text-[#0B2545]">
                         <Link
                           href={`/permit-directory/${country.slug}`}
-                          className="hover:underline underline-offset-4"
                         >
                           {country.countryName} Overflight &amp; Landing Permit
                           Guide
                         </Link>
                       </h3>
                     </div>
-                    <span className="font-mono text-xs bg-[#0B2545] text-[#E8A200] px-3 py-1 font-semibold">
+                    <span className="font-mono text-xs bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-3 py-1 font-semibold">
                       FIR: {country.firCodes.join(" · ")}
                     </span>
                   </div>
@@ -111,7 +110,7 @@ export default function PermitDirectoryIndexPage() {
                   <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#CBD5E1]">
                     <Link
                       href={`/permit-directory/${country.slug}`}
-                      className="min-h-[44px] px-5 py-2.5 bg-[#0B2545] hover:bg-[#133661] text-white font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                      className="kcl-btn-outline-navy min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
                     >
                       Open {country.countryName} Permit Guide →
                     </Link>
@@ -119,7 +118,7 @@ export default function PermitDirectoryIndexPage() {
                       href={`/request-permit?country=${encodeURIComponent(
                         country.countryName
                       )}`}
-                      className="min-h-[44px] px-5 py-2.5 bg-[#E8A200] hover:bg-[#CC8E00] text-[#0B2545] font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
+                      className="kcl-btn-primary min-h-[44px] px-5 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
                     >
                       Coordinate {country.countryName} Permit
                     </Link>

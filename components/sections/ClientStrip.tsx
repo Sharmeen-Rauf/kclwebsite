@@ -37,7 +37,7 @@ export function ClientStrip({ compact = false }: ClientStripProps) {
           {REAL_CLIENTS.map((client) => (
             <div
               key={client.icao}
-              className="bg-[#F6F8FB] border border-[#CBD5E1] p-4 flex flex-col justify-between"
+              className="kcl-card bg-[#F6F8FB] border border-[#CBD5E1] p-4 flex flex-col justify-between"
             >
               <div className="mb-3 bg-white border border-slate-200 p-3 flex items-center justify-center h-20">
                 <Image

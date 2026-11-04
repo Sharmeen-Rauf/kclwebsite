@@ -34,8 +34,8 @@ export default function HomePage() {
     <>
       <JsonLd data={buildFaqJsonLd(HOME_FAQS)} />
 
-      {/* 1. Split Hero with Quick Permit Request Panel (min 640px / max 820px, ~82vh) */}
-      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[640px] lg:max-h-[820px] lg:h-[82vh] flex items-center py-12 lg:py-16">
+      {/* 1. Split Hero with Quick Permit Request Panel (min 640px / max 820px, 48px top padding) */}
+      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[640px] lg:max-h-[820px] pt-12 pb-12 flex items-center">
         {/* Background Aircraft / Ramp Photo with Left-to-Right Navy Gradient (85% to 35%) */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -56,7 +56,7 @@ export default function HomePage() {
           >
             <path
               d="M-60 490 C 280 420, 620 260, 1020 220 C 1220 200, 1360 150, 1500 110"
-              stroke="#F2C200"
+              stroke="#F4C400"
               strokeWidth="1.5"
               strokeDasharray="6 6"
             />
@@ -71,17 +71,17 @@ export default function HomePage() {
               strokeWidth="1"
               strokeDasharray="4 5"
             />
-            <circle cx="515" cy="340" r="4" fill="#F2C200" />
+            <circle cx="515" cy="340" r="4" fill="#F4C400" />
             <circle cx="775" cy="275" r="4" fill="#FFFFFF" />
-            <circle cx="885" cy="145" r="4" fill="#F2C200" />
+            <circle cx="885" cy="145" r="4" fill="#F4C400" />
           </svg>
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left: Single H1 (sized to avoid orphan word), One-Sentence Subhead & Secondary Outline Buttons */}
-            <div className="lg:col-span-7 space-y-5">
-              <h1 className="text-2xl sm:text-3xl lg:text-[2.1rem] xl:text-[2.25rem] font-bold text-white leading-[1.18] tracking-tight max-w-[23ch] [text-wrap:balance]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            {/* Left: Larger Hero Headline (aligned with top of Quick Permit Request card), Subtext & Two Outline Buttons */}
+            <div className="lg:col-span-7 space-y-5 pt-0">
+              <h1 className="text-3xl sm:text-4xl lg:text-[48px] xl:text-[54px] font-bold text-white leading-[1.08] tracking-tight">
                 Pakistan Flight Permissions, Filed and Followed Up by an AFPA
                 Authorized Agent
               </h1>
@@ -92,24 +92,24 @@ export default function HomePage() {
                 by the same desk.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
                 <Link
                   href="#permit-checker"
-                  className="min-h-[46px] px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white border border-white/60 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
+                  className="kcl-btn-outline-white min-h-[46px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Check Requirements
                 </Link>
                 <a
                   href="/files/kcl-permit-request-checklist.pdf"
                   download
-                  className="min-h-[46px] px-5 py-2.5 bg-transparent hover:bg-white/10 text-white border border-white/50 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors"
+                  className="kcl-btn-outline-white min-h-[46px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Download Checklist
                 </a>
               </div>
             </div>
 
-            {/* Right: White Quick Permit Request Card with 3px Amber Top Border */}
+            {/* Right: Frosted Quick Permit Request Card with 3px --accent Top Border */}
             <div className="lg:col-span-5">
               <QuickPermitRequestCard />
             </div>
@@ -125,7 +125,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-5 text-xs font-bold text-[#0B2545]">
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
-              <span className="h-2 w-2 rounded-full bg-[#E8A200]" />
+              <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
               AFPA Authorized
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
@@ -230,13 +230,13 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/schedule-filing"
-                className="px-4 py-2.5 min-h-[44px] bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] text-sm font-semibold text-[#0B2545] inline-flex items-center"
+                className="kcl-btn-outline-navy px-4 py-2.5 min-h-[44px] text-sm font-semibold inline-flex items-center rounded-[2px]"
               >
                 Scheduled Filing →
               </Link>
               <Link
                 href="/non-schedule-filing"
-                className="px-4 py-2.5 min-h-[44px] bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] text-sm font-semibold text-[#0B2545] inline-flex items-center"
+                className="kcl-btn-outline-navy px-4 py-2.5 min-h-[44px] text-sm font-semibold inline-flex items-center rounded-[2px]"
               >
                 Non-Scheduled &amp; Charter Filing →
               </Link>
@@ -247,7 +247,7 @@ export default function HomePage() {
             {KCL_SIX_CORE_SERVICES.map((pillar) => (
               <div
                 key={pillar.code}
-                className="bg-[#F6F8FB] border border-[#CBD5E1] p-6 flex flex-col justify-between"
+                className="kcl-card bg-[#F6F8FB] border border-[#CBD5E1] p-6 flex flex-col justify-between"
               >
                 <div className="space-y-2.5">
                   <span className="font-mono text-xs font-bold text-[#0B2545] bg-white border border-[#CBD5E1] px-2.5 py-0.5 inline-block">
@@ -256,7 +256,7 @@ export default function HomePage() {
                   <h3 className="text-xl font-bold text-[#0B2545]">
                     <Link
                       href={pillar.primaryHref}
-                      className="hover:underline underline-offset-4"
+                      className="kcl-link"
                     >
                       {pillar.title}
                     </Link>
@@ -268,7 +268,7 @@ export default function HomePage() {
                 <div className="pt-4 mt-4 border-t border-slate-200 space-y-2">
                   <Link
                     href={pillar.primaryHref}
-                    className="block text-xs font-bold text-[#0B2545] underline underline-offset-4"
+                    className="kcl-link inline-block text-xs font-bold text-[#0B2545]"
                   >
                     {pillar.primaryLabel} →
                   </Link>
@@ -277,7 +277,7 @@ export default function HomePage() {
                       <Link
                         key={sub.href}
                         href={sub.href}
-                        className="hover:text-[#0B2545] underline underline-offset-2"
+                        className="kcl-link hover:text-[#0B2545]"
                       >
                         {sub.label}
                       </Link>
@@ -336,13 +336,13 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/pakistan/flight-permissions"
-                className="px-4 py-2.5 min-h-[44px] bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] text-sm font-semibold text-[#0B2545] inline-flex items-center"
+                className="kcl-btn-outline-navy px-4 py-2.5 min-h-[44px] text-sm font-semibold inline-flex items-center rounded-[2px]"
               >
                 Pakistan Flight Permissions →
               </Link>
               <Link
                 href="/services"
-                className="px-4 py-2.5 min-h-[44px] bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] text-sm font-semibold text-[#0B2545] inline-flex items-center"
+                className="kcl-btn-outline-navy px-4 py-2.5 min-h-[44px] text-sm font-semibold inline-flex items-center rounded-[2px]"
               >
                 View All Services →
               </Link>
@@ -421,12 +421,12 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            <div className="lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between space-y-4">
+            <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between space-y-4">
               <div className="space-y-3">
                 <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
                   PAKISTAN SPECIALIZATION &amp; INTERNATIONAL TRIP SUPPORT
                 </span>
-                <h2 className="text-2xl font-bold text-[#0B2545]">
+                <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
                   From Pakistan to International Trip Support
                 </h2>
                 <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
@@ -447,31 +447,31 @@ export default function HomePage() {
               <div className="pt-4 border-t border-[#CBD5E1] flex flex-wrap gap-4 text-sm font-semibold">
                 <Link
                   href="/pakistan/flight-permissions"
-                  className="text-[#0B2545] underline underline-offset-4"
+                  className="kcl-link text-[#0B2545]"
                 >
                   Pakistan Flight Permissions →
                 </Link>
                 <Link
                   href="/services/overflight-permit-pakistan"
-                  className="text-[#0B2545] underline underline-offset-4"
+                  className="kcl-link text-[#0B2545]"
                 >
                   Pakistan Overflight Guide →
                 </Link>
                 <Link
                   href="/services/landing-permit-pakistan"
-                  className="text-[#0B2545] underline underline-offset-4"
+                  className="kcl-link text-[#0B2545]"
                 >
                   Pakistan Landing Guide →
                 </Link>
               </div>
             </div>
 
-            <div className="lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between space-y-4">
+            <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between space-y-4">
               <div className="space-y-3">
                 <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
                   CORPORATE HERITAGE · KASHMIRWALA GROUP (1947)
                 </span>
-                <h2 className="text-2xl font-bold text-[#0B2545]">
+                <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
                   Rooted in Heritage, Built for Today
                 </h2>
                 <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
@@ -490,19 +490,19 @@ export default function HomePage() {
               <div className="pt-4 border-t border-[#CBD5E1] flex flex-wrap gap-4 text-sm font-semibold">
                 <Link
                   href="/about"
-                  className="text-[#0B2545] underline underline-offset-4"
+                  className="kcl-link text-[#0B2545]"
                 >
                   About KCL &amp; Heritage →
                 </Link>
                 <Link
                   href="/aviation-resources"
-                  className="text-[#0B2545] underline underline-offset-4"
+                  className="kcl-link text-[#0B2545]"
                 >
                   Aviation Resources →
                 </Link>
                 <Link
                   href="/insights"
-                  className="text-[#0B2545] underline underline-offset-4"
+                  className="kcl-link text-[#0B2545]"
                 >
                   Aviation Insights →
                 </Link>
@@ -533,7 +533,7 @@ export default function HomePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
                 <Link
                   href="/aviation-resources"
-                  className="p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] transition-colors"
+                  className="kcl-card p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] transition-colors"
                 >
                   <span className="font-bold text-[#0B2545] block">
                     Aviation Resource Library →
@@ -544,7 +544,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/insights"
-                  className="p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] transition-colors"
+                  className="kcl-card p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] transition-colors"
                 >
                   <span className="font-bold text-[#0B2545] block">
                     Aviation Insights &amp; Articles →

@@ -29,7 +29,7 @@ export default function IcaoPhoneticAlphabetPage() {
       <section className="bg-[#0B2545] text-white py-12 sm:py-16 border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#E8A200] bg-[#133661] border border-slate-600 px-3 py-1 inline-block">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-[#133661] border border-slate-600 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
               DISPATCH REFERENCE // ICAO ANNEX 10 VOLUME II
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
@@ -50,8 +50,8 @@ export default function IcaoPhoneticAlphabetPage() {
           <PhoneticConverterClient />
 
           {/* A-Z Table */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8">
-            <h2 className="text-2xl font-bold text-[#0B2545] mb-4">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
+            <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545] mb-4">
               ICAO Radiotelephony Alphabet (A–Z)
             </h2>
             <div className="overflow-x-auto border border-[#CBD5E1]">
@@ -93,8 +93,8 @@ export default function IcaoPhoneticAlphabetPage() {
           </div>
 
           {/* Numerals Table */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8">
-            <h2 className="text-2xl font-bold text-[#0B2545] mb-4">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
+            <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545] mb-4">
               ICAO Radiotelephony Numerals (0–9)
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
@@ -117,7 +117,7 @@ export default function IcaoPhoneticAlphabetPage() {
             </div>
           </div>
 
-          <div className="bg-white border border-[#CBD5E1] p-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 flex flex-wrap items-center justify-between gap-4 text-sm">
             <div className="space-x-4 font-semibold">
               <Link
                 href="/tools/aircraft-registration-prefixes"

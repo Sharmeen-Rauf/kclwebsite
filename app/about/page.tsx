@@ -54,14 +54,14 @@ export default function AboutPage() {
 
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F2C200] bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
+          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
               KCL INTERNATIONAL FLIGHT SUPPORT · {SITE_CONFIG.authorityBadge}
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Rooted in Pakistan. Connected to International Aviation.
             </h1>
-            <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Kashmir Corporation (Pvt.) Ltd. connects an established business
               heritage with a practical approach to modern aviation operations.
               KCL International Flight Support works with aviation stakeholders
@@ -77,11 +77,11 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Heritage & What KCL Supports */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
+            <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
               <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
                 CORPORATE HERITAGE · KASHMIRWALA GROUP (1947)
               </span>
-              <h2 className="text-2xl font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
                 A Heritage of Business Relationships
               </h2>
               <p className="text-[#16202B] text-base leading-relaxed">
@@ -101,11 +101,11 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
+            <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
               <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
                 SIX CORE SERVICES &amp; STAKEHOLDERS
               </span>
-              <h2 className="text-2xl font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
                 What KCL Supports &amp; Who We Work With
               </h2>
               <p className="text-[#16202B] text-base leading-relaxed">
@@ -132,11 +132,11 @@ export default function AboutPage() {
           </div>
 
           {/* Working Philosophy */}
-          <div className="bg-white border border-[#CBD5E1] p-6 sm:p-8">
+          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
             <span className="font-mono text-xs uppercase text-[#5C6B7A] block mb-1">
               OUR WORKING PHILOSOPHY
             </span>
-            <h2 className="text-2xl font-bold text-[#0B2545] mb-3">
+            <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545] mb-3">
               Listen First. Understand the Flight. Identify Dependencies. Communicate Accurately. Keep the Next Step Clear.
             </h2>
             <p className="text-sm sm:text-base text-[#16202B] mb-6">
@@ -147,7 +147,7 @@ export default function AboutPage() {
               {WORKING_PHILOSOPHY.map((item) => (
                 <div
                   key={item.step}
-                  className="bg-[#F6F8FB] border border-[#CBD5E1] p-4"
+                  className="kcl-card bg-[#F6F8FB] border border-[#CBD5E1] p-4"
                 >
                   <span className="font-mono text-xs text-[#5C6B7A] block mb-1">
                     PRINCIPLE {item.step}
@@ -165,11 +165,11 @@ export default function AboutPage() {
 
           {/* Pakistan Expertise & International Perspective + Credentials Publishing Block */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
+            <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
               <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
                 REGIONAL &amp; INTERNATIONAL POSITIONING
               </span>
-              <h2 className="text-2xl font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
                 Pakistan Expertise and International Perspective
               </h2>
               <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
@@ -182,20 +182,20 @@ export default function AboutPage() {
               <div className="pt-2 flex flex-wrap gap-4 text-sm font-semibold">
                 <Link
                   href="/pakistan/flight-permissions"
-                  className="text-[#0B2545] underline underline-offset-4"
+                  className="kcl-link text-[#0B2545]"
                 >
                   Pakistan Flight Permissions →
                 </Link>
                 <Link
                   href="/services"
-                  className="text-[#0B2545] underline underline-offset-4"
+                  className="kcl-link text-[#0B2545]"
                 >
                   Explore Six Core Services →
                 </Link>
               </div>
             </div>
 
-            <div className="lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
+            <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#CBD5E1] pb-4">
                 <Image
                   src="/img/imgi_2_Sign Logo1@3x.png"
@@ -204,11 +204,11 @@ export default function AboutPage() {
                   height={64}
                   className="h-11 w-auto object-contain"
                 />
-                <span className="font-mono text-xs uppercase text-[#E8A200] bg-[#0B2545] px-2.5 py-1 inline-block font-semibold">
+                <span className="font-mono text-xs uppercase text-white bg-[#0B2545] border-b-2 border-[var(--accent)] px-2.5 py-1 inline-block font-semibold">
                   PUBLISHING BLOCK · MANAGEMENT VERIFICATION
                 </span>
               </div>
-              <h2 className="text-2xl font-bold text-[#0B2545]">
+              <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
                 Credentials and Leadership
               </h2>
               <p className="text-sm text-[#16202B] leading-relaxed">

@@ -5,7 +5,7 @@ import { SITE_CONFIG } from "@/lib/utils";
 
 export function Footer() {
   return (
-    <footer className="bg-[#0B2545] text-slate-200 border-t-2 border-[#E8A200]">
+    <footer className="bg-[#0B2545] text-slate-200 border-t-2 border-[var(--accent)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-700/80">
           <div className="lg:col-span-4 space-y-4">
@@ -41,14 +41,14 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3 space-y-3">
-            <h2 className="text-xs font-mono uppercase tracking-wider text-[#E8A200] font-semibold">
+            <h2 className="text-xs font-mono uppercase tracking-wider text-white font-semibold pb-1.5 border-b border-[var(--accent)]/40">
               Six Core Services
             </h2>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
                   href="/pakistan/flight-permissions"
-                  className="hover:text-[#E8A200] transition-colors font-semibold text-white"
+                  className="kcl-link hover:text-white transition-colors font-semibold text-white"
                 >
                   01 · Flight Permission Facilitation
                 </Link>
@@ -56,7 +56,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/ground-handling"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   02 · Ground Handling
                 </Link>
@@ -64,7 +64,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/inflight-catering"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   03 · Catering Services
                 </Link>
@@ -72,7 +72,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/aviation-fuel"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   04 · Fuel Supply
                 </Link>
@@ -80,7 +80,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/crew-logistics"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   05 · Accommodation Arrangements
                 </Link>
@@ -88,7 +88,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/operations-support"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   06 · 24/7 Operational Support
                 </Link>
@@ -96,7 +96,7 @@ export function Footer() {
               <li className="pt-2 border-t border-slate-700/80">
                 <Link
                   href="/services/international-flight-support"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   International Trip Support
                 </Link>
@@ -104,7 +104,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/overflight-permits"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   Overflight Permits
                 </Link>
@@ -112,7 +112,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/landing-permits"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   Landing Permits
                 </Link>
@@ -121,14 +121,14 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3 space-y-3">
-            <h2 className="text-xs font-mono uppercase tracking-wider text-[#E8A200] font-semibold">
+            <h2 className="text-xs font-mono uppercase tracking-wider text-white font-semibold pb-1.5 border-b border-[var(--accent)]/40">
               Scheduled, Non-Scheduled &amp; Resources
             </h2>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
                   href="/schedule-filing"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   Schedule Flight Filing (Pakistan)
                 </Link>
@@ -136,7 +136,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/non-schedule-filing"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   Non-Schedule &amp; Charter Filing
                 </Link>
@@ -144,7 +144,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/overflight-permit-pakistan"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   Pakistan Overflight Permit Guide
                 </Link>
@@ -152,7 +152,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services/landing-permit-pakistan"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   Pakistan Landing Permit Guide
                 </Link>
@@ -160,7 +160,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/permit-directory/pakistan"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   Pakistan Airspace &amp; FIR Reference
                 </Link>
@@ -168,7 +168,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/aviation-resources"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   Aviation Resources &amp; Checklists
                 </Link>
@@ -176,7 +176,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/insights"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   Aviation Insights &amp; Articles
                 </Link>
@@ -184,7 +184,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/tools"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   Reference Utilities (ICAO / UTC)
                 </Link>
@@ -193,7 +193,7 @@ export function Footer() {
                 <a
                   href="/files/kcl-permit-request-checklist.pdf"
                   download
-                  className="text-[#E8A200] hover:underline font-medium"
+                  className="kcl-link text-white font-medium"
                 >
                   Download Flight Inquiry Checklist (PDF)
                 </a>
@@ -202,14 +202,14 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2 space-y-3">
-            <h2 className="text-xs font-mono uppercase tracking-wider text-[#E8A200] font-semibold">
+            <h2 className="text-xs font-mono uppercase tracking-wider text-white font-semibold pb-1.5 border-b border-[var(--accent)]/40">
               Company &amp; Inquiries
             </h2>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
                   href="/about"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   About KCL
                 </Link>
@@ -217,7 +217,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   All Services
                 </Link>
@@ -225,7 +225,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/clients"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   Operator Experience
                 </Link>
@@ -233,7 +233,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/customer-support"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   24/7 Customer Support
                 </Link>
@@ -241,7 +241,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="hover:text-[#E8A200] transition-colors"
+                  className="kcl-link hover:text-white transition-colors"
                 >
                   Contact KCL
                 </Link>
@@ -249,7 +249,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/request-flight-support"
-                  className="hover:text-[#E8A200] font-semibold text-white transition-colors"
+                  className="kcl-link hover:text-white font-semibold text-white transition-colors"
                 >
                   Request Flight Support
                 </Link>

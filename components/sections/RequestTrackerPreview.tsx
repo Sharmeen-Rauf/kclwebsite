@@ -41,10 +41,10 @@ export function RequestTrackerPreview({
   steps = DEFAULT_WORKFLOW_STEPS,
 }: RequestTrackerPreviewProps) {
   return (
-    <div className="bg-white border border-[#CBD5E1]">
+    <div className="kcl-card bg-white border border-[#CBD5E1]">
       <div className="bg-[#F6F8FB] border-b border-[#CBD5E1] px-5 py-3.5 flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2.5">
-          <span className="font-mono text-xs font-bold bg-[#0B2545] text-[#E8A200] px-2 py-0.5">
+          <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2 py-0.5">
             COORDINATION WORKFLOW
           </span>
           <span className="text-sm font-bold text-[#0B2545]">
@@ -61,11 +61,11 @@ export function RequestTrackerPreview({
           {steps.map((step) => (
             <li
               key={step.stepCode}
-              className="border border-[#CBD5E1] bg-[#F6F8FB] p-4 flex flex-col justify-between"
+              className="kcl-card border border-[#CBD5E1] bg-[#F6F8FB] p-4 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2.5">
-                  <span className="font-mono text-xs font-bold px-2 py-0.5 bg-[#0B2545] text-[#E8A200]">
+                  <span className="font-mono text-xs font-bold px-2 py-0.5 bg-[#0B2545] text-white border-b-2 border-[var(--accent)]">
                     STEP {step.stepCode}
                   </span>
                 </div>
