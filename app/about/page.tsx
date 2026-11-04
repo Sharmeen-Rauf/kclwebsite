@@ -91,14 +91,6 @@ export default function AboutPage() {
                 information remains constant. KCL builds on that heritage while
                 focusing on contemporary aviation support.
               </p>
-              <p className="text-xs sm:text-sm text-[#5C6B7A] bg-[#F6F8FB] border border-[#CBD5E1] p-4">
-                <strong className="text-[#0B2545]">
-                  Historical Accuracy Note:
-                </strong>{" "}
-                1947 represents the foundation heritage of Kashmirwala Group and
-                is not represented as the incorporation date of Kashmir
-                Corporation (Pvt.) Ltd.
-              </p>
             </div>
 
             <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">

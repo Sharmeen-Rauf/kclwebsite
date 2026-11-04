@@ -532,20 +532,44 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="bg-[#0B2545] text-white p-6 rounded-[2px] flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div className="space-y-1">
-              <span className="font-mono text-xs text-[#F4C400] font-bold block">
-                SPECIALIST ANCHOR · KARACHI (OPKR) &amp; LAHORE (OPLR) FIRs
-              </span>
-              <p className="text-sm text-slate-100 max-w-2xl">
-                Operating into or through Pakistan? Our local desk handles
-                scheduled filings, non-scheduled clearances, and airport
-                turnarounds directly with civil aviation authorities.
-              </p>
+          <div className="bg-[#0B2545] text-white p-6 rounded-[2px] flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-3">
+              <div>
+                <span className="font-mono text-xs text-[#F4C400] font-bold block mb-1">
+                  SPECIALIST ANCHOR · KARACHI (OPKR) &amp; LAHORE (OPLR) FIRs
+                </span>
+                <p className="text-sm text-slate-100 max-w-2xl leading-relaxed">
+                  Operating into or through Pakistan? Our local desk handles
+                  scheduled filings, non-scheduled clearances, and airport
+                  turnarounds directly with civil aviation authorities.
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold text-slate-200 pt-1 border-t border-slate-700/60">
+                <Link
+                  href="/pakistan/flight-permissions"
+                  className="hover:text-white hover:underline underline-offset-4"
+                >
+                  Pakistan Flight Permissions →
+                </Link>
+                <span className="text-slate-500">·</span>
+                <Link
+                  href="/services/overflight-permit-pakistan"
+                  className="hover:text-white hover:underline underline-offset-4"
+                >
+                  Pakistan Overflight Guide →
+                </Link>
+                <span className="text-slate-500">·</span>
+                <Link
+                  href="/services/landing-permit-pakistan"
+                  className="hover:text-white hover:underline underline-offset-4"
+                >
+                  Pakistan Landing Guide →
+                </Link>
+              </div>
             </div>
             <Link
               href="/pakistan/flight-permissions"
-              className="kcl-btn-outline-white shrink-0 min-h-[44px] px-5 py-2.5 text-xs font-mono font-bold inline-flex items-center justify-center rounded-[2px] whitespace-nowrap"
+              className="kcl-btn-outline-white shrink-0 min-h-[44px] px-5 py-2.5 text-xs font-mono font-bold inline-flex items-center justify-center rounded-[2px] whitespace-nowrap self-start md:self-center"
             >
               Explore Pakistan Hub →
             </Link>
@@ -733,108 +757,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. How Coordination Works & Heritage / Pakistan Specialization */}
+      {/* 6. How Coordination Works */}
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="space-y-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              OPERATIONAL COORDINATION PROCESS
-            </span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="space-y-2">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               How Coordination Works
             </h2>
-            <RequestTrackerPreview />
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between space-y-4">
-              <div className="space-y-3">
-                <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-                  PAKISTAN SPECIALIZATION &amp; INTERNATIONAL TRIP SUPPORT
-                </span>
-                <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
-                  From Pakistan to International Trip Support
-                </h2>
-                <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
-                  KCL&apos;s established Pakistan flight permission
-                  specialization (scheduled and non-scheduled overflight and
-                  landing clearances across OPKR and OPLR FIRs) is complemented
-                  by international trip coordination. Specific regions,
-                  countries and delivery partnerships are confirmed per
-                  itinerary.
-                </p>
-                <p className="text-sm text-[#5C6B7A] leading-relaxed">
-                  Operators planning overflights or landings involving Pakistan
-                  can explore our dedicated Pakistan flight permissions pages
-                  for local operational context, or combine multiple services in
-                  a single flight support inquiry.
-                </p>
-              </div>
-              <div className="pt-4 border-t border-[#CBD5E1] flex flex-wrap gap-4 text-sm font-semibold">
-                <Link
-                  href="/pakistan/flight-permissions"
-                  className="kcl-link text-[#0B2545]"
-                >
-                  Pakistan Flight Permissions →
-                </Link>
-                <Link
-                  href="/services/overflight-permit-pakistan"
-                  className="kcl-link text-[#0B2545]"
-                >
-                  Pakistan Overflight Guide →
-                </Link>
-                <Link
-                  href="/services/landing-permit-pakistan"
-                  className="kcl-link text-[#0B2545]"
-                >
-                  Pakistan Landing Guide →
-                </Link>
-              </div>
-            </div>
-
-            <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between space-y-4">
-              <div className="space-y-3">
-                <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-                  CORPORATE HERITAGE · KASHMIRWALA GROUP (1947)
-                </span>
-                <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
-                  Rooted in Heritage, Built for Today
-                </h2>
-                <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
-                  KCL is associated with Kashmirwala Group, whose history dates
-                  to 1947. That corporate heritage informs a contemporary
-                  commitment to professional aviation coordination. The
-                  Group&apos;s foundation date is distinct from KCL&apos;s
-                  corporate incorporation date.
-                </p>
-                <p className="text-sm text-[#5C6B7A] leading-relaxed">
-                  Explore practical guides on permission requests, scheduled vs.
-                  non-scheduled operations, and information to prepare before
-                  contacting a flight support provider.
-                </p>
-              </div>
-              <div className="pt-4 border-t border-[#CBD5E1] flex flex-wrap gap-4 text-sm font-semibold">
-                <Link
-                  href="/about"
-                  className="kcl-link text-[#0B2545]"
-                >
-                  About KCL &amp; Heritage →
-                </Link>
-                <Link
-                  href="/aviation-resources"
-                  className="kcl-link text-[#0B2545]"
-                >
-                  Aviation Resources →
-                </Link>
-                <Link
-                  href="/insights"
-                  className="kcl-link text-[#0B2545]"
-                >
-                  Aviation Insights →
-                </Link>
-              </div>
-            </div>
-          </div>
+          <RequestTrackerPreview />
         </div>
       </section>
 
