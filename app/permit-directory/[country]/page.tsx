@@ -101,7 +101,7 @@ export default async function CountryPermitDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="kcl-card lg:col-span-8 space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
               <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
-                <span className="bg-white/10 backdrop-blur-sm border border-white/30 border-b-2 border-b-[var(--accent)] text-white px-2.5 py-1 font-semibold">
+                <span className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-2.5 py-1 font-semibold">
                   ISO: {guide.isoCode}
                 </span>
                 <span className="bg-white/10 backdrop-blur-sm border border-white/25 text-slate-100 px-2.5 py-1">
@@ -141,7 +141,7 @@ export default async function CountryPermitDetailPage({
             </div>
 
             <div className="kcl-card lg:col-span-4 bg-black/45 backdrop-blur-md border border-white/20 p-5 space-y-3 font-mono text-xs rounded-[2px]">
-              <div className="border-b border-[var(--accent)]/40 pb-2 text-white font-semibold">
+              <div className="border-b border-white/20 pb-2 text-white font-semibold">
                 AIRSPACE &amp; AUTHORITY DATA
               </div>
               <div>
@@ -238,7 +238,7 @@ export default async function CountryPermitDetailPage({
                       <h3 className="text-xl font-bold text-[#0B2545]">
                         {combo.title}
                       </h3>
-                      <span className="font-mono text-[11px] bg-[#F6F8FB] border border-[#CBD5E1] border-b-2 border-b-[var(--accent)] text-[#0B2545] px-2 py-0.5 font-semibold">
+                      <span className="font-mono text-[11px] bg-[#F6F8FB] border border-[#CBD5E1] text-[#0B2545] px-2 py-0.5 font-semibold">
                         {combo.data.verificationStatus}
                       </span>
                     </div>

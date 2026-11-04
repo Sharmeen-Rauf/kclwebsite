@@ -92,7 +92,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="kcl-card lg:col-span-8 space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
               <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
-                <span className="bg-white/10 backdrop-blur-sm border border-white/30 border-b-2 border-b-[var(--accent)] text-white px-2.5 py-1 font-semibold">
+                <span className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-2.5 py-1 font-semibold">
                   {service.code}
                 </span>
                 <span className="bg-white/10 backdrop-blur-sm border border-white/25 text-slate-100 px-2.5 py-1">
@@ -129,7 +129,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             </div>
 
             <div className="kcl-card lg:col-span-4 bg-black/45 backdrop-blur-md border border-white/20 p-5 space-y-4 font-mono text-xs rounded-[2px]">
-              <div className="border-b border-[var(--accent)]/40 pb-2 text-white font-semibold">
+              <div className="border-b border-white/20 pb-2 text-white font-semibold">
                 SERVICE COORDINATION BRIEF
               </div>
               <div>
@@ -193,7 +193,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               <ul className="space-y-2.5 text-sm sm:text-base text-[#16202B]">
                 {service.whoItIsFor.map((item) => (
                   <li key={item} className="flex items-start gap-2.5">
-                    <span className="font-mono text-xs font-bold text-white bg-[#0B2545] border-b-2 border-[var(--accent)] px-1.5 py-0.5 mt-1">
+                    <span className="font-mono text-xs font-bold text-white bg-[#0B2545] px-1.5 py-0.5 mt-1">
                       OPS
                     </span>
                     <span>{item}</span>
@@ -300,7 +300,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                     key={step.step}
                     className="kcl-card border border-[#CBD5E1] bg-[#F6F8FB] p-5 flex gap-4"
                   >
-                    <span className="font-mono text-sm font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-3 py-1.5 h-fit">
+                    <span className="font-mono text-sm font-bold bg-[#0B2545] text-white px-3 py-1.5 h-fit">
                       {step.step}
                     </span>
                     <div>

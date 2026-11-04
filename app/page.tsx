@@ -56,7 +56,7 @@ export default function HomePage() {
           >
             <path
               d="M-60 490 C 280 420, 620 260, 1020 220 C 1220 200, 1360 150, 1500 110"
-              stroke="#F4C400"
+              stroke="#FFFFFF"
               strokeWidth="1.5"
               strokeDasharray="6 6"
             />
@@ -71,22 +71,21 @@ export default function HomePage() {
               strokeWidth="1"
               strokeDasharray="4 5"
             />
-            <circle cx="515" cy="340" r="4" fill="#F4C400" />
+            <circle cx="515" cy="340" r="4" fill="#FFFFFF" />
             <circle cx="775" cy="275" r="4" fill="#FFFFFF" />
-            <circle cx="885" cy="145" r="4" fill="#F4C400" />
+            <circle cx="885" cy="145" r="4" fill="#FFFFFF" />
           </svg>
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            {/* Left: Larger Hero Headline (aligned with top of Quick Permit Request card), Subtext & Two Outline Buttons */}
-            <div className="lg:col-span-7 space-y-5 pt-0">
-              <h1 className="text-3xl sm:text-4xl lg:text-[48px] xl:text-[54px] font-bold text-white leading-[1.08] tracking-tight">
-                Pakistan Flight Permissions, Filed and Followed Up by an AFPA
-                Authorized Agent
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            {/* Left: Vertically Centered Hero Headline, Subtext & Two Outline Buttons */}
+            <div className="lg:col-span-7 space-y-4 my-auto">
+              <h1 className="text-2xl sm:text-3xl lg:text-[36px] xl:text-[40px] font-bold text-white leading-[1.18] tracking-tight max-w-xl">
+                Flight Permissions Worldwide, Led by Pakistan Specialists
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed max-w-xl">
                 Overflight and landing permits for schedule and non-schedule
                 flights, with handling, catering, fuel and crew hotels arranged
                 by the same desk.
@@ -95,21 +94,21 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
                 <Link
                   href="#permit-checker"
-                  className="kcl-btn-outline-white min-h-[46px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="kcl-btn-outline-white min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Check Requirements
                 </Link>
                 <a
                   href="/files/kcl-permit-request-checklist.pdf"
                   download
-                  className="kcl-btn-outline-white min-h-[46px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  className="kcl-btn-outline-white min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
                   Download Checklist
                 </a>
               </div>
             </div>
 
-            {/* Right: Frosted Quick Permit Request Card with 3px --accent Top Border */}
+            {/* Right: Translucent Frosted Quick Permit Request Card with 3px --accent Top Border */}
             <div className="lg:col-span-5">
               <QuickPermitRequestCard />
             </div>
@@ -125,7 +124,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-5 text-xs font-bold text-[#0B2545]">
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
-              <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
+              <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
               AFPA Authorized
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
@@ -208,23 +207,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. KCL's Six Core Services (Primary Reference: kclpk.org/Services.html) */}
+      {/* 2. Core Operational Services (Primary Reference: kclpk.org/Services.html) */}
       <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="max-w-3xl space-y-3">
               <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
-                SIX CORE OPERATIONAL SERVICES · KCL FLIGHT SUPPORT
+                CORE OPERATIONAL SERVICES · KCL FLIGHT SUPPORT
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
                 The Support Behind a Well-Planned Flight
               </h2>
               <p className="text-[#16202B] text-base leading-relaxed">
                 Every itinerary brings together permissions, airport
-                arrangements, aircraft requirements and crew needs. Rather than
-                treating these as isolated tasks, KCL coordinates six core
-                operational services so dispatchers and flight operations teams
-                can plan with clarity.
+                arrangements, flight planning, slot coordination, aircraft
+                requirements and crew needs. Rather than treating these as
+                isolated tasks, KCL coordinates core operational services so
+                dispatchers and flight operations teams can plan with clarity.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -407,7 +406,109 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. How Coordination Works & Heritage / Pakistan Specialization */}
+      {/* 5. Where We Support — Worldwide Operational Coverage */}
+      <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            <div className="max-w-3xl space-y-3">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
+                GLOBAL REACH · LOCAL SPECIALIZATION
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
+                Where We Support
+              </h2>
+              <p className="text-[#16202B] text-base leading-relaxed">
+                Operating across key international aviation corridors, KCL
+                coordinates overflight and landing permits, ground handling,
+                fuel supply, catering, and crew logistics worldwide—led by
+                established in-depth specialization across Pakistan airspace
+                (OPKR &amp; OPLR FIRs).
+              </p>
+            </div>
+            <div className="bg-[#F6F8FB] border border-[#CBD5E1] p-3.5 rounded-[2px] max-w-sm">
+              <span className="text-xs font-mono font-bold text-[#0B2545] block mb-1">
+                OPERATIONAL NOTE
+              </span>
+              <p className="text-xs text-[#5C6B7A] leading-snug">
+                Specific countries and partners are confirmed per itinerary.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              {
+                region: "Africa",
+                detail:
+                  "Trans-continental routes, technical stops & commercial clearances",
+              },
+              {
+                region: "Middle East",
+                detail:
+                  "Gulf corridors, turnaround coordination & regional overflights",
+              },
+              {
+                region: "Europe",
+                detail:
+                  "East–West international traffic, slot liaison & seasonal filings",
+              },
+              {
+                region: "Asia",
+                detail:
+                  "South, East & Central Asia airspace & airport coordination",
+              },
+              {
+                region: "North & South America",
+                detail:
+                  "Long-haul flight planning, transatlantic & transpacific routing",
+              },
+              {
+                region: "The Caribbean",
+                detail:
+                  "Island transit, private charter & seasonal destination support",
+              },
+            ].map((item) => (
+              <div
+                key={item.region}
+                className="kcl-card bg-[#F6F8FB] border border-[#CBD5E1] p-4 flex flex-col justify-between space-y-2.5"
+              >
+                <div>
+                  <span className="font-mono text-[10px] uppercase font-bold text-[#5C6B7A] tracking-wider block">
+                    REGION
+                  </span>
+                  <h3 className="text-base font-bold text-[#0B2545] mt-1">
+                    {item.region}
+                  </h3>
+                </div>
+                <p className="text-xs text-[#5C6B7A] leading-relaxed">
+                  {item.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-[#0B2545] text-white p-6 rounded-[2px] flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <span className="font-mono text-xs text-slate-300 font-semibold block">
+                SPECIALIST ANCHOR · KARACHI (OPKR) &amp; LAHORE (OPLR) FIRs
+              </span>
+              <p className="text-sm text-slate-100 max-w-2xl">
+                Operating into or through Pakistan? Our local desk handles
+                scheduled filings, non-scheduled clearances, and airport
+                turnarounds directly with civil aviation authorities.
+              </p>
+            </div>
+            <Link
+              href="/pakistan/flight-permissions"
+              className="kcl-btn-outline-white shrink-0 min-h-[44px] px-5 py-2.5 text-xs font-mono font-bold inline-flex items-center justify-center rounded-[2px] whitespace-nowrap"
+            >
+              Explore Pakistan Hub →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. How Coordination Works & Heritage / Pakistan Specialization */}
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="space-y-4">

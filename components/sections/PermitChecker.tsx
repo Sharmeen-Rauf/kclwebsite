@@ -356,7 +356,7 @@ export function PermitChecker() {
                 {guidance.preparationItems.map((item) => (
                   <li key={item} className="flex items-start gap-2.5">
                     <span
-                      className="font-mono text-xs font-bold text-white bg-[#0B2545] border-b-2 border-[var(--accent)] px-1.5 py-0.5 mt-0.5"
+                      className="font-mono text-xs font-bold text-white bg-[#0B2545] px-1.5 py-0.5 mt-0.5"
                       aria-hidden="true"
                     >
                       INFO

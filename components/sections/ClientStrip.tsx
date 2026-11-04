@@ -33,7 +33,7 @@ export function ClientStrip({ compact = false }: ClientStripProps) {
           )}
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {REAL_CLIENTS.map((client) => (
             <div
               key={client.icao}
@@ -45,12 +45,14 @@ export function ClientStrip({ compact = false }: ClientStripProps) {
                   alt={client.alt}
                   width={220}
                   height={64}
-                  className="max-h-12 w-auto object-contain"
+                  className="max-h-11 w-auto object-contain"
                 />
               </div>
-              <div className="flex items-center justify-between text-xs border-t border-slate-200 pt-2">
-                <span className="font-bold text-[#0B2545]">{client.name}</span>
-                <span className="font-mono text-[#5C6B7A]">
+              <div className="flex items-center justify-between gap-1 text-xs border-t border-slate-200 pt-2">
+                <span className="font-bold text-[#0B2545] truncate">
+                  {client.name}
+                </span>
+                <span className="font-mono text-[11px] text-[#5C6B7A] shrink-0">
                   {client.icao} / {client.iata}
                 </span>
               </div>

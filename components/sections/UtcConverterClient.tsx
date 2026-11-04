@@ -109,7 +109,7 @@ export function UtcConverterClient() {
           </select>
         </div>
 
-        <div className="md:col-span-4 bg-[#0B2545] text-white p-3.5 border border-[#0B2545] border-b-2 border-b-[var(--accent)] font-mono">
+        <div className="md:col-span-4 bg-[#0B2545] text-white p-3.5 border border-[#0B2545] font-mono">
           <span className="text-[11px] text-slate-300 block">
             PAKISTAN LOCAL (PKT = UTC+5)
           </span>

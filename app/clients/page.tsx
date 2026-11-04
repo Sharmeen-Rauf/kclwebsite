@@ -21,7 +21,7 @@ export default function ClientsPage() {
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
               PUBLISHED CORPORATE REFERENCES · SUBJECT TO MANAGEMENT REVIEW
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
@@ -42,7 +42,7 @@ export default function ClientsPage() {
 
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {REAL_CLIENTS.map((client) => (
               <article
                 key={client.icao}
@@ -58,7 +58,7 @@ export default function ClientsPage() {
                         State of Registry: {client.country}
                       </p>
                     </div>
-                    <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2.5 py-1">
+                    <span className="font-mono text-xs font-bold bg-[#0B2545] text-white px-2.5 py-1">
                       ICAO: {client.icao} · IATA: {client.iata}
                     </span>
                   </div>

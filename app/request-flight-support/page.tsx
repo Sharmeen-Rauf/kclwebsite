@@ -72,7 +72,7 @@ export default async function RequestFlightSupportPage({
       <section className="kcl-hero-bg text-white py-10 sm:py-14 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="kcl-card max-w-3xl space-y-3 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
               FLIGHT SUPPORT INQUIRY · {SITE_CONFIG.authorityBadge}
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
@@ -152,7 +152,7 @@ export default async function RequestFlightSupportPage({
 
             <aside className="lg:col-span-4 space-y-6">
               <div className="kcl-card bg-white border border-[#CBD5E1] p-6 space-y-3">
-                <span className="font-mono text-xs uppercase text-white bg-[#0B2545] border-b-2 border-[var(--accent)] px-2.5 py-1 inline-block font-semibold">
+                <span className="font-mono text-xs uppercase text-white bg-[#0B2545] px-2.5 py-1 inline-block font-semibold">
                   SUBMISSION BEHAVIOR
                 </span>
                 <h2 className="no-accent-bar text-base font-bold text-[#0B2545]">

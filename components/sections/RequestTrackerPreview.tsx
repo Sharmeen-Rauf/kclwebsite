@@ -44,7 +44,7 @@ export function RequestTrackerPreview({
     <div className="kcl-card bg-white border border-[#CBD5E1]">
       <div className="bg-[#F6F8FB] border-b border-[#CBD5E1] px-5 py-3.5 flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2.5">
-          <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2 py-0.5">
+          <span className="font-mono text-xs font-bold bg-[#0B2545] text-white px-2 py-0.5">
             COORDINATION WORKFLOW
           </span>
           <span className="text-sm font-bold text-[#0B2545]">
@@ -65,7 +65,7 @@ export function RequestTrackerPreview({
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2.5">
-                  <span className="font-mono text-xs font-bold px-2 py-0.5 bg-[#0B2545] text-white border-b-2 border-[var(--accent)]">
+                  <span className="font-mono text-xs font-bold px-2 py-0.5 bg-[#0B2545] text-white">
                     STEP {step.stepCode}
                   </span>
                 </div>

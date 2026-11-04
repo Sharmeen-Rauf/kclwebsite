@@ -146,7 +146,7 @@ export default async function NewsArticlePage({
           <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-10">
             <header className="border-b border-[#CBD5E1] pb-6 mb-6 space-y-4">
               <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-[#5C6B7A]">
-                <span className="bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2.5 py-1 font-semibold">
+                <span className="bg-[#0B2545] text-white px-2.5 py-1 font-semibold">
                   {post.category}
                 </span>
                 <time dateTime={post.date}>Published: {post.date}</time>

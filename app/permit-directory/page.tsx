@@ -23,7 +23,7 @@ export default function PermitDirectoryIndexPage() {
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
               DISPATCH REFERENCE · AIRSPACE &amp; AERODROME GUIDES
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
@@ -82,7 +82,7 @@ export default function PermitDirectoryIndexPage() {
                         </Link>
                       </h3>
                     </div>
-                    <span className="font-mono text-xs bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-3 py-1 font-semibold">
+                    <span className="font-mono text-xs bg-[#0B2545] text-white px-3 py-1 font-semibold">
                       FIR: {country.firCodes.join(" · ")}
                     </span>
                   </div>

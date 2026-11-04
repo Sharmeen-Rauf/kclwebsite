@@ -5,7 +5,7 @@ import { SITE_CONFIG } from "@/lib/utils";
 
 export function Footer() {
   return (
-    <footer className="bg-[#0B2545] text-slate-200 border-t-2 border-[var(--accent)]">
+    <footer className="bg-[#0B2545] text-slate-200 border-t border-slate-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-700/80">
           <div className="lg:col-span-4 space-y-4">
@@ -41,7 +41,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3 space-y-3">
-            <h2 className="text-xs font-mono uppercase tracking-wider text-white font-semibold pb-1.5 border-b border-[var(--accent)]/40">
+            <h2 className="text-xs font-mono uppercase tracking-wider text-white font-semibold pb-1.5 border-b border-slate-700">
               Six Core Services
             </h2>
             <ul className="space-y-2 text-sm">
@@ -121,7 +121,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3 space-y-3">
-            <h2 className="text-xs font-mono uppercase tracking-wider text-white font-semibold pb-1.5 border-b border-[var(--accent)]/40">
+            <h2 className="text-xs font-mono uppercase tracking-wider text-white font-semibold pb-1.5 border-b border-slate-700">
               Scheduled, Non-Scheduled &amp; Resources
             </h2>
             <ul className="space-y-2 text-sm">
@@ -202,7 +202,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2 space-y-3">
-            <h2 className="text-xs font-mono uppercase tracking-wider text-white font-semibold pb-1.5 border-b border-[var(--accent)]/40">
+            <h2 className="text-xs font-mono uppercase tracking-wider text-white font-semibold pb-1.5 border-b border-slate-700">
               Company &amp; Inquiries
             </h2>
             <ul className="space-y-2 text-sm">

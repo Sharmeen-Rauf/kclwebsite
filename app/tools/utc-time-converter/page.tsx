@@ -28,7 +28,7 @@ export default function UtcTimeConverterPage() {
       <section className="bg-[#0B2545] text-white py-12 sm:py-16 border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-[#133661] border border-slate-600 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-[#133661] border border-slate-600 px-3 py-1 inline-block">
               DISPATCH UTILITY // ZULU TO PKT (UTC+5)
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">

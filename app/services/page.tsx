@@ -24,7 +24,7 @@ export default function ServicesOverviewPage() {
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
               KCL INTERNATIONAL FLIGHT SUPPORT · CORE SERVICE DIRECTORY
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
@@ -50,15 +50,15 @@ export default function ServicesOverviewPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="max-w-3xl space-y-2">
             <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-semibold block">
-              SIX CORE SERVICES · PRIMARY OPERATIONAL PORTFOLIO
+              OPERATIONAL SERVICES · PRIMARY SERVICE DIRECTORY
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              KCL&apos;s Six Core Aviation Support Services
+              KCL Aviation Support Services
             </h2>
             <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
               Based on KCL&apos;s established service portfolio, we assist
               commercial airlines, charter operators, cargo carriers, and
-              private aviation teams across six core operational pillars:
+              private aviation teams across core operational services:
             </p>
           </div>
 
@@ -256,7 +256,7 @@ export default function ServicesOverviewPage() {
           <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-6">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#CBD5E1] pb-4">
               <div>
-                <span className="font-mono text-xs uppercase text-white bg-[#0B2545] border-b-2 border-[var(--accent)] px-2.5 py-1 font-semibold inline-block mb-2">
+                <span className="font-mono text-xs uppercase text-white bg-[#0B2545] px-2.5 py-1 font-semibold inline-block mb-2">
                   REGIONAL SPECIALIZATION · PAKISTAN (OPKR &amp; OPLR FIRs)
                 </span>
                 <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">

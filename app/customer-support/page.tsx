@@ -22,7 +22,7 @@ export default function CustomerSupportPage() {
       <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 border-b-2 border-b-[var(--accent)] px-3 py-1 inline-block">
+            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
               ACTIVE INQUIRIES &amp; COORDINATION UPDATES
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
@@ -45,7 +45,7 @@ export default function CustomerSupportPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="kcl-card bg-white border border-[#CBD5E1] p-6 space-y-3">
-              <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2.5 py-1 inline-block">
+              <span className="font-mono text-xs font-bold bg-[#0B2545] text-white px-2.5 py-1 inline-block">
                 01 · EXISTING REQUESTS
               </span>
               <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
@@ -58,7 +58,7 @@ export default function CustomerSupportPage() {
             </div>
 
             <div className="kcl-card bg-white border border-[#CBD5E1] p-6 space-y-3">
-              <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2.5 py-1 inline-block">
+              <span className="font-mono text-xs font-bold bg-[#0B2545] text-white px-2.5 py-1 inline-block">
                 02 · CHANGES TO ITINERARY
               </span>
               <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
@@ -72,7 +72,7 @@ export default function CustomerSupportPage() {
             </div>
 
             <div className="kcl-card bg-white border border-[#CBD5E1] p-6 space-y-3">
-              <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2.5 py-1 inline-block">
+              <span className="font-mono text-xs font-bold bg-[#0B2545] text-white px-2.5 py-1 inline-block">
                 03 · SERVICE ISSUES
               </span>
               <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">

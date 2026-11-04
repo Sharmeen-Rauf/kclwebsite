@@ -49,4 +49,24 @@ export const REAL_CLIENTS: AirlineClient[] = [
     summary:
       "Flight permission facilitation, ground handling coordination and 24/7 operational support.",
   },
+  {
+    name: "Virgin Australia",
+    icao: "VOZ",
+    iata: "VA",
+    country: "Australia",
+    logo: "/img/Virgin-Logo-1.png",
+    alt: "Virgin Australia (ICAO: VOZ) official logo",
+    summary:
+      "International flight permission facilitation and airspace coordination across Pakistan Flight Information Regions.",
+  },
+  {
+    name: "Batik Air",
+    icao: "BTK",
+    iata: "ID",
+    country: "Indonesia",
+    logo: "/img/batik-air.png",
+    alt: "Batik Air (ICAO: BTK) official logo",
+    summary:
+      "Scheduled and non-scheduled flight permission facilitation, ground handling coordination and 24/7 operational support.",
+  },
 ];

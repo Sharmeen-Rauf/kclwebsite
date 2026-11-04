@@ -24,7 +24,7 @@ export function CtaBanner({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8 space-y-3">
-            <div className="inline-flex items-center gap-2 font-mono text-xs text-slate-200 bg-[#133661] border border-slate-600 border-t-2 border-t-[var(--accent)] px-3 py-1">
+            <div className="inline-flex items-center gap-2 font-mono text-xs text-slate-200 bg-[#133661] border border-slate-600 px-3 py-1">
               <span>KCL INTERNATIONAL FLIGHT SUPPORT</span>
               <span>·</span>
               <span>{SITE_CONFIG.authorityBadge}</span>

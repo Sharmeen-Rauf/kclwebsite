@@ -66,7 +66,7 @@ export function PermitRequestForm({
         className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-10 space-y-6"
       >
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#CBD5E1] pb-4">
-          <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-3 py-1">
+          <span className="font-mono text-xs font-bold bg-[#0B2545] text-white px-3 py-1">
             INQUIRY REVIEW PREVIEW (BACKEND NOT YET CONNECTED)
           </span>
           <span className="font-mono text-xs text-[#5C6B7A]">

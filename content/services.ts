@@ -1905,6 +1905,30 @@ export const KCL_SIX_CORE_SERVICES: CoreServicePillar[] = [
       { label: "International Trip Support", href: "/services/international-flight-support" },
     ],
   },
+  {
+    code: "07 · PLANNING & DISPATCH",
+    title: "Flight Planning & Dispatch",
+    summary:
+      "Flight planning coordination, route and schedule review, and dispatch-related operational communication aligned with permissions and station services.",
+    primaryHref: "/services/flight-planning-dispatch",
+    primaryLabel: "Flight Planning & Dispatch",
+    subLinks: [
+      { label: "Overflight Permits", href: "/services/overflight-permits" },
+      { label: "International Trip Support", href: "/services/international-flight-support" },
+    ],
+  },
+  {
+    code: "08 · AIRPORT SLOTS",
+    title: "Airport Slot Coordination",
+    summary:
+      "Arrival and departure slot inquiry preparation, airport coordinator communication, and timing adjustment support alongside landing permits and handling.",
+    primaryHref: "/services/airport-slot-coordination",
+    primaryLabel: "Airport Slot Coordination",
+    subLinks: [
+      { label: "Landing Permits", href: "/services/landing-permits" },
+      { label: "Ground Handling", href: "/services/ground-handling" },
+    ],
+  },
 ];
 
 export const PRIMARY_SERVICES_DATA: ServiceDefinition[] = SERVICES_DATA.filter(

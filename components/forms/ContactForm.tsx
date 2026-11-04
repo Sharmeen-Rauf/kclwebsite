@@ -22,7 +22,7 @@ export function ContactForm() {
         className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-5"
       >
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#CBD5E1] pb-4">
-          <span className="font-mono text-xs font-bold bg-[#0B2545] text-white border-b-2 border-[var(--accent)] px-2.5 py-1 inline-block">
+          <span className="font-mono text-xs font-bold bg-[#0B2545] text-white px-2.5 py-1 inline-block">
             INQUIRY PREVIEW · READY TO SEND
           </span>
           <span className="font-mono text-xs text-[#5C6B7A]">
