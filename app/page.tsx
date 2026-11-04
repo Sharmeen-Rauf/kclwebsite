@@ -7,7 +7,6 @@ import { PermitChecker } from "@/components/sections/PermitChecker";
 import { RequestTrackerPreview } from "@/components/sections/RequestTrackerPreview";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import {
-  KCL_SIX_CORE_SERVICES,
   PRIMARY_SERVICES_DATA,
 } from "@/content/services";
 import { REAL_CLIENTS } from "@/content/clients";
@@ -22,6 +21,103 @@ export const metadata = buildMetadata({
   path: "/",
   omitTitleSuffix: true,
 });
+
+const BENTO_SERVICES = [
+  {
+    number: "01",
+    title: "Flight Permission Facilitation",
+    description:
+      "Overflight and landing permits for schedule and non-schedule flights. KCL coordinates applications; civil aviation authorities retain approval authority.",
+    href: "/services/overflight-permits",
+    image: "/img/services/01-permits.webp",
+    alt: "Flight deck waypoint navigation and international flight permission coordination",
+    gridSpan: "lg:col-span-2 lg:row-span-2 md:col-span-2 min-h-[380px] lg:min-h-full",
+    sizes: "(min-width: 1024px) 50vw, (min-width: 768px) 100vw, 100vw",
+    isLarge: true,
+  },
+  {
+    number: "02",
+    title: "Ground Handling Coordination",
+    description:
+      "Ramp, baggage, servicing and crew assistance, coordinated at the airport.",
+    href: "/services/ground-handling",
+    image: "/img/services/02-ground.webp",
+    alt: "Airport ramp ground handling and aircraft turnaround operations",
+    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[260px]",
+    sizes: "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw",
+    isLarge: false,
+  },
+  {
+    number: "03",
+    title: "Inflight Catering Coordination",
+    description:
+      "Crew and passenger meals arranged around your aircraft and schedule.",
+    href: "/services/inflight-catering",
+    image: "/img/services/03-catering.webp",
+    alt: "Aviation inflight catering and aircraft galley meal arrangements",
+    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[260px]",
+    sizes: "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw",
+    isLarge: false,
+  },
+  {
+    number: "04",
+    title: "Aviation Fuel Supply",
+    description:
+      "Fuel arrangements coordinated with approved suppliers for your arrival and departure.",
+    href: "/services/aviation-fuel",
+    image: "/img/services/04-fuel.webp",
+    alt: "Aviation fuel supply and tarmac hydrant dispensing coordination",
+    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[260px]",
+    sizes: "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw",
+    isLarge: false,
+  },
+  {
+    number: "05",
+    title: "Crew Logistics & Layover",
+    description: "Hotels and transport for crews on layover.",
+    href: "/services/crew-logistics",
+    image: "/img/services/05-crew.webp",
+    alt: "Flight crew layover logistics, hotel accommodation and ground transport",
+    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[260px]",
+    sizes: "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw",
+    isLarge: false,
+  },
+  {
+    number: "06",
+    title: "24/7 Operations Support",
+    description:
+      "An operations desk for route changes and short-notice requests.",
+    href: "/services/operations-support",
+    image: "/img/services/06-ops.webp",
+    alt: "24/7 flight operations control center and dispatch tracking desk",
+    gridSpan: "lg:col-span-2 md:col-span-2 min-h-[260px]",
+    sizes: "(min-width: 1024px) 50vw, (min-width: 768px) 100vw, 100vw",
+    isLarge: true,
+  },
+  {
+    number: "07",
+    title: "Flight Planning & Dispatch",
+    description: "Planning and dispatch coordination aligned with your permits.",
+    href: "/services/flight-planning-dispatch",
+    image: "/img/services/07-dispatch.webp",
+    alt: "Flight dispatch briefing room with aeronautical route charts",
+    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[260px]",
+    sizes: "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw",
+    isLarge: false,
+  },
+  {
+    number: "08",
+    title: "Airport Slot Coordination",
+    description:
+      "Slot requests and timing coordinated alongside landing permits.",
+    href: "/services/airport-slot-coordination",
+    image: "/img/services/08-slots.webp",
+    alt: "Airport air traffic control tower overlooking illuminated runways at dusk",
+    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[260px]",
+    sizes: "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw",
+    isLarge: false,
+  },
+];
 
 export default function HomePage() {
   const marqueeLoopGroup = [
@@ -243,48 +339,56 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {KCL_SIX_CORE_SERVICES.map((pillar) => (
-              <div
-                key={pillar.code}
-                className="kcl-card bg-[#F6F8FB] border border-[#CBD5E1] p-6 flex flex-col justify-between"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr">
+            {BENTO_SERVICES.map((service) => (
+              <Link
+                key={service.number}
+                href={service.href}
+                className={`group relative overflow-hidden rounded-[6px] border border-white/20 flex flex-col justify-between p-6 sm:p-7 focus:outline-none focus-visible:ring-2 focus-visible:ring-white motion-reduce:transition-none ${service.gridSpan}`}
               >
-                <div className="space-y-2.5">
-                  <span className="font-mono text-xs font-bold text-[#0B2545] bg-white border border-[#CBD5E1] px-2.5 py-0.5 inline-block">
-                    {pillar.code}
+                {/* Full-bleed background photo */}
+                <Image
+                  src={service.image}
+                  alt={service.alt}
+                  fill
+                  sizes={service.sizes}
+                  className="object-cover object-center group-hover:scale-[1.04] group-focus-visible:scale-[1.04] motion-safe:transition-transform motion-safe:duration-500 ease-out motion-reduce:transform-none"
+                />
+
+                {/* Navy gradient overlay (about 85% at bottom, 35% at top, darkens slightly on hover/focus) */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/60 to-[#0B2545]/35 group-hover:from-[#0B2545]/95 group-hover:via-[#0B2545]/75 group-hover:to-[#0B2545]/45 group-focus-visible:from-[#0B2545]/95 group-focus-visible:via-[#0B2545]/75 group-focus-visible:to-[#0B2545]/45 transition-colors duration-300"
+                />
+
+                {/* Top-left: Mono number badge */}
+                <div className="relative z-10 flex items-center justify-between">
+                  <span className="font-mono text-xs font-semibold text-white/90 bg-white/10 backdrop-blur-sm border border-white/20 px-2.5 py-1 rounded-[2px] inline-block tracking-wider">
+                    {service.number}
                   </span>
-                  <h3 className="text-xl font-bold text-[#0B2545]">
-                    <Link
-                      href={pillar.primaryHref}
-                      className="kcl-link"
-                    >
-                      {pillar.title}
-                    </Link>
-                  </h3>
-                  <p className="text-sm text-[#16202B] leading-relaxed">
-                    {pillar.summary}
-                  </p>
                 </div>
-                <div className="pt-4 mt-4 border-t border-slate-200 space-y-2">
-                  <Link
-                    href={pillar.primaryHref}
-                    className="kcl-link inline-block text-xs font-bold text-[#0B2545]"
+
+                {/* Bottom: Service title + one-line description + sliding 'Learn more →' */}
+                <div className="relative z-10 space-y-2 mt-auto pt-8">
+                  <h3
+                    className={`${
+                      service.isLarge
+                        ? "text-2xl sm:text-[24px]"
+                        : "text-xl sm:text-[22px]"
+                    } font-semibold text-white leading-tight`}
                   >
-                    {pillar.primaryLabel} →
-                  </Link>
-                  <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-[#5C6B7A]">
-                    {pillar.subLinks.map((sub) => (
-                      <Link
-                        key={sub.href}
-                        href={sub.href}
-                        className="kcl-link hover:text-[#0B2545]"
-                      >
-                        {sub.label}
-                      </Link>
-                    ))}
+                    {service.title}
+                  </h3>
+                  <p className="text-[14px] sm:text-[15px] text-slate-200 font-normal leading-relaxed">
+                    {service.description}
+                  </p>
+                  <div className="pt-1">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-white opacity-100 translate-y-0 sm:opacity-0 sm:translate-y-2 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 sm:group-focus-visible:opacity-100 sm:group-focus-visible:translate-y-0 motion-safe:transition-all motion-safe:duration-300 motion-reduce:transform-none">
+                      Learn more <span aria-hidden="true">→</span>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
