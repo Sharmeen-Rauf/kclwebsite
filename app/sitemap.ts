@@ -25,6 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/tools/icao-phonetic-alphabet",
     "/tools/aircraft-registration-prefixes",
     "/tools/utc-time-converter",
+    "/tools/airport-code-lookup",
     "/permit-checklist/overflight",
     "/permit-checklist/landing",
     "/permit-checklist/charter-non-scheduled",

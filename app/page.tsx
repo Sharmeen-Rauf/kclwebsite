@@ -521,6 +521,163 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 5. Aviation Tools for Operations Teams */}
+      <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="max-w-3xl space-y-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
+              Free Reference Tools for Dispatchers and Flight Crews
+            </h2>
+            <p className="text-[#16202B] text-base leading-relaxed">
+              Quick references our operations team uses every day, free for anyone planning an international flight.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Card 1: UTC / PKT Time Converter */}
+            <Link
+              href="/tools/utc-time-converter"
+              className="bg-white border border-[#CBD5E1] hover:border-[#0B2545] p-6 rounded-[2px] flex flex-col justify-between space-y-4 transition-colors"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-[2px] bg-[#F6F8FB] border border-[#CBD5E1] flex items-center justify-center text-[#0B2545]">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-[#0B2545]">
+                  UTC / PKT Time Converter
+                </h3>
+                <p className="text-[15px] text-[#5C6B7A] leading-relaxed">
+                  Convert flight schedule timestamps between Zulu / UTC and Pakistan Standard Time.
+                </p>
+              </div>
+              <span className="text-[15px] font-semibold text-[#0B2545] inline-flex items-center gap-1.5 pt-2">
+                Open converter <span aria-hidden="true">→</span>
+              </span>
+            </Link>
+
+            {/* Card 2: ICAO Phonetic Alphabet */}
+            <Link
+              href="/tools/icao-phonetic-alphabet"
+              className="bg-white border border-[#CBD5E1] hover:border-[#0B2545] p-6 rounded-[2px] flex flex-col justify-between space-y-4 transition-colors"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-[2px] bg-[#F6F8FB] border border-[#CBD5E1] flex items-center justify-center text-[#0B2545]">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-[#0B2545]">
+                  ICAO Phonetic Alphabet
+                </h3>
+                <p className="text-[15px] text-[#5C6B7A] leading-relaxed">
+                  Standard radiotelephony spelling alphabet, Morse codes, and callsign pronunciation.
+                </p>
+              </div>
+              <span className="text-[15px] font-semibold text-[#0B2545] inline-flex items-center gap-1.5 pt-2">
+                View alphabet <span aria-hidden="true">→</span>
+              </span>
+            </Link>
+
+            {/* Card 3: Aircraft Registration Prefixes */}
+            <Link
+              href="/tools/aircraft-registration-prefixes"
+              className="bg-white border border-[#CBD5E1] hover:border-[#0B2545] p-6 rounded-[2px] flex flex-col justify-between space-y-4 transition-colors"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-[2px] bg-[#F6F8FB] border border-[#CBD5E1] flex items-center justify-center text-[#0B2545]">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-[#0B2545]">
+                  Aircraft Registration Prefixes
+                </h3>
+                <p className="text-[15px] text-[#5C6B7A] leading-relaxed">
+                  Searchable nationality marks and country codes for international civil aircraft.
+                </p>
+              </div>
+              <span className="text-[15px] font-semibold text-[#0B2545] inline-flex items-center gap-1.5 pt-2">
+                Browse prefixes <span aria-hidden="true">→</span>
+              </span>
+            </Link>
+
+            {/* Card 4: Airport Code Lookup */}
+            <Link
+              href="/tools/airport-code-lookup"
+              className="bg-white border border-[#CBD5E1] hover:border-[#0B2545] p-6 rounded-[2px] flex flex-col justify-between space-y-4 transition-colors"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-[2px] bg-[#F6F8FB] border border-[#CBD5E1] flex items-center justify-center text-[#0B2545]">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-[#0B2545]">
+                  Airport Code Lookup
+                </h3>
+                <p className="text-[15px] text-[#5C6B7A] leading-relaxed">
+                  Search 4-letter ICAO and 3-letter IATA aerodrome codes worldwide using open data.
+                </p>
+              </div>
+              <span className="text-[15px] font-semibold text-[#0B2545] inline-flex items-center gap-1.5 pt-2">
+                Search airports <span aria-hidden="true">→</span>
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* 6. How Coordination Works & Heritage / Pakistan Specialization */}
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">

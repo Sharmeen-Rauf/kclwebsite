@@ -33,6 +33,13 @@ const TOOLS_LIST = [
     summary:
       "Convert flight schedule ETD/ETA timestamps between Zulu/UTC and Pakistan Standard Time (PKT, UTC+5), plus key regional station offsets.",
   },
+  {
+    code: "TOOL-04",
+    title: "Worldwide Airport Code Lookup (ICAO & IATA)",
+    href: "/tools/airport-code-lookup",
+    summary:
+      "Search international 4-letter ICAO and 3-letter IATA aerodrome codes, city names, and commercial airports worldwide using bundled OurAirports open data.",
+  },
 ];
 
 export default function ToolsIndexPage() {
