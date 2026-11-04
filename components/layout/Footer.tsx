@@ -9,21 +9,73 @@ export function Footer() {
 
   return (
     <footer aria-label="Site Footer" className="bg-white text-[#16202B]">
-      {/* (a) Slim light grey pre-footer band */}
+      {/* (a) Unique Aviation Gold Pre-Footer Banner */}
       <section
         aria-label="Flight Itinerary Support"
-        className="bg-[#F6F8FB] border-t border-b border-[#CBD5E1] py-4 sm:py-5"
+        className="relative overflow-hidden bg-gradient-to-r from-[#F4C400] via-[#F6CA18] to-[#F4C400] border-t-2 border-b-2 border-[#E2B300] py-8 sm:py-10 text-[#0B2545]"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-base sm:text-lg font-semibold text-[#0B2545] text-center sm:text-left">
-            Planning a flight? Send us your itinerary.
-          </p>
-          <Link
-            href="/request-flight-support"
-            className="kcl-btn-primary min-h-[42px] px-5 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px] shrink-0"
+        {/* Subtle Airplane Silhouette Background Watermark */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-10 -bottom-14 sm:-bottom-10 opacity-[0.08] text-[#0B2545]"
+        >
+          <svg
+            className="w-80 h-80 sm:w-96 sm:h-96"
+            viewBox="0 0 24 24"
+            fill="currentColor"
           >
-            Request Flight Support →
-          </Link>
+            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-10">
+          {/* Left: Airplane Icon, Eyebrow, Heading & Paragraph */}
+          <div className="flex items-start gap-4 sm:gap-5 max-w-3xl">
+            <div
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#0B2545] text-[#F4C400] flex items-center justify-center shrink-0 shadow-md mt-1"
+              aria-hidden="true"
+            >
+              <svg
+                className="w-6 h-6 sm:w-7 sm:h-7 transform -rotate-45"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+              </svg>
+            </div>
+
+            <div className="space-y-1.5">
+              <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#0B2545]/80 block">
+                FLIGHT ITINERARY COORDINATION
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B2545] tracking-tight leading-tight">
+                Planning a Flight? Send Us Your Itinerary.
+              </h2>
+              <p className="text-[15px] sm:text-base text-[#0B2545]/90 leading-relaxed font-medium">
+                Share your route string, aircraft specifications, UTC schedule, and ground requirements. Our 24/7 operations desk will review authority clearance pathways and confirm your operational plan.
+              </p>
+            </div>
+          </div>
+
+          {/* Right: Navy Action Button with 24/7 response badge */}
+          <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end gap-2.5 shrink-0 self-stretch sm:self-auto">
+            <Link
+              href="/request-flight-support"
+              className="w-full sm:w-auto bg-[#0B2545] hover:bg-[#133661] text-white px-7 py-3.5 rounded-[3px] font-bold text-sm sm:text-base inline-flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg transition-all group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4C400]"
+            >
+              <span>Request Flight Support</span>
+              <span className="transition-transform group-hover:translate-x-1 font-bold">
+                →
+              </span>
+            </Link>
+            <span className="text-xs font-semibold text-[#0B2545]/85 inline-flex items-center gap-1.5 self-center lg:self-end">
+              <span
+                className="w-2 h-2 rounded-full bg-[#0B2545] animate-pulse"
+                aria-hidden="true"
+              />
+              24/7 Active Operations Desk · Fast Turnaround
+            </span>
+          </div>
         </div>
       </section>
 
