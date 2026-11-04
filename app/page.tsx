@@ -9,6 +9,7 @@ import { CtaBanner } from "@/components/sections/CtaBanner";
 import { REAL_CLIENTS } from "@/content/clients";
 import { HOME_FAQS } from "@/content/faqs";
 import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
+import { newsRepository } from "@/lib/data/news-repository";
 
 export const metadata = buildMetadata({
   title:
@@ -116,7 +117,61 @@ const BENTO_SERVICES = [
   },
 ];
 
-export default function HomePage() {
+const QUICK_TOOLS = [
+  {
+    name: "UTC / PKT Time Converter",
+    desc: "Convert flight schedule timestamps between Zulu / UTC and Pakistan Standard Time.",
+    href: "/tools/utc-pkt-converter",
+  },
+  {
+    name: "ICAO Phonetic Alphabet",
+    desc: "Standard radiotelephony spelling alphabet, Morse codes, and callsign pronunciation.",
+    href: "/tools/icao-phonetic-alphabet",
+  },
+  {
+    name: "Aircraft Registration Prefixes",
+    desc: "Searchable nationality marks and country codes for international civil aircraft.",
+    href: "/tools/aircraft-registration-prefixes",
+  },
+  {
+    name: "Airport Code Lookup",
+    desc: "Search 4-letter ICAO and 3-letter IATA aerodrome codes worldwide using open data.",
+    href: "/tools/airport-code-lookup",
+  },
+];
+
+export default async function HomePage() {
+  const allPosts = await newsRepository.getAllPosts();
+  const featuredPosts = [
+    allPosts.find((p) => p.slug === "overflight-permit-vs-landing-permit") || {
+      slug: "overflight-permit-vs-landing-permit",
+      title: "Overflight Permit vs Landing Permit: What’s the Difference?",
+      category: "Regulatory Guides",
+      date: "2026-11-04",
+      readingTime: "4 min read",
+      excerpt:
+        "The operational differences between sovereign airspace transit permits and aerodrome landing authorizations, including lead times and filing requirements.",
+    },
+    allPosts.find((p) => p.slug === "schedule-vs-non-schedule-filing-explained") || {
+      slug: "schedule-vs-non-schedule-filing-explained",
+      title: "Scheduled vs Non-Scheduled Flight Permits Explained",
+      category: "Dispatch Operations",
+      date: "2026-10-22",
+      readingTime: "5 min read",
+      excerpt:
+        "How airline network planners and charter dispatchers determine whether an overflight or landing request falls under scheduled or non-scheduled procedures.",
+    },
+    allPosts.find((p) => p.slug === "what-to-send-with-a-permit-request") || {
+      slug: "what-to-send-with-a-permit-request",
+      title: "What to Send With a Flight Permit Request: A Dispatcher’s Checklist",
+      category: "Checklists",
+      date: "2026-10-29",
+      readingTime: "4 min read",
+      excerpt:
+        "A practical pre-submission checklist of route data, UTC timings, and aircraft certificates for dispatchers requesting overflight or landing permits.",
+    },
+  ];
+
   const marqueeLoopGroup = [
     ...REAL_CLIENTS,
     ...REAL_CLIENTS,
@@ -577,187 +632,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Aviation Tools for Operations Teams */}
-      <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="max-w-3xl space-y-3">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              AVIATION REFERENCE TOOLS · FLIGHT OPERATIONS
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Free Reference Tools for Dispatchers and Flight Crews
-            </h2>
-            <p className="text-[#16202B] text-base leading-relaxed">
-              Quick references our operations team uses every day, free for anyone planning an international flight.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Card 1: UTC / PKT Time Converter */}
-            <Link
-              href="/tools/utc-time-converter"
-              className="group bg-white border border-[#CBD5E1] border-t-2 border-t-[#F4C400] hover:border-[#0B2545] hover:border-t-2 hover:border-t-[#F4C400] p-6 rounded-[2px] flex flex-col justify-between space-y-4 transition-all duration-200"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-[2px] bg-[#F4C400]/10 border border-[#F4C400]/30 flex items-center justify-center text-[#B88200] group-hover:bg-[#F4C400] group-hover:text-[#0B2545] transition-colors">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </div>
-                  <span className="font-mono text-[10px] uppercase font-bold text-[#B88200] tracking-wider">
-                    FREE TOOL
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-[#0B2545] group-hover:text-[#0B2545]">
-                  UTC / PKT Time Converter
-                </h3>
-                <p className="text-[15px] text-[#5C6B7A] leading-relaxed">
-                  Convert flight schedule timestamps between Zulu / UTC and Pakistan Standard Time.
-                </p>
-              </div>
-              <span className="text-[15px] font-semibold text-[#0B2545] group-hover:text-[#B88200] inline-flex items-center gap-1.5 pt-2 transition-colors">
-                Open converter <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
-              </span>
-            </Link>
-
-            {/* Card 2: ICAO Phonetic Alphabet */}
-            <Link
-              href="/tools/icao-phonetic-alphabet"
-              className="group bg-white border border-[#CBD5E1] border-t-2 border-t-[#F4C400] hover:border-[#0B2545] hover:border-t-2 hover:border-t-[#F4C400] p-6 rounded-[2px] flex flex-col justify-between space-y-4 transition-all duration-200"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-[2px] bg-[#F4C400]/10 border border-[#F4C400]/30 flex items-center justify-center text-[#B88200] group-hover:bg-[#F4C400] group-hover:text-[#0B2545] transition-colors">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"
-                      />
-                    </svg>
-                  </div>
-                  <span className="font-mono text-[10px] uppercase font-bold text-[#B88200] tracking-wider">
-                    FREE TOOL
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-[#0B2545] group-hover:text-[#0B2545]">
-                  ICAO Phonetic Alphabet
-                </h3>
-                <p className="text-[15px] text-[#5C6B7A] leading-relaxed">
-                  Standard radiotelephony spelling alphabet, Morse codes, and callsign pronunciation.
-                </p>
-              </div>
-              <span className="text-[15px] font-semibold text-[#0B2545] group-hover:text-[#B88200] inline-flex items-center gap-1.5 pt-2 transition-colors">
-                View alphabet <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
-              </span>
-            </Link>
-
-            {/* Card 3: Aircraft Registration Prefixes */}
-            <Link
-              href="/tools/aircraft-registration-prefixes"
-              className="group bg-white border border-[#CBD5E1] border-t-2 border-t-[#F4C400] hover:border-[#0B2545] hover:border-t-2 hover:border-t-[#F4C400] p-6 rounded-[2px] flex flex-col justify-between space-y-4 transition-all duration-200"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-[2px] bg-[#F4C400]/10 border border-[#F4C400]/30 flex items-center justify-center text-[#B88200] group-hover:bg-[#F4C400] group-hover:text-[#0B2545] transition-colors">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"
-                      />
-                    </svg>
-                  </div>
-                  <span className="font-mono text-[10px] uppercase font-bold text-[#B88200] tracking-wider">
-                    FREE TOOL
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-[#0B2545] group-hover:text-[#0B2545]">
-                  Aircraft Registration Prefixes
-                </h3>
-                <p className="text-[15px] text-[#5C6B7A] leading-relaxed">
-                  Searchable nationality marks and country codes for international civil aircraft.
-                </p>
-              </div>
-              <span className="text-[15px] font-semibold text-[#0B2545] group-hover:text-[#B88200] inline-flex items-center gap-1.5 pt-2 transition-colors">
-                Browse prefixes <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
-              </span>
-            </Link>
-
-            {/* Card 4: Airport Code Lookup */}
-            <Link
-              href="/tools/airport-code-lookup"
-              className="group bg-white border border-[#CBD5E1] border-t-2 border-t-[#F4C400] hover:border-[#0B2545] hover:border-t-2 hover:border-t-[#F4C400] p-6 rounded-[2px] flex flex-col justify-between space-y-4 transition-all duration-200"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-[2px] bg-[#F4C400]/10 border border-[#F4C400]/30 flex items-center justify-center text-[#B88200] group-hover:bg-[#F4C400] group-hover:text-[#0B2545] transition-colors">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                  </div>
-                  <span className="font-mono text-[10px] uppercase font-bold text-[#B88200] tracking-wider">
-                    FREE TOOL
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-[#0B2545] group-hover:text-[#0B2545]">
-                  Airport Code Lookup
-                </h3>
-                <p className="text-[15px] text-[#5C6B7A] leading-relaxed">
-                  Search 4-letter ICAO and 3-letter IATA aerodrome codes worldwide using open data.
-                </p>
-              </div>
-              <span className="text-[15px] font-semibold text-[#0B2545] group-hover:text-[#B88200] inline-flex items-center gap-1.5 pt-2 transition-colors">
-                Search airports <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. How Coordination Works */}
+      {/* 5. How Coordination Works */}
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="space-y-2">
@@ -769,62 +644,119 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Visual Split Section */}
+      {/* 6. Aviation Resources */}
       <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6 space-y-5">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-                AVIATION INSIGHTS FOR OPERATORS
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-                Practical Guides &amp; Resources for Flight Operations Teams
-              </h2>
-              <p className="text-[#16202B] text-base leading-relaxed">
-                Explore practical guides on permission requests, basic
-                operational terminology and information to prepare before
-                contacting a flight support provider. Each guide includes its
-                review date and references authoritative aviation sources.
-              </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="max-w-3xl space-y-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
+              Practical Guides for Flight Operations Teams
+            </h2>
+            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
+              Short, plain-language guides on permits and trip planning, written for dispatchers and operations teams.
+            </p>
+          </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                <Link
-                  href="/aviation-resources"
-                  className="kcl-card p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] transition-colors"
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left 2/3 width: 3 Article Cards */}
+            <div className="lg:col-span-8 space-y-4">
+              {featuredPosts.map((post) => (
+                <article
+                  key={post.slug}
+                  className="bg-white border border-[#CBD5E1] hover:border-[#0B2545] p-6 rounded-[2px] transition-colors flex flex-col justify-between space-y-3"
                 >
-                  <span className="font-bold text-[#0B2545] block">
-                    Aviation Resource Library →
-                  </span>
-                  <span className="text-xs text-[#5C6B7A]">
-                    Checklists, Pakistan permit guides, and dispatch terminology
-                  </span>
-                </Link>
-                <Link
-                  href="/insights"
-                  className="kcl-card p-4 bg-[#F6F8FB] border border-[#CBD5E1] hover:border-[#0B2545] transition-colors"
-                >
-                  <span className="font-bold text-[#0B2545] block">
-                    Aviation Insights &amp; Articles →
-                  </span>
-                  <span className="text-xs text-[#5C6B7A]">
-                    Overflight vs landing permissions, airport slots, and
-                    turnaround planning
-                  </span>
-                </Link>
-              </div>
+                  <div className="space-y-2">
+                    <div className="flex flex-wrap items-center gap-2.5 text-xs">
+                      <span className="font-semibold text-[#0B2545] uppercase tracking-wider">
+                        {post.category}
+                      </span>
+                      <span className="text-[#5C6B7A]">·</span>
+                      <time dateTime={post.date} className="text-[#5C6B7A]">
+                        {post.date}
+                      </time>
+                      <span className="text-[#5C6B7A]">·</span>
+                      <span className="text-[#5C6B7A]">{post.readingTime}</span>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-[#0B2545] leading-snug">
+                      <Link
+                        href={`/insights/${post.slug}`}
+                        className="hover:underline underline-offset-4"
+                      >
+                        {post.title}
+                      </Link>
+                    </h3>
+
+                    <p className="text-[15px] text-[#5C6B7A] leading-relaxed line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                  </div>
+
+                  <div className="pt-2">
+                    <Link
+                      href={`/insights/${post.slug}`}
+                      className="text-[15px] font-semibold text-[#0B2545] hover:underline underline-offset-4 inline-flex items-center gap-1.5"
+                    >
+                      Read guide <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
+                </article>
+              ))}
             </div>
 
-            <div className="lg:col-span-6">
-              <div className="border border-[#CBD5E1] bg-[#0B2545] p-2">
-                <Image
-                  src="/img/ops-ramp-handling.svg"
-                  alt="Aircraft ground handling and flight support coordination schematic"
-                  width={800}
-                  height={500}
-                  className="w-full h-auto block"
-                />
+            {/* Right 1/3 width: Quick Tools Panel */}
+            <div className="lg:col-span-4">
+              <div className="border border-[#CBD5E1] bg-[#F6F8FB] p-6 rounded-[2px] space-y-5">
+                <div>
+                  <h3 className="text-xl font-bold text-[#0B2545]">
+                    Quick Tools
+                  </h3>
+                  <p className="text-[15px] text-[#5C6B7A] mt-1 leading-relaxed">
+                    Free operational reference utilities for international dispatchers and flight crews.
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  {QUICK_TOOLS.map((tool) => (
+                    <Link
+                      key={tool.href}
+                      href={tool.href}
+                      className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] p-4 rounded-[2px] transition-colors block space-y-1.5"
+                    >
+                      <div className="flex items-center justify-between text-[#0B2545]">
+                        <h4 className="text-[15px] font-bold group-hover:underline underline-offset-2">
+                          {tool.name}
+                        </h4>
+                        <span
+                          aria-hidden="true"
+                          className="text-[#0B2545] transition-transform group-hover:translate-x-1"
+                        >
+                          →
+                        </span>
+                      </div>
+                      <p className="text-[15px] text-[#5C6B7A] leading-snug">
+                        {tool.desc}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
+          </div>
+
+          {/* Bottom Links */}
+          <div className="pt-6 border-t border-[#CBD5E1] flex flex-wrap items-center justify-between gap-4">
+            <Link
+              href="/insights"
+              className="text-base font-bold text-[#0B2545] hover:underline underline-offset-4 inline-flex items-center gap-1.5"
+            >
+              View all guides <span aria-hidden="true">→</span>
+            </Link>
+            <Link
+              href="/tools"
+              className="text-base font-bold text-[#0B2545] hover:underline underline-offset-4 inline-flex items-center gap-1.5"
+            >
+              View all tools <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </section>

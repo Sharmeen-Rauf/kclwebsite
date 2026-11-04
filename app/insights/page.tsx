@@ -207,7 +207,7 @@ export default async function InsightsPage() {
 
                       <h3 className="text-xl font-bold text-[#0B2545] leading-snug">
                         <Link
-                          href={`/news/${post.slug}`}
+                          href={`/insights/${post.slug}`}
                           className="hover:underline underline-offset-4"
                         >
                           {post.title}
@@ -223,7 +223,7 @@ export default async function InsightsPage() {
                   <div className="px-6 py-4 border-t border-[#CBD5E1] bg-[#F6F8FB] flex items-center justify-between text-xs font-mono">
                     <span className="text-[#5C6B7A]">{post.readingTime}</span>
                     <Link
-                      href={`/news/${post.slug}`}
+                      href={`/insights/${post.slug}`}
                       className="font-sans font-bold text-[#0B2545] underline underline-offset-4"
                     >
                       Read Guide →
