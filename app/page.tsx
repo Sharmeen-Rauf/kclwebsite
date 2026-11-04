@@ -5,7 +5,6 @@ import { buildMetadata } from "@/lib/seo";
 import { QuickPermitRequestCard } from "@/components/sections/QuickPermitRequestCard";
 import { PermitChecker } from "@/components/sections/PermitChecker";
 import { RequestTrackerPreview } from "@/components/sections/RequestTrackerPreview";
-import { CtaBanner } from "@/components/sections/CtaBanner";
 import { REAL_CLIENTS } from "@/content/clients";
 import { HOME_FAQS } from "@/content/faqs";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
@@ -780,16 +779,6 @@ export default async function HomePage() {
           <FaqAccordion items={HOME_FAQS} defaultOpenIndex={0} />
         </div>
       </section>
-
-      {/* 8. Conversion Section */}
-      <CtaBanner
-        heading="One Itinerary. A Clearer Operational Plan."
-        subheading="Share your route and operational requirements to discuss the appropriate support."
-        primaryLabel="Request Flight Support"
-        primaryHref="/request-flight-support"
-        secondaryLabel="Explore Services"
-        secondaryHref="/services"
-      />
     </>
   );
 }

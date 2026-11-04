@@ -110,3 +110,4 @@ export function FaqAccordion({
     </div>
   );
 }
+
