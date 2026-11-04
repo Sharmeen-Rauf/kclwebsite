@@ -29,7 +29,7 @@ const BENTO_SERVICES = [
     href: "/services/overflight-permits",
     image: "/img/services/01-permits.webp",
     alt: "Flight deck waypoint navigation and international flight permission coordination",
-    gridSpan: "lg:col-span-2 lg:row-span-2 md:col-span-2 min-h-[380px] lg:min-h-full",
+    gridSpan: "lg:col-span-2 lg:row-span-2 md:col-span-2 min-h-[260px] sm:min-h-[290px] lg:min-h-full",
     sizes: "(min-width: 1024px) 50vw, (min-width: 768px) 100vw, 100vw",
     isLarge: true,
   },
@@ -41,7 +41,7 @@ const BENTO_SERVICES = [
     href: "/services/ground-handling",
     image: "/img/services/02-ground.webp",
     alt: "Airport ramp ground handling and aircraft turnaround operations",
-    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[260px]",
+    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[175px] sm:min-h-[185px]",
     sizes: "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw",
     isLarge: false,
   },
@@ -53,7 +53,7 @@ const BENTO_SERVICES = [
     href: "/services/inflight-catering",
     image: "/img/services/03-catering.webp",
     alt: "Aviation inflight catering and aircraft galley meal arrangements",
-    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[260px]",
+    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[175px] sm:min-h-[185px]",
     sizes: "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw",
     isLarge: false,
   },
@@ -65,7 +65,7 @@ const BENTO_SERVICES = [
     href: "/services/aviation-fuel",
     image: "/img/services/04-fuel.webp",
     alt: "Aviation fuel supply and tarmac hydrant dispensing coordination",
-    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[260px]",
+    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[175px] sm:min-h-[185px]",
     sizes: "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw",
     isLarge: false,
   },
@@ -76,7 +76,7 @@ const BENTO_SERVICES = [
     href: "/services/crew-logistics",
     image: "/img/services/05-crew.webp",
     alt: "Flight crew layover logistics, hotel accommodation and ground transport",
-    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[260px]",
+    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[175px] sm:min-h-[185px]",
     sizes: "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw",
     isLarge: false,
   },
@@ -88,7 +88,7 @@ const BENTO_SERVICES = [
     href: "/services/operations-support",
     image: "/img/services/06-ops.webp",
     alt: "24/7 flight operations control center and dispatch tracking desk",
-    gridSpan: "lg:col-span-2 md:col-span-2 min-h-[260px]",
+    gridSpan: "lg:col-span-2 md:col-span-2 min-h-[175px] sm:min-h-[185px]",
     sizes: "(min-width: 1024px) 50vw, (min-width: 768px) 100vw, 100vw",
     isLarge: true,
   },
@@ -99,7 +99,7 @@ const BENTO_SERVICES = [
     href: "/services/flight-planning-dispatch",
     image: "/img/services/07-dispatch.webp",
     alt: "Flight dispatch briefing room with aeronautical route charts",
-    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[260px]",
+    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[175px] sm:min-h-[185px]",
     sizes: "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw",
     isLarge: false,
   },
@@ -111,7 +111,7 @@ const BENTO_SERVICES = [
     href: "/services/airport-slot-coordination",
     image: "/img/services/08-slots.webp",
     alt: "Airport air traffic control tower overlooking illuminated runways at dusk",
-    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[260px]",
+    gridSpan: "lg:col-span-1 md:col-span-1 min-h-[175px] sm:min-h-[185px]",
     sizes: "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw",
     isLarge: false,
   },
@@ -357,17 +357,17 @@ export default async function HomePage() {
       </section>
 
       {/* 2. Core Operational Services (Primary Reference: kclpk.org/Services.html) */}
-      <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <div className="max-w-3xl space-y-3">
+      <section className="py-10 sm:py-14 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5">
+            <div className="max-w-3xl space-y-2">
               <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
                 CORE OPERATIONAL SERVICES · KCL FLIGHT SUPPORT
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
                 The Support Behind a Well-Planned Flight
               </h2>
-              <p className="text-[#16202B] text-base leading-relaxed">
+              <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
                 Every itinerary brings together permissions, airport
                 arrangements, flight planning, slot coordination, aircraft
                 requirements and crew needs. Rather than treating these as
@@ -375,28 +375,28 @@ export default async function HomePage() {
                 dispatchers and flight operations teams can plan with clarity.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2.5">
               <Link
                 href="/schedule-filing"
-                className="kcl-btn-outline-navy px-4 py-2.5 min-h-[44px] text-sm font-semibold inline-flex items-center rounded-[2px]"
+                className="kcl-btn-outline-navy px-4 py-2 min-h-[40px] text-xs sm:text-sm font-semibold inline-flex items-center rounded-[2px]"
               >
                 Scheduled Filing →
               </Link>
               <Link
                 href="/non-schedule-filing"
-                className="kcl-btn-outline-navy px-4 py-2.5 min-h-[44px] text-sm font-semibold inline-flex items-center rounded-[2px]"
+                className="kcl-btn-outline-navy px-4 py-2 min-h-[40px] text-xs sm:text-sm font-semibold inline-flex items-center rounded-[2px]"
               >
                 Non-Scheduled &amp; Charter Filing →
               </Link>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 auto-rows-fr">
             {BENTO_SERVICES.map((service) => (
               <Link
                 key={service.number}
                 href={service.href}
-                className={`group relative overflow-hidden rounded-[6px] border border-white/20 flex flex-col justify-between p-6 sm:p-7 focus:outline-none focus-visible:ring-2 focus-visible:ring-white motion-reduce:transition-none ${service.gridSpan}`}
+                className={`group relative overflow-hidden rounded-[6px] border border-white/20 flex flex-col justify-between p-4 sm:p-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white motion-reduce:transition-none ${service.gridSpan}`}
               >
                 {/* Full-bleed background photo */}
                 <Image
@@ -415,27 +415,27 @@ export default async function HomePage() {
 
                 {/* Top-left: Mono number badge */}
                 <div className="relative z-10 flex items-center justify-between">
-                  <span className="font-mono text-xs font-semibold text-white/90 bg-white/10 backdrop-blur-sm border border-white/20 px-2.5 py-1 rounded-[2px] inline-block tracking-wider">
+                  <span className="font-mono text-[11px] font-semibold text-white/90 bg-white/10 backdrop-blur-sm border border-white/20 px-2 py-0.5 rounded-[2px] inline-block tracking-wider">
                     {service.number}
                   </span>
                 </div>
 
                 {/* Bottom: Service title + one-line description + sliding 'Learn more →' */}
-                <div className="relative z-10 space-y-2 mt-auto pt-8">
+                <div className="relative z-10 space-y-1.5 mt-auto pt-4">
                   <h3
                     className={`${
                       service.isLarge
-                        ? "text-2xl sm:text-[24px]"
-                        : "text-xl sm:text-[22px]"
+                        ? "text-lg sm:text-xl lg:text-[22px]"
+                        : "text-base sm:text-[17px]"
                     } font-semibold text-white leading-tight`}
                   >
                     {service.title}
                   </h3>
-                  <p className="text-[14px] sm:text-[15px] text-slate-200 font-normal leading-relaxed">
+                  <p className="text-[13px] sm:text-[13.5px] text-slate-200/90 font-normal leading-snug line-clamp-2">
                     {service.description}
                   </p>
-                  <div className="pt-1">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-white opacity-100 translate-y-0 sm:opacity-0 sm:translate-y-2 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 sm:group-focus-visible:opacity-100 sm:group-focus-visible:translate-y-0 motion-safe:transition-all motion-safe:duration-300 motion-reduce:transform-none">
+                  <div className="pt-0.5">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-white opacity-100 translate-y-0 sm:opacity-0 sm:translate-y-1.5 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 sm:group-focus-visible:opacity-100 sm:group-focus-visible:translate-y-0 motion-safe:transition-all motion-safe:duration-200 motion-reduce:transform-none">
                       Learn more <span aria-hidden="true">→</span>
                     </span>
                   </div>
