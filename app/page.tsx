@@ -11,6 +11,7 @@ import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
 import { newsRepository } from "@/lib/data/news-repository";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
+import { AircraftMissionSlider } from "@/components/sections/AircraftMissionSlider";
 
 export const metadata = buildMetadata({
   title:
@@ -639,6 +640,11 @@ export default async function HomePage() {
       </section>
 
       <FlightPathDivider variant="curve-down" />
+
+      {/* Aircraft Mission Profile Showcase (Interactive Slider) */}
+      <AircraftMissionSlider />
+
+      <FlightPathDivider variant="curve-up" />
 
       {/* 5. How Coordination Works */}
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">

@@ -7,6 +7,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { RouteProgressBar } from "@/components/ui/RouteProgressBar";
 import { HeadingObserver } from "@/components/ui/HeadingObserver";
+import { AviationBackgroundOverlay } from "@/components/ui/AviationBackgroundOverlay";
 import {
   JsonLd,
   buildOrganizationJsonLd,
@@ -51,7 +52,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${jakarta.variable} ${plexMono.variable}`}>
-      <body className="flex flex-col min-h-screen text-[#16202B]">
+      <body className="flex flex-col min-h-screen text-[#16202B] relative">
+        <AviationBackgroundOverlay />
         <Suspense fallback={null}>
           <RouteProgressBar />
         </Suspense>
