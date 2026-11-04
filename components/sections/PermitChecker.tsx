@@ -41,9 +41,9 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
       "Purpose of operation (scheduled service or non-scheduled movement)",
     ],
     governanceNote:
-      "KCL assists in preparing information and coordinating requests through appropriate channels. Regulatory decisions and processing timelines remain with the competent civil aviation authorities.",
-    relatedServiceHref: "/services/overflight-permits",
-    relatedServiceLabel: "Overflight Permit Coordination Guide",
+      "This guide helps you prepare. Approvals and timelines are decided by the relevant civil aviation authorities.",
+    relatedServiceHref: "/permit-checklist/overflight",
+    relatedServiceLabel: "Overflight Permit Checklist",
   },
   "landing-permits": {
     title: "Landing Permission & Arrival Coordination Preparation",
@@ -57,9 +57,9 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
       "Passenger or cargo context and any required ground, fuel, catering, or crew services",
     ],
     governanceNote:
-      "Landing permissions, airport slots, and ground handling are separate processes administered by different stakeholders. All approvals remain with the relevant authorities.",
-    relatedServiceHref: "/services/landing-permits",
-    relatedServiceLabel: "Aircraft Landing Permit Assistance Guide",
+      "This guide helps you prepare. Approvals and timelines are decided by the relevant civil aviation authorities.",
+    relatedServiceHref: "/permit-checklist/landing",
+    relatedServiceLabel: "Landing Permit Checklist",
   },
   "pakistan-permissions": {
     title: "Pakistan Flight Permissions (OPKR & OPLR Specialization)",
@@ -73,7 +73,7 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
       "Operational contact details and relevant supporting aircraft/operator documentation",
     ],
     governanceNote:
-      "KCL facilitates and coordinates applications; the relevant Pakistan aviation authorities retain all approval authority. No universal processing time is promised.",
+      "This guide helps you prepare. Approvals and timelines are decided by the relevant civil aviation authorities.",
     relatedServiceHref: "/pakistan/flight-permissions",
     relatedServiceLabel: "Pakistan Flight Permissions Hub",
   },
@@ -89,7 +89,7 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
       "Operational contact information for schedule updates",
     ],
     governanceNote:
-      "Ground handling arrangements depend on airport procedures, authorized service providers, and local equipment availability.",
+      "This guide helps you prepare. Approvals and timelines are decided by the relevant civil aviation authorities.",
     relatedServiceHref: "/services/ground-handling",
     relatedServiceLabel: "Ground Handling Coordination Guide",
   },
@@ -104,7 +104,7 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
       "Operator details and operational contact information",
     ],
     governanceNote:
-      "Actual fuel specifications, supply availability, quality certification, and uplift procedures depend on approved aviation fuel suppliers and local airport conditions.",
+      "This guide helps you prepare. Approvals and timelines are decided by the relevant civil aviation authorities.",
     relatedServiceHref: "/services/aviation-fuel",
     relatedServiceLabel: "Aviation Fuel Arrangements Guide",
   },
@@ -120,7 +120,7 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
       "Operational contact information",
     ],
     governanceNote:
-      "Actual food preparation, hygiene, handling, and airside delivery remain with the authorized catering provider at the airport.",
+      "This guide helps you prepare. Approvals and timelines are decided by the relevant civil aviation authorities.",
     relatedServiceHref: "/services/inflight-catering",
     relatedServiceLabel: "Inflight Catering Coordination Guide",
   },
@@ -135,7 +135,7 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
       "Requested airport-to-hotel or local ground transportation details",
     ],
     governanceNote:
-      "Hotel availability, pricing, and transport arrangements vary by location, provider, and date.",
+      "This guide helps you prepare. Approvals and timelines are decided by the relevant civil aviation authorities.",
     relatedServiceHref: "/services/crew-logistics",
     relatedServiceLabel: "Crew Accommodation & Transport Guide",
   },
@@ -150,18 +150,34 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
       "Primary 24/7 dispatch/operations contact channels",
     ],
     governanceNote:
-      "KCL coordinates communication across requested aviation services; regulatory authorities and local providers retain approval and delivery decisions.",
+      "This guide helps you prepare. Approvals and timelines are decided by the relevant civil aviation authorities.",
     relatedServiceHref: "/services/operations-support",
     relatedServiceLabel: "Operations & Trip Support Guide",
   },
 };
 
+function trackNavigatorEvent(event: string, payload?: Record<string, unknown>) {
+  if (typeof window !== "undefined") {
+    const win = window as unknown as {
+      dataLayer?: Array<Record<string, unknown>>;
+    };
+    if (Array.isArray(win.dataLayer)) {
+      win.dataLayer.push({ event, ...payload });
+    }
+    window.dispatchEvent(
+      new CustomEvent("kcl:analytics", {
+        detail: { event, ...payload },
+      })
+    );
+  }
+}
+
 export function PermitChecker() {
-  const [operationCategory, setOperationCategory] = useState<OperationCategory>(
-    "charter-non-scheduled"
-  );
+  const [operationCategory, setOperationCategory] =
+    useState<OperationCategory>("charter-non-scheduled");
   const [serviceFocus, setServiceFocus] =
     useState<ServiceFocus>("overflight-permits");
+  const [copied, setCopied] = useState(false);
 
   const guidance = GUIDANCE_MAP[serviceFocus];
 
@@ -178,189 +194,299 @@ export function PermitChecker() {
       ? "landing"
       : "both";
 
-  const inquiryHref = `/request-flight-support?flightType=${encodeURIComponent(
+  const inquiryHref = `/request-permit?operationType=${encodeURIComponent(
+    operationCategory
+  )}&flightType=${encodeURIComponent(
     mappedFlightType
   )}&permitType=${encodeURIComponent(
     mappedPermitType
-  )}&operationCategory=${encodeURIComponent(
-    operationCategory
   )}&service=${encodeURIComponent(serviceFocus)}`;
+
+  const checklistGuideHref =
+    serviceFocus === "landing-permits"
+      ? "/permit-checklist/landing"
+      : operationCategory === "cargo"
+      ? "/permit-checklist/cargo"
+      : operationCategory === "charter-non-scheduled"
+      ? "/permit-checklist/charter-non-scheduled"
+      : "/permit-checklist/overflight";
+
+  const checklistGuideLabel =
+    serviceFocus === "landing-permits"
+      ? "Landing Permit Checklist"
+      : operationCategory === "cargo"
+      ? "Cargo Flight Checklist"
+      : operationCategory === "charter-non-scheduled"
+      ? "Charter Flight Checklist"
+      : "Overflight Permit Checklist";
+
+  const handleCopyChecklist = () => {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      const text = `${guidance.title}\n\nSummary:\n${guidance.summary}\n\nPreparation Details:\n${guidance.preparationItems
+        .map((item, idx) => `${idx + 1}. ${item}`)
+        .join("\n")}\n\nBoundary Note:\n${guidance.governanceNote}`;
+      navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+      trackNavigatorEvent("navigator_copy_checklist_clicked", {
+        operationCategory,
+        serviceFocus,
+      });
+    }
+  };
 
   return (
     <div className="kcl-card bg-white border border-[#CBD5E1]">
+      {/* Header bar without duplicate label, standard clean typography */}
       <div className="bg-[#0B2545] text-white px-6 py-4 flex flex-wrap items-center justify-between gap-4 border-b border-[#CBD5E1]">
         <div>
-          <span className="font-mono text-xs uppercase tracking-wider text-[#F4C400] font-bold block">
-            PRE-INQUIRY PREPARATION GUIDE
-          </span>
-          <h2 className="no-accent-bar text-xl font-bold text-white mt-0.5">
+          <h3 className="text-xl font-bold text-white">
             Flight Support Navigator
-          </h2>
+          </h3>
         </div>
-        <span className="font-mono text-xs bg-[#133661] border border-slate-600 px-2.5 py-1 text-slate-200">
+        <span className="text-xs bg-[#133661] border border-slate-600 px-2.5 py-1 text-slate-200 rounded-[2px] font-semibold">
           GUIDANCE ONLY · NOT AN AUTHORITY APPROVAL CALCULATOR
         </span>
       </div>
 
-      <div className="p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Controls Column */}
-        <div className="lg:col-span-5 space-y-6 border-b lg:border-b-0 lg:border-r border-[#CBD5E1] pb-6 lg:pb-0 lg:pr-8">
-          <fieldset>
-            <legend className="block text-xs font-mono uppercase tracking-wider text-[#B88200] font-bold mb-2">
-              1. Operation Type (Scheduled vs. Non-Scheduled)
-            </legend>
-            <div className="grid grid-cols-2 gap-2.5">
-              {[
-                {
-                  id: "scheduled-airline" as const,
-                  label: "Scheduled Airline",
-                  sub: "Recurring Timetable",
-                },
-                {
-                  id: "charter-non-scheduled" as const,
-                  label: "Charter / Non-Sched",
-                  sub: "On-Demand Mission",
-                },
-                {
-                  id: "business-private" as const,
-                  label: "Business / Private",
-                  sub: "Executive / Ferry",
-                },
-                {
-                  id: "cargo" as const,
-                  label: "Cargo Operation",
-                  sub: "Scheduled or Ad-Hoc",
-                },
-              ].map((opt) => (
-                <button
-                  key={opt.id}
-                  type="button"
-                  onClick={() => setOperationCategory(opt.id)}
-                  aria-pressed={operationCategory === opt.id}
-                  className={`min-h-[44px] px-3 py-2.5 text-left border text-sm font-semibold transition-colors ${
-                    operationCategory === opt.id
-                      ? "bg-[#0B2545] text-white border-[#0B2545]"
-                      : "bg-[#F6F8FB] text-[#16202B] border-[#CBD5E1] hover:border-[#0B2545]"
-                  }`}
-                >
-                  <span className="block">{opt.label}</span>
-                  <span
-                    className={`block font-mono text-[11px] font-normal ${
+      <div className="p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        {/* Controls Column (Matched Height) */}
+        <div className="lg:col-span-5 flex flex-col justify-between space-y-6 border-b lg:border-b-0 lg:border-r border-[#CBD5E1] pb-6 lg:pb-0 lg:pr-8">
+          <div className="space-y-6">
+            <fieldset>
+              <legend className="block text-xs uppercase tracking-wider text-[#B88200] font-bold mb-2">
+                1. Operation Type (Scheduled vs. Non-Scheduled)
+              </legend>
+              <div className="grid grid-cols-2 gap-2.5">
+                {[
+                  {
+                    id: "scheduled-airline" as const,
+                    label: "Scheduled Airline",
+                    sub: "Recurring Timetable",
+                  },
+                  {
+                    id: "charter-non-scheduled" as const,
+                    label: "Charter / Non-Scheduled",
+                    sub: "On-Demand Mission",
+                  },
+                  {
+                    id: "business-private" as const,
+                    label: "Business / Private",
+                    sub: "Executive / Ferry",
+                  },
+                  {
+                    id: "cargo" as const,
+                    label: "Cargo Operation",
+                    sub: "Scheduled or Ad-Hoc",
+                  },
+                ].map((opt) => (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    onClick={() => {
+                      setOperationCategory(opt.id);
+                      trackNavigatorEvent("navigator_operation_selected", {
+                        operation: opt.id,
+                      });
+                    }}
+                    aria-pressed={operationCategory === opt.id}
+                    className={`min-h-[44px] px-3 py-2.5 text-left border text-sm font-semibold transition-colors rounded-[2px] ${
                       operationCategory === opt.id
-                        ? "text-slate-300"
-                        : "text-[#5C6B7A]"
+                        ? "bg-[#0B2545] text-white border-[#0B2545]"
+                        : "bg-[#F6F8FB] text-[#16202B] border-[#CBD5E1] hover:border-[#0B2545]"
                     }`}
                   >
-                    {opt.sub}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </fieldset>
+                    <span className="block leading-tight">{opt.label}</span>
+                    <span
+                      className={`block text-[11px] font-normal mt-0.5 ${
+                        operationCategory === opt.id
+                          ? "text-slate-300"
+                          : "text-[#5C6B7A]"
+                      }`}
+                    >
+                      {opt.sub}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </fieldset>
 
-          <div>
-            <label
-              htmlFor="navigator-service-focus"
-              className="block text-xs font-mono uppercase tracking-wider text-[#B88200] font-bold mb-2"
-            >
-              2. Core Service Area
-            </label>
-            <select
-              id="navigator-service-focus"
-              value={serviceFocus}
-              onChange={(e) =>
-                setServiceFocus(e.target.value as ServiceFocus)
-              }
-              className="w-full min-h-[44px] px-3.5 py-2.5 bg-[#F6F8FB] border border-[#CBD5E1] text-[#0B2545] font-semibold text-sm rounded-[2px]"
-            >
-              <option value="overflight-permits">
-                01a · Flight Permission: Overflight Permits
-              </option>
-              <option value="landing-permits">
-                01b · Flight Permission: Landing Permits
-              </option>
-              <option value="pakistan-permissions">
-                01c · Pakistan Flight Permissions (OPKR / OPLR)
-              </option>
-              <option value="ground-handling">
-                02 · Ground Handling Coordination
-              </option>
-              <option value="inflight-catering">
-                03 · Catering Services Coordination
-              </option>
-              <option value="aviation-fuel">
-                04 · Aviation Fuel Supply Coordination
-              </option>
-              <option value="crew-logistics">
-                05 · Crew Accommodation &amp; Transport Arrangements
-              </option>
-              <option value="operations-support">
-                06 · 24/7 Operational &amp; Trip Support
-              </option>
-            </select>
+            <div>
+              <label
+                htmlFor="navigator-service-focus"
+                className="block text-xs uppercase tracking-wider text-[#B88200] font-bold mb-2"
+              >
+                2. Core Service Area
+              </label>
+              <select
+                id="navigator-service-focus"
+                value={serviceFocus}
+                onChange={(e) => {
+                  const val = e.target.value as ServiceFocus;
+                  setServiceFocus(val);
+                  trackNavigatorEvent("navigator_service_selected", {
+                    service: val,
+                  });
+                }}
+                className="w-full min-h-[44px] px-3.5 py-2.5 bg-[#F6F8FB] border border-[#CBD5E1] text-[#0B2545] font-semibold text-sm rounded-[2px]"
+              >
+                <option value="overflight-permits">
+                  Flight Permission: Overflight Permits
+                </option>
+                <option value="landing-permits">
+                  Flight Permission: Landing Permits
+                </option>
+                <option value="pakistan-permissions">
+                  Pakistan Flight Permissions (OPKR / OPLR)
+                </option>
+                <option value="ground-handling">
+                  Ground Handling Coordination
+                </option>
+                <option value="inflight-catering">
+                  Catering Services Coordination
+                </option>
+                <option value="aviation-fuel">
+                  Aviation Fuel Supply Coordination
+                </option>
+                <option value="crew-logistics">
+                  Crew Accommodation &amp; Transport Arrangements
+                </option>
+                <option value="operations-support">
+                  24/7 Operational &amp; Trip Support
+                </option>
+              </select>
+            </div>
           </div>
 
-          <div className="pt-2 space-y-2">
+          <div className="pt-4 space-y-3">
             <Link
               href={inquiryHref}
+              onClick={() => {
+                trackNavigatorEvent("navigator_submit_clicked", {
+                  operationCategory,
+                  serviceFocus,
+                  href: inquiryHref,
+                });
+              }}
               className="kcl-btn-primary w-full min-h-[48px] px-5 py-3 font-bold text-sm inline-flex items-center justify-between rounded-[2px]"
             >
               <span>Prepare This Flight Support Inquiry</span>
-              <span className="font-mono">→</span>
+              <span>→</span>
             </Link>
-            <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#5C6B7A] pt-1">
-              <Link
-                href={guidance.relatedServiceHref}
-                className="text-[#0B2545] font-semibold"
+
+            {/* Secondary actions: Copy checklist & Download PDF */}
+            <div className="grid grid-cols-2 gap-2 pt-1">
+              <button
+                type="button"
+                onClick={handleCopyChecklist}
+                className="min-h-[38px] px-3 py-1.5 text-xs font-semibold border border-[#CBD5E1] bg-[#F6F8FB] hover:bg-slate-200 text-[#0B2545] rounded-[2px] inline-flex items-center justify-center gap-1.5 transition-colors"
               >
-                {guidance.relatedServiceLabel} →
-              </Link>
+                <svg
+                  className="w-3.5 h-3.5 text-[#0B2545]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  />
+                </svg>
+                <span>{copied ? "Copied!" : "Copy checklist"}</span>
+              </button>
+
               <a
                 href="/files/kcl-permit-request-checklist.pdf"
                 download
-                className="text-[#0B2545] font-semibold"
+                onClick={() => {
+                  trackNavigatorEvent("navigator_download_pdf_clicked", {
+                    operationCategory,
+                    serviceFocus,
+                  });
+                }}
+                className="min-h-[38px] px-3 py-1.5 text-xs font-semibold border border-[#CBD5E1] bg-[#F6F8FB] hover:bg-slate-200 text-[#0B2545] rounded-[2px] inline-flex items-center justify-center gap-1.5 transition-colors whitespace-nowrap"
               >
-                Inquiry Checklist (PDF)
+                <svg
+                  className="w-3.5 h-3.5 text-[#0B2545]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  />
+                </svg>
+                <span>Inquiry Checklist (PDF)</span>
               </a>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#5C6B7A] pt-1">
+              <Link
+                href={checklistGuideHref}
+                className="text-[#0B2545] font-semibold hover:underline underline-offset-4"
+              >
+                {checklistGuideLabel} →
+              </Link>
+              <Link
+                href="/permit-checklist/overflight"
+                className="text-[#5C6B7A] hover:text-[#0B2545] hover:underline"
+              >
+                All Checklist Pages
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* Output Panel */}
+        {/* Output Panel (Matched Height, No Empty Space) */}
         <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-          <div>
-            <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-4 border-b border-[#CBD5E1]">
+          <div className="space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#CBD5E1]">
               <div>
-                <span className="text-xs font-mono uppercase text-[#B88200] font-bold">
+                <span className="text-xs uppercase text-[#B88200] font-bold">
                   PREPARATION GUIDANCE ·{" "}
                   {operationCategory.replace(/-/g, " ").toUpperCase()}
                 </span>
-                <h3 className="text-lg font-bold text-[#0B2545]">
+                <h4 className="text-lg font-bold text-[#0B2545] mt-0.5">
                   {guidance.title}
-                </h3>
+                </h4>
               </div>
-              <span className="font-mono text-[11px] bg-[#F6F8FB] border border-[#CBD5E1] text-[#0B2545] px-2.5 py-0.5 font-semibold">
+              <span className="text-[11px] bg-[#F6F8FB] border border-[#CBD5E1] text-[#0B2545] px-2.5 py-0.5 font-semibold rounded-[2px]">
                 SUBJECT TO AUTHORITY / PROVIDER RULES
               </span>
             </div>
 
-            <p className="text-sm sm:text-base text-[#16202B] leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
               {guidance.summary}
             </p>
 
-            <div className="mb-5">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-[#0B2545] font-bold mb-2.5">
+            <div className="space-y-2.5">
+              <h5 className="text-xs uppercase tracking-wider text-[#0B2545] font-bold">
                 Details Helpful to Prepare for an Initial Inquiry:
-              </h4>
-              <ul className="space-y-2 text-sm text-[#16202B]">
+              </h5>
+              <ul className="space-y-2.5 text-sm text-[#16202B]">
                 {guidance.preparationItems.map((item) => (
                   <li key={item} className="flex items-start gap-2.5">
-                    <span
-                      className="font-mono text-xs font-bold text-white bg-[#0B2545] px-1.5 py-0.5 mt-0.5"
+                    <svg
+                      className="w-4 h-4 text-[#0B2545] shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
                       aria-hidden="true"
                     >
-                      INFO
-                    </span>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -368,13 +494,34 @@ export function PermitChecker() {
             </div>
           </div>
 
-          <div className="bg-[#F6F8FB] border-l-4 border-[#0B2545] p-4 text-xs text-[#5C6B7A] space-y-1">
+          {/* Operational & Regulatory Boundary Box */}
+          <div className="bg-[#F6F8FB] border-l-4 border-[#0B2545] p-4 text-xs text-[#5C6B7A] space-y-1 mt-auto">
             <p className="font-semibold text-[#0B2545]">
               Operational &amp; Regulatory Boundary:
             </p>
-            <p>{guidance.governanceNote}</p>
+            <p>
+              This guide helps you prepare. Approvals and timelines are decided
+              by the relevant civil aviation authorities.
+            </p>
           </div>
         </div>
+      </div>
+
+      {/* Accessible, Server-Rendered Full Checklist for SEO & No-JS Crawlers */}
+      <div className="sr-only">
+        <h3>Complete Flight Support Pre-Inquiry Checklists</h3>
+        {Object.entries(GUIDANCE_MAP).map(([key, item]) => (
+          <div key={key}>
+            <h4>{item.title}</h4>
+            <p>{item.summary}</p>
+            <ul>
+              {item.preparationItems.map((pi) => (
+                <li key={pi}>{pi}</li>
+              ))}
+            </ul>
+            <p>{item.governanceNote}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

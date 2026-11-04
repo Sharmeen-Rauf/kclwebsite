@@ -405,14 +405,16 @@ export default function HomePage() {
               FLIGHT SUPPORT NAVIGATOR · PREPARATION GUIDE
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Prepare the Operational Details Before You Inquire
+              Get Your Flight Details Ready Before You Inquire
             </h2>
             <p className="text-[#16202B] text-base leading-relaxed">
-              Select your operation type (scheduled or non-scheduled) and
-              primary service need to review the information your dispatch or
-              operations team should prepare. This tool guides inquiry
-              preparation and does not calculate regulatory approval or
-              guarantee processing times.
+              Choose your operation type and the service you need. We’ll show the
+              details our operations desk typically asks for, so your request can
+              be reviewed faster.
+            </p>
+            <p className="text-xs text-[#5C6B7A] pt-1">
+              This guide helps you prepare. Approvals and timelines are decided by
+              the relevant civil aviation authorities.
             </p>
           </div>
 

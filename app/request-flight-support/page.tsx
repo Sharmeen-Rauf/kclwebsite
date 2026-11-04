@@ -38,6 +38,7 @@ interface RequestFlightSupportPageProps {
     email?: string;
     countries?: string;
     notes?: string;
+    operationType?: string;
   }>;
 }
 
@@ -47,7 +48,10 @@ export default async function RequestFlightSupportPage({
   const params = await searchParams;
 
   const defaultFlightType =
-    params.flightType === "schedule" ? "schedule" : "non-schedule";
+    params.flightType === "schedule" ||
+    params.operationType === "scheduled-airline"
+      ? "schedule"
+      : "non-schedule";
   const defaultPermitType =
     params.permitType === "landing"
       ? "landing"
