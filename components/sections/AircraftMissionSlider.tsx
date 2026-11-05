@@ -178,12 +178,9 @@ export function AircraftMissionSlider() {
         {/* Header row with navigation arrows */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="max-w-3xl space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#0B2545]" aria-hidden="true" />
-              <span className="font-mono text-xs uppercase tracking-wider text-[#5C6B7A] font-bold">
-                FLEET CAPABILITIES · MISSION PROFILES
-              </span>
-            </div>
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+              FLEET CAPABILITIES · MISSION PROFILES
+            </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545] tracking-tight">
               Operational Mission Profiles We Facilitate
             </h2>
