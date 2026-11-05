@@ -45,7 +45,7 @@ export function Footer() {
             </div>
 
             <div className="space-y-1.5">
-              <span className="font-mono text-xs uppercase tracking-wider font-bold text-slate-300 block">
+              <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#F4C400] block">
                 FLIGHT ITINERARY COORDINATION
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
