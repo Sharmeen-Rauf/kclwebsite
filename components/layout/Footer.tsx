@@ -8,7 +8,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer aria-label="Site Footer" className="bg-white text-[#16202B]">
+    <footer aria-label="Site Footer" className="bg-white text-[#16202B] relative overflow-hidden">
       {/* (a) Executive Navy Gradient Pre-Footer Banner */}
       <section
         aria-label="Flight Itinerary Support"
@@ -80,7 +80,7 @@ export function Footer() {
       </section>
 
       {/* (b) Four-column white footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-12 border-b border-[#CBD5E1]">
           {/* Column 1: Brand, Description, Contact, Clocks */}
           <div className="space-y-4">
@@ -385,6 +385,115 @@ export function Footer() {
             </Link>
           </div>
         </div>
+      </div>
+
+      {/* Light Aeronautical Airplane Watermark in Footer Bottom-Right */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute -bottom-10 -right-10 sm:-bottom-6 sm:-right-6 md:bottom-2 md:right-4 w-[280px] sm:w-[380px] md:w-[460px] h-[280px] sm:h-[380px] md:h-[460px] opacity-[0.045] text-[#0B2545] z-0 overflow-hidden"
+      >
+        <svg
+          viewBox="0 0 500 500"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full"
+        >
+          {/* Curving Trailing Flight Path Airway Arc */}
+          <path
+            d="M 20 480 C 140 420, 260 300, 380 140"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeDasharray="6 8"
+          />
+          <path
+            d="M 50 495 C 170 435, 290 315, 410 155"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeDasharray="3 5"
+            opacity="0.6"
+          />
+
+          {/* Compass Heading & Radar Range Arc */}
+          <circle
+            cx="340"
+            cy="190"
+            r="140"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeDasharray="3 5"
+            opacity="0.5"
+          />
+          <circle
+            cx="340"
+            cy="190"
+            r="80"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeDasharray="4 6"
+            opacity="0.7"
+          />
+
+          {/* Waypoint Crosshair Blip with subtle brand amber touch */}
+          <g transform="translate(230, 310)">
+            <circle cx="0" cy="0" r="10" stroke="#B88200" strokeWidth="1.2" strokeDasharray="2 3" opacity="0.8" />
+            <circle cx="0" cy="0" r="3" fill="#B88200" opacity="0.8" />
+            <text x="14" y="4" fontSize="10" fontFamily="monospace" fill="currentColor" fontWeight="bold">
+              OPKR · 24°N
+            </text>
+          </g>
+
+          {/* Modern Widebody Airliner Climbing Angled Along Airway */}
+          <g transform="translate(360, 160) rotate(-35)">
+            {/* Contrails trailing from wingtips */}
+            <line x1="-120" y1="25" x2="-120" y2="200" stroke="currentColor" strokeWidth="1.25" strokeDasharray="4 6" opacity="0.6" />
+            <line x1="120" y1="25" x2="120" y2="200" stroke="currentColor" strokeWidth="1.25" strokeDasharray="4 6" opacity="0.6" />
+
+            {/* Jet Engine Wakes */}
+            <line x1="-48" y1="-5" x2="-48" y2="180" stroke="currentColor" strokeWidth="1" strokeDasharray="3 5" opacity="0.5" />
+            <line x1="48" y1="-5" x2="48" y2="180" stroke="currentColor" strokeWidth="1" strokeDasharray="3 5" opacity="0.5" />
+
+            {/* Fuselage & Wings Silhouette */}
+            <path
+              d="
+                M 0 -115
+                C 3 -105, 6 -70, 7 -35
+                L 115 22
+                C 120 24, 121 29, 118 32
+                L 110 32
+                L 9 -5
+                L 9 60
+                L 44 82
+                C 47 84, 47 87, 44 88
+                L 7 79
+                L 7 100
+                C 7 105, 0 108, 0 108
+                C 0 108, -7 105, -7 100
+                L -7 79
+                L -44 88
+                C -47 87, -47 84, -44 82
+                L -9 60
+                L -9 -5
+                L -110 32
+                L -118 32
+                C -121 29, -120 24, -115 22
+                L -7 -35
+                C -6 -70, -3 -105, 0 -115
+                Z
+              "
+              fill="currentColor"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinejoin="round"
+            />
+
+            {/* Engines */}
+            <rect x="-52" y="-18" width="8" height="26" rx="3" fill="currentColor" opacity="0.8" />
+            <rect x="44" y="-18" width="8" height="26" rx="3" fill="currentColor" opacity="0.8" />
+
+            {/* Cockpit Window */}
+            <path d="M -4 -90 C -2 -93, 2 -93, 4 -90 L 3 -86 C 1 -88, -1 -88, -3 -86 Z" fill="currentColor" />
+          </g>
+        </svg>
       </div>
     </footer>
   );
