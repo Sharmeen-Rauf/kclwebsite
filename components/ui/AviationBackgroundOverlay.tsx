@@ -71,12 +71,22 @@ export function AviationBackgroundOverlay() {
           </text>
         </g>
 
-        {/* Faint Jet in Flight on Airway Vector */}
-        <g transform="translate(940, 310) rotate(-16)">
+        {/* Cruising Jet in Flight on Airway Vector with Heading Tag */}
+        <g transform="translate(940, 310) rotate(-22)">
+          {/* Subtle Contrail */}
+          <line x1="0" y1="18" x2="0" y2="90" stroke="currentColor" strokeWidth="1" strokeDasharray="3 4" opacity="0.7" />
           <path
-            d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+            d="M 0 -24 L 2 -12 L 20 2 L 20 6 L 2 3 L 2 14 L 8 18 L 8 21 L 0 19 L -8 21 L -8 18 L -2 14 L -2 3 L -20 6 L -20 2 L -2 -12 Z"
             fill="currentColor"
-            transform="scale(1.2)"
+          />
+        </g>
+
+        {/* Secondary Mid-Altitude Airway Jet (Lower South-West Corridor) */}
+        <g transform="translate(420, 710) rotate(-42)">
+          <line x1="0" y1="14" x2="0" y2="70" stroke="currentColor" strokeWidth="1" strokeDasharray="2 3" opacity="0.6" />
+          <path
+            d="M 0 -18 L 1.5 -9 L 15 1.5 L 15 4.5 L 1.5 2 L 1.5 10 L 6 13 L 6 15 L 0 14 L -6 15 L -6 13 L -1.5 10 L -1.5 2 L -15 4.5 L -15 1.5 L -1.5 -9 Z"
+            fill="currentColor"
           />
         </g>
       </svg>
