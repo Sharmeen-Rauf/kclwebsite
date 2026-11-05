@@ -650,9 +650,15 @@ export default async function HomePage() {
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="space-y-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+              COORDINATION WORKFLOW
+            </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               How Coordination Works
             </h2>
+            <p className="text-[15px] sm:text-base text-[#5C6B7A] max-w-3xl leading-relaxed">
+              From your initial itinerary submission to final civil aviation authority clearances, every flight milestone is actively tracked and coordinated.
+            </p>
           </div>
           <RequestTrackerPreview />
         </div>
