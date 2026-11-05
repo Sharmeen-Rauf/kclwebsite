@@ -12,6 +12,7 @@ import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
 import { newsRepository } from "@/lib/data/news-repository";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 import { AircraftMissionSlider } from "@/components/sections/AircraftMissionSlider";
+import { RegionalCoverageSlider } from "@/components/sections/RegionalCoverageSlider";
 
 export const metadata = buildMetadata({
   title:
@@ -510,89 +511,8 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {[
-              {
-                region: "Africa",
-                detail:
-                  "Trans-continental routes, technical stops & commercial clearances",
-                image: "/img/regions/africa.webp",
-                alt: "African trans-continental flight route at sunset",
-              },
-              {
-                region: "Middle East",
-                detail:
-                  "Gulf corridors, turnaround coordination & regional overflights",
-                image: "/img/regions/middle-east.webp",
-                alt: "Middle East international transit hub apron at twilight",
-              },
-              {
-                region: "Europe",
-                detail:
-                  "East–West international traffic, slot liaison & seasonal filings",
-                image: "/img/regions/europe.webp",
-                alt: "High altitude European airspace corridor at dusk",
-              },
-              {
-                region: "Asia",
-                detail:
-                  "South, East & Central Asia airspace & airport coordination",
-                image: "/img/regions/asia.webp",
-                alt: "Asian aerodrome runway and aircraft parking lights at night",
-              },
-              {
-                region: "North & South America",
-                detail:
-                  "Long-haul flight planning, transatlantic & transpacific routing",
-                image: "/img/regions/americas.webp",
-                alt: "Long-haul flight over sunset cloud layer",
-              },
-              {
-                region: "The Caribbean",
-                detail:
-                  "Island transit, private charter & seasonal destination support",
-                image: "/img/regions/caribbean.webp",
-                alt: "Caribbean coastal aerodrome and turquoise water approach",
-              },
-            ].map((item, index) => (
-              <div
-                key={item.region}
-                className="group relative overflow-hidden rounded-[4px] border border-white/20 p-5 flex flex-col justify-between min-h-[250px] shadow-sm hover:border-white/50 transition-all duration-300"
-              >
-                {/* Full-bleed background photo */}
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  fill
-                  sizes="(min-width: 1024px) 16vw, (min-width: 640px) 33vw, 50vw"
-                  className="object-cover object-center group-hover:scale-105 motion-safe:transition-transform motion-safe:duration-500 ease-out"
-                />
-
-                {/* Navy gradient overlay so text is 100% crisp and readable */}
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B2545]/95 via-[#0B2545]/70 to-[#0B2545]/40 group-hover:from-[#0B2545]/95 group-hover:via-[#0B2545]/75 group-hover:to-[#0B2545]/50 transition-colors duration-300"
-                />
-
-                {/* Card Top: Region number */}
-                <div className="relative z-10 flex items-center justify-between">
-                  <span className="font-mono text-[10px] uppercase font-bold text-white/90 bg-white/10 backdrop-blur-sm border border-white/20 px-2 py-0.5 rounded-[2px] tracking-wider">
-                    {`0${index + 1}`}
-                  </span>
-                </div>
-
-                {/* Card Bottom: Region name + description */}
-                <div className="relative z-10 space-y-1.5 mt-auto pt-6">
-                  <h3 className="text-lg font-bold text-white leading-tight">
-                    {item.region}
-                  </h3>
-                  <p className="text-xs text-slate-200 leading-relaxed font-normal">
-                    {item.detail}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Linear Infinite Animated Coverage Slider */}
+          <RegionalCoverageSlider />
 
           <div className="bg-[#0B2545] text-white p-6 rounded-[2px] flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-3">
