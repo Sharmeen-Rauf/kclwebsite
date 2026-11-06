@@ -9,7 +9,6 @@ import {
   buildBreadcrumbJsonLd,
   buildFaqJsonLd,
 } from "@/components/seo/JsonLd";
-import { CONTACT_DATA } from "@/content/contact";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 import { PermitRequirementSelector } from "@/components/sections/PermitRequirementSelector";
 import { GlobalCoverageMap } from "@/components/sections/GlobalCoverageMap";
@@ -711,83 +710,6 @@ export default function FlightPermissionsPage() {
           </div>
 
           <PermitFaqAccordion />
-        </div>
-      </section>
-
-      {/* 10. Final CTA Band (Navy): Planning an International Flight? */}
-      <section className="py-16 sm:py-20 bg-[#0B2545] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="max-w-3xl space-y-3">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F4C400] font-bold block">
-              24/7 FLIGHT SUPPORT DESK
-            </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight">
-              Planning an International Flight?
-            </h2>
-            <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
-              Send us your route and dates. We will confirm what you need and start on your permits.
-            </p>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <Link
-              href="/request-flight-support"
-              className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-sm min-h-[44px] px-7 py-2.5 rounded-[2px] transition-colors text-center inline-flex items-center justify-center gap-2 shadow-sm"
-            >
-              <span>Request a Permit</span>
-              <span aria-hidden="true">→</span>
-            </Link>
-
-            <a
-              href={`tel:${CONTACT_DATA.primaryPhone.replace(/\s+/g, "")}`}
-              className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-2.5 font-semibold text-sm inline-flex items-center justify-center gap-2"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              <span>Call the Ops Desk</span>
-            </a>
-          </div>
-
-          {/* Contact Details from /content/contact.ts */}
-          <div className="pt-6 border-t border-white/20 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-slate-200">
-            <div>
-              <span className="block text-xs font-mono text-[#F4C400] font-semibold uppercase mb-1">
-                Operations Email
-              </span>
-              <a
-                href={`mailto:${CONTACT_DATA.opsEmail}`}
-                className="font-bold text-white hover:underline underline-offset-4 text-sm font-mono"
-              >
-                {CONTACT_DATA.opsEmail}
-              </a>
-            </div>
-
-            <div>
-              <span className="block text-xs font-mono text-[#F4C400] font-semibold uppercase mb-1">
-                Primary Phone (24/7)
-              </span>
-              <a
-                href={`tel:${CONTACT_DATA.primaryPhone.replace(/\s+/g, "")}`}
-                className="font-bold text-white hover:underline underline-offset-4 text-sm font-mono"
-              >
-                {CONTACT_DATA.primaryPhone}
-              </a>
-            </div>
-
-            <div>
-              <span className="block text-xs font-mono text-[#F4C400] font-semibold uppercase mb-1">
-                Secondary Phone
-              </span>
-              <a
-                href={`tel:${CONTACT_DATA.secondaryPhone.replace(/\s+/g, "")}`}
-                className="font-bold text-white hover:underline underline-offset-4 text-sm font-mono"
-              >
-                {CONTACT_DATA.secondaryPhone}
-              </a>
-            </div>
-          </div>
         </div>
       </section>
     </>
