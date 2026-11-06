@@ -40,16 +40,6 @@ export const REAL_CLIENTS: AirlineClient[] = [
       "Authorized flight permission filing and operational liaison with Pakistan aviation authorities.",
   },
   {
-    name: "Cambodia Airways",
-    icao: "KME",
-    iata: "KR",
-    country: "Cambodia",
-    logo: "/img/imgi_14_cambodia.png",
-    alt: "Cambodia Airways (ICAO: KME) official logo",
-    summary:
-      "Flight permission facilitation, ground handling coordination and 24/7 operational support.",
-  },
-  {
     name: "Virgin Australia",
     icao: "VOZ",
     iata: "VA",

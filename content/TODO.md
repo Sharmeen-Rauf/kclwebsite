@@ -10,7 +10,7 @@ This file tracks all management verification questions, placeholder tokens, and 
 - [ ] **AFPA Registration & Legal Wording:** Confirm exact AFPA registration/legal wording (`{{AFPA_REGISTRATION_CONFIRMATION}}`) and permitted logo/certification display.
 - [ ] **Reconciled Contact & Address Data:** Confirm official legal name (`Kashmir Corporation (Pvt.) Ltd.`), verified physical address (`{{VERIFIED_ADDRESS}}`), operations telephone (`{{PHONE}}`), operations email (`{{OPERATIONS_EMAIL}}`), WhatsApp (`{{WHATSAPP}}`), and operating hours (reconciling differences between `kclpk.org` and LinkedIn).
 - [ ] **Flight Planning, Dispatch & Airport Slots:** Confirm whether flight planning, dispatch assistance, and airport slot coordination are actively offered and their exact contractual deliverables (ensuring KCL is never presented as replacing the operator's certified dispatchers or operational control).
-- [ ] **Client Logo Usage Rights:** Confirm client logo usage rights and relationship descriptions for Qantas, Royal Brunei Airlines, Air Mauritius, and Cambodia Airways before live publication.
+- [ ] **Client Logo Usage Rights:** Confirm client logo usage rights and relationship descriptions for Qantas, Royal Brunei Airlines, Air Mauritius, Virgin Australia, and Batik Air before live publication.
 - [ ] **Kashmirwala Group 1947 Heritage:** Confirm the Kashmirwala Group 1947 history wording and keep it strictly separated from KCL's entity incorporation date.
 - [ ] **Keyword Demand & Intent Mapping:** Validate keyword demand and ensure one distinct target search intent per indexable page (implemented across all 21 V2 routes).
 - [ ] **Legacy `.html` Permanent Redirects:** Permanent redirects configured in `next.config.mjs` from `/index.html`, `/About.html`, `/Services.html`, `/Schedule_Filing.html`, `/Non_Schedule_Filing.html`, `/Contact_Us.html`, and `/Customer_Support.html` to the new Next.js routes.
@@ -39,6 +39,6 @@ This file tracks all management verification questions, placeholder tokens, and 
 ## 3. Visual & Downloadable Assets in `/public`
 
 - `/public/img/kcl-logo.svg` — Replace with official KCL vector logo.
-- `/public/img/client-qantas.svg`, `client-royal-brunei.svg`, `client-air-mauritius.svg`, `client-cambodia-airways.svg` — Replace with approved partner marks once written authorization is confirmed.
+- `/public/img/client-qantas.svg`, `client-royal-brunei.svg`, `client-air-mauritius.svg`, `client-virgin-australia.svg` — Replace with approved partner marks once written authorization is confirmed.
 - `/public/img/ops-ramp-handling.svg` & `/public/img/news-ops-desk.svg` — Replace with approved KCL corporate/operations imagery.
 - `/public/files/kcl-permit-request-checklist.pdf` — Replace with final branded KCL Flight Inquiry Checklist PDF.
