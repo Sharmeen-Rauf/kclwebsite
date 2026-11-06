@@ -150,10 +150,10 @@ export function Header() {
             aria-label="Kashmir Corporation (Pvt.) Ltd. (KCL Flight Permission) Home"
           >
             <Image
-              src="/img/imgi_2_Sign Logo1@3x.png"
-              alt="KCL Flight Permission — Kashmir Corporation (Pvt.) Ltd. Official Logo"
+              src="/img/kclf final logo.png"
+              alt="KCL Flight Support — Kashmir Corporation (Pvt.) Ltd. Official Logo"
               width={185}
-              height={74}
+              height={75}
               priority
               className="h-11 sm:h-12 w-auto object-contain"
             />

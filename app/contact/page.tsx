@@ -97,10 +97,10 @@ export default function ContactPage() {
               <div className="kcl-card bg-white border border-[#CBD5E1] p-6 space-y-4">
                 <div className="border-b border-[#CBD5E1] pb-3">
                   <Image
-                    src="/img/imgi_2_Sign Logo1@3x.png"
-                    alt="KCL Flight Permission — Kashmir Corporation (Pvt.) Ltd. Official Logo"
+                    src="/img/kclf final logo.png"
+                    alt="KCL Flight Support — Kashmir Corporation (Pvt.) Ltd. Official Logo"
                     width={150}
-                    height={60}
+                    height={61}
                     className="h-10 w-auto object-contain mb-3"
                   />
                   <span className="font-mono text-xs uppercase text-white bg-[#0B2545] px-2.5 py-1 inline-block font-semibold">

@@ -24,7 +24,7 @@ export function buildOrganizationJsonLd() {
     description:
       "AFPA Authorized Flight Permission Agent and flight operation service provider in Pakistan for schedule and non-schedule flight permits, ground handling, catering, fuel supply and crew accommodation.",
     url: SITE_CONFIG.url,
-    logo: `${SITE_CONFIG.url}/img/imgi_2_Sign%20Logo1@3x.png`,
+    logo: `${SITE_CONFIG.url}/img/kclf%20final%20logo.png`,
     areaServed: {
       "@type": "Country",
       name: "Pakistan",
@@ -131,7 +131,7 @@ export function buildArticleJsonLd(input: {
       name: SITE_CONFIG.name,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_CONFIG.url}/img/imgi_2_Sign%20Logo1@3x.png`,
+        url: `${SITE_CONFIG.url}/img/kclf%20final%20logo.png`,
       },
     },
     image: `${SITE_CONFIG.url}${input.image}`,

@@ -190,10 +190,10 @@ export default function AboutPage() {
             <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#CBD5E1] pb-4">
                 <Image
-                  src="/img/imgi_2_Sign Logo1@3x.png"
-                  alt="KCL Flight Permission — Kashmir Corporation (Pvt.) Ltd. Official Logo"
+                  src="/img/kclf final logo.png"
+                  alt="KCL Flight Support — Kashmir Corporation (Pvt.) Ltd. Official Logo"
                   width={160}
-                  height={64}
+                  height={65}
                   className="h-11 w-auto object-contain"
                 />
                 <span className="font-mono text-xs uppercase text-white bg-[#0B2545] px-2.5 py-1 inline-block font-semibold">

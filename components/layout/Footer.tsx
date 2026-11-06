@@ -90,10 +90,10 @@ export function Footer() {
               aria-label="Kashmir Corporation (Pvt.) Ltd. Home"
             >
               <Image
-                src="/img/imgi_2_Sign Logo1@3x.png"
-                alt="KCL Flight Permission — Kashmir Corporation (Pvt.) Ltd."
+                src="/img/kclf final logo.png"
+                alt="KCL Flight Support — Kashmir Corporation (Pvt.) Ltd."
                 width={170}
-                height={68}
+                height={69}
                 className="h-10 sm:h-11 w-auto object-contain"
               />
             </Link>
