@@ -273,8 +273,8 @@ export default function FlightPermissionsPage() {
         ]}
       />
 
-      {/* 1. Hero Section: Aircraft photo visible, left-to-right navy gradient, no dark text box, no duplicate headline */}
-      <section className="relative bg-[#0B2545] text-white overflow-hidden border-b border-[#CBD5E1]">
+      {/* 1. Hero Section: Centered layout and font sizes matching Homepage hero */}
+      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[480px] lg:min-h-[520px] py-14 sm:py-20 flex items-center justify-center">
         {/* Full-bleed background photo */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -283,61 +283,88 @@ export default function FlightPermissionsPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-center hero-zoom-photo"
           />
-          {/* Clean Left-to-Right Navy Gradient Overlay */}
+          {/* Balanced gradient overlay matching homepage */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-r from-[#0B2545] via-[#0B2545]/85 to-[#0B2545]/30"
+            className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/85 via-[#0B2545]/60 to-[#14406E]/35"
           />
+          {/* Faint airway route line-art background */}
+          <svg
+            viewBox="0 0 1440 640"
+            fill="none"
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+          >
+            <path
+              d="M-60 490 C 280 420, 620 260, 1020 220 C 1220 200, 1360 150, 1500 110"
+              stroke="#FFFFFF"
+              strokeWidth="1.5"
+              strokeDasharray="6 6"
+              className="airway-route-line"
+            />
+            <path
+              d="M-40 240 C 340 290, 740 350, 1140 280 C 1300 250, 1410 210, 1520 180"
+              stroke="#FFFFFF"
+              strokeWidth="1.2"
+            />
+            <circle cx="515" cy="340" r="4" fill="#FFFFFF" />
+            <circle cx="775" cy="275" r="4" fill="#FFFFFF" />
+            <circle cx="885" cy="145" r="4" fill="#FFFFFF" />
+          </svg>
         </div>
 
-        {/* Content Container */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <div className="max-w-3xl space-y-6">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+        {/* Content Container: Centered Heading, Para, and Buttons */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
+          <div className="max-w-3xl mx-auto space-y-4">
+            <h1 className="text-2xl sm:text-3xl lg:text-[40px] xl:text-[44px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
               Overflight and Landing Permits for International Flights
             </h1>
 
-            <p className="text-lg sm:text-xl text-slate-100 leading-relaxed font-normal">
+            <p className="text-sm sm:text-[15px] lg:text-base text-slate-200 leading-relaxed max-w-2xl mx-auto">
               We prepare your permit requests, follow them up with the aviation authorities and keep you updated, day or night. Short-notice flights welcome.
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            {/* Action Buttons Centered */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
               <Link
                 href="/request-flight-support"
-                className="bg-[#0B2545] hover:bg-[#133661] text-white border-2 border-white font-semibold text-base px-7 py-3.5 rounded-[2px] transition-colors text-center inline-flex items-center justify-center gap-2 shadow-sm"
+                className="bg-[#0B2545] hover:bg-[#133661] text-white border-2 border-white min-h-[44px] px-6 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm"
               >
                 <span>Request a Permit</span>
-                <span aria-hidden="true">→</span>
+                <span aria-hidden="true" className="ml-1.5">→</span>
               </Link>
               <a
                 href="#what-you-need"
-                className="bg-white/10 hover:bg-white/20 text-white border border-white/40 font-semibold text-base px-6 py-3.5 rounded-[2px] transition-colors text-center inline-flex items-center justify-center"
+                className="kcl-btn-outline-white min-h-[44px] px-6 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 See What You Need
               </a>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Facts under buttons: clean horizontal row */}
-            <div className="pt-6 border-t border-white/20 flex flex-wrap items-center gap-y-2 gap-x-4 text-base text-slate-200">
-              <span className="font-semibold text-white">
-                24/7 operations desk
-              </span>
-              <span aria-hidden="true" className="text-white/40">
-                |
-              </span>
-              <span className="font-semibold text-white">
-                Scheduled and non-scheduled flights
-              </span>
-              <span aria-hidden="true" className="text-white/40">
-                |
-              </span>
-              <span className="font-semibold text-white">
-                Short-notice requests
-              </span>
-            </div>
+      {/* Separate Credentials Row Below Hero (Styled Exactly like Homepage) */}
+      <section
+        aria-label="Operational Credentials"
+        className="bg-[#F6F8FB] border-b border-[#CBD5E1] py-3.5"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs sm:text-[13px] font-bold text-[#0B2545]">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+              <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
+              24/7 operations desk
+            </span>
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+              <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
+              Scheduled and non-scheduled flights
+            </span>
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+              <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
+              Short-notice requests
+            </span>
           </div>
         </div>
       </section>
