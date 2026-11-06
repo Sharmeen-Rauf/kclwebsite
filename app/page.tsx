@@ -196,7 +196,7 @@ export default async function HomePage() {
             sizes="100vw"
             className="object-cover object-center hero-zoom-photo"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/90 via-[#0B2545]/70 to-[#14406E]/45" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/80 via-[#0B2545]/55 to-[#14406E]/30" />
           {/* Very faint route line-art background (no chart box, flight levels, or airway codes) */}
           <svg
             viewBox="0 0 1440 640"
@@ -405,10 +405,10 @@ export default async function HomePage() {
                   className="object-cover object-center group-hover:scale-[1.04] group-focus-visible:scale-[1.04] motion-safe:transition-transform motion-safe:duration-500 ease-out motion-reduce:transform-none"
                 />
 
-                {/* Navy gradient overlay (about 85% at bottom, 35% at top, darkens slightly on hover/focus) */}
+                {/* Balanced gradient overlay so pictures remain vivid, clear, and graphical */}
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/60 to-[#0B2545]/35 group-hover:from-[#0B2545]/95 group-hover:via-[#0B2545]/75 group-hover:to-[#0B2545]/45 group-focus-visible:from-[#0B2545]/95 group-focus-visible:via-[#0B2545]/75 group-focus-visible:to-[#0B2545]/45 transition-colors duration-300"
+                  className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B2545]/80 via-[#0B2545]/35 to-black/15 group-hover:from-[#0B2545]/85 group-hover:via-[#0B2545]/45 group-hover:to-black/20 group-focus-visible:from-[#0B2545]/85 group-focus-visible:via-[#0B2545]/45 group-focus-visible:to-black/20 transition-colors duration-300"
                 />
 
                 {/* Top-left: Mono number badge */}

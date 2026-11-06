@@ -415,7 +415,7 @@ export function AircraftMissionSlider() {
                 sizes="(min-width: 1024px) 42vw, 100vw"
                 className="object-cover object-center transition-transform duration-700 ease-out hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/75 via-[#0B2545]/30 to-transparent" />
 
               {/* In-photo Mission Badge */}
               <div className="absolute top-4 left-4 z-10">

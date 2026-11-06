@@ -165,10 +165,10 @@ export function RegionalCoverageSlider() {
                   className="object-cover object-center group-hover:scale-106 motion-safe:transition-transform motion-safe:duration-700 ease-out"
                 />
 
-                {/* Dark Navy Atmospheric Gradient Overlay */}
+                {/* Balanced gradient overlay so pictures remain vivid, clear, and graphical */}
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B2545] via-[#0B2545]/75 to-[#0B2545]/45 group-hover:from-[#0B2545]/95 group-hover:via-[#0B2545]/70 group-hover:to-[#0B2545]/35 transition-colors duration-300"
+                  className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B2545]/85 via-[#0B2545]/40 to-transparent group-hover:from-[#0B2545]/90 group-hover:via-[#0B2545]/45 group-hover:to-transparent transition-colors duration-300"
                 />
 
                 {/* Subtle Decorative Airway Arc */}
