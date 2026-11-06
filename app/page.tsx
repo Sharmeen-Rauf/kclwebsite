@@ -15,9 +15,9 @@ import { AircraftMissionSlider } from "@/components/sections/AircraftMissionSlid
 import { RegionalCoverageSlider } from "@/components/sections/RegionalCoverageSlider";
 
 export const metadata = buildMetadata({
-  title: "International Flight Support & Permits | KCL",
+  title: "International Flight Support & Aviation Services | KCL",
   description:
-    "Overflight and landing permits, ground handling, fuel, catering and crew hotels for flights worldwide. One team, 24/7 support.",
+    "From flight permissions and ground handling to fuel, catering and crew arrangements, KCL helps airlines, charter operators and private aviation teams coordinate the essentials of international flight operations.",
   path: "/",
   omitTitleSuffix: true,
 });
@@ -230,30 +230,32 @@ export default async function HomePage() {
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left: Vertically Centered Hero Headline, Subtext & Two Outline Buttons */}
+            {/* Left: Vertically Centered Hero Headline, Subtext & Primary/Secondary CTAs */}
             <div className="lg:col-span-7 space-y-4 my-auto">
               <h1 className="text-2xl sm:text-3xl lg:text-[40px] xl:text-[44px] font-bold text-white leading-[1.16] tracking-tight max-w-xl">
-                International Flight Support, Handled by One Team
+                <span className="block text-xs sm:text-sm font-mono uppercase tracking-widest text-[#F4C400] mb-2 font-semibold">
+                  International Flight Support &amp; Aviation Services
+                </span>
+                International Flight Support, Made Simple.
               </h1>
 
               <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed max-w-xl">
-                Permits, handling, fuel, catering and crew hotels for your flights around the world, arranged by one 24/7 desk.
+                From flight permissions and ground handling to fuel, catering and crew arrangements, KCL helps airlines, charter operators and private aviation teams coordinate the essentials of international flight operations.
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
                 <Link
-                  href="#permit-checker"
-                  className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                  href="/request-flight-support"
+                  className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] min-h-[44px] px-6 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm"
                 >
-                  Check Requirements
+                  Request Flight Support
                 </Link>
-                <a
-                  href="/files/kcl-permit-request-checklist.pdf"
-                  download
+                <Link
+                  href="/services"
                   className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
                 >
-                  Download Checklist
-                </a>
+                  Explore Our Services
+                </Link>
               </div>
             </div>
 
@@ -356,37 +358,33 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 2. Core Operational Services (Primary Reference: kclpk.org/Services.html) */}
+      {/* 2. Core Operational Services */}
       <section className="py-10 sm:py-14 bg-white border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5">
             <div className="max-w-3xl space-y-2">
               <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-                CORE OPERATIONAL SERVICES · KCL FLIGHT SUPPORT
+                CORE OPERATIONAL SERVICES
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-                The Support Behind a Well-Planned Flight
+                Everything Your Flight Needs, in One Place.
               </h2>
               <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
-                Every itinerary brings together permissions, airport
-                arrangements, flight planning, slot coordination, aircraft
-                requirements and crew needs. Rather than treating these as
-                isolated tasks, KCL coordinates core operational services so
-                dispatchers and flight operations teams can plan with clarity.
+                From flight permissions and ground handling to fuel, catering and crew arrangements, KCL coordinates the essentials of international flight operations so dispatchers and operations teams can plan with total clarity.
               </p>
             </div>
             <div className="flex flex-wrap gap-2.5">
               <Link
-                href="/schedule-filing"
+                href="/services"
                 className="kcl-btn-outline-navy px-4 py-2 min-h-[40px] text-xs sm:text-sm font-semibold inline-flex items-center rounded-[2px]"
               >
-                Scheduled Filing →
+                All Services →
               </Link>
               <Link
-                href="/non-schedule-filing"
+                href="/services/overflight-permits"
                 className="kcl-btn-outline-navy px-4 py-2 min-h-[40px] text-xs sm:text-sm font-semibold inline-flex items-center rounded-[2px]"
               >
-                Non-Scheduled &amp; Charter Filing →
+                Flight Permits →
               </Link>
             </div>
           </div>
@@ -456,19 +454,16 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8 space-y-2">
             <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              FLIGHT SUPPORT NAVIGATOR · PREPARATION GUIDE
+              FLIGHT SUPPORT NAVIGATOR
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Get Your Flight Details Ready Before You Inquire
+              Tell Us About Your Flight. We&apos;ll Help You Prepare.
             </h2>
             <p className="text-[#16202B] text-base leading-relaxed">
-              Choose your operation type and the service you need. We’ll show the
-              details our operations desk typically asks for, so your request can
-              be reviewed faster.
+              Choose your operation type and the service you need. We&apos;ll show the details our operations desk coordinates, so your request moves forward smoothly.
             </p>
             <p className="text-xs text-[#5C6B7A] pt-1">
-              This guide helps you prepare. Approvals and timelines are decided by
-              the relevant civil aviation authorities.
+              This guide helps you prepare. Approvals and timelines are decided by the relevant civil aviation authorities.
             </p>
           </div>
 
@@ -478,16 +473,16 @@ export default async function HomePage() {
 
       <FlightPathDivider variant="curve-up" />
 
-      {/* 4. Where We Support — Worldwide Operational Coverage */}
+      {/* 4. Global Coverage — Supporting Flight Operations Across Borders */}
       <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="max-w-3xl space-y-3">
               <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-                WORLDWIDE FLIGHT OPERATIONS
+                GLOBAL FLIGHT OPERATIONS
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-                Support for Flights Around the World
+                Supporting Flight Operations Across Borders.
               </h2>
               <p className="text-[#16202B] text-base leading-relaxed">
                 KCL coordinates overflight and landing permits, ground handling, fuel, catering and crew logistics for international flights. Tell us your route and we will confirm what we can arrange.
@@ -529,7 +524,7 @@ export default async function HomePage() {
 
       <FlightPathDivider variant="curve-up" />
 
-      {/* 5. How Coordination Works */}
+      {/* 5. Process — From First Request to Final Details */}
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="space-y-2">
@@ -537,10 +532,10 @@ export default async function HomePage() {
               COORDINATION WORKFLOW
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              How Coordination Works
+              From Your First Request to the Final Details.
             </h2>
             <p className="text-[15px] sm:text-base text-[#5C6B7A] max-w-3xl leading-relaxed">
-              From your initial itinerary submission to final civil aviation authority clearances, every flight milestone is actively tracked and coordinated.
+              From your initial itinerary submission to authority coordination and ground confirmations, every flight requirement is managed systematically.
             </p>
           </div>
           <RequestTrackerPreview />
@@ -557,7 +552,7 @@ export default async function HomePage() {
               AVIATION RESOURCES
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Practical Guides for Flight Operations Teams
+              Practical Aviation Knowledge, When You Need It.
             </h2>
             <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
               Short, plain-language guides on permits and trip planning, written for dispatchers and operations teams.

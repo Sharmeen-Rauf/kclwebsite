@@ -82,7 +82,7 @@ export default function AboutPage() {
                 CORPORATE HERITAGE · KASHMIRWALA GROUP (1947)
               </span>
               <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
-                A Heritage of Business Relationships
+                Built on Experience. Focused on Every Flight Ahead.
               </h2>
               <p className="text-[#16202B] text-base leading-relaxed">
                 Kashmirwala Group traces its origins to 1947. Through changing

@@ -32,11 +32,11 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: "Flight Permission Agent & Ground Support Pakistan | KCL",
+    default: "International Flight Support & Aviation Services | KCL",
     template: "%s",
   },
   description:
-    "Kashmir Corporation Pvt Ltd (KCL) is an AFPA Authorized Flight Permission Agent in Pakistan for overflight and landing permits, ground handling and fuel.",
+    "International flight support, overflight and landing permits, ground handling, aviation fuel, catering and crew logistics for operators worldwide.",
   openGraph: {
     type: "website",
     locale: "en_US",

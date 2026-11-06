@@ -49,10 +49,10 @@ export function Footer() {
                 FLIGHT ITINERARY COORDINATION
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
-                Planning a Flight? Send Us Your Itinerary.
+                Planning a Flight? Let&apos;s Get the Details Moving.
               </h2>
               <p className="text-[15px] sm:text-base text-slate-200/90 leading-relaxed font-medium">
-                Share your route string, aircraft specifications, UTC schedule, and ground requirements. Our 24/7 operations desk will review authority clearance pathways and confirm your operational plan.
+                Share your route, aircraft specifications, UTC schedule, and ground requirements. Our 24/7 operations desk will review authority pathways and confirm what we can arrange.
               </p>
             </div>
           </div>

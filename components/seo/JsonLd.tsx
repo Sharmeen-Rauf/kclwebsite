@@ -19,16 +19,13 @@ export function buildOrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: SITE_CONFIG.name,
-    alternateName: "KCL Pakistan",
+    alternateName: "KCL International Flight Support",
     slogan: SITE_CONFIG.tagline,
     description:
-      "AFPA Authorized Flight Permission Agent and flight operation service provider in Pakistan for schedule and non-schedule flight permits, ground handling, catering, fuel supply and crew accommodation.",
+      "International flight support and aviation services provider for scheduled and non-scheduled flight permits, ground handling, catering, fuel supply and crew accommodation worldwide.",
     url: SITE_CONFIG.url,
     logo: `${SITE_CONFIG.url}/img/kclf%20final%20logo.png`,
-    areaServed: {
-      "@type": "Country",
-      name: "Pakistan",
-    },
+    areaServed: "Worldwide",
     contactPoint: [
       {
         "@type": "ContactPoint",

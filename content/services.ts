@@ -179,7 +179,7 @@ export const SERVICES_DATA: ServiceDefinition[] = [
     code: "SVC-OVF-02",
     primaryKeyword: "overflight permit coordination",
     h1: "Overflight Permit Coordination & Assistance",
-    heroHeadline: "Crossing Airspace? Begin with the Right Permission Request.",
+    heroHeadline: "Flight Permits, Without Unnecessary Complexity.",
     introParagraph:
       "An overflight may involve country-specific authorizations, route information and operator documentation. KCL assists aviation teams in organizing relevant details and coordinating permission-related requests under applicable procedures.",
     heroCtaLabel: "Discuss an Overflight Request",

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { SITE_CONFIG } from "@/lib/utils";
 
 export const alt =
-  "Kashmir Corporation Pvt Ltd (KCL) — AFPA Authorized Flight Permission Agent in Pakistan";
+  "Kashmir Corporation (Pvt.) Ltd. (KCL) — International Flight Support & Aviation Services";
 export const size = {
   width: 1200,
   height: 630,
@@ -51,7 +51,7 @@ export default async function Image() {
               fontSize: 22,
             }}
           >
-            FIR: OPKR (KARACHI) · OPLR (LAHORE)
+            24/7 GLOBAL OPERATIONS DESK
           </div>
         </div>
 
@@ -64,7 +64,7 @@ export default async function Image() {
               color: "#FFFFFF",
             }}
           >
-            Kashmir Corporation Pvt Ltd (KCL)
+            Kashmir Corporation (Pvt.) Ltd.
           </div>
           <div
             style={{
@@ -73,7 +73,7 @@ export default async function Image() {
               fontWeight: 600,
             }}
           >
-            Your Trusted Flight Permission Partner in Pakistan
+            International Flight Support &amp; Aviation Services
           </div>
           <div
             style={{
@@ -82,7 +82,7 @@ export default async function Image() {
               maxWidth: "960px",
             }}
           >
-            Schedule &amp; Non-Schedule Permits · Ground Handling · Fuel Supply
+            Overflight &amp; Landing Permits · Ground Handling · Fuel Supply · Flight Catering · Crew Hotels · 24/7 Operations Desk
             · Flight Catering · Crew Hotels · 24/7 Operations Desk
           </div>
         </div>
