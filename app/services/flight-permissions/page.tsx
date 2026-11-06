@@ -10,6 +10,7 @@ import {
   buildFaqJsonLd,
 } from "@/components/seo/JsonLd";
 import { CONTACT_DATA } from "@/content/contact";
+import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 import { PermitRequirementSelector } from "@/components/sections/PermitRequirementSelector";
 import { GlobalCoverageMap } from "@/components/sections/GlobalCoverageMap";
 import { PermitFaqAccordion } from "@/components/sections/PermitFaqAccordion";
@@ -25,6 +26,7 @@ export const metadata = buildMetadata({
 
 const PERMITS_WE_HANDLE = [
   {
+    number: "01",
     title: "Overflight permits",
     description:
       "Permission for an aircraft to cross a country's airspace without landing.",
@@ -34,6 +36,7 @@ const PERMITS_WE_HANDLE = [
     linkText: "Learn about overflight permits",
   },
   {
+    number: "02",
     title: "Landing permits",
     description:
       "Approval to land at an international destination, for scheduled or non-scheduled flights.",
@@ -43,6 +46,7 @@ const PERMITS_WE_HANDLE = [
     linkText: "Learn about landing permits",
   },
   {
+    number: "03",
     title: "PPR coordination",
     description:
       "Prior Permission Required approvals arranged with airport authorities before arrival.",
@@ -52,6 +56,7 @@ const PERMITS_WE_HANDLE = [
     linkText: "Explore slot & PPR coordination",
   },
   {
+    number: "04",
     title: "Block permits",
     description:
       "One authorisation covering several flights for regular or seasonal operations.",
@@ -61,6 +66,7 @@ const PERMITS_WE_HANDLE = [
     linkText: "Review schedule & block filing",
   },
   {
+    number: "05",
     title: "Short-notice clearance",
     description:
       "Fast coordination for urgent and last-minute flights.",
@@ -70,6 +76,7 @@ const PERMITS_WE_HANDLE = [
     linkText: "Contact our 24/7 operations desk",
   },
   {
+    number: "06",
     title: "Diplomatic, diverted and ad-hoc flights",
     description:
       "Support when plans change.",
@@ -82,41 +89,46 @@ const PERMITS_WE_HANDLE = [
 
 const TIMELINE_STEPS = [
   {
-    step: "1",
+    step: "01",
     lane: "You",
-    actor: "Flight Dispatcher / Operator",
+    role: "You / Operator",
+    deliverable: "Schedule & Route",
     title: "You send the flight details",
     description:
       "Submit your route, estimated UTC schedule, aircraft registration, operator certificate, and required destination or transit services through our desk.",
   },
   {
-    step: "2",
+    step: "02",
     lane: "KCL",
-    actor: "KCL Operations Desk",
+    role: "KCL Operations Desk",
+    deliverable: "Document & FIR Check",
     title: "We check documents and routing",
     description:
       "Our team reviews the airworthiness papers, insurance validity, ATS airway points, lead times, and specific authority prerequisites for every FIR on your itinerary.",
   },
   {
-    step: "3",
+    step: "03",
     lane: "KCL",
-    actor: "KCL Authority Liaison",
+    role: "KCL Authority Liaison",
+    deliverable: "CAA & Slot Filing",
     title: "We submit and follow up with the authorities",
     description:
       "We prepare official application dossiers, submit through verified civil aviation authority channels, track file numbers, and follow up actively day and night.",
   },
   {
-    step: "4",
+    step: "04",
     lane: "You",
-    actor: "Flight Operations Control",
+    role: "You / OCC Desk",
+    deliverable: "Confirmed Clearances",
     title: "You receive the permit and updates",
     description:
       "Official clearance confirmation numbers, validity windows, routing remarks, and complete ATC briefing documents are delivered directly to your OCC desk.",
   },
   {
-    step: "5",
-    lane: "KCL (Optional)",
-    actor: "Integrated Ground Services",
+    step: "05",
+    lane: "KCL",
+    role: "KCL Integrated Ground",
+    deliverable: "Handling, Fuel & HOTAC",
     title: "Optional: we arrange handling, fuel and crew hotels",
     description:
       "Directly connect your permit with on-tarmac ground handling, fuel release orders, airport slot confirmations, and crew hotel layovers under one team.",
@@ -125,31 +137,37 @@ const TIMELINE_STEPS = [
 
 const CONNECTED_SERVICES = [
   {
+    number: "01",
     name: "Ground handling",
     href: "/services/ground-handling",
     desc: "Complete ramp, passenger, baggage, and cargo handling arranged through trusted ground service agents worldwide.",
   },
   {
+    number: "02",
     name: "Aviation fuel",
     href: "/services/aviation-fuel",
     desc: "Jet A1, TS1, and Avgas supply coordination with timely fuel release vouchers and credit facilities at international airports.",
   },
   {
+    number: "03",
     name: "Flight planning and dispatch",
     href: "/services/flight-planning-dispatch",
     desc: "Optimized route planning, weather briefing packages, NOTAM analysis, ICAO flight plan filing, and ETOPS/EDTO calculation support.",
   },
   {
+    number: "04",
     name: "Airport slot coordination",
     href: "/services/airport-slot-coordination",
     desc: "Pre-arrival slot timing, airport capacity requests, and coordinator alignment synchronized directly with your flight permit approvals.",
   },
   {
+    number: "05",
     name: "Crew hotels and transport",
     href: "/services/crew-logistics",
     desc: "Layover hotel reservations near airports, dedicated ground transportation, and secure crew transfers for flight crews.",
   },
   {
+    number: "06",
     name: "Inflight catering",
     href: "/services/inflight-catering",
     desc: "High-standard airline and VIP galley catering, customized dietary meals, and hygienic delivery directly to the aircraft.",
@@ -158,26 +176,32 @@ const CONNECTED_SERVICES = [
 
 const FLIGHTS_WE_SUPPORT = [
   {
+    number: "01",
     title: "Scheduled airlines",
     desc: "Seasonal timetable filings, scheduled overflight permits, block clearances, and international route frequency changes.",
   },
   {
+    number: "02",
     title: "Charter operators",
     desc: "Commercial passenger charters, group tours, sports team shuttles, and non-scheduled leisure operations.",
   },
   {
+    number: "03",
     title: "Cargo carriers",
     desc: "Heavy freighters, dangerous goods transport, project cargo shipments, and international logistical air bridge flights.",
   },
   {
+    number: "04",
     title: "Private and business aviation",
     desc: "Corporate jets, executive aircraft, owner flights, and high-net-worth VIP movements requiring discreet, rapid handling.",
   },
   {
+    number: "05",
     title: "Air ambulance flights",
     desc: "Time-critical aeromedical evacuations, patient transfers, and humanitarian flights with expedited authority clearances.",
   },
   {
+    number: "06",
     title: "Diplomatic, diverted and ad-hoc flights",
     desc: "Government and state aircraft missions, technical ferry flights, unexpected weather diversions, and emergency reroutes.",
   },
@@ -316,8 +340,11 @@ export default function FlightPermissionsPage() {
         </div>
 
         {/* Content Container: Centered Heading, Para, and Buttons */}
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
           <div className="max-w-3xl mx-auto space-y-4">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#F4C400] font-bold block mb-1">
+              INTERNATIONAL FLIGHT PERMIT DESK
+            </span>
             <h1 className="text-2xl sm:text-3xl lg:text-[40px] xl:text-[44px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
               Overflight and Landing Permits for International Flights
             </h1>
@@ -330,14 +357,14 @@ export default function FlightPermissionsPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
               <Link
                 href="/request-flight-support"
-                className="bg-[#0B2545] hover:bg-[#133661] text-white border-2 border-white min-h-[44px] px-6 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm"
+                className="bg-[#0B2545] hover:bg-[#133661] text-white border-2 border-white min-h-[44px] px-6 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
               >
                 <span>Request a Permit</span>
-                <span aria-hidden="true" className="ml-1.5">→</span>
+                <span aria-hidden="true">→</span>
               </Link>
               <a
                 href="#what-you-need"
-                className="kcl-btn-outline-white min-h-[44px] px-6 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 See What You Need
               </a>
@@ -369,39 +396,58 @@ export default function FlightPermissionsPage() {
         </div>
       </section>
 
-      {/* 2. Permits We Handle: Six simple cards (title and one line each, one link per card) */}
-      <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              The Permits We Coordinate
-            </h2>
-            <p className="text-base sm:text-lg text-[#5C6B7A] mt-2 max-w-3xl leading-relaxed">
-              International flight operations involve distinct clearance categories depending on airspace boundaries, arrival purposes, and flight schedules.
-            </p>
+      {/* 2. Permits We Handle: Six cards matching Homepage Bento Grid styling */}
+      <section className="py-12 sm:py-16 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5">
+            <div className="max-w-3xl space-y-2">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+                PERMIT CATEGORIES
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
+                The Permits We Coordinate
+              </h2>
+              <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
+                International flight operations involve distinct clearance categories depending on airspace boundaries, arrival purposes, and flight schedules.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2.5 shrink-0">
+              <Link
+                href="/services"
+                className="kcl-btn-outline-navy px-4 py-2 min-h-[40px] text-xs sm:text-sm font-semibold inline-flex items-center rounded-[2px]"
+              >
+                All Services →
+              </Link>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 auto-rows-fr">
             {PERMITS_WE_HANDLE.map((item) => (
               <div
                 key={item.title}
-                className="bg-[#F6F8FB] border border-[#CBD5E1] rounded-[6px] p-6 flex flex-col justify-between space-y-4 hover:border-[#0B2545] transition-colors"
+                className="group bg-[#F6F8FB] border border-[#CBD5E1] rounded-[6px] p-5 sm:p-6 flex flex-col justify-between space-y-4 hover:border-[#0B2545] hover:shadow-md -translate-y-0.5 transition-all duration-300"
               >
-                <div className="space-y-2">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-bold text-[#B88200] bg-white border border-[#CBD5E1] px-2 py-0.5 rounded-[2px]">
+                      {item.number}
+                    </span>
+                    <span className="h-2 w-2 rounded-full bg-[#0B2545]/20" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-[#0B2545] group-hover:text-[#133661] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-base font-semibold text-[#16202B] leading-snug">
+                  <p className="text-sm font-semibold text-[#16202B] leading-snug">
                     {item.description}
                   </p>
-                  <p className="text-base text-[#5C6B7A] leading-relaxed pt-1">
+                  <p className="text-xs sm:text-[13px] text-[#5C6B7A] leading-relaxed pt-1">
                     {item.detail}
                   </p>
                 </div>
                 <div className="pt-3 border-t border-[#CBD5E1]/60">
                   <Link
                     href={item.href}
-                    className="text-base font-semibold text-[#0B2545] hover:text-[#133661] underline underline-offset-4 inline-flex items-center gap-1.5"
+                    className="text-xs sm:text-sm font-bold font-mono text-[#0B2545] group-hover:text-[#B88200] group-hover:underline underline-offset-4 inline-flex items-center gap-1.5 transition-colors"
                   >
                     <span>{item.linkText}</span>
                     <span aria-hidden="true">→</span>
@@ -413,17 +459,22 @@ export default function FlightPermissionsPage() {
         </div>
       </section>
 
+      <FlightPathDivider variant="curve-down" />
+
       {/* 3. What You Need to Send (interactive selector) */}
       <section
         id="what-you-need"
-        className="scroll-mt-20 py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]"
+        className="scroll-mt-20 py-12 sm:py-16 bg-[#F6F8FB] border-b border-[#CBD5E1]"
       >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="space-y-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="max-w-3xl space-y-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+              PREPARATION CHECKLIST
+            </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               What You Need to Send
             </h2>
-            <p className="text-base sm:text-lg text-[#5C6B7A] leading-relaxed max-w-3xl">
+            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
               Choose your type of flight to see what we usually ask for. Having this ready helps us move faster.
             </p>
           </div>
@@ -432,101 +483,126 @@ export default function FlightPermissionsPage() {
         </div>
       </section>
 
-      {/* 4. How It Works: Two-lane timeline ("You" / "KCL") */}
-      <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div>
+      <FlightPathDivider variant="curve-up" />
+
+      {/* 4. How It Works: Two-lane timeline */}
+      <section className="py-12 sm:py-16 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="max-w-3xl space-y-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+              COORDINATION WORKFLOW
+            </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               How Your Permit Request Is Handled
             </h2>
-            <p className="text-base sm:text-lg text-[#5C6B7A] mt-2 max-w-3xl leading-relaxed">
+            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
               From your initial routing message to confirmed civil aviation clearances, every step follows a structured two-lane workflow.
             </p>
           </div>
 
-          <div className="relative border-l-2 border-[#CBD5E1] ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-8">
+          {/* 5-Step Responsive Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
             {TIMELINE_STEPS.map((s) => {
               const isYou = s.lane.includes("You");
               return (
-                <div key={s.step} className="relative group">
-                  {/* Step node icon */}
-                  <div
-                    aria-hidden="true"
-                    className={`absolute -left-[41px] sm:-left-[49px] top-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm shadow-xs ${
-                      isYou
-                        ? "bg-[#0B2545] text-white ring-4 ring-white"
-                        : "bg-white text-[#0B2545] border-2 border-[#0B2545] ring-4 ring-white"
-                    }`}
-                  >
-                    {s.step}
-                  </div>
-
-                  <div className="bg-[#F6F8FB] border border-[#CBD5E1] rounded-[6px] p-6 space-y-2.5">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                      <span className="text-base font-bold text-[#0B2545]">
-                        Stage {s.step} · Lane: {s.lane}
-                      </span>
-                      <span className="text-base font-semibold text-[#5C6B7A]">
-                        {s.actor}
+                <div
+                  key={s.step}
+                  className="bg-[#F6F8FB] border border-[#CBD5E1] rounded-[6px] p-5 flex flex-col justify-between hover:border-[#0B2545] hover:shadow-sm transition-all duration-300 group"
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="w-8 h-8 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-xs ring-4 ring-white shadow-xs">
+                        {s.step}
+                      </div>
+                      <span
+                        className={`font-mono text-[10px] uppercase font-bold px-2 py-0.5 rounded-[2px] ${
+                          isYou
+                            ? "bg-[#0B2545]/10 text-[#0B2545]"
+                            : "bg-[#B88200]/15 text-[#B88200]"
+                        }`}
+                      >
+                        Lane: {s.lane}
                       </span>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
+
+                    <h3 className="text-base font-bold text-[#0B2545] leading-snug group-hover:text-[#133661] transition-colors">
                       {s.title}
                     </h3>
-                    <p className="text-base text-[#16202B] leading-relaxed">
+
+                    <p className="text-xs sm:text-[13px] text-[#5C6B7A] leading-relaxed">
                       {s.description}
                     </p>
+                  </div>
+
+                  <div className="pt-3 mt-4 border-t border-[#CBD5E1]/60 flex items-center justify-between text-[11px] font-mono">
+                    <span className="text-[#5C6B7A] font-semibold">Deliverable</span>
+                    <span className="font-bold text-[#0B2545] bg-white px-2 py-0.5 rounded-[2px] border border-[#CBD5E1]">
+                      {s.deliverable}
+                    </span>
                   </div>
                 </div>
               );
             })}
           </div>
 
-          <div className="bg-[#F6F8FB] border border-[#CBD5E1] p-5 rounded-[4px]">
-            <p className="text-base font-medium text-[#5C6B7A] text-center">
+          <div className="bg-[#F6F8FB] border border-[#CBD5E1] p-4 rounded-[4px]">
+            <p className="text-xs sm:text-sm font-medium text-[#5C6B7A] text-center">
               Approvals are decided by the civil aviation authority of each country.
             </p>
           </div>
         </div>
       </section>
 
+      <FlightPathDivider variant="curve-down" />
+
       {/* 5. Where We Support: Schematic World Map & Country Guides */}
-      <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 bg-[#F6F8FB] border-b border-[#CBD5E1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <GlobalCoverageMap />
         </div>
       </section>
 
+      <FlightPathDivider variant="curve-up" />
+
       {/* 6. Everything Around the Permit: One Team, Every Service */}
-      <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div>
+      <section className="py-12 sm:py-16 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
+          <div className="max-w-3xl space-y-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+              INTEGRATED AVIATION SERVICES
+            </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               One Team, Every Service
             </h2>
-            <p className="text-base sm:text-lg text-[#5C6B7A] mt-2 max-w-3xl leading-relaxed">
+            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
               Permits represent only one part of an international flight. Coordinate your connected ground and flight support services under a single operations desk.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-fr">
             {CONNECTED_SERVICES.map((service) => (
               <div
                 key={service.name}
-                className="bg-[#F6F8FB] border border-[#CBD5E1] rounded-[6px] p-6 flex flex-col justify-between space-y-4 hover:border-[#0B2545] transition-colors"
+                className="bg-[#F6F8FB] border border-[#CBD5E1] rounded-[6px] p-5 sm:p-6 flex flex-col justify-between space-y-3.5 hover:border-[#0B2545] hover:shadow-md transition-all duration-300 group"
               >
                 <div className="space-y-2">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-bold text-[#B88200] bg-white border border-[#CBD5E1] px-2 py-0.5 rounded-[2px]">
+                      SVC {service.number}
+                    </span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#0B2545]/20" />
+                  </div>
+                  <h3 className="text-lg font-bold text-[#0B2545] group-hover:text-[#133661] transition-colors">
                     {service.name}
                   </h3>
-                  <p className="text-base text-[#16202B] leading-relaxed">
+                  <p className="text-xs sm:text-[13.5px] text-[#16202B] leading-relaxed">
                     {service.desc}
                   </p>
                 </div>
-                <div className="pt-2">
+                <div className="pt-2 border-t border-[#CBD5E1]/60">
                   <Link
                     href={service.href}
-                    className="text-base font-semibold text-[#0B2545] hover:text-[#133661] underline underline-offset-4 inline-flex items-center gap-1.5"
+                    className="text-xs sm:text-sm font-mono font-bold text-[#0B2545] group-hover:text-[#B88200] group-hover:underline underline-offset-4 inline-flex items-center gap-1.5 transition-colors"
                   >
                     <span>View service details</span>
                     <span aria-hidden="true">→</span>
@@ -538,28 +614,39 @@ export default function FlightPermissionsPage() {
         </div>
       </section>
 
+      <FlightPathDivider variant="curve-down" />
+
       {/* 7. Who We Help: Flights We Support */}
-      <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div>
+      <section className="py-12 sm:py-16 bg-[#F6F8FB] border-b border-[#CBD5E1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
+          <div className="max-w-3xl space-y-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+              OPERATOR PROFILES
+            </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               Flights We Support
             </h2>
-            <p className="text-base sm:text-lg text-[#5C6B7A] mt-2 max-w-3xl leading-relaxed">
+            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
               We coordinate flight permissions across diverse aircraft categories, operating rules, and mission profiles worldwide.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {FLIGHTS_WE_SUPPORT.map((item) => (
               <div
                 key={item.title}
-                className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2"
+                className="bg-white border border-[#CBD5E1] rounded-[6px] p-5 sm:p-6 space-y-2 hover:border-[#0B2545] hover:shadow-xs transition-all duration-200"
               >
-                <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-mono text-[11px] font-bold text-[#B88200]">
+                    PROFILE {item.number}
+                  </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#0B2545]/20" />
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-[#0B2545]">
                   {item.title}
                 </h3>
-                <p className="text-base text-[#16202B] leading-relaxed">
+                <p className="text-xs sm:text-[13.5px] text-[#5C6B7A] leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -568,44 +655,57 @@ export default function FlightPermissionsPage() {
         </div>
       </section>
 
+      <FlightPathDivider variant="curve-up" />
+
       {/* 8. Why KCL: Why Operators Work With KCL */}
-      <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div>
+      <section className="py-12 sm:py-16 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
+          <div className="max-w-3xl space-y-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+              OPERATIONAL ADVANTAGE
+            </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               Why Operators Work With KCL
             </h2>
-            <p className="text-base sm:text-lg text-[#5C6B7A] mt-2 max-w-3xl leading-relaxed">
+            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
               Built on decades of aviation operational experience, our desk provides clarity, dependable communication, and practical support for international flights.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 pt-1">
             {WHY_OPERATORS_WORK_WITH_KCL.map((item) => (
               <div
                 key={item.title}
-                className="bg-[#F6F8FB] border border-[#CBD5E1] rounded-[6px] p-6 sm:p-7 space-y-2"
+                className="flex items-start gap-3 bg-[#F6F8FB] border border-[#CBD5E1] rounded-[6px] p-5"
               >
-                <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
-                  {item.title}
-                </h3>
-                <p className="text-base text-[#16202B] leading-relaxed">
-                  {item.detail}
-                </p>
+                <span className="text-[#B88200] font-bold text-lg leading-none select-none mt-0.5">―</span>
+                <div className="space-y-1">
+                  <h3 className="text-base font-bold text-[#0B2545]">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-[13.5px] text-[#5C6B7A] leading-relaxed">
+                    {item.detail}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      <FlightPathDivider variant="curve-down" />
+
       {/* 9. FAQ: Accordion + Text in HTML + FAQPage Schema */}
-      <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div>
+      <section className="py-12 sm:py-16 bg-[#F6F8FB] border-b border-[#CBD5E1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
+          <div className="max-w-3xl space-y-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+              DISPATCH FAQS
+            </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               Frequently Asked Questions
             </h2>
-            <p className="text-base sm:text-lg text-[#5C6B7A] mt-2 max-w-3xl leading-relaxed">
+            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
               Essential answers to frequent questions about overflight permits, landing approvals, lead times, and operational requirements.
             </p>
           </div>
@@ -616,12 +716,15 @@ export default function FlightPermissionsPage() {
 
       {/* 10. Final CTA Band (Navy): Planning an International Flight? */}
       <section className="py-16 sm:py-20 bg-[#0B2545] text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="max-w-3xl space-y-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="max-w-3xl space-y-3">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#F4C400] font-bold block">
+              24/7 FLIGHT SUPPORT DESK
+            </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight">
               Planning an International Flight?
             </h2>
-            <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
               Send us your route and dates. We will confirm what you need and start on your permits.
             </p>
           </div>
@@ -630,7 +733,7 @@ export default function FlightPermissionsPage() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <Link
               href="/request-flight-support"
-              className="bg-white hover:bg-slate-100 text-[#0B2545] font-semibold text-base px-7 py-3.5 rounded-[2px] transition-colors text-center inline-flex items-center justify-center gap-2 shadow-sm"
+              className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-sm min-h-[44px] px-7 py-2.5 rounded-[2px] transition-colors text-center inline-flex items-center justify-center gap-2 shadow-sm"
             >
               <span>Request a Permit</span>
               <span aria-hidden="true">→</span>
@@ -638,7 +741,7 @@ export default function FlightPermissionsPage() {
 
             <a
               href={`tel:${CONTACT_DATA.primaryPhone.replace(/\s+/g, "")}`}
-              className="bg-white/10 hover:bg-white/20 text-white border border-white/40 font-semibold text-base px-6 py-3.5 rounded-[2px] transition-colors text-center inline-flex items-center justify-center gap-2"
+              className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-2.5 font-semibold text-sm inline-flex items-center justify-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -648,38 +751,38 @@ export default function FlightPermissionsPage() {
           </div>
 
           {/* Contact Details from /content/contact.ts */}
-          <div className="pt-6 border-t border-white/20 grid grid-cols-1 sm:grid-cols-3 gap-6 text-base text-slate-200">
+          <div className="pt-6 border-t border-white/20 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-slate-200">
             <div>
-              <span className="block text-sm text-slate-300 font-semibold">
-                Operations Email:
+              <span className="block text-xs font-mono text-[#F4C400] font-semibold uppercase mb-1">
+                Operations Email
               </span>
               <a
                 href={`mailto:${CONTACT_DATA.opsEmail}`}
-                className="font-bold text-white hover:underline underline-offset-4 text-base"
+                className="font-bold text-white hover:underline underline-offset-4 text-sm font-mono"
               >
                 {CONTACT_DATA.opsEmail}
               </a>
             </div>
 
             <div>
-              <span className="block text-sm text-slate-300 font-semibold">
-                Primary Phone (24/7):
+              <span className="block text-xs font-mono text-[#F4C400] font-semibold uppercase mb-1">
+                Primary Phone (24/7)
               </span>
               <a
                 href={`tel:${CONTACT_DATA.primaryPhone.replace(/\s+/g, "")}`}
-                className="font-bold text-white hover:underline underline-offset-4 text-base"
+                className="font-bold text-white hover:underline underline-offset-4 text-sm font-mono"
               >
                 {CONTACT_DATA.primaryPhone}
               </a>
             </div>
 
             <div>
-              <span className="block text-sm text-slate-300 font-semibold">
-                Secondary Phone:
+              <span className="block text-xs font-mono text-[#F4C400] font-semibold uppercase mb-1">
+                Secondary Phone
               </span>
               <a
                 href={`tel:${CONTACT_DATA.secondaryPhone.replace(/\s+/g, "")}`}
-                className="font-bold text-white hover:underline underline-offset-4 text-base"
+                className="font-bold text-white hover:underline underline-offset-4 text-sm font-mono"
               >
                 {CONTACT_DATA.secondaryPhone}
               </a>

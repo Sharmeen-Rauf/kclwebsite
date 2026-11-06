@@ -6,6 +6,7 @@ import { COUNTRY_GUIDES } from "@/content/countries";
 
 interface RegionInfo {
   id: string;
+  number: string;
   name: string;
   corridor: string;
   description: string;
@@ -15,6 +16,7 @@ interface RegionInfo {
 const REGIONS: RegionInfo[] = [
   {
     id: "africa",
+    number: "01",
     name: "Africa",
     corridor: "Trans-continental routes & commercial clearances",
     description:
@@ -23,6 +25,7 @@ const REGIONS: RegionInfo[] = [
   },
   {
     id: "middle-east",
+    number: "02",
     name: "Middle East",
     corridor: "Gulf corridors & regional overflights",
     description:
@@ -31,6 +34,7 @@ const REGIONS: RegionInfo[] = [
   },
   {
     id: "europe",
+    number: "03",
     name: "Europe",
     corridor: "East-West international traffic & slot liaison",
     description:
@@ -39,6 +43,7 @@ const REGIONS: RegionInfo[] = [
   },
   {
     id: "asia",
+    number: "04",
     name: "Asia",
     corridor: "South, East & Central Asia airspace",
     description:
@@ -47,6 +52,7 @@ const REGIONS: RegionInfo[] = [
   },
   {
     id: "americas",
+    number: "05",
     name: "North and South America",
     corridor: "Transatlantic & transpacific routing",
     description:
@@ -55,6 +61,7 @@ const REGIONS: RegionInfo[] = [
   },
   {
     id: "caribbean",
+    number: "06",
     name: "Caribbean",
     corridor: "Island transit & seasonal charters",
     description:
@@ -67,37 +74,51 @@ export function GlobalCoverageMap() {
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
 
   return (
-    <div className="space-y-10">
-      {/* Intro */}
-      <div className="max-w-3xl space-y-2">
-        <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-          Permit Support Across the Globe
-        </h2>
-        <p className="text-base sm:text-lg text-[#5C6B7A] leading-relaxed">
-          Tell us your route and we will confirm what we can arrange.
-        </p>
+    <div className="space-y-8">
+      {/* Section Header with Homepage-style Yellow Eyebrow */}
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5">
+        <div className="max-w-3xl space-y-2">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+            GLOBAL PERMIT COVERAGE
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
+            Permit Support Across the Globe
+          </h2>
+          <p className="text-[#16202B] text-sm sm:text-base leading-relaxed">
+            Tell us your route and we will confirm what we can arrange.
+          </p>
+        </div>
+
+        <div className="bg-[#F6F8FB] border border-[#CBD5E1] p-3 rounded-[2px] max-w-sm">
+          <span className="text-[11px] font-mono font-bold text-[#B88200] block mb-0.5">
+            ITINERARY REVIEW
+          </span>
+          <p className="text-xs text-[#5C6B7A] leading-snug">
+            Jurisdictional rules, lead times, and routing points are validated per flight.
+          </p>
+        </div>
       </div>
 
       {/* Schematic World Map SVG (Inline, pure CSS hover interaction) */}
-      <div className="bg-[#0B2545] border border-[#CBD5E1] rounded-[6px] p-6 sm:p-8 text-white relative overflow-hidden">
+      <div className="bg-[#0B2545] border border-[#CBD5E1] rounded-[6px] p-6 sm:p-8 text-white relative overflow-hidden shadow-sm">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-white/15">
           <div>
             <h3 className="text-lg sm:text-xl font-bold text-white">
               Global Airspace Corridors
             </h3>
-            <p className="text-sm text-slate-300 mt-0.5">
+            <p className="text-xs sm:text-sm text-slate-300 mt-0.5">
               Hover over a region card below to preview international flight support routes.
             </p>
           </div>
           {hoveredRegion && (
-            <div className="bg-white/10 border border-white/25 px-3 py-1 rounded-[2px] text-xs font-semibold text-white">
+            <div className="bg-white/10 border border-white/25 px-3 py-1 rounded-[2px] text-xs font-semibold text-[#F4C400]">
               Active Focus: {REGIONS.find((r) => r.id === hoveredRegion)?.name}
             </div>
           )}
         </div>
 
         {/* Schematic SVG Map */}
-        <div className="relative w-full aspect-[2.1/1] max-h-[380px] flex items-center justify-center">
+        <div className="relative w-full aspect-[2.2/1] max-h-[380px] flex items-center justify-center">
           <svg
             viewBox="0 0 1000 480"
             fill="none"
@@ -106,7 +127,7 @@ export function GlobalCoverageMap() {
             aria-label="Schematic World Map illustrating KCL global flight permit coverage"
           >
             {/* Latitude / Longitude Subtle Grid */}
-            <g opacity="0.15" stroke="#FFFFFF" strokeWidth="0.75" strokeDasharray="3 3">
+            <g opacity="0.12" stroke="#FFFFFF" strokeWidth="0.75" strokeDasharray="3 3">
               <line x1="0" y1="120" x2="1000" y2="120" />
               <line x1="0" y1="240" x2="1000" y2="240" />
               <line x1="0" y1="360" x2="1000" y2="360" />
@@ -127,7 +148,6 @@ export function GlobalCoverageMap() {
                   : "opacity-75"
               }`}
             >
-              {/* North America outline path */}
               <path
                 d="M110 70 L210 60 L280 80 L290 140 L240 180 L220 230 L170 210 L130 150 Z"
                 fill="#FFFFFF"
@@ -135,7 +155,6 @@ export function GlobalCoverageMap() {
                 stroke="#FFFFFF"
                 strokeWidth={hoveredRegion === "americas" ? "2.5" : "1.25"}
               />
-              {/* South America outline path */}
               <path
                 d="M230 250 L310 260 L340 330 L310 420 L270 440 L240 370 L220 300 Z"
                 fill="#FFFFFF"
@@ -256,8 +275,8 @@ export function GlobalCoverageMap() {
               <text x="730" y="150" fill="#FFFFFF" fontSize="14" fontWeight="bold" opacity="0.85">Asia</text>
             </g>
 
-            {/* Major International Great-Circle Flight Routes */}
-            <g opacity="0.4" stroke="#FFFFFF" strokeWidth="1.2" strokeDasharray="4 4">
+            {/* Major Flight Routes */}
+            <g opacity="0.35" stroke="#FFFFFF" strokeWidth="1.2" strokeDasharray="4 4">
               <path d="M240 150 Q 420 50 510 110" />
               <path d="M510 110 Q 570 140 620 180" />
               <path d="M620 180 Q 720 220 810 240" />
@@ -267,8 +286,8 @@ export function GlobalCoverageMap() {
         </div>
       </div>
 
-      {/* 6 Region Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {/* 6 Region Cards with Homepage Styling & Numbers */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         {REGIONS.map((region) => {
           const isHovered = hoveredRegion === region.id;
           return (
@@ -276,71 +295,82 @@ export function GlobalCoverageMap() {
               key={region.id}
               onMouseEnter={() => setHoveredRegion(region.id)}
               onMouseLeave={() => setHoveredRegion(null)}
-              className={`bg-white border rounded-[6px] p-6 transition-all duration-200 cursor-default ${
+              className={`bg-white border rounded-[6px] p-5 sm:p-6 transition-all duration-300 cursor-default flex flex-col justify-between ${
                 isHovered
-                  ? "border-[#0B2545] shadow-md bg-[#F6F8FB]/50"
+                  ? "border-[#0B2545] shadow-md -translate-y-0.5 bg-[#F6F8FB]/40"
                   : "border-[#CBD5E1] hover:border-[#0B2545]"
               }`}
             >
-              <h3 className="text-xl font-bold text-[#0B2545]">
-                {region.name}
-              </h3>
-              <p className="text-base font-semibold text-[#5C6B7A] mt-1">
-                {region.corridor}
-              </p>
-              <p className="text-base text-[#16202B] mt-2.5 leading-relaxed">
-                {region.description}
-              </p>
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="font-mono text-xs font-bold text-[#B88200] bg-[#F6F8FB] border border-[#CBD5E1] px-2 py-0.5 rounded-[2px]">
+                    REGION {region.number}
+                  </span>
+                  <span className="h-2 w-2 rounded-full bg-[#0B2545]/20" />
+                </div>
+                <h3 className="text-lg font-bold text-[#0B2545]">
+                  {region.name}
+                </h3>
+                <p className="text-xs font-semibold text-[#5C6B7A] mt-1 font-mono">
+                  {region.corridor}
+                </p>
+                <p className="text-xs sm:text-[13.5px] text-[#16202B] mt-2.5 leading-relaxed">
+                  {region.description}
+                </p>
+              </div>
             </div>
           );
         })}
       </div>
 
       {/* Country Guides Block */}
-      <div className="bg-[#F6F8FB] border border-[#CBD5E1] rounded-[6px] p-6 sm:p-8 space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="bg-[#F6F8FB] border border-[#CBD5E1] rounded-[6px] p-5 sm:p-7 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#CBD5E1]">
           <div>
-            <h3 className="text-xl font-bold text-[#0B2545]">
+            <span className="font-mono text-[11px] font-bold text-[#B88200] uppercase block">
+              JURISDICTION DIRECTORY
+            </span>
+            <h3 className="text-lg sm:text-xl font-bold text-[#0B2545] mt-0.5">
               Country Guides
             </h3>
-            <p className="text-base text-[#5C6B7A] mt-1">
+            <p className="text-xs sm:text-sm text-[#5C6B7A] mt-0.5">
               Detailed local overflight and landing guidance for specific jurisdictions:
             </p>
           </div>
-          <span className="text-base font-semibold text-[#5C6B7A]">
+          <span className="text-xs font-mono font-bold text-[#5C6B7A] bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px] shrink-0 self-start sm:self-auto">
             More countries on request
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-1">
           {COUNTRY_GUIDES.map((country) => (
             <Link
               key={country.slug}
               href={country.href}
-              className="bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-4 transition-colors group flex items-start justify-between gap-3"
+              className="bg-white border border-[#CBD5E1] hover:border-[#0B2545] hover:shadow-xs rounded-[4px] p-4 transition-all duration-200 group flex items-start justify-between gap-3"
             >
               <div>
-                <h4 className="text-lg font-bold text-[#0B2545] group-hover:underline underline-offset-4">
+                <h4 className="text-base font-bold text-[#0B2545] group-hover:text-[#B88200] transition-colors">
                   {country.name}
                 </h4>
-                <p className="text-base text-[#5C6B7A] mt-1">
+                <p className="text-xs font-mono text-[#5C6B7A] mt-1">
                   {country.firCodes.join(", ")} FIRs
                 </p>
               </div>
-              <span className="text-base font-semibold text-[#0B2545] group-hover:translate-x-1 transition-transform">
+              <span className="text-sm font-bold text-[#0B2545] group-hover:translate-x-1 group-hover:text-[#B88200] transition-all">
                 →
               </span>
             </Link>
           ))}
 
           {/* On-Request Notice Card */}
-          <div className="bg-white/60 border border-dashed border-[#CBD5E1] rounded-[4px] p-4 flex items-center justify-between">
-            <span className="text-base text-[#5C6B7A] font-medium">
+          <div className="bg-white/70 border border-dashed border-[#CBD5E1] rounded-[4px] p-4 flex items-center justify-between">
+            <span className="text-xs sm:text-sm text-[#5C6B7A] font-medium leading-snug">
               Worldwide clearances arranged upon itinerary review.
             </span>
             <Link
               href="/request-flight-support"
-              className="text-base font-bold text-[#0B2545] hover:underline shrink-0 ml-3"
+              className="text-xs font-mono font-bold text-[#0B2545] hover:text-[#B88200] hover:underline shrink-0 ml-3"
             >
               Submit Route →
             </Link>
