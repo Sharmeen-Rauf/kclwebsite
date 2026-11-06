@@ -48,7 +48,7 @@ export function ContactForm() {
 
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <a
-            href={`mailto:{{OPERATIONS_EMAIL}}?subject=${encodeURIComponent(
+            href={`mailto:info@kclpk.org?subject=${encodeURIComponent(
               state.contactPreview.subject
             )}&body=${encodeURIComponent(formattedBody)}`}
             className="kcl-btn-primary px-5 py-3 font-bold text-sm rounded-[2px]"

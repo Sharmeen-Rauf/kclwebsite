@@ -181,7 +181,7 @@ export const SERVICES_DATA: ServiceDefinition[] = [
     h1: "Overflight Permit Coordination & Assistance",
     heroHeadline: "Flight Permits, Without Unnecessary Complexity.",
     introParagraph:
-      "An overflight may involve country-specific authorizations, route information and operator documentation. KCL assists aviation teams in organizing relevant details and coordinating permission-related requests under applicable procedures.",
+      "Overflight permits, landing permits, Prior Permission Required (PPR) coordination, block permits and short-notice clearances with 24/7 support. KCL assists aviation teams in organizing relevant flight details and coordinating permission-related requests under applicable civil aviation procedures.",
     heroCtaLabel: "Discuss an Overflight Request",
     whatItIsHeading: "What Overflight Permission Coordination Covers",
     whatItIs: [
@@ -312,7 +312,7 @@ export const SERVICES_DATA: ServiceDefinition[] = [
     heroCtaLabel: "Request Landing Assistance",
     whatItIsHeading: "Different Flights, Different Arrival Considerations",
     whatItIs: [
-      "Commercial, charter, cargo and business aviation movements may involve different procedures. The relevant operating context and destination rules shape the information required.",
+      "Commercial, charter, cargo and business aviation movements may involve block permits, Prior Permission Required (PPR) coordination, and short-notice clearances. The operating context and destination rules shape the information required.",
       "Landing permission, airport slots, and ground service arrangements are distinct processes. One does not automatically replace the other.",
     ],
     whoItIsFor: [
@@ -819,7 +819,7 @@ export const SERVICES_DATA: ServiceDefinition[] = [
     h1: "Aviation Fuel Arrangements & Coordination",
     heroHeadline: "Fuel Planning Starts Long Before Uplift.",
     introParagraph:
-      "Aircraft fuel requirements depend on the airport, timing, aircraft and operating plan. KCL assists with communicating refueling requirements and coordinating available arrangements through relevant providers.",
+      "Fuel supply coordination for Jet A1, TS1 and Avgas/100LL, with delivery scheduling, documentation and payment support. KCL assists operators with communicating refueling requirements and coordinating arrangements through trusted fuel providers.",
     heroCtaLabel: "Discuss Fuel Arrangements",
     whatItIsHeading: "Connecting Fuel Requirements with the Wider Itinerary",
     whatItIs: [
@@ -944,7 +944,7 @@ export const SERVICES_DATA: ServiceDefinition[] = [
     h1: "Flight Planning & Dispatch Support Services",
     heroHeadline: "Flight Planning Demands a Connected View.",
     introParagraph:
-      "Flight planning brings together route information, scheduled movement, operational limitations and service coordination. KCL assists aviation operators with flight planning coordination, dispatch-related communication and connected operational inquiries.",
+      "Route optimisation, flight planning, ICAO flight plan filing, weather monitoring, NOTAM review and ETOPS/EDTO planning support. KCL assists aviation operators with flight planning coordination and connected dispatch communication aligned with your permits.",
     heroCtaLabel: "Discuss Planning & Dispatch Support",
     whatItIsHeading: "Planning Support & Dispatch Communication",
     whatItIs: [
@@ -1196,7 +1196,7 @@ export const SERVICES_DATA: ServiceDefinition[] = [
     h1: "Crew Accommodation & Transportation Support",
     heroHeadline: "Crew Logistics Should Work with the Flight Schedule.",
     introParagraph:
-      "Crew accommodation and transport arrangements affect the practical experience of a stopover. KCL assists operators in coordinating suitable hotel and local transportation requirements around their planned itinerary and preferences.",
+      "Crew Accommodation and Transport (HOTAC): Airport-proximity hotels, short-notice bookings, group bookings and airport-hotel-airport transfers. KCL assists operators in coordinating suitable hotel and local transportation requirements around their planned itinerary.",
     heroCtaLabel: "Discuss Crew Logistics",
     whatItIsHeading: "Coordinated Hotel & Ground Transportation for Stopovers",
     whatItIs: [

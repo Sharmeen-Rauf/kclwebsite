@@ -36,9 +36,8 @@ export function CtaBanner({
               {subheading}
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-slate-300">
-              <span>Operations Tel: {SITE_CONFIG.opsPhonePlaceholder}</span>
-              <span>Operations Email: {SITE_CONFIG.opsEmailPlaceholder}</span>
-              <span>Address: {SITE_CONFIG.addressPlaceholder}</span>
+              <span>Operations Tel: {SITE_CONFIG.opsPhone} / {SITE_CONFIG.secondaryPhone}</span>
+              <span>Operations Email: {SITE_CONFIG.opsEmail}</span>
             </div>
           </div>
 

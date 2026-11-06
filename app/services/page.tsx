@@ -4,7 +4,6 @@ import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import {
   KCL_SIX_CORE_SERVICES,
-  PRIMARY_SERVICES_DATA,
   PAKISTAN_SPECIALIST_SERVICES,
 } from "@/content/services";
 import { CtaBanner } from "@/components/sections/CtaBanner";
@@ -179,79 +178,9 @@ export default function ServicesOverviewPage() {
         </div>
       </section>
 
-      {/* Complete Service Specifications */}
+      {/* Regional Specialization Section */}
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="max-w-3xl space-y-2">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              DETAILED SERVICE GUIDES
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Explore Individual Flight Support Pages
-            </h2>
-            <p className="text-sm sm:text-base text-[#16202B]">
-              Each dedicated service page outlines what the service covers,
-              which operational details to prepare, what KCL coordinates, and
-              where authority or supplier decisions apply.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6">
-            {PRIMARY_SERVICES_DATA.map((service) => (
-              <article
-                key={service.slug}
-                className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
-              >
-                <div className="lg:col-span-4 space-y-2 border-b lg:border-b-0 lg:border-r border-[#CBD5E1] pb-4 lg:pb-0 lg:pr-6">
-                  <span className="font-mono text-xs font-semibold text-[#5C6B7A] block">
-                    {service.code}
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#0B2545]">
-                    <Link
-                      href={`/services/${service.slug}`}
-                    >
-                      {service.shortTitle}
-                    </Link>
-                  </h3>
-                  <p className="text-xs font-semibold text-[#0B2545]">
-                    {service.heroHeadline}
-                  </p>
-                </div>
-
-                <div className="lg:col-span-5 space-y-3">
-                  <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
-                    {service.introParagraph}
-                  </p>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#5C6B7A] font-mono pt-1">
-                    {service.whatWeHandle.map((item) => (
-                      <li key={item.title} className="flex items-center gap-1.5">
-                        <span className="text-[#0B2545] font-bold">▪</span>
-                        <span>{item.title}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="lg:col-span-3 flex flex-col gap-2.5 lg:items-end justify-center">
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="kcl-btn-primary w-full sm:w-auto min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
-                  >
-                    Service Page →
-                  </Link>
-                  <Link
-                    href={`/request-flight-support?service=${encodeURIComponent(
-                      service.slug
-                    )}`}
-                    className="kcl-btn-outline-navy w-full sm:w-auto min-h-[44px] px-5 py-2.5 font-semibold text-xs font-mono inline-flex items-center justify-center rounded-[2px]"
-                  >
-                    {service.heroCtaLabel}
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-
           {/* Dedicated Pakistan Specialization Section */}
           <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-6">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#CBD5E1] pb-4">

@@ -26,7 +26,7 @@ const OVERFLIGHT_FAQS = [
   {
     question: "Are civil aviation overflight fees included in the permit application?",
     answer:
-      "Civil aviation navigation and overflight charges (Eurocontrol, local CAA route navigation fees) are billed per aircraft MTOW and distance flown. KCL assists in verifying fee status and navigating clearance dependencies for seamless entry.",
+      "Civil aviation navigation and overflight charges (Eurocontrol, local CAA route navigation fees) are billed per aircraft MTOW and distance flown. KCL assists in verifying fee status and navigating clearance dependencies for authorized entry.",
   },
 ];
 

@@ -100,12 +100,12 @@ export function PermitRequestForm({
 
         <div className="flex flex-wrap items-center gap-4 pt-2">
           <a
-            href={`mailto:${SITE_CONFIG.opsEmailPlaceholder}?subject=${encodeURIComponent(
+            href={`mailto:${SITE_CONFIG.opsEmail}?subject=${encodeURIComponent(
               `Flight Support Inquiry: ${s.operatorName} (${s.routeFrom}-${s.routeTo})`
             )}&body=${encodeURIComponent(mailtoBody)}`}
             className="kcl-btn-primary min-h-[44px] px-5 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
           >
-            Send Via Confirmed Channel ({SITE_CONFIG.opsEmailPlaceholder})
+            Send Via Confirmed Channel ({SITE_CONFIG.opsEmail})
           </a>
           <Link
             href="/request-flight-support"

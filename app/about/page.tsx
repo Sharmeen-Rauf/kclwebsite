@@ -59,15 +59,10 @@ export default function AboutPage() {
               KCL INTERNATIONAL FLIGHT SUPPORT · {SITE_CONFIG.authorityBadge}
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
-              Rooted in Pakistan. Connected to International Aviation.
+              International Flight Support &amp; Aviation Services
             </h1>
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-              Kashmir Corporation (Pvt.) Ltd. connects an established business
-              heritage with a practical approach to modern aviation operations.
-              KCL International Flight Support works with aviation stakeholders
-              seeking coordinated assistance across flight permission
-              facilitation, ground handling, catering services, fuel supply,
-              crew accommodation arrangements, and 24/7 operational support.
+              Kashmir Corporation (Pvt.) Ltd. is an international flight support and aviation services company. Backed by the Kashmirwala Group, serving aviation since 1947, KCL coordinates flight permissions, ground handling, catering services, aviation fuel, crew accommodation arrangements, and 24/7 operational support for commercial airlines, charter operators, cargo carriers, and business aviation teams worldwide.
             </p>
           </div>
         </div>
@@ -197,17 +192,14 @@ export default function AboutPage() {
                   className="h-11 w-auto object-contain"
                 />
                 <span className="font-mono text-xs uppercase text-white bg-[#0B2545] px-2.5 py-1 inline-block font-semibold">
-                  PUBLISHING BLOCK · MANAGEMENT VERIFICATION
+                  OFFICIAL COMPANY PROFILE
                 </span>
               </div>
               <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
-                Credentials and Leadership
+                Corporate Credentials &amp; Licences
               </h2>
               <p className="text-sm text-[#16202B] leading-relaxed">
-                This block is reserved for verified AFPA designation and license
-                evidence, legal company name confirmation, reconciled current
-                office address, approved leadership biographies, and authorized
-                corporate imagery. Unapproved client logos are never added.
+                KCL operates under verified regulatory credentials and industry memberships, delivering professional flight support and aviation services worldwide.
               </p>
               <div className="overflow-x-auto border border-[#CBD5E1]">
                 <table className="w-full text-left border-collapse text-xs sm:text-sm">
@@ -222,27 +214,34 @@ export default function AboutPage() {
                     </tr>
                     <tr>
                       <th className="py-2.5 px-3 bg-[#F6F8FB] font-semibold text-[#0B2545] border-r border-[#CBD5E1]">
-                        AFPA Designation
+                        Licences &amp; Memberships
                       </th>
-                      <td className="py-2.5 px-3 font-mono text-[#5C6B7A]">
-                        {SITE_CONFIG.afpaLicensePlaceholder}
+                      <td className="py-2.5 px-3 text-[#16202B]">
+                        AFPA (Pakistan Civil Aviation Authority) | DTS | FAGSA | TAAP | Karachi Chamber of Commerce and Industry | Air Cargo Association
                       </td>
                     </tr>
                     <tr>
                       <th className="py-2.5 px-3 bg-[#F6F8FB] font-semibold text-[#0B2545] border-r border-[#CBD5E1]">
-                        Verified Office Address
+                        Head Office Address
                       </th>
-                      <td className="py-2.5 px-3 font-mono text-[#5C6B7A]">
-                        {SITE_CONFIG.addressPlaceholder}
+                      <td className="py-2.5 px-3 text-[#16202B]">
+                        {SITE_CONFIG.address}
                       </td>
                     </tr>
                     <tr>
                       <th className="py-2.5 px-3 bg-[#F6F8FB] font-semibold text-[#0B2545] border-r border-[#CBD5E1]">
-                        Operations Contact
+                        24/7 Operations Desk
                       </th>
-                      <td className="py-2.5 px-3 font-mono text-[#5C6B7A]">
-                        {SITE_CONFIG.opsEmailPlaceholder} |{" "}
-                        {SITE_CONFIG.opsPhonePlaceholder}
+                      <td className="py-2.5 px-3 font-mono text-[#16202B]">
+                        {SITE_CONFIG.opsEmail} | {SITE_CONFIG.opsPhone} / {SITE_CONFIG.secondaryPhone}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th className="py-2.5 px-3 bg-[#F6F8FB] font-semibold text-[#0B2545] border-r border-[#CBD5E1]">
+                        General &amp; Support Contact
+                      </th>
+                      <td className="py-2.5 px-3 font-mono text-[#16202B]">
+                        {SITE_CONFIG.infoEmail} | {SITE_CONFIG.supportEmail}
                       </td>
                     </tr>
                   </tbody>

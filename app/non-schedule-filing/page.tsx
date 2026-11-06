@@ -31,7 +31,7 @@ const NONSCHEDULE_FAQS = [
   {
     question: "What is the typical lead window for non-scheduled permits in Pakistan?",
     answer:
-      "Typical planning lead times are {{LEAD_TIME_PK_NONSCHED_OVERFLIGHT}} for overflights and {{LEAD_TIME_PK_NONSCHED_LANDING}} for landings (needs verification). Final processing and approval times are governed by the Pakistan Civil Aviation Authority (PCAA).",
+      "Final processing and approval times are governed by the Pakistan Civil Aviation Authority (PCAA). Our 24/7 operations desk coordinates submissions promptly upon receipt of complete flight details.",
   },
   {
     question: "Can KCL coordinate ground handling, fuel, and crew hotels for a single charter flight?",
@@ -192,10 +192,8 @@ export default function NonScheduleFilingPage() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-[#CBD5E1] space-y-2">
-                <p className="font-mono text-xs text-[#5C6B7A]">
-                  Planning Lead Window:{" "}
-                  {"{{LEAD_TIME_PK_NONSCHED_OVERFLIGHT}}"} /{" "}
-                  {"{{LEAD_TIME_PK_NONSCHED_LANDING}}"} (needs verification)
+                <p className="font-mono text-xs text-[#0B2545] font-semibold">
+                  Coordinated 24/7 with Civil Aviation Authorities
                 </p>
                 <p className="text-xs text-[#5C6B7A]">
                   Regulatory note: Approval decisions and processing times rest

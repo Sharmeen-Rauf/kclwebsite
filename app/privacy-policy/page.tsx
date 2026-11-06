@@ -73,9 +73,9 @@ export default function PrivacyPolicyPage() {
             <p className="text-sm sm:text-base text-[#16202B]">
               For questions regarding operational data retention or privacy,
               contact {SITE_CONFIG.name} at{" "}
-              <span className="font-mono">{SITE_CONFIG.opsEmailPlaceholder}</span>{" "}
-              or at our registered office:{" "}
-              <span className="font-mono">{SITE_CONFIG.addressPlaceholder}</span>.
+              <span className="font-mono">{SITE_CONFIG.infoEmail}</span> (or{" "}
+              <span className="font-mono">{SITE_CONFIG.opsEmail}</span>) or at our registered office:{" "}
+              <span>{SITE_CONFIG.address}</span>.
             </p>
           </div>
         </div>

@@ -108,7 +108,7 @@ const MISSIONS: MissionSlide[] = [
     tagline: "Multi-FIR Transit Chains & Rapid Apron Turnarounds",
     aircraftTypes: ["Delivery Flights", "Aircraft Repositioning", "B2B Ferry"],
     description:
-      "Multi-country flight permission chains for newly purchased, leased, or maintenance-bound aircraft. Seamlessly paired with competitive aviation fuel contracting and quick apron turnarounds.",
+      "Multi-country flight permission chains for newly purchased, leased, or maintenance-bound aircraft. Paired with reliable aviation fuel contracting and quick apron turnarounds.",
     leadTime: "48 – 72 Hours",
     firs: "Multi-Sector FIR Routing Strings",
     keyServices: [

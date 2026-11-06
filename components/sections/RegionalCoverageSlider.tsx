@@ -83,7 +83,7 @@ const REGIONS: RegionCard[] = [
   },
 ];
 
-// Duplicate for an infinite seamless linear track
+// Duplicate for an infinite continuous linear track
 const SLIDER_ITEMS = [...REGIONS, ...REGIONS];
 
 export function RegionalCoverageSlider() {

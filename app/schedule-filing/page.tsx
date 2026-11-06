@@ -26,7 +26,7 @@ const SCHEDULE_FAQS = [
   {
     question: "How early should airlines prepare seasonal schedule applications?",
     answer:
-      "Airlines should assemble and transmit seasonal timetables and fleet documentation at least {{LEAD_TIME_PK_SCHEDULE_OVERFLIGHT}} (needs verification) before the effective season start date to allow time for regulatory review.",
+      "Airlines should assemble and transmit seasonal timetables and fleet documentation in advance of the effective season start date to allow time for regulatory review.",
   },
   {
     question: "How does KCL assist with mid-season fleet additions or timetable changes?",
@@ -192,9 +192,8 @@ export default function ScheduleFilingPage() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-[#CBD5E1] space-y-2">
-                <p className="font-mono text-xs text-[#5C6B7A]">
-                  Recommended Lead Window:{" "}
-                  {"{{LEAD_TIME_PK_SCHEDULE_OVERFLIGHT}}"} (needs verification)
+                <p className="font-mono text-xs text-[#0B2545] font-semibold">
+                  Recommended Lead Window: In advance of IATA seasonal schedule effective date
                 </p>
                 <p className="text-xs text-[#5C6B7A]">
                   Regulatory note: Seasonal schedule approvals, traffic rights,

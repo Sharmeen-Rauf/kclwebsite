@@ -87,16 +87,13 @@ export default function CustomerSupportPage() {
 
           <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
             <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
-              SUPPORT CHANNEL &amp; VERIFICATION POLICY
+              SUPPORT CHANNELS &amp; OPERATIONAL CONTACTS
             </span>
             <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
-              Support Channel Information
+              Direct Support Channels
             </h2>
             <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
-              Verified operations contact details and realistic response
-              expectations are published once confirmed by management. This page
-              does not present a live support portal until a real backend is
-              connected.
+              Reach our 24/7 flight operations desk and dedicated customer support team using the official direct channels below.
             </p>
 
             <div className="overflow-x-auto border border-[#CBD5E1]">
@@ -109,7 +106,7 @@ export default function CustomerSupportPage() {
                     <th className="py-3 px-4 border-r border-slate-700">
                       Details to Provide
                     </th>
-                    <th className="py-3 px-4">Contact Placeholder</th>
+                    <th className="py-3 px-4">Direct Contact</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#CBD5E1]">
@@ -121,9 +118,8 @@ export default function CustomerSupportPage() {
                       Agreed KCL reference, operator name, aircraft registration,
                       and summary of the update or question
                     </td>
-                    <td className="py-3.5 px-4 font-mono text-xs text-[#5C6B7A]">
-                      {SITE_CONFIG.opsEmailPlaceholder} |{" "}
-                      {SITE_CONFIG.opsPhonePlaceholder}
+                    <td className="py-3.5 px-4 font-mono text-xs text-[#0B2545] font-semibold">
+                      {SITE_CONFIG.opsEmail} | {SITE_CONFIG.opsPhone} / {SITE_CONFIG.secondaryPhone}
                     </td>
                   </tr>
                   <tr>
@@ -134,20 +130,19 @@ export default function CustomerSupportPage() {
                       Revised UTC timings, updated route or tail registration,
                       and affected airport services
                     </td>
-                    <td className="py-3.5 px-4 font-mono text-xs text-[#5C6B7A]">
-                      {SITE_CONFIG.opsEmailPlaceholder}
+                    <td className="py-3.5 px-4 font-mono text-xs text-[#0B2545] font-semibold">
+                      {SITE_CONFIG.opsEmail}
                     </td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-4 font-bold text-[#0B2545] border-r border-[#CBD5E1]">
-                      Commercial &amp; Account Questions
+                      Customer Support &amp; General Inquiries
                     </td>
                     <td className="py-3.5 px-4 text-[#16202B] border-r border-[#CBD5E1]">
-                      Company name, relevant itinerary reference, and account
-                      inquiry details
+                      Company name, relevant itinerary reference, and account or service inquiries
                     </td>
-                    <td className="py-3.5 px-4 font-mono text-xs text-[#5C6B7A]">
-                      {SITE_CONFIG.commercialEmailPlaceholder}
+                    <td className="py-3.5 px-4 font-mono text-xs text-[#0B2545] font-semibold">
+                      {SITE_CONFIG.supportEmail} | {SITE_CONFIG.infoEmail}
                     </td>
                   </tr>
                 </tbody>

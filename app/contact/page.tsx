@@ -104,51 +104,66 @@ export default function ContactPage() {
                     className="h-10 w-auto object-contain mb-3"
                   />
                   <span className="font-mono text-xs uppercase text-white bg-[#0B2545] px-2.5 py-1 inline-block font-semibold">
-                    APPROVAL REQUIRED BEFORE LIVE PUBLICATION
+                    OFFICIAL HEAD OFFICE &amp; OPERATIONS DESK
                   </span>
                 </div>
                 <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
-                  Contact Information — Verification Note
+                  Contact Information
                 </h2>
                 <p className="text-xs sm:text-sm text-[#5C6B7A] leading-relaxed">
-                  The existing KCL website and LinkedIn show different
-                  addresses. Legal address, operations email, phone, WhatsApp,
-                  office hours and location must be confirmed by management
-                  before replacing the placeholders below.
+                  Our 24/7 flight operations desk coordinates worldwide permits, ground handling, fuel supply, catering, and crew logistics directly with civil aviation authorities and airport operators.
                 </p>
                 <dl className="space-y-3 text-sm pt-2">
                   <div className="border-b border-[#CBD5E1] pb-2">
                     <dt className="font-mono text-xs text-[#5C6B7A] uppercase">
-                      Verified Address Placeholder
+                      Head Office Address
                     </dt>
-                    <dd className="font-mono font-bold text-[#0B2545] mt-0.5">
-                      {SITE_CONFIG.addressPlaceholder}
+                    <dd className="font-medium text-[#0B2545] mt-0.5 text-xs sm:text-sm leading-snug">
+                      {SITE_CONFIG.address}
                     </dd>
                   </div>
                   <div className="border-b border-[#CBD5E1] pb-2">
                     <dt className="font-mono text-xs text-[#5C6B7A] uppercase">
-                      Operations Email Placeholder
+                      24/7 Operations Desk Email
                     </dt>
-                    <dd className="font-mono font-bold text-[#0B2545] mt-0.5">
-                      {SITE_CONFIG.opsEmailPlaceholder}
+                    <dd className="font-mono font-bold text-[#0B2545] mt-0.5 text-xs sm:text-sm">
+                      <a href={`mailto:${SITE_CONFIG.opsEmail}`} className="hover:underline">
+                        {SITE_CONFIG.opsEmail}
+                      </a>
                     </dd>
                   </div>
                   <div className="border-b border-[#CBD5E1] pb-2">
                     <dt className="font-mono text-xs text-[#5C6B7A] uppercase">
-                      Telephone Placeholder
+                      General &amp; Support Inquiries
                     </dt>
-                    <dd className="font-mono font-bold text-[#0B2545] mt-0.5">
-                      {SITE_CONFIG.opsPhonePlaceholder}
+                    <dd className="font-mono text-xs text-[#0B2545] mt-0.5 flex flex-wrap gap-x-3">
+                      <span><strong className="text-[#5C6B7A]">Info:</strong> <a href={`mailto:${SITE_CONFIG.infoEmail}`} className="hover:underline">{SITE_CONFIG.infoEmail}</a></span>
+                      <span><strong className="text-[#5C6B7A]">Support:</strong> <a href={`mailto:${SITE_CONFIG.supportEmail}`} className="hover:underline">{SITE_CONFIG.supportEmail}</a></span>
+                    </dd>
+                  </div>
+                  <div className="border-b border-[#CBD5E1] pb-2">
+                    <dt className="font-mono text-xs text-[#5C6B7A] uppercase">
+                      24/7 Telephones
+                    </dt>
+                    <dd className="font-mono font-bold text-[#0B2545] mt-0.5 text-xs sm:text-sm flex flex-col gap-0.5">
+                      <a href={`tel:${SITE_CONFIG.opsPhone.replace(/\s+/g, "")}`} className="hover:underline">
+                        {SITE_CONFIG.opsPhone}
+                      </a>
+                      <a href={`tel:${SITE_CONFIG.secondaryPhone.replace(/\s+/g, "")}`} className="hover:underline">
+                        {SITE_CONFIG.secondaryPhone}
+                      </a>
                     </dd>
                   </div>
                   <div>
                     <dt className="font-mono text-xs text-[#5C6B7A] uppercase">
-                      Placeholder Summary String
+                      Official Social Channels
                     </dt>
-                    <dd className="font-mono text-xs text-[#5C6B7A] mt-0.5">
-                      {SITE_CONFIG.addressPlaceholder} |{" "}
-                      {SITE_CONFIG.opsEmailPlaceholder} |{" "}
-                      {SITE_CONFIG.opsPhonePlaceholder}
+                    <dd className="text-xs text-[#0B2545] mt-1 flex flex-wrap gap-2">
+                      <a href={SITE_CONFIG.social.linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline font-semibold">LinkedIn</a>
+                      <span>·</span>
+                      <a href={SITE_CONFIG.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:underline font-semibold">Facebook</a>
+                      <span>·</span>
+                      <a href={SITE_CONFIG.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:underline font-semibold">Instagram</a>
                     </dd>
                   </div>
                 </dl>
@@ -158,7 +173,7 @@ export default function ContactPage() {
                     href="/request-flight-support"
                     className="kcl-btn-primary w-full min-h-[44px] px-4 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
                   >
-                    Let&apos;s Discuss Your Next Operation →
+                    Request Flight Support →
                   </Link>
                 </div>
               </div>

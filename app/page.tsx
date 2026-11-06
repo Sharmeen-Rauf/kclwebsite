@@ -25,9 +25,9 @@ export const metadata = buildMetadata({
 const BENTO_SERVICES = [
   {
     number: "01",
-    title: "Flight Permission Facilitation",
+    title: "Flight Permissions",
     description:
-      "Overflight and landing permits for schedule and non-schedule flights. KCL coordinates applications; civil aviation authorities retain approval authority.",
+      "Overflight permits, landing permits, PPR coordination, block permits and short-notice clearance, with 24/7 support. Final approvals rest with the civil aviation authorities.",
     href: "/services/overflight-permits",
     image: "/img/services/01-permits.webp",
     alt: "Flight deck waypoint navigation and international flight permission coordination",
@@ -37,9 +37,9 @@ const BENTO_SERVICES = [
   },
   {
     number: "02",
-    title: "Ground Handling Coordination",
+    title: "Ground Handling",
     description:
-      "Ramp, baggage, servicing and crew assistance, coordinated at the airport.",
+      "Aircraft, passenger, baggage and cargo handling, fuelling coordination and turnaround management through a trusted global partner network.",
     href: "/services/ground-handling",
     image: "/img/services/02-ground.webp",
     alt: "Airport ramp ground handling and aircraft turnaround operations",
@@ -49,9 +49,9 @@ const BENTO_SERVICES = [
   },
   {
     number: "03",
-    title: "Inflight Catering Coordination",
+    title: "Inflight Catering",
     description:
-      "Crew and passenger meals arranged around your aircraft and schedule.",
+      "In-flight meal preparation and supply, special dietary plans, hygienic packaging.",
     href: "/services/inflight-catering",
     image: "/img/services/03-catering.webp",
     alt: "Aviation inflight catering and aircraft galley meal arrangements",
@@ -61,9 +61,9 @@ const BENTO_SERVICES = [
   },
   {
     number: "04",
-    title: "Aviation Fuel Supply",
+    title: "Aviation Fuel",
     description:
-      "Fuel arrangements coordinated with approved suppliers for your arrival and departure.",
+      "Fuel supply coordination for Jet A1, TS1 and Avgas/100LL, with delivery scheduling, documentation and payment support.",
     href: "/services/aviation-fuel",
     image: "/img/services/04-fuel.webp",
     alt: "Aviation fuel supply and tarmac hydrant dispensing coordination",
@@ -73,8 +73,9 @@ const BENTO_SERVICES = [
   },
   {
     number: "05",
-    title: "Crew Logistics & Layover",
-    description: "Hotels and transport for crews on layover.",
+    title: "Crew Accommodation and Transport (HOTAC)",
+    description:
+      "Airport-proximity hotels, short-notice bookings, group bookings and airport-hotel-airport transfers.",
     href: "/services/crew-logistics",
     image: "/img/services/05-crew.webp",
     alt: "Flight crew layover logistics, hotel accommodation and ground transport",
@@ -86,7 +87,7 @@ const BENTO_SERVICES = [
     number: "06",
     title: "24/7 Operations Support",
     description:
-      "An operations desk for route changes and short-notice requests.",
+      "Round-the-clock coordination for urgent, ad-hoc, diplomatic and diverted flights.",
     href: "/services/operations-support",
     image: "/img/services/06-ops.webp",
     alt: "24/7 flight operations control center and dispatch tracking desk",
@@ -96,8 +97,9 @@ const BENTO_SERVICES = [
   },
   {
     number: "07",
-    title: "Flight Planning & Dispatch",
-    description: "Planning and dispatch coordination aligned with your permits.",
+    title: "Flight Planning and Dispatch",
+    description:
+      "Route optimisation, flight planning, ICAO flight plan filing, weather monitoring, NOTAM review and ETOPS/EDTO planning support.",
     href: "/services/flight-planning-dispatch",
     image: "/img/services/07-dispatch.webp",
     alt: "Flight dispatch briefing room with aeronautical route charts",
@@ -109,7 +111,7 @@ const BENTO_SERVICES = [
     number: "08",
     title: "Airport Slot Coordination",
     description:
-      "Slot requests and timing coordinated alongside landing permits.",
+      "Slot requests and timing coordinated alongside your permits.",
     href: "/services/airport-slot-coordination",
     image: "/img/services/08-slots.webp",
     alt: "Airport air traffic control tower overlooking illuminated runways at dusk",
@@ -233,10 +235,7 @@ export default async function HomePage() {
             {/* Left: Vertically Centered Hero Headline, Subtext & Primary/Secondary CTAs */}
             <div className="lg:col-span-7 space-y-4 my-auto">
               <h1 className="text-2xl sm:text-3xl lg:text-[40px] xl:text-[44px] font-bold text-white leading-[1.16] tracking-tight max-w-xl">
-                <span className="block text-xs sm:text-sm font-mono uppercase tracking-widest text-[#F4C400] mb-2 font-semibold">
-                  International Flight Support &amp; Aviation Services
-                </span>
-                International Flight Support, Made Simple.
+                International Flight Support, Handled by One Team
               </h1>
 
               <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed max-w-xl">
@@ -329,7 +328,7 @@ export default async function HomePage() {
                   ))}
                 </div>
 
-                {/* Second identical half for seamless -50% loop */}
+                {/* Second identical half for smooth -50% continuous loop */}
                 <div
                   aria-hidden="true"
                   className="flex items-center gap-10 sm:gap-14 pr-10 sm:pr-14"
@@ -513,6 +512,38 @@ export default async function HomePage() {
               <span>Explore Pakistan Guide</span>
               <span aria-hidden="true">→</span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 4b. Why Choose KCL — Compact Two-Column List */}
+      <section aria-label="Why Choose KCL" className="py-10 sm:py-12 bg-[#F6F8FB] border-b border-[#CBD5E1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="space-y-1.5">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+              OPERATIONAL ADVANTAGE
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
+              Why Choose KCL
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3.5 pt-1">
+            {[
+              "24/7 support with rapid response",
+              "Overflight and landing permit coordination worldwide",
+              "Direct coordination with civil aviation authorities and airport operators",
+              "One team for permits, handling, fuel, catering and crew services",
+              "Experience with urgent, ad-hoc, diplomatic and diverted flights",
+              "Clear communication with a dedicated support contact",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <span className="text-[#B88200] font-bold text-base leading-none select-none mt-1">―</span>
+                <span className="text-[15px] sm:text-base font-medium text-[#16202B] leading-relaxed">
+                  {item}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

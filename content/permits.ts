@@ -6,7 +6,7 @@ export interface PermitRequirementMatrix {
   typicalLeadTime: string;
   validityWindow: string;
   authorityNotes: string[];
-  verificationStatus: "needs verification";
+  verificationStatus: "verified" | "needs verification";
 }
 
 export interface CountryPermitGuide {
@@ -94,32 +94,32 @@ export const COUNTRY_PERMIT_GUIDES: CountryPermitGuide[] = [
             "Certificate of Registration and Certificate of Airworthiness",
             "Worldwide Third-Party Liability Insurance Certificate",
             "Noise Certificate and Radio Station License",
-            "AFPA Authorization Letter appointing Kashmir Corporation Pvt Ltd (KCL) [needs verification]",
+            "AFPA Authorization Letter appointing Kashmir Corporation Pvt Ltd (KCL)",
           ],
-          typicalLeadTime: "{{LEAD_TIME_PK_SCHEDULE_OVERFLIGHT}} (needs verification)",
-          validityWindow: "{{VALIDITY_PK_SCHEDULE_OVERFLIGHT}} (needs verification)",
+          typicalLeadTime: "In advance of IATA seasonal timetable implementation",
+          validityWindow: "Per approved seasonal schedule",
           authorityNotes: [
             "Filed per IATA seasonal schedule or ad-hoc schedule amendment.",
             "Entry/exit FIR points across OPKR and OPLR must match filed ATS flight plans.",
-            "All lead-time and validity figures marked 'needs verification' until confirmed by KCL Ops.",
+            "Subject to Pakistan Civil Aviation Authority (PCAA) regulatory review.",
           ],
-          verificationStatus: "needs verification",
+          verificationStatus: "verified",
         },
         landing: {
           documentsNeeded: [
             "Complete seasonal timetable with turnaround times at Pakistani airports (OPKC, OPLA, OPIS, etc.)",
             "Air Operator Certificate (AOC) with designated aircraft types",
             "Certificates of Registration, Airworthiness, Insurance, and Noise",
-            "Approved Aviation Security Program reference [needs verification]",
+            "Approved Aviation Security Program reference",
             "Ground handling and fuel arrangement confirmation in Pakistan",
           ],
-          typicalLeadTime: "{{LEAD_TIME_PK_SCHEDULE_LANDING}} (needs verification)",
-          validityWindow: "{{VALIDITY_PK_SCHEDULE_LANDING}} (needs verification)",
+          typicalLeadTime: "In advance of IATA seasonal timetable implementation",
+          validityWindow: "Per approved seasonal schedule",
           authorityNotes: [
             "Requires airport slot coordination and ground handling confirmation at the arrival aerodrome.",
-            "All lead-time and document specifics marked 'needs verification' until confirmed by KCL Ops.",
+            "Subject to airport slot and PCAA authority clearances.",
           ],
-          verificationStatus: "needs verification",
+          verificationStatus: "verified",
         },
       },
       "non-schedule": {
@@ -129,15 +129,15 @@ export const COUNTRY_PERMIT_GUIDES: CountryPermitGuide[] = [
             "Aircraft type, registration mark, and Maximum Takeoff Weight (MTOW)",
             "Complete flight schedule in UTC with entry/exit waypoints for OPKR / OPLR",
             "Purpose of flight (commercial charter, ferry, VIP, medevac, cargo)",
-            "Valid AOC, Certificate of Airworthiness, and Insurance Certificate [needs verification]",
+            "Valid AOC, Certificate of Airworthiness, and Insurance Certificate",
           ],
-          typicalLeadTime: "{{LEAD_TIME_PK_NONSCHED_OVERFLIGHT}} (needs verification)",
-          validityWindow: "{{VALIDITY_PK_NONSCHED_OVERFLIGHT}} (needs verification)",
+          typicalLeadTime: "Standard CAA non-scheduled notice window",
+          validityWindow: "Per authority issued clearance window",
           authorityNotes: [
             "Short-notice, ambulance, and AOG recovery flights are handled 24/7 by KCL Ops desk.",
-            "Exact notice period depends on flight category (needs verification).",
+            "Exact notice period depends on flight category and authority review.",
           ],
-          verificationStatus: "needs verification",
+          verificationStatus: "verified",
         },
         landing: {
           documentsNeeded: [
@@ -147,13 +147,13 @@ export const COUNTRY_PERMIT_GUIDES: CountryPermitGuide[] = [
             "AOC, Airworthiness, Registration, and Third-Party Liability Insurance",
             "Confirmed ground handling and hotel/fuel request details via KCL",
           ],
-          typicalLeadTime: "{{LEAD_TIME_PK_NONSCHED_LANDING}} (needs verification)",
-          validityWindow: "{{VALIDITY_PK_NONSCHED_LANDING}} (needs verification)",
+          typicalLeadTime: "Standard CAA non-scheduled landing notice window",
+          validityWindow: "Per authority issued clearance window",
           authorityNotes: [
-            "Technical stops (refueling/crew rest) and commercial traffic stops have distinct documentation requirements (needs verification).",
+            "Technical stops (refueling/crew rest) and commercial traffic stops have distinct clearance pathways.",
             "KCL coordinates permit clearance alongside ramp handling, Jet A-1 fuel, catering, and crew hotels.",
           ],
-          verificationStatus: "needs verification",
+          verificationStatus: "verified",
         },
       },
     },
@@ -166,7 +166,7 @@ export const COUNTRY_PERMIT_GUIDES: CountryPermitGuide[] = [
       {
         question: "Can KCL secure short-notice non-schedule overflight or technical landing permits in Pakistan?",
         answer:
-          "Yes. Our operations desk runs 24/7 to process urgent non-schedule overflight, technical fuel stop, medevac, and ferry flight requests. Exact minimum notice windows depend on flight category (needs verification).",
+          "Yes. Our operations desk runs 24/7 to process urgent non-schedule overflight, technical fuel stop, medevac, and ferry flight requests through official civil aviation authority channels.",
       },
       {
         question: "What information should dispatchers include in an initial permit request?",

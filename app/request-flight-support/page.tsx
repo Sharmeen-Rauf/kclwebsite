@@ -180,11 +180,13 @@ export default async function RequestFlightSupportPage({
                 <div className="space-y-1.5 font-mono text-xs bg-[#F6F8FB] border border-[#CBD5E1] p-3.5 text-[#0B2545]">
                   <p>
                     <strong>Operations Email:</strong>{" "}
-                    {SITE_CONFIG.opsEmailPlaceholder}
+                    <a href={`mailto:${SITE_CONFIG.opsEmail}`} className="underline font-bold">
+                      {SITE_CONFIG.opsEmail}
+                    </a>
                   </p>
                   <p>
-                    <strong>Operations Tel:</strong>{" "}
-                    {SITE_CONFIG.opsPhonePlaceholder}
+                    <strong>24/7 Operations Tel:</strong>{" "}
+                    <span>{SITE_CONFIG.opsPhone} / {SITE_CONFIG.secondaryPhone}</span>
                   </p>
                 </div>
               </div>
