@@ -865,65 +865,6 @@ export default function FlightPermissionsPage() {
           <PermitFaqAccordion />
         </div>
       </section>
-
-      {/* =========================================================================
-          SECTION 11 — FINAL CTA
-          ========================================================================= */}
-      <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#0B2545] text-white rounded-[6px] p-8 sm:p-12 relative overflow-hidden shadow-sm">
-            {/* Subtle background route art */}
-            <svg
-              viewBox="0 0 1000 300"
-              fill="none"
-              aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none"
-            >
-              <path
-                d="M-50 220 Q 300 80 650 180 T 1100 120"
-                stroke="#FFFFFF"
-                strokeWidth="1.5"
-                strokeDasharray="6 6"
-              />
-            </svg>
-
-            <div className="relative z-10 max-w-3xl space-y-4">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#F4C400] font-bold block">
-                FLIGHT COORDINATION
-              </span>
-
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight">
-                Planning an International Flight?
-              </h2>
-
-              <p className="text-base sm:text-lg font-semibold text-slate-100">
-                Let&apos;s Get the Details Moving.
-              </p>
-
-              <p className="text-xs sm:text-sm lg:text-[15px] text-slate-200 leading-relaxed">
-                Share your itinerary and permit requirements with our operations team. KCL can help identify the relevant coordination steps and related services for your planned flight.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-3">
-                <Link
-                  href="/request-flight-support"
-                  className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-sm min-h-[44px] px-7 py-2.5 rounded-[2px] transition-colors text-center inline-flex items-center justify-center gap-2 shadow-sm"
-                >
-                  <span>Request Flight Permit Support</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
-
-                <Link
-                  href="/contact"
-                  className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-2.5 font-semibold text-sm inline-flex items-center justify-center gap-2"
-                >
-                  <span>Contact Operations</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
