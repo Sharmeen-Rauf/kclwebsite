@@ -28,8 +28,8 @@ const PRIMARY_NAV: NavItem[] = [
     children: [
       {
         label: "01 · Flight Permission Facilitation",
-        href: "/pakistan/flight-permissions",
-        desc: "Overflight & landing permit coordination",
+        href: "/services/flight-permissions",
+        desc: "Overflight & landing permit coordination worldwide",
       },
       {
         label: "02 · Ground Handling",
@@ -72,6 +72,11 @@ const PRIMARY_NAV: NavItem[] = [
     label: "Flight Permits",
     href: "/permit-directory",
     children: [
+      {
+        label: "Flight Permissions Overview",
+        href: "/services/flight-permissions",
+        desc: "Overflight & landing permits worldwide",
+      },
       {
         label: "Permit Directory",
         href: "/permit-directory",

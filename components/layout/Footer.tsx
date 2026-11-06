@@ -217,10 +217,10 @@ export function Footer() {
             <ul className="space-y-2.5 text-[15px]">
               <li>
                 <Link
-                  href="/services/overflight-permits"
+                  href="/services/flight-permissions"
                   className="text-[#5C6B7A] hover:text-[#0B2545] hover:underline underline-offset-4 transition-colors"
                 >
-                  Flight Permission
+                  Flight Permissions
                 </Link>
               </li>
               <li>

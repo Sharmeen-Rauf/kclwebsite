@@ -89,6 +89,21 @@ const nextConfig = {
         destination: '/services/crew-logistics',
         permanent: true,
       },
+      {
+        source: '/services/flight-permission',
+        destination: '/services/flight-permissions',
+        permanent: true,
+      },
+      {
+        source: '/flight-permissions',
+        destination: '/services/flight-permissions',
+        permanent: true,
+      },
+      {
+        source: '/flight-permits',
+        destination: '/services/flight-permissions',
+        permanent: true,
+      },
     ];
   },
 };
