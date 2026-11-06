@@ -13,34 +13,36 @@ export function PermitFaqAccordion() {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3.5">
       {INTERNATIONAL_PERMIT_FAQS.map((faq: FaqItem, idx: number) => {
         const isOpen = openIndices.includes(idx);
         return (
           <div
             key={idx}
-            className="bg-white border border-[#CBD5E1] rounded-[6px] overflow-hidden transition-colors"
+            className="bg-white border border-[#CBD5E1] rounded-[4px] overflow-hidden transition-colors"
           >
             <button
               type="button"
               onClick={() => toggleIndex(idx)}
               aria-expanded={isOpen}
-              className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F6F8FB] transition-colors"
+              className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F6F8FB] transition-colors"
             >
-              <h3 className="text-lg sm:text-xl font-bold text-[#0B2545] leading-snug">
+              <h3 className="text-base sm:text-lg font-bold text-[#0B2545] leading-snug">
                 {faq.question}
               </h3>
               <span
                 aria-hidden="true"
-                className="w-8 h-8 rounded-full bg-[#F6F8FB] border border-[#CBD5E1] text-[#0B2545] flex items-center justify-center font-bold text-base shrink-0 transition-transform duration-200"
+                className={`w-7 h-7 rounded-full bg-[#F6F8FB] border border-[#CBD5E1] text-[#0B2545] flex items-center justify-center font-mono font-bold text-sm shrink-0 transition-all ${
+                  isOpen ? "bg-[#0B2545] text-white border-[#0B2545]" : ""
+                }`}
               >
                 {isOpen ? "−" : "+"}
               </span>
             </button>
 
-            {/* Answer is always rendered in HTML for SEO / Google crawlers */}
+            {/* Answer rendered in HTML for SEO */}
             <div
-              className={`px-5 sm:px-6 pb-6 pt-1 text-base text-[#16202B] leading-relaxed border-t border-[#CBD5E1]/60 ${
+              className={`px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-[14px] text-[#16202B] leading-relaxed border-t border-[#CBD5E1]/60 ${
                 isOpen ? "block" : "hidden"
               }`}
             >

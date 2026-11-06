@@ -50,51 +50,41 @@ export const INTERNATIONAL_PERMIT_FAQS: FaqItem[] = [
   {
     question: "What is an overflight permit?",
     answer:
-      "Permission for an aircraft to cross a country's airspace without landing.",
+      "An overflight permit is official sovereign authorization granted by a country's civil aviation authority allowing an aircraft to enter, transit, and exit its designated Flight Information Region (FIR) along published ATS airways without landing.",
   },
   {
     question: "What is a landing permit?",
     answer:
-      "Approval to land at an airport in another country, for scheduled or non-scheduled flights.",
+      "A landing permit is formal regulatory approval permitting an international aircraft to touch down at a specific aerodrome for commercial passenger or cargo operations, technical refueling stops, crew layovers, or maintenance turnarounds.",
   },
   {
-    question: "What is the difference between schedule and non-schedule flights?",
+    question: "What information is required?",
     answer:
-      "Scheduled flights are regular, published services. Non-scheduled flights are one-off flights such as charter, cargo, VIP and ad-hoc flights.",
+      "Essential details include full aircraft registration, aircraft type and MTOW, registered operator information, callsign, complete route with entry and exit waypoints, flight schedule in UTC, purpose of flight, and valid certificates (AOC, airworthiness, registration, and worldwide insurance). Additional passenger, cargo, or diplomatic manifests are requested depending on the operation.",
   },
   {
-    question: "What do I need to send for a permit request?",
+    question: "How long does a permit take?",
     answer:
-      "The flight schedule, entry and exit points with ATS route, crew details, aircraft documents and operator contact details. Our desk confirms the exact list for your route.",
+      "Processing timelines differ widely across civil aviation authorities. Official authority lead times range from 24 to 72 hours for standard overflights, to several working days for non-scheduled commercial landings or state diplomatic clearances. KCL provides route-specific planning guidance upon reviewing your itinerary.",
   },
   {
-    question: "What is a block permit?",
+    question: "Can short-notice requests be handled?",
     answer:
-      "One authorisation covering several flights, useful for regular or seasonal operations.",
+      "Yes. Our flight operations desk is staffed 24/7 to assist with urgent, ad-hoc, and short-notice clearances for medical evacuations, technical aircraft diversions, and last-minute charter rotations, working through urgent authority channels where available.",
   },
   {
-    question: "What is PPR?",
+    question: "Can KCL support scheduled and non-scheduled flights?",
     answer:
-      "Prior Permission Required: approval from an airport before you arrive.",
+      "Yes. KCL assists both scheduled commercial airlines with seasonal timetable filings and block permit series, as well as ad-hoc charter operators, cargo freighters, corporate flight departments, and private aircraft operators with single-trip clearances.",
   },
   {
-    question: "Can you handle urgent or diverted flights?",
+    question: "What happens when flight details change?",
     answer:
-      "Yes. Our desk works 24/7 on short-notice, diverted and ad-hoc flights.",
+      "If your schedule, aircraft registration, routing points, or crew details change, inform our operations desk immediately. We prepare and submit official amendment notifications to the relevant civil aviation authorities to ensure your permit remains valid for departure.",
   },
   {
-    question: "How early should I apply?",
+    question: "Can permit requests include ground handling and fuel?",
     answer:
-      "Send your request as early as you can. Lead times differ by country, and we confirm them for your route.",
-  },
-  {
-    question: "Who gives the final approval?",
-    answer:
-      "The civil aviation authority of each country. KCL prepares and follows up your request.",
-  },
-  {
-    question: "Can you also arrange handling, fuel and hotels?",
-    answer:
-      "Yes, on the same request.",
+      "Yes. KCL coordinates full integrated flight support. You can combine overflight and landing permits with on-tarmac ground handling, aviation fuel releases (Jet A1, TS1, Avgas), airport slots, and crew hotel layovers within a single operational request.",
   },
 ];
