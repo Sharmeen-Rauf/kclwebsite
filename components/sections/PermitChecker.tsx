@@ -62,20 +62,20 @@ const GUIDANCE_MAP: Record<ServiceFocus, NavigatorGuidance> = {
     relatedServiceLabel: "Landing Permit Checklist",
   },
   "pakistan-permissions": {
-    title: "Pakistan Flight Permissions (OPKR & OPLR Specialization)",
+    title: "Permit Directory & Country Guides Preparation",
     summary:
-      "For scheduled or non-scheduled operations crossing Pakistan's airspace (OPKR / OPLR FIRs) or landing at Pakistani airports, KCL combines local aviation context with practical coordination.",
+      "For scheduled or non-scheduled operations transiting sovereign FIRs or landing internationally, KCL helps operators prepare documentation aligned with destination authority rules.",
     preparationItems: [
-      "Aircraft registration, type, and operator name",
-      "Planned itinerary, OPKR/OPLR route details, or intended Pakistani airport (e.g., OPKC, OPLA, OPIS)",
+      "Aircraft registration, type, MTOW, and operator name",
+      "Planned route string, entry/exit waypoints, and destination airport",
       "Proposed UTC schedule and flight numbers/callsign",
-      "Purpose of operation (scheduled service, non-scheduled charter, or technical stop)",
+      "Purpose of operation (scheduled service, non-scheduled charter, cargo, or technical stop)",
       "Operational contact details and relevant supporting aircraft/operator documentation",
     ],
     governanceNote:
       "This guide helps you prepare. Approvals and timelines are decided by the relevant civil aviation authorities.",
-    relatedServiceHref: "/pakistan/flight-permissions",
-    relatedServiceLabel: "Pakistan Flight Permissions Hub",
+    relatedServiceHref: "/permit-directory",
+    relatedServiceLabel: "Explore Permit Directory",
   },
   "ground-handling": {
     title: "Ground Handling Coordination Preparation",
@@ -337,7 +337,7 @@ export function PermitChecker() {
                   Flight Permission: Landing Permits
                 </option>
                 <option value="pakistan-permissions">
-                  Pakistan Flight Permissions (OPKR / OPLR)
+                  Permit Directory &amp; Country Guides
                 </option>
                 <option value="ground-handling">
                   Ground Handling Coordination

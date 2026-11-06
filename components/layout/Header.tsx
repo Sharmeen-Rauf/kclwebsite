@@ -70,17 +70,17 @@ const PRIMARY_NAV: NavItem[] = [
   },
   {
     label: "Flight Permits",
-    href: "/pakistan/flight-permissions",
+    href: "/permit-directory",
     children: [
       {
-        label: "Pakistan Flight Permissions Hub",
-        href: "/pakistan/flight-permissions",
-        desc: "OPKR & OPLR airspace & airport clearances",
+        label: "Permit Directory",
+        href: "/permit-directory",
+        desc: "Country permit guides (Pakistan listed inside)",
       },
       {
         label: "Overflight Permits",
         href: "/services/overflight-permits",
-        desc: "International & Pakistan overflight requests",
+        desc: "International overflight requests & airway transit",
       },
       {
         label: "Landing Permits",

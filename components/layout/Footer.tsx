@@ -438,7 +438,7 @@ export function Footer() {
             <circle cx="0" cy="0" r="10" stroke="#B88200" strokeWidth="1.2" strokeDasharray="2 3" opacity="0.8" />
             <circle cx="0" cy="0" r="3" fill="#B88200" opacity="0.8" />
             <text x="14" y="4" fontSize="10" fontFamily="monospace" fill="currentColor" fontWeight="bold">
-              OPKR · 24°N
+              WPT · 24°N
             </text>
           </g>
 

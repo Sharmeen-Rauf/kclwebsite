@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
-import { SITE_CONFIG } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
@@ -38,9 +37,9 @@ export default function PakistanFlightPermissionsPage() {
 
       <Breadcrumbs
         items={[
-          { name: "Services", path: "/services" },
+          { name: "Permit Directory", path: "/permit-directory" },
           {
-            name: "Pakistan Flight Permissions",
+            name: "Pakistan Country Guide",
             path: "/pakistan/flight-permissions",
           },
         ]}
@@ -50,7 +49,7 @@ export default function PakistanFlightPermissionsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
             <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
-              PAKISTAN SPECIALIZATION · {SITE_CONFIG.authorityBadge}
+              COUNTRY PERMIT GUIDE · PAKISTAN (OPKR / OPLR)
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               Flight Permission Services in Pakistan
@@ -62,9 +61,9 @@ export default function PakistanFlightPermissionsPage() {
               Planning an operation involving Pakistan? Kashmir Corporation
               assists eligible aviation operators with flight permission
               coordination, including applicable overflight, landing and
-              scheduled or non-scheduled requests. KCL&apos;s Pakistan focus
-              combines local aviation context with practical communication for
-              international operators.
+              scheduled or non-scheduled requests. This country guide provides
+              local operational context for international operators crossing
+              or landing in Pakistan.
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
               <Link

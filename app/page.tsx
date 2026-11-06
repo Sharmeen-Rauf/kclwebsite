@@ -15,10 +15,9 @@ import { AircraftMissionSlider } from "@/components/sections/AircraftMissionSlid
 import { RegionalCoverageSlider } from "@/components/sections/RegionalCoverageSlider";
 
 export const metadata = buildMetadata({
-  title:
-    "International Flight Permissions & Overflight Permits | AFPA Authorized Agent | KCL",
+  title: "International Flight Support & Permits | KCL",
   description:
-    "Overflight and landing permits for schedule and non-schedule flights worldwide, with handling, catering, fuel and crew hotels arranged by Kashmir Corporation (Pvt.) Ltd. in Pakistan.",
+    "Overflight and landing permits, ground handling, fuel, catering and crew hotels for flights worldwide. One team, 24/7 support.",
   path: "/",
   omitTitleSuffix: true,
 });
@@ -234,14 +233,11 @@ export default async function HomePage() {
             {/* Left: Vertically Centered Hero Headline, Subtext & Two Outline Buttons */}
             <div className="lg:col-span-7 space-y-4 my-auto">
               <h1 className="text-2xl sm:text-3xl lg:text-[40px] xl:text-[44px] font-bold text-white leading-[1.16] tracking-tight max-w-xl">
-                International Flight Permissions, Filed and Followed Up by an
-                AFPA Authorized Agent
+                International Flight Support, Handled by One Team
               </h1>
 
               <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed max-w-xl">
-                Overflight and landing permits for schedule and non-schedule
-                flights, with handling, catering, fuel and crew hotels arranged
-                by the same desk.
+                Permits, handling, fuel, catering and crew hotels for your flights around the world, arranged by one 24/7 desk.
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
@@ -278,15 +274,15 @@ export default async function HomePage() {
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-5 text-xs font-bold text-[#0B2545]">
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
-              AFPA Authorized
+              24/7 Operations Desk
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
-              24/7 Ops Desk
+              Schedule and Non-Schedule
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
-              Schedule &amp; Non-Schedule
+              Worldwide Support
             </span>
           </div>
         </div>
@@ -484,21 +480,17 @@ export default async function HomePage() {
 
       {/* 4. Where We Support — Worldwide Operational Coverage */}
       <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="max-w-3xl space-y-3">
               <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-                GLOBAL REACH · LOCAL SPECIALIZATION
+                WORLDWIDE FLIGHT OPERATIONS
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-                Where We Support
+                Support for Flights Around the World
               </h2>
               <p className="text-[#16202B] text-base leading-relaxed">
-                Operating across key international aviation corridors, KCL
-                coordinates overflight and landing permits, ground handling,
-                fuel supply, catering, and crew logistics worldwide—led by
-                established in-depth specialization across Pakistan airspace
-                (OPKR &amp; OPLR FIRs).
+                KCL coordinates overflight and landing permits, ground handling, fuel, catering and crew logistics for international flights. Tell us your route and we will confirm what we can arrange.
               </p>
             </div>
             <div className="bg-[#F6F8FB] border border-[#CBD5E1] p-3.5 rounded-[2px] max-w-sm">
@@ -514,46 +506,17 @@ export default async function HomePage() {
           {/* Linear Infinite Animated Coverage Slider */}
           <RegionalCoverageSlider />
 
-          <div className="bg-[#0B2545] text-white p-6 rounded-[2px] flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div className="space-y-3">
-              <div>
-                <span className="font-mono text-xs text-[#F4C400] font-bold block mb-1">
-                  SPECIALIST ANCHOR · KARACHI (OPKR) &amp; LAHORE (OPLR) FIRs
-                </span>
-                <p className="text-sm text-slate-100 max-w-2xl leading-relaxed">
-                  Operating into or through Pakistan? Our local desk handles
-                  scheduled filings, non-scheduled clearances, and airport
-                  turnarounds directly with civil aviation authorities.
-                </p>
-              </div>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold text-slate-200 pt-1 border-t border-slate-700/60">
-                <Link
-                  href="/pakistan/flight-permissions"
-                  className="hover:text-white hover:underline underline-offset-4"
-                >
-                  Pakistan Flight Permissions →
-                </Link>
-                <span className="text-slate-500">·</span>
-                <Link
-                  href="/services/overflight-permit-pakistan"
-                  className="hover:text-white hover:underline underline-offset-4"
-                >
-                  Pakistan Overflight Guide →
-                </Link>
-                <span className="text-slate-500">·</span>
-                <Link
-                  href="/services/landing-permit-pakistan"
-                  className="hover:text-white hover:underline underline-offset-4"
-                >
-                  Pakistan Landing Guide →
-                </Link>
-              </div>
-            </div>
+          {/* Small note with link to Pakistan guide */}
+          <div className="bg-[#F6F8FB] border border-[#CBD5E1] p-4 rounded-[2px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm">
+            <p className="text-[#5C6B7A] leading-relaxed">
+              KCL is based in Pakistan, so we also offer detailed local guides for flights to and over Pakistan.
+            </p>
             <Link
               href="/pakistan/flight-permissions"
-              className="kcl-btn-outline-white shrink-0 min-h-[44px] px-5 py-2.5 text-xs font-mono font-bold inline-flex items-center justify-center rounded-[2px] whitespace-nowrap self-start md:self-center"
+              className="text-xs font-bold text-[#0B2545] hover:text-[#B88200] hover:underline underline-offset-4 font-mono inline-flex items-center gap-1 shrink-0"
             >
-              Explore Pakistan Hub →
+              <span>Explore Pakistan Guide</span>
+              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

@@ -10,9 +10,9 @@ export const HOME_FAQS: FaqItem[] = [
       "Depending on an operator's mission requirements, international flight support includes overflight and landing permit facilitation, ground handling coordination, aviation fuel supply, flight planning assistance, catering arrangements, and crew layover logistics.",
   },
   {
-    question: "Can KCL assist with flight permits in Pakistan?",
+    question: "Which countries do you support?",
     answer:
-      "Yes. Kashmir Corporation (Pvt.) Ltd. specializes in scheduled seasonal timetable filings and ad-hoc non-scheduled overflight and landing permission coordination across Karachi (OPKR) and Lahore (OPLR) Flight Information Regions.",
+      "KCL coordinates overflight and landing permits, ground handling, fuel, and flight support worldwide across key international corridors in the Middle East, Europe, Asia, Africa, the Americas, and the Caribbean. Tell us your route and schedule, and our 24/7 operations desk will confirm the clearances and support available for your specific itinerary.",
   },
   {
     question: "Can multiple services be requested together?",

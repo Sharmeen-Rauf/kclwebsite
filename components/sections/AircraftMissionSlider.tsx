@@ -28,9 +28,9 @@ const MISSIONS: MissionSlide[] = [
     tagline: "IATA Timetable Filings & Bilateral Air Service Agreements",
     aircraftTypes: ["B77W", "A359", "B789", "A333", "A321neo"],
     description:
-      "Seasonal timetable coordination for international scheduled carriers crossing Karachi (OPKR) and Lahore (OPLR) FIRs, or landing at major Pakistani airports. Includes registration fleet additions, frequency revisions, and slot synchronization.",
+      "Seasonal timetable coordination for international scheduled carriers crossing regional airways or landing at destination airports. Includes registration fleet additions, frequency revisions, and slot synchronization.",
     leadTime: "Seasonal / 30 Days Prior",
-    firs: "OPKR, OPLR & Cross-Border Airway Corridors",
+    firs: "Cross-Border Airway Corridors & Sovereign Airspaces",
     keyServices: [
       "Seasonal Overflight Timetables",
       "IATA Airport Slot Liaison",
@@ -316,7 +316,7 @@ export function AircraftMissionSlider() {
             <circle cx="0" cy="0" r="10" stroke="currentColor" strokeWidth="1" strokeDasharray="2 3" opacity="0.7" />
             <circle cx="0" cy="0" r="3" fill="currentColor" opacity="0.8" />
             <text x="14" y="4" fontSize="10" fontFamily="monospace" fill="currentColor" opacity="0.8">
-              FIR BORDER [OPKR-OPLR]
+              FIR BORDER [TRANSIT CORRIDOR]
             </text>
           </g>
 
