@@ -234,9 +234,9 @@ export default function GroundHandlingPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 4 — HOW IT WORKS (Two-Lane Timeline)
+          SECTION 4 — HOW IT WORKS (Two-Lane Timeline — Compact One-Screen View)
           ========================================================================= */}
-      <section className="py-12 sm:py-16 bg-white border-b border-[#E2E8F0]">
+      <section className="py-10 sm:py-12 bg-white border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <GroundHandlingTimeline />
         </div>
