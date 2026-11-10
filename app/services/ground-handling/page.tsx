@@ -18,6 +18,7 @@ import {
 import { TurnaroundPlanner } from "@/components/sections/TurnaroundPlanner";
 import { GroundHandlingFaqAccordion } from "@/components/sections/GroundHandlingFaqAccordion";
 import { GroundHandlingLogoSlider } from "@/components/sections/GroundHandlingLogoSlider";
+import { GroundHandlingTimeline } from "@/components/sections/GroundHandlingTimeline";
 
 export const metadata = buildMetadata({
   title: "Worldwide Ground Handling Coordination | KCL",
@@ -214,119 +215,8 @@ export default function GroundHandlingPage() {
           SECTION 4 — HOW IT WORKS (Two-Lane Timeline)
           ========================================================================= */}
       <section className="py-12 sm:py-16 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="max-w-3xl space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              How Your Ground Handling Is Arranged
-            </h2>
-            <p className="text-base sm:text-lg text-[#16202B] leading-relaxed">
-              Our operations desk coordinates your station requirements with certified handling partners, keeping communication structured and direct.
-            </p>
-          </div>
-
-          {/* Two-lane timeline */}
-          <div className="space-y-4 max-w-4xl">
-            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="flex items-start gap-4">
-                <span className="w-8 h-8 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-sm shrink-0">
-                  1
-                </span>
-                <div className="space-y-1">
-                  <h3 className="text-base sm:text-lg font-bold text-[#0B2545]">
-                    You send the aircraft, airport and schedule
-                  </h3>
-                  <p className="text-sm sm:text-base text-[#16202B]">
-                    Provide aircraft registration, aircraft type, destination ICAO code, estimated arrival and departure times in UTC, and the services you need.
-                  </p>
-                </div>
-              </div>
-              <span className="font-mono text-xs font-bold text-[#0B2545] bg-white border border-[#CBD5E1] px-3 py-1 rounded-[2px] shrink-0 self-start sm:self-center">
-                YOU
-              </span>
-            </div>
-
-            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="flex items-start gap-4">
-                <span className="w-8 h-8 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-sm shrink-0">
-                  2
-                </span>
-                <div className="space-y-1">
-                  <h3 className="text-base sm:text-lg font-bold text-[#0B2545]">
-                    We contact the handling partners and confirm availability
-                  </h3>
-                  <p className="text-sm sm:text-base text-[#16202B]">
-                    Our operations team engages licensed handling agents at the destination airport to verify parking, ground support equipment, and staff coverage.
-                  </p>
-                </div>
-              </div>
-              <span className="font-mono text-xs font-bold text-white bg-[#0B2545] px-3 py-1 rounded-[2px] shrink-0 self-start sm:self-center">
-                KCL
-              </span>
-            </div>
-
-            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="flex items-start gap-4">
-                <span className="w-8 h-8 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-sm shrink-0">
-                  3
-                </span>
-                <div className="space-y-1">
-                  <h3 className="text-base sm:text-lg font-bold text-[#0B2545]">
-                    We share the confirmed arrangements with your team
-                  </h3>
-                  <p className="text-sm sm:text-base text-[#16202B]">
-                    You receive confirmed handling agent contacts, apron coordination details, and confirmation numbers for dispatch briefings and crew files.
-                  </p>
-                </div>
-              </div>
-              <span className="font-mono text-xs font-bold text-white bg-[#0B2545] px-3 py-1 rounded-[2px] shrink-0 self-start sm:self-center">
-                KCL
-              </span>
-            </div>
-
-            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="flex items-start gap-4">
-                <span className="w-8 h-8 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-sm shrink-0">
-                  4
-                </span>
-                <div className="space-y-1">
-                  <h3 className="text-base sm:text-lg font-bold text-[#0B2545]">
-                    We relay schedule changes to the station as they happen
-                  </h3>
-                  <p className="text-sm sm:text-base text-[#16202B]">
-                    If your flight incurs enroute delays or early arrivals, our 24/7 desk coordinates directly with the local ramp team to adjust equipment and turnaround timings.
-                  </p>
-                </div>
-              </div>
-              <span className="font-mono text-xs font-bold text-white bg-[#0B2545] px-3 py-1 rounded-[2px] shrink-0 self-start sm:self-center">
-                KCL
-              </span>
-            </div>
-
-            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="flex items-start gap-4">
-                <span className="w-8 h-8 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-sm shrink-0">
-                  5
-                </span>
-                <div className="space-y-1">
-                  <h3 className="text-base sm:text-lg font-bold text-[#0B2545]">
-                    You receive updates until departure
-                  </h3>
-                  <p className="text-sm sm:text-base text-[#16202B]">
-                    Our operations desk tracks turnaround milestones from chocks-on through fueling and boarding to safe chocks-off departure.
-                  </p>
-                </div>
-              </div>
-              <span className="font-mono text-xs font-bold text-[#0B2545] bg-white border border-[#CBD5E1] px-3 py-1 rounded-[2px] shrink-0 self-start sm:self-center">
-                YOU
-              </span>
-            </div>
-          </div>
-
-          <div className="bg-[#F8FAFC] border border-[#CBD5E1] p-4 rounded-[4px] max-w-4xl">
-            <p className="text-xs sm:text-sm text-[#5C6B7A] leading-relaxed">
-              <strong>Notice:</strong> Handling is carried out by licensed handling companies at each airport. Availability depends on airport procedures and provider notice.
-            </p>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <GroundHandlingTimeline />
         </div>
       </section>
 
@@ -437,7 +327,7 @@ export default function GroundHandlingPage() {
                 Global network of ground handling partners
               </h3>
               <p className="text-base text-[#5C6B7A] leading-relaxed">
-                Established working relationships with certified airport handlers and ramp service providers internationally.
+                Established working relationships with licensed airport handlers and ramp service providers internationally.
               </p>
             </div>
 
