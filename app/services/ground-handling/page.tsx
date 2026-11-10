@@ -234,10 +234,61 @@ export default function GroundHandlingPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 4 — HOW IT WORKS (Two-Lane Timeline — Compact One-Screen View)
+          SECTION 4 — HOW IT WORKS (Two-Lane Timeline — Compact One-Screen View with Aeronautical Flight Vector Background)
           ========================================================================= */}
-      <section className="py-10 sm:py-12 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-10 sm:py-14 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9]/80 to-[#F8FAFC] border-b border-[#E2E8F0]">
+        {/* Unique Aeronautical Flight Corridors & Navigation Matrix Background */}
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+          {/* 1. Aeronautical Coordinate Dot Matrix Grid */}
+          <div
+            className="absolute inset-0 opacity-[0.28]"
+            style={{
+              backgroundImage: "radial-gradient(#0B2545 1.25px, transparent 1.25px)",
+              backgroundSize: "28px 28px",
+            }}
+          />
+
+          {/* 2. Soft Ambient Atmospheric Blue Glows */}
+          <div className="absolute top-0 left-1/4 w-[600px] h-[300px] bg-gradient-to-br from-sky-400/12 via-[#0B2545]/6 to-transparent rounded-full blur-3xl -translate-y-1/2" />
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[260px] bg-gradient-to-tl from-sky-300/12 via-[#0B2545]/6 to-transparent rounded-full blur-3xl translate-y-1/2" />
+
+          {/* 3. Sweeping Flight Route Airway Corridors & Navigation Waypoint Rings */}
+          <svg
+            className="absolute inset-0 w-full h-full opacity-[0.16] text-[#0B2545]"
+            viewBox="0 0 1440 450"
+            fill="none"
+            preserveAspectRatio="none"
+          >
+            {/* Upper Airway Corridor Arc */}
+            <path
+              d="M-40,240 C180,80 440,320 720,180 C1000,60 1260,300 1480,160"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeDasharray="6 8"
+            />
+            {/* Lower Airway Corridor Arc */}
+            <path
+              d="M-40,300 C240,400 520,140 800,260 C1080,380 1280,100 1480,240"
+              stroke="currentColor"
+              strokeWidth="1"
+              strokeDasharray="4 6"
+            />
+
+            {/* Left Airport Terminal / Apron Stand Vector Circles */}
+            <circle cx="160" cy="160" r="90" stroke="currentColor" strokeWidth="1" strokeDasharray="3 5" />
+            <circle cx="160" cy="160" r="140" stroke="currentColor" strokeWidth="0.75" />
+            
+            {/* Right Destination Airport Stand Vector Circles */}
+            <circle cx="1280" cy="200" r="100" stroke="currentColor" strokeWidth="1" strokeDasharray="3 5" />
+            <circle cx="1280" cy="200" r="150" stroke="currentColor" strokeWidth="0.75" />
+
+            {/* Center Airway Intersection Waypoint */}
+            <circle cx="720" cy="180" r="6" stroke="currentColor" strokeWidth="1.5" fill="none" />
+            <circle cx="720" cy="180" r="20" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" fill="none" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <GroundHandlingTimeline />
         </div>
       </section>
