@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
@@ -18,6 +19,18 @@ import {
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
+}
+
+function getServiceHeroImage(slug: string): string {
+  if (slug.includes("permit") || slug.includes("permission")) return "/img/services/01-permits.webp";
+  if (slug.includes("ground") || slug.includes("ramp") || slug.includes("cargo")) return "/img/services/02-ground.webp";
+  if (slug.includes("cater")) return "/img/services/03-catering.webp";
+  if (slug.includes("fuel")) return "/img/services/04-fuel.webp";
+  if (slug.includes("crew") || slug.includes("hotel") || slug.includes("hotac") || slug.includes("transport")) return "/img/services/05-crew.webp";
+  if (slug.includes("operations") || slug.includes("support")) return "/img/services/06-ops.webp";
+  if (slug.includes("dispatch") || slug.includes("planning")) return "/img/services/07-dispatch.webp";
+  if (slug.includes("slot") || slug.includes("ppr")) return "/img/services/08-slots.webp";
+  return "/img/hero-flight-ops.jpg";
 }
 
 export async function generateStaticParams() {
@@ -86,84 +99,149 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         ]}
       />
 
-      {/* Hero Header */}
-      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="kcl-card lg:col-span-8 space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-              <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
-                <span className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-2.5 py-1 font-semibold">
-                  {service.code}
-                </span>
-                <span className="bg-white/10 backdrop-blur-sm border border-white/25 text-slate-100 px-2.5 py-1">
-                  {service.category.toUpperCase()}
-                </span>
-              </div>
+      {/* =========================================================================
+          HERO (Homepage Height & Grand Aviation Aesthetic)
+          ========================================================================= */}
+      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[580px] sm:min-h-[620px] lg:min-h-[660px] py-16 sm:py-20 lg:py-24 flex items-center justify-center">
+        {/* Full-bleed background photo with calibrated gradient */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={getServiceHeroImage(service.slug)}
+            alt={`${service.h1} — international aviation flight operations`}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center hero-zoom-photo"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/85 via-[#0B2545]/60 to-[#14406E]/35"
+          />
+          {/* Subtle airway route line-art */}
+          <svg
+            viewBox="0 0 1440 640"
+            fill="none"
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+          >
+            <path
+              d="M-60 490 C 280 420, 620 260, 1020 220 C 1220 200, 1360 150, 1500 110"
+              stroke="#FFFFFF"
+              strokeWidth="1.5"
+              strokeDasharray="6 6"
+              className="airway-route-line"
+            />
+            <path
+              d="M-40 240 C 340 290, 740 350, 1140 280 C 1300 250, 1410 210, 1520 180"
+              stroke="#FFFFFF"
+              strokeWidth="1.2"
+            />
+            <circle cx="515" cy="340" r="4" fill="#FFFFFF" />
+            <circle cx="775" cy="275" r="4" fill="#FFFFFF" />
+            <circle cx="885" cy="145" r="4" fill="#FFFFFF" />
+          </svg>
+        </div>
 
-              <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
-                {service.h1}
-              </h1>
+        {/* Hero Content */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
+          <div className="max-w-3xl mx-auto space-y-4 sm:space-y-5">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#F4C400] font-bold block">
+              {service.code} · {service.category.toUpperCase()}
+            </span>
 
-              <p className="text-lg sm:text-xl font-semibold text-slate-100">
-                {service.heroHeadline}
-              </p>
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
+              {service.h1}
+            </h1>
 
-              <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-                {service.introParagraph}
-              </p>
+            <p className="text-base sm:text-lg lg:text-xl font-semibold text-slate-100 max-w-2xl mx-auto">
+              {service.heroHeadline}
+            </p>
 
-              <div className="pt-2 flex flex-wrap gap-3">
-                <Link
-                  href={requestHref}
-                  className="kcl-btn-primary min-h-[48px] px-6 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
-                >
-                  {service.heroCtaLabel}
-                </Link>
-                <Link
-                  href="/pakistan/flight-permissions"
-                  className="kcl-btn-outline-white min-h-[48px] px-5 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
-                >
-                  Pakistan Flight Permissions
-                </Link>
-              </div>
-            </div>
+            <p className="text-xs sm:text-sm lg:text-[15.5px] text-slate-200 leading-relaxed max-w-2xl mx-auto">
+              {service.introParagraph}
+            </p>
 
-            <div className="kcl-card lg:col-span-4 bg-black/45 backdrop-blur-md border border-white/20 p-5 space-y-4 font-mono text-xs rounded-[2px]">
-              <div className="border-b border-white/20 pb-2 text-white font-semibold">
-                SERVICE COORDINATION BRIEF
-              </div>
-              <div>
-                <span className="text-slate-300 block">PLANNING TIMELINE</span>
-                <span className="text-white font-semibold">
-                  {service.typicalLeadTimePlaceholder}
-                </span>
-              </div>
-              <div>
-                <span className="text-slate-300 block">SERVICE CATEGORY</span>
-                <span className="text-white font-semibold">
-                  {service.category}
-                </span>
-              </div>
-              <div>
-                <span className="text-slate-300 block">DELIVERY MODEL</span>
-                <span className="text-white font-semibold">
-                  Operational Coordination &amp; Stakeholder Liaison
-                </span>
-              </div>
-              <div>
-                <span className="text-slate-300 block">APPROVAL AUTHORITY</span>
-                <span className="text-slate-200 font-sans text-xs">
-                  Relevant Civil Aviation Authorities &amp; Airport Stakeholders
-                </span>
-              </div>
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
+              <Link
+                href={requestHref}
+                className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
+              >
+                <span>{service.heroCtaLabel}</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+              <a
+                href="#service-scope"
+                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+              >
+                Explore Service Scope
+              </a>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Credentials Strip Below Hero */}
+      <section
+        aria-label="Operational Credentials"
+        className="bg-[#F8FAFC] border-b border-[#E2E8F0] py-3 sm:py-3.5"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs sm:text-[13px] font-bold text-[#0B2545]">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
+              24/7 operations desk
+            </span>
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+              <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
+              Scheduled and non-scheduled flights
+            </span>
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+              <span className="h-2 w-2 rounded-full bg-[#B88200]" />
+              Short-notice requests
+            </span>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content Specification */}
-      <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section id="service-scope" className="scroll-mt-16 py-12 sm:py-16 bg-[#F6F8FB] border-b border-[#CBD5E1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          {/* Service Coordination Brief KPI Strip */}
+          <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-4 sm:p-5 shadow-xs grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-[#CBD5E1]/60 font-mono text-xs">
+            <div className="sm:pr-4 space-y-1">
+              <span className="text-[#B88200] font-bold uppercase tracking-wider block text-[11px]">
+                PLANNING TIMELINE
+              </span>
+              <span className="text-[#0B2545] font-bold text-sm block">
+                {service.typicalLeadTimePlaceholder}
+              </span>
+            </div>
+            <div className="pt-3 sm:pt-0 sm:px-4 space-y-1">
+              <span className="text-[#B88200] font-bold uppercase tracking-wider block text-[11px]">
+                SERVICE CATEGORY
+              </span>
+              <span className="text-[#0B2545] font-bold text-sm block">
+                {service.category}
+              </span>
+            </div>
+            <div className="pt-3 sm:pt-0 sm:px-4 space-y-1">
+              <span className="text-[#B88200] font-bold uppercase tracking-wider block text-[11px]">
+                DELIVERY MODEL
+              </span>
+              <span className="text-[#0B2545] font-semibold text-xs font-sans block leading-snug">
+                Operational Coordination &amp; Stakeholder Liaison
+              </span>
+            </div>
+            <div className="pt-3 sm:pt-0 sm:pl-4 space-y-1">
+              <span className="text-[#B88200] font-bold uppercase tracking-wider block text-[11px]">
+                APPROVAL AUTHORITY
+              </span>
+              <span className="text-[#5C6B7A] font-sans text-xs block leading-snug">
+                Relevant Civil Aviation Authorities &amp; Airport Stakeholders
+              </span>
+            </div>
+          </div>
           {/* 1. What the Service Is & Who Needs It */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="kcl-card lg:col-span-6 bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">

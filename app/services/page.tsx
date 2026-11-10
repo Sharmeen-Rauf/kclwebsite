@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import {
@@ -20,32 +21,113 @@ export default function ServicesOverviewPage() {
     <>
       <Breadcrumbs items={[{ name: "Services", path: "/services" }]} />
 
-      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
-              KCL INTERNATIONAL FLIGHT SUPPORT · CORE SERVICE DIRECTORY
+      {/* =========================================================================
+          HERO (Homepage Height & Grand Aviation Aesthetic)
+          ========================================================================= */}
+      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[580px] sm:min-h-[620px] lg:min-h-[660px] py-16 sm:py-20 lg:py-24 flex items-center justify-center">
+        {/* Full-bleed background photo with calibrated gradient */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/img/hero-flight-ops.jpg"
+            alt="Commercial airliner and private jet on airport apron with ground handling services"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center hero-zoom-photo"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/85 via-[#0B2545]/60 to-[#14406E]/35"
+          />
+          {/* Subtle airway route line-art */}
+          <svg
+            viewBox="0 0 1440 640"
+            fill="none"
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+          >
+            <path
+              d="M-60 490 C 280 420, 620 260, 1020 220 C 1220 200, 1360 150, 1500 110"
+              stroke="#FFFFFF"
+              strokeWidth="1.5"
+              strokeDasharray="6 6"
+              className="airway-route-line"
+            />
+            <path
+              d="M-40 240 C 340 290, 740 350, 1140 280 C 1300 250, 1410 210, 1520 180"
+              stroke="#FFFFFF"
+              strokeWidth="1.2"
+            />
+            <circle cx="515" cy="340" r="4" fill="#FFFFFF" />
+            <circle cx="775" cy="275" r="4" fill="#FFFFFF" />
+            <circle cx="885" cy="145" r="4" fill="#FFFFFF" />
+          </svg>
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
+          <div className="max-w-3xl mx-auto space-y-4 sm:space-y-5">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#F4C400] font-bold block">
+              CORE AVIATION SERVICE DIRECTORY
             </span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white">
+
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
               International Aviation Support Services
             </h1>
-            <p className="text-lg sm:text-xl font-semibold text-slate-100">
+
+            <p className="text-base sm:text-lg lg:text-xl font-semibold text-slate-100 max-w-2xl mx-auto">
               Connected Support for Complex Flight Operations.
             </p>
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-              A flight rarely depends on one service alone. Flight permission
-              facilitation, ground handling, catering services, fuel supply,
-              crew accommodation arrangements, and 24/7 operational support must
-              fit the same itinerary. KCL brings these requirements into a
-              coordinated conversation so operators can plan with greater
-              clarity.
+
+            <p className="text-xs sm:text-sm lg:text-[15.5px] text-slate-200 leading-relaxed max-w-2xl mx-auto">
+              A flight rarely depends on one service alone. Flight permission facilitation, ground handling, catering services, fuel supply, crew accommodation arrangements, and 24/7 operational support must fit the same itinerary. KCL brings these requirements into a coordinated conversation so operators can plan with greater clarity.
             </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
+              <Link
+                href="/request-flight-support"
+                className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
+              >
+                <span>Request Flight Support</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+              <a
+                href="#services-directory"
+                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+              >
+                Explore Core Services
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Six Core Services Grid (Primary Reference: kclpk.org/Services.html) */}
-      <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
+      {/* Credentials Strip Below Hero */}
+      <section
+        aria-label="Operational Credentials"
+        className="bg-[#F8FAFC] border-b border-[#E2E8F0] py-3 sm:py-3.5"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs sm:text-[13px] font-bold text-[#0B2545]">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
+              24/7 operations desk
+            </span>
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+              <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
+              Scheduled and non-scheduled flights
+            </span>
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+              <span className="h-2 w-2 rounded-full bg-[#B88200]" />
+              Short-notice requests
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Six Core Services Grid */}
+      <section id="services-directory" className="scroll-mt-16 py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="max-w-3xl space-y-2">
             <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">

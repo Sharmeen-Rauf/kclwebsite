@@ -372,9 +372,9 @@ export default function FlightPermissionsPage() {
       />
 
       {/* =========================================================================
-          SECTION 1 — HERO (Clean, Impactful, homepage aesthetic)
+          SECTION 1 — HERO (Homepage Height & Grand Aviation Aesthetic)
           ========================================================================= */}
-      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[380px] lg:min-h-[420px] py-8 sm:py-12 flex items-center justify-center">
+      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[580px] sm:min-h-[620px] lg:min-h-[660px] py-16 sm:py-20 lg:py-24 flex items-center justify-center">
         {/* Full-bleed background photo with calibrated gradient */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -416,35 +416,35 @@ export default function FlightPermissionsPage() {
 
         {/* Hero Content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
-          <div className="max-w-3xl mx-auto space-y-2.5 sm:space-y-3">
+          <div className="max-w-3xl mx-auto space-y-4 sm:space-y-5">
             <span className="font-mono text-xs uppercase tracking-wider text-[#F4C400] font-bold block">
               INTERNATIONAL FLIGHT PERMIT SERVICES
             </span>
 
-            <h1 className="text-2xl sm:text-3xl lg:text-[38px] xl:text-[42px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
               International Overflight &amp; Landing Permit Services
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-lg font-semibold text-slate-100 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl font-semibold text-slate-100 max-w-2xl mx-auto">
               Your Route. The Right Permissions. One Team to Coordinate.
             </p>
 
-            <p className="text-xs sm:text-[13.5px] lg:text-[14.5px] text-slate-200 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm lg:text-[15.5px] text-slate-200 leading-relaxed max-w-2xl mx-auto">
               From routine airline operations to short-notice charter flights, KCL helps coordinate overflight, landing and special permit requests across international destinations. Share your flight details, and our operations team will help identify the applicable requirements and next steps.
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1.5">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
               <Link
                 href="/request-flight-support"
-                className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] min-h-[40px] px-6 py-2 font-bold text-xs sm:text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
+                className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
               >
                 <span>Request a Flight Permit</span>
                 <span aria-hidden="true">→</span>
               </Link>
               <a
                 href="#permit-types"
-                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[40px] px-5 py-2 font-semibold text-xs sm:text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 Explore Permit Services
               </a>
@@ -456,19 +456,19 @@ export default function FlightPermissionsPage() {
       {/* Credentials Strip Below Hero */}
       <section
         aria-label="Operational Credentials"
-        className="bg-[#F8FAFC] border-b border-[#E2E8F0] py-2 sm:py-2.5"
+        className="bg-[#F8FAFC] border-b border-[#E2E8F0] py-3 sm:py-3.5"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-[12.5px] font-bold text-[#0B2545]">
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1 rounded-[2px] shadow-2xs">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs sm:text-[13px] font-bold text-[#0B2545]">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
               24/7 operations desk
             </span>
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1 rounded-[2px] shadow-2xs">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
               Scheduled and non-scheduled flights
             </span>
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1 rounded-[2px] shadow-2xs">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
               <span className="h-2 w-2 rounded-full bg-[#B88200]" />
               Short-notice requests
             </span>
