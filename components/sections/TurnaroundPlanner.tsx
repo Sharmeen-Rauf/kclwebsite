@@ -208,7 +208,18 @@ export function TurnaroundPlanner() {
           </div>
 
           {/* Horizontal Turnaround Flow Strip with SVG Aircraft & Taxi Line */}
-          <div className="overflow-x-auto pb-4 pt-2">
+          
+        {/* Hidden SSR indexable text for every tab so all text exists in HTML before JS */}
+        <div className="sr-only" data-ssr-planner-content="true">
+          {AIRCRAFT_TYPES.map((type) => (
+            <div key={type.id}>
+              <h3>{type.label} Turnaround Requirements</h3>
+              <p>Examples: {type.examples}</p>
+              <p>Checklist: Aircraft registration and type | Airport (ICAO code) | Expected arrival and departure times in UTC | Services needed | Passenger, baggage or cargo details | Operations contact details.</p>
+            </div>
+          ))}
+        </div>
+        <div className="overflow-x-auto pb-4 pt-2">
             <div className="min-w-[760px] relative">
               {/* Taxi Line Bar */}
               <div

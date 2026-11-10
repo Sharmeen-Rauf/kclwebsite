@@ -444,50 +444,42 @@ export default function GroundHandlingPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2 shadow-xs">
-              <span className="w-8 h-8 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-xs mb-3">
-                01
-              </span>
+            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2 shadow-xs border-t-4 border-t-[#0B2545]">
+              
               <h3 className="text-lg font-bold text-[#0B2545]">
                 24/7 operations desk
               </h3>
-              <p className="text-sm text-[#5C6B7A] leading-relaxed">
+              <p className="text-base text-[#5C6B7A] leading-relaxed">
                 Round-the-clock coordination team monitoring flight progress, schedule revisions and station communications across all time zones.
               </p>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2 shadow-xs">
-              <span className="w-8 h-8 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-xs mb-3">
-                02
-              </span>
+            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2 shadow-xs border-t-4 border-t-[#0B2545]">
+              
               <h3 className="text-lg font-bold text-[#0B2545]">
                 Global network of ground handling partners
               </h3>
-              <p className="text-sm text-[#5C6B7A] leading-relaxed">
+              <p className="text-base text-[#5C6B7A] leading-relaxed">
                 Established working relationships with certified airport handlers and ramp service providers internationally.
               </p>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2 shadow-xs">
-              <span className="w-8 h-8 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-xs mb-3">
-                03
-              </span>
+            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2 shadow-xs border-t-4 border-t-[#0B2545]">
+              
               <h3 className="text-lg font-bold text-[#0B2545]">
                 One point of contact for permits and airport services
               </h3>
-              <p className="text-sm text-[#5C6B7A] leading-relaxed">
+              <p className="text-base text-[#5C6B7A] leading-relaxed">
                 Single operations channel synchronizing landing permits, parking slots, fueling and handling without scattered supplier communication.
               </p>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2 shadow-xs">
-              <span className="w-8 h-8 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-xs mb-3">
-                04
-              </span>
+            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2 shadow-xs border-t-4 border-t-[#0B2545]">
+              
               <h3 className="text-lg font-bold text-[#0B2545]">
                 Part of the Kashmirwala Group, serving aviation since 1947
               </h3>
-              <p className="text-sm text-[#5C6B7A] leading-relaxed">
+              <p className="text-base text-[#5C6B7A] leading-relaxed">
                 Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.
               </p>
             </div>
