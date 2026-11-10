@@ -106,30 +106,42 @@ export const GROUND_HANDLING_FAQS: GroundHandlingFaq[] = [
   },
 ];
 
-export const GROUND_HANDLING_FLIGHTS_SUPPORTED = [
+export interface FlightSupportedItem {
+  title: string;
+  description: string;
+  flightType: "airline" | "charter" | "cargo" | "ops" | "urgent";
+}
+
+export const GROUND_HANDLING_FLIGHTS_SUPPORTED: FlightSupportedItem[] = [
   {
-    title: "Commercial Airlines",
-    subtitle: "Station turnarounds",
+    title: "Commercial airlines",
     description:
-      "Scheduled transit and turnaround arrangements, baggage reconciliation, ramp servicing, and local handler coordination across your regional network.",
+      "Station turnarounds and transit stops, with aircraft, passenger, baggage and cargo handling arranged through our partners.",
+    flightType: "airline",
   },
   {
-    title: "Charter & Business Aviation",
-    subtitle: "Traffic and technical stops",
+    title: "Charter and business aviation",
     description:
-      "Dedicated executive handling, quick-turn refueling stops, VIP passenger escort, and ramp marshalling for corporate and charter operations.",
+      "Handling for traffic and technical stops, with fuel and crew transport arranged on the same request.",
+    flightType: "charter",
   },
   {
-    title: "Cargo Carriers",
-    subtitle: "Freighter ramp and load support",
+    title: "Cargo carriers",
     description:
-      "Main-deck loading, cargo offload, dangerous goods documentation checks, pallet build-up, and apron logistics for scheduled and ad-hoc freighters.",
+      "Loading, offloading and documentation coordination for scheduled and ad-hoc freighters.",
+    flightType: "cargo",
   },
   {
-    title: "Operations Teams",
-    subtitle: "Combining landing permits with handling",
+    title: "Operations teams",
     description:
-      "Synchronized coordination linking civil aviation landing numbers with ramp parking slots, local handling confirmation, and fuel vouchers on one file.",
+      "Combine landing permits, handling, fuel and crew hotels on one request.",
+    flightType: "ops",
+  },
+  {
+    title: "Urgent and special flights",
+    description:
+      "Our 24/7 desk supports short-notice, ad-hoc, diplomatic and diverted flights.",
+    flightType: "urgent",
   },
 ];
 
@@ -142,7 +154,7 @@ export const GROUND_HANDLING_RELATED_SERVICES = [
   {
     title: "Aviation Fuel",
     href: "/services/aviation-fuel",
-    description: "Jet A1, TS1 and Avgas supply vouchers scheduled to meet your aircraft turnaround window.",
+    description: "Jet A1, TS1 and Avgas refueling coordinated to meet your aircraft turnaround window.",
   },
   {
     title: "Crew Hotels & Transport",

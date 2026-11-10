@@ -221,7 +221,7 @@ export default function GroundHandlingPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 5 — WHO WE HELP (Flights We Support)
+          SECTION 5 — FLIGHTS WE SUPPORT (Responsive Grid)
           ========================================================================= */}
       <section className="py-12 sm:py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -230,27 +230,71 @@ export default function GroundHandlingPage() {
               Flights We Support
             </h2>
             <p className="text-base sm:text-lg text-[#16202B] leading-relaxed">
-              We arrange ground handling coordination tailored to the mission profile of each aircraft category.
+              Whatever you fly, we arrange the ground side.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {GROUND_HANDLING_FLIGHTS_SUPPORTED.map((flight) => (
               <div
                 key={flight.title}
-                className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-3 shadow-xs hover:border-[#0B2545] transition-colors"
+                className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 flex flex-col justify-between space-y-4 shadow-xs hover:border-[#0B2545] hover:shadow-sm transition-all focus-within:ring-2 focus-within:ring-[#0B2545]"
               >
-                <div className="space-y-1">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
-                    {flight.title}
-                  </h3>
-                  <p className="text-sm font-semibold text-[#5C6B7A]">
-                    {flight.subtitle}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="w-9 h-9 rounded-full bg-[#0B2545] text-white flex items-center justify-center shrink-0">
+                      {flight.flightType === "airline" && (
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                      )}
+                      {flight.flightType === "charter" && (
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" />
+                        </svg>
+                      )}
+                      {flight.flightType === "cargo" && (
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <line x1="16.5" y1="9.4" x2="7.5" y2="4.21" />
+                          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                          <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                          <line x1="12" y1="22.08" x2="12" y2="12" />
+                        </svg>
+                      )}
+                      {flight.flightType === "ops" && (
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                      )}
+                      {flight.flightType === "urgent" && (
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 14 14" />
+                        </svg>
+                      )}
+                    </span>
+                    <h3 className="text-[20px] font-bold text-[#0B2545] leading-snug">
+                      {flight.title}
+                    </h3>
+                  </div>
+
+                  <p className="text-[16px] text-[#16202B] leading-relaxed">
+                    {flight.description}
                   </p>
                 </div>
-                <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
-                  {flight.description}
-                </p>
+
+                <div className="pt-2">
+                  <Link
+                    href={`/request-flight-support?service=ground-handling&flightType=${flight.flightType}`}
+                    className="text-[15px] font-bold text-[#0B2545] hover:text-[#133661] underline-offset-4 hover:underline inline-flex items-center gap-1.5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0B2545] focus-visible:ring-offset-2 rounded-[2px]"
+                  >
+                    <span>Request handling</span>
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
