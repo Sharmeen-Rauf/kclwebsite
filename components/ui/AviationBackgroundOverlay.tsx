@@ -54,42 +54,7 @@ export function AviationBackgroundOverlay() {
           strokeDasharray="6 8"
         />
 
-        {/* Waypoint circles with aeronautical callout tags */}
-        <g transform="translate(680, 420)">
-          <circle cx="0" cy="0" r="4" fill="currentColor" />
-          <circle cx="0" cy="0" r="12" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3 3" />
-          <text x="18" y="4" fontSize="11" fontFamily="monospace" fill="currentColor" fontWeight="bold">
-            ATS-WPT 28°N
-          </text>
-        </g>
-
-        <g transform="translate(1180, 245)">
-          <circle cx="0" cy="0" r="4" fill="currentColor" />
-          <circle cx="0" cy="0" r="12" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3 3" />
-          <text x="18" y="4" fontSize="11" fontFamily="monospace" fill="currentColor" fontWeight="bold">
-            FIR-BND FL380
-          </text>
-        </g>
-
-        {/* Cruising Jet in Flight on Airway Vector with Heading Tag */}
-        <g transform="translate(940, 310) rotate(-22)">
-          {/* Subtle Contrail */}
-          <line x1="0" y1="18" x2="0" y2="90" stroke="currentColor" strokeWidth="1" strokeDasharray="3 4" opacity="0.7" />
-          <path
-            d="M 0 -24 L 2 -12 L 20 2 L 20 6 L 2 3 L 2 14 L 8 18 L 8 21 L 0 19 L -8 21 L -8 18 L -2 14 L -2 3 L -20 6 L -20 2 L -2 -12 Z"
-            fill="currentColor"
-          />
-        </g>
-
-        {/* Secondary Mid-Altitude Airway Jet (Lower South-West Corridor) */}
-        <g transform="translate(420, 710) rotate(-42)">
-          <line x1="0" y1="14" x2="0" y2="70" stroke="currentColor" strokeWidth="1" strokeDasharray="2 3" opacity="0.6" />
-          <path
-            d="M 0 -18 L 1.5 -9 L 15 1.5 L 15 4.5 L 1.5 2 L 1.5 10 L 6 13 L 6 15 L 0 14 L -6 15 L -6 13 L -1.5 10 L -1.5 2 L -15 4.5 L -15 1.5 L -1.5 -9 Z"
-            fill="currentColor"
-          />
-        </g>
-      </svg>
+        </svg>
     </div>
   );
 }

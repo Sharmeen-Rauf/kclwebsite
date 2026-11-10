@@ -464,67 +464,7 @@ export function Footer() {
             opacity="0.7"
           />
 
-          {/* Waypoint Crosshair Blip with subtle brand amber touch */}
-          <g transform="translate(230, 310)">
-            <circle cx="0" cy="0" r="10" stroke="#B88200" strokeWidth="1.2" strokeDasharray="2 3" opacity="0.8" />
-            <circle cx="0" cy="0" r="3" fill="#B88200" opacity="0.8" />
-            <text x="14" y="4" fontSize="10" fontFamily="monospace" fill="currentColor" fontWeight="bold">
-              WPT · 24°N
-            </text>
-          </g>
-
-          {/* Modern Widebody Airliner Climbing Angled Along Airway */}
-          <g transform="translate(360, 160) rotate(-35)">
-            {/* Contrails trailing from wingtips */}
-            <line x1="-120" y1="25" x2="-120" y2="200" stroke="currentColor" strokeWidth="1.25" strokeDasharray="4 6" opacity="0.6" />
-            <line x1="120" y1="25" x2="120" y2="200" stroke="currentColor" strokeWidth="1.25" strokeDasharray="4 6" opacity="0.6" />
-
-            {/* Jet Engine Wakes */}
-            <line x1="-48" y1="-5" x2="-48" y2="180" stroke="currentColor" strokeWidth="1" strokeDasharray="3 5" opacity="0.5" />
-            <line x1="48" y1="-5" x2="48" y2="180" stroke="currentColor" strokeWidth="1" strokeDasharray="3 5" opacity="0.5" />
-
-            {/* Fuselage & Wings Silhouette */}
-            <path
-              d="
-                M 0 -115
-                C 3 -105, 6 -70, 7 -35
-                L 115 22
-                C 120 24, 121 29, 118 32
-                L 110 32
-                L 9 -5
-                L 9 60
-                L 44 82
-                C 47 84, 47 87, 44 88
-                L 7 79
-                L 7 100
-                C 7 105, 0 108, 0 108
-                C 0 108, -7 105, -7 100
-                L -7 79
-                L -44 88
-                C -47 87, -47 84, -44 82
-                L -9 60
-                L -9 -5
-                L -110 32
-                L -118 32
-                C -121 29, -120 24, -115 22
-                L -7 -35
-                C -6 -70, -3 -105, 0 -115
-                Z
-              "
-              fill="currentColor"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinejoin="round"
-            />
-
-            {/* Engines */}
-            <rect x="-52" y="-18" width="8" height="26" rx="3" fill="currentColor" opacity="0.8" />
-            <rect x="44" y="-18" width="8" height="26" rx="3" fill="currentColor" opacity="0.8" />
-
-            {/* Cockpit Window */}
-            <path d="M -4 -90 C -2 -93, 2 -93, 4 -90 L 3 -86 C 1 -88, -1 -88, -3 -86 Z" fill="currentColor" />
-          </g>
-        </svg>
+          </svg>
       </div>
     </footer>
     </>

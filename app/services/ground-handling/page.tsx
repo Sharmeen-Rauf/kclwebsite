@@ -78,29 +78,7 @@ export default function GroundHandlingPage() {
             aria-hidden="true"
             className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/90 via-[#0B2545]/65 to-[#14406E]/40"
           />
-          {/* Faint airway route line-art */}
-          <svg
-            viewBox="0 0 1440 640"
-            fill="none"
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
-          >
-            <path
-              d="M-60 490 C 280 420, 620 260, 1020 220 C 1220 200, 1360 150, 1500 110"
-              stroke="#FFFFFF"
-              strokeWidth="1.5"
-              strokeDasharray="6 6"
-              className="airway-route-line"
-            />
-            <path
-              d="M-40 240 C 340 290, 740 350, 1140 280 C 1300 250, 1410 210, 1520 180"
-              stroke="#FFFFFF"
-              strokeWidth="1.2"
-            />
-            <circle cx="515" cy="340" r="4" fill="#FFFFFF" />
-            <circle cx="775" cy="275" r="4" fill="#FFFFFF" />
-            <circle cx="885" cy="145" r="4" fill="#FFFFFF" />
-          </svg>
+          
         </div>
 
         {/* Hero Content (Centered, Clean Layout) */}
