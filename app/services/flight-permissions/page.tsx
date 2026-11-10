@@ -968,27 +968,6 @@ export default function FlightPermissionsPage() {
           <PermitFaqAccordion />
         </div>
       </section>
-
-      {/* =========================================================================
-          SECTION 10 — FAQ
-          ========================================================================= */}
-      <section className="py-10 sm:py-12 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="max-w-3xl space-y-1.5">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              DISPATCH FAQS
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Flight Permit Questions, Answered.
-            </h2>
-            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
-              Essential answers to frequent questions about overflight permits, landing approvals, lead times, and operational requirements.
-            </p>
-          </div>
-
-          <PermitFaqAccordion />
-        </div>
-      </section>
     </>
   );
 }
