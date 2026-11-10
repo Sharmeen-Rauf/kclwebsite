@@ -145,31 +145,55 @@ export const GROUND_HANDLING_FLIGHTS_SUPPORTED: FlightSupportedItem[] = [
   },
 ];
 
-export const GROUND_HANDLING_RELATED_SERVICES = [
+export interface RelatedServiceItem {
+  title: string;
+  href: string;
+  description: string;
+  image: string;
+  alt: string;
+  tag: string;
+}
+
+export const GROUND_HANDLING_RELATED_SERVICES: RelatedServiceItem[] = [
   {
     title: "Landing & Overflight Permits",
     href: "/services/flight-permissions",
     description: "Civil aviation approvals coordinated alongside your airport ramp slots and handling arrangements.",
+    image: "/img/services/01-permits.webp",
+    alt: "Flight deck waypoint navigation and international flight permission coordination",
+    tag: "Flight Permissions",
   },
   {
     title: "Aviation Fuel",
     href: "/services/aviation-fuel",
     description: "Jet A1, TS1 and Avgas refueling coordinated to meet your aircraft turnaround window.",
+    image: "/img/services/04-fuel.webp",
+    alt: "Aviation fuel supply and tarmac hydrant dispensing coordination",
+    tag: "Fuel Supply",
   },
   {
     title: "Crew Hotels & Transport",
     href: "/services/crew-logistics",
     description: "Airport-proximity layover accommodations and dedicated airside-to-hotel crew transfers.",
+    image: "/img/services/05-crew.webp",
+    alt: "Flight crew layover logistics, hotel accommodation and ground transport",
+    tag: "Crew Logistics",
   },
   {
     title: "Inflight Catering",
     href: "/services/inflight-catering",
     description: "Hygienic galley meal provisioning, passenger menus, and timely ramp delivery.",
+    image: "/img/services/03-catering.webp",
+    alt: "Aviation inflight catering and aircraft galley meal arrangements",
+    tag: "Inflight Services",
   },
   {
     title: "Airport Slot Coordination",
     href: "/services/airport-slot-coordination",
     description: "Runway arrival and departure slots matched with handling agent parking availability.",
+    image: "/img/services/08-slots.webp",
+    alt: "Airport runway slot coordination and apron parking management",
+    tag: "Airport Slots",
   },
 ];
 

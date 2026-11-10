@@ -315,25 +315,50 @@ export default function GroundHandlingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 auto-rows-fr">
             {GROUND_HANDLING_RELATED_SERVICES.map((item) => (
               <Link
                 key={item.title}
                 href={item.href}
-                className="group bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 space-y-2 hover:border-[#0B2545] hover:shadow-xs transition-all flex flex-col justify-between"
+                className="group relative overflow-hidden rounded-[6px] border border-white/20 min-h-[240px] sm:min-h-[260px] flex flex-col justify-between p-5 sm:p-6 shadow-sm hover:shadow-md hover:-translate-y-1 focus-visible:-translate-y-1 transition-all duration-300 ease-out focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0B2545] motion-reduce:transition-none motion-reduce:transform-none"
               >
-                <div className="space-y-2">
-                  <h3 className="text-base sm:text-lg font-bold text-[#0B2545] group-hover:text-[#133661] transition-colors">
+                {/* Full-bleed background photo */}
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-center group-hover:scale-[1.04] group-focus-visible:scale-[1.04] motion-safe:transition-transform motion-safe:duration-500 ease-out motion-reduce:transform-none"
+                />
+
+                {/* Calibrated navy gradient overlay for clear picture visibility and high text contrast */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/50 to-black/25 group-hover:from-[#0B2545]/95 group-hover:via-[#0B2545]/60 transition-colors duration-300"
+                />
+
+                {/* Top: Category Tag Pill */}
+                <div className="relative z-10 flex items-center justify-between">
+                  <span className="text-[12px] font-semibold text-white/95 bg-white/15 backdrop-blur-sm border border-white/25 px-2.5 py-1 rounded-[2px]">
+                    {item.tag}
+                  </span>
+                </div>
+
+                {/* Bottom: Service Title + Description + Explore service link */}
+                <div className="relative z-10 space-y-2 mt-auto pt-4">
+                  <h3 className="text-[19px] sm:text-[20px] font-bold text-white leading-tight">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#5C6B7A] leading-relaxed">
+                  <p className="text-[14px] sm:text-[14.5px] text-slate-200 leading-relaxed font-normal">
                     {item.description}
                   </p>
+                  <div className="pt-1">
+                    <span className="inline-flex items-center gap-1.5 text-[14px] font-bold text-white group-hover:translate-x-1 motion-safe:transition-transform motion-safe:duration-200">
+                      <span>Explore service</span>
+                      <span aria-hidden="true">→</span>
+                    </span>
+                  </div>
                 </div>
-                <span className="text-xs sm:text-sm font-bold text-[#0B2545] group-hover:underline underline-offset-4 inline-flex items-center gap-1 pt-2">
-                  <span>Explore service</span>
-                  <span aria-hidden="true">→</span>
-                </span>
               </Link>
             ))}
           </div>
