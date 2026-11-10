@@ -374,7 +374,7 @@ export default function FlightPermissionsPage() {
       {/* =========================================================================
           SECTION 1 — HERO (Clean, Impactful, homepage aesthetic)
           ========================================================================= */}
-      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[420px] lg:min-h-[460px] py-10 sm:py-14 flex items-center justify-center">
+      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[380px] lg:min-h-[420px] py-8 sm:py-12 flex items-center justify-center">
         {/* Full-bleed background photo with calibrated gradient */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -416,35 +416,35 @@ export default function FlightPermissionsPage() {
 
         {/* Hero Content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
-          <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
+          <div className="max-w-3xl mx-auto space-y-2.5 sm:space-y-3">
             <span className="font-mono text-xs uppercase tracking-wider text-[#F4C400] font-bold block">
               INTERNATIONAL FLIGHT PERMIT SERVICES
             </span>
 
-            <h1 className="text-2xl sm:text-3xl lg:text-[40px] xl:text-[44px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
+            <h1 className="text-2xl sm:text-3xl lg:text-[38px] xl:text-[42px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
               International Overflight &amp; Landing Permit Services
             </h1>
 
-            <p className="text-base sm:text-lg font-semibold text-slate-100 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base lg:text-lg font-semibold text-slate-100 max-w-2xl mx-auto">
               Your Route. The Right Permissions. One Team to Coordinate.
             </p>
 
-            <p className="text-xs sm:text-sm lg:text-[15px] text-slate-200 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xs sm:text-[13.5px] lg:text-[14.5px] text-slate-200 leading-relaxed max-w-2xl mx-auto">
               From routine airline operations to short-notice charter flights, KCL helps coordinate overflight, landing and special permit requests across international destinations. Share your flight details, and our operations team will help identify the applicable requirements and next steps.
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1.5">
               <Link
                 href="/request-flight-support"
-                className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] min-h-[42px] px-6 py-2.5 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
+                className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] min-h-[40px] px-6 py-2 font-bold text-xs sm:text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
               >
                 <span>Request a Flight Permit</span>
                 <span aria-hidden="true">→</span>
               </Link>
               <a
                 href="#permit-types"
-                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[42px] px-6 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[40px] px-5 py-2 font-semibold text-xs sm:text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 Explore Permit Services
               </a>
@@ -456,10 +456,10 @@ export default function FlightPermissionsPage() {
       {/* Credentials Strip Below Hero */}
       <section
         aria-label="Operational Credentials"
-        className="bg-[#F8FAFC] border-b border-[#E2E8F0] py-2.5 sm:py-3"
+        className="bg-[#F8FAFC] border-b border-[#E2E8F0] py-2 sm:py-2.5"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs sm:text-[13px] font-bold text-[#0B2545]">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-[12.5px] font-bold text-[#0B2545]">
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1 rounded-[2px] shadow-2xs">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
               24/7 operations desk
@@ -481,25 +481,25 @@ export default function FlightPermissionsPage() {
           ========================================================================= */}
       <section
         id="permit-types"
-        className="scroll-mt-20 py-10 sm:py-12 bg-white border-b border-[#E2E8F0]"
+        className="scroll-mt-20 py-8 sm:py-10 bg-white border-b border-[#E2E8F0]"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
-            <div className="max-w-3xl space-y-1.5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3">
+            <div className="max-w-3xl space-y-1">
               <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
                 PERMIT CATEGORIES
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
                 The Right Permission for Every Operation.
               </h2>
-              <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
+              <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
                 Different flight operations call for different permissions. KCL helps operators identify and coordinate the approvals relevant to their routes, schedules and operational requirements.
               </p>
             </div>
             <div className="shrink-0">
               <Link
                 href="/request-flight-support"
-                className="kcl-btn-outline-navy px-4 py-2 min-h-[40px] text-xs sm:text-sm font-semibold inline-flex items-center rounded-[2px]"
+                className="kcl-btn-outline-navy px-3.5 py-1.5 min-h-[36px] text-xs sm:text-sm font-semibold inline-flex items-center rounded-[2px]"
               >
                 Request Permit Support →
               </Link>
@@ -507,7 +507,7 @@ export default function FlightPermissionsPage() {
           </div>
 
           {/* Graphical Photo Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-fr">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
             {PERMIT_TYPES.map((item) => (
               <div
                 key={item.name}
@@ -586,59 +586,59 @@ export default function FlightPermissionsPage() {
       {/* =========================================================================
           SECTION 3 — FLIGHTS WE SUPPORT (Modern Graphical Operations Matrix)
           ========================================================================= */}
-      <section className="py-10 sm:py-12 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="max-w-3xl space-y-1.5">
+      <section className="py-8 sm:py-10 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+          <div className="max-w-3xl space-y-1">
             <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               OPERATIONAL SCOPE
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               Permit Support for the Way You Operate.
             </h2>
-            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
+            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
               From commercial airline networks to emergency medevac and private aircraft, our desk coordinates regulatory permissions tailored to each mission profile.
             </p>
           </div>
 
-          {/* Modern Visual Cards Grid instead of cold table */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {/* Modern Visual Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5">
             {FLIGHTS_WE_SUPPORT_CARDS.map((item) => (
               <div
                 key={item.category}
-                className="bg-white border border-[#CBD5E1] rounded-[6px] p-4 flex flex-col justify-between hover:border-[#0B2545] hover:shadow-xs transition-all duration-200 group"
+                className="bg-white border border-[#CBD5E1] rounded-[6px] p-3.5 sm:p-4 flex flex-col justify-between hover:border-[#0B2545] hover:shadow-xs transition-all duration-200 group"
               >
-                <div className="space-y-3">
+                <div className="space-y-2.5">
                   <div className="flex items-center justify-between">
-                    <div className="w-8 h-8 rounded-[4px] bg-[#0B2545]/5 border border-[#0B2545]/15 flex items-center justify-center">
+                    <div className="w-7 h-7 rounded-[4px] bg-[#0B2545]/5 border border-[#0B2545]/15 flex items-center justify-center">
                       {item.icon}
                     </div>
-                    <span className="font-mono text-[10px] font-bold text-[#0B2545] bg-[#F8FAFC] border border-[#CBD5E1] px-2 py-0.5 rounded-[2px] uppercase tracking-wider">
+                    <span className="font-mono text-[9.5px] font-bold text-[#0B2545] bg-[#F8FAFC] border border-[#CBD5E1] px-2 py-0.5 rounded-[2px] uppercase tracking-wider">
                       {item.tag}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="text-base font-bold text-[#0B2545] group-hover:text-[#133661] transition-colors leading-snug">
+                    <h3 className="text-[15px] font-bold text-[#0B2545] group-hover:text-[#133661] transition-colors leading-snug">
                       {item.category}
                     </h3>
-                    <p className="text-xs font-semibold text-[#B88200] mt-1">
+                    <p className="text-[11.5px] font-semibold text-[#B88200] mt-0.5">
                       {item.typicalClearances}
                     </p>
                   </div>
 
-                  <div className="space-y-2 pt-2 border-t border-[#CBD5E1]/50 text-xs">
+                  <div className="space-y-1.5 pt-1.5 border-t border-[#CBD5E1]/50 text-xs">
                     <div>
-                      <span className="font-mono font-bold text-[#0B2545] uppercase tracking-wider block mb-0.5">
+                      <span className="font-mono font-bold text-[#0B2545] uppercase tracking-wider block text-[10.5px]">
                         Operating Focus:
                       </span>
-                      <p className="text-[#5C6B7A] leading-snug">{item.operatingFocus}</p>
+                      <p className="text-[#5C6B7A] leading-snug text-[11.5px]">{item.operatingFocus}</p>
                     </div>
 
                     <div>
-                      <span className="font-mono font-bold text-[#B88200] uppercase tracking-wider block mb-0.5">
+                      <span className="font-mono font-bold text-[#B88200] uppercase tracking-wider block text-[10.5px]">
                         Dispatch Priorities:
                       </span>
-                      <p className="text-[#5C6B7A] leading-snug">{item.dispatchPriorities}</p>
+                      <p className="text-[#5C6B7A] leading-snug text-[11.5px]">{item.dispatchPriorities}</p>
                     </div>
                   </div>
                 </div>
@@ -653,17 +653,17 @@ export default function FlightPermissionsPage() {
           ========================================================================= */}
       <section
         id="what-you-need"
-        className="scroll-mt-20 py-10 sm:py-12 bg-white border-b border-[#E2E8F0]"
+        className="scroll-mt-20 py-8 sm:py-10 bg-white border-b border-[#E2E8F0]"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-          <div className="max-w-3xl space-y-1.5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+          <div className="max-w-3xl space-y-1">
             <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               DOCUMENT PREPARATION
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               What to Prepare Before Requesting a Permit.
             </h2>
-            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
+            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
               Documentation requirements vary by country, aircraft, operator and flight purpose. These are common details that may be requested. KCL will help identify the applicable requirements for each itinerary.
             </p>
           </div>
@@ -675,56 +675,56 @@ export default function FlightPermissionsPage() {
       {/* =========================================================================
           SECTION 5 — COORDINATION PROCESS (Connected Step Cards)
           ========================================================================= */}
-      <section className="py-10 sm:py-12 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="max-w-3xl space-y-1.5">
+      <section className="py-8 sm:py-10 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+          <div className="max-w-3xl space-y-1">
             <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               COORDINATION WORKFLOW
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               A Clear Process, from Request to Regulatory Decision.
             </h2>
-            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
+            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
               From your initial itinerary submission to regulatory authority review, every step distinguishes between operator inputs and KCL coordination responsibilities.
             </p>
           </div>
 
           {/* 4-Step Process Timeline Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
             {COORDINATION_PROCESS_STEPS.map((step) => (
               <div
                 key={step.step}
-                className="bg-white border border-[#CBD5E1] rounded-[6px] p-4 sm:p-5 flex flex-col justify-between hover:border-[#0B2545] hover:shadow-xs transition-all duration-200 group"
+                className="bg-white border border-[#CBD5E1] rounded-[6px] p-3.5 sm:p-4 flex flex-col justify-between hover:border-[#0B2545] hover:shadow-xs transition-all duration-200 group"
               >
-                <div className="space-y-3">
+                <div className="space-y-2.5">
                   <div className="flex items-center justify-between">
-                    <span className="w-7 h-7 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-xs ring-4 ring-[#F8FAFC]">
+                    <span className="w-6 h-6 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-xs ring-4 ring-[#F8FAFC]">
                       {step.step}
                     </span>
-                    <span className="font-mono text-[10px] font-bold text-[#B88200] uppercase tracking-wider">
+                    <span className="font-mono text-[9.5px] font-bold text-[#B88200] uppercase tracking-wider">
                       STAGE {step.step}
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-[#0B2545] leading-snug group-hover:text-[#133661] transition-colors">
+                  <h3 className="text-sm sm:text-[15px] font-bold text-[#0B2545] leading-snug group-hover:text-[#133661] transition-colors">
                     {step.title}
                   </h3>
 
-                  <div className="space-y-2 pt-2 border-t border-[#CBD5E1]/50 text-xs">
+                  <div className="space-y-2 pt-1.5 border-t border-[#CBD5E1]/50 text-xs">
                     <div>
-                      <span className="font-mono font-bold text-[#0B2545] uppercase tracking-wider block mb-0.5">
+                      <span className="font-mono font-bold text-[#0B2545] uppercase tracking-wider block text-[10.5px]">
                         {step.operatorRole}:
                       </span>
-                      <p className="text-[#5C6B7A] leading-snug">
+                      <p className="text-[#5C6B7A] leading-snug text-[11.5px]">
                         {step.operatorTask}
                       </p>
                     </div>
 
                     <div>
-                      <span className="font-mono font-bold text-[#B88200] uppercase tracking-wider block mb-0.5">
+                      <span className="font-mono font-bold text-[#B88200] uppercase tracking-wider block text-[10.5px]">
                         {step.kclRole}:
                       </span>
-                      <p className="text-[#5C6B7A] leading-snug">
+                      <p className="text-[#5C6B7A] leading-snug text-[11.5px]">
                         {step.kclTask}
                       </p>
                     </div>
@@ -734,8 +734,8 @@ export default function FlightPermissionsPage() {
             ))}
           </div>
 
-          <div className="bg-white border border-[#CBD5E1] p-3 rounded-[4px]">
-            <p className="text-xs sm:text-[13px] font-medium text-[#5C6B7A] text-center">
+          <div className="bg-white border border-[#CBD5E1] p-2.5 rounded-[4px]">
+            <p className="text-xs font-medium text-[#5C6B7A] text-center">
               The final result remains subject to relevant civil aviation authority decisions. KCL coordinates and tracks the filing through verified channels.
             </p>
           </div>
@@ -743,18 +743,18 @@ export default function FlightPermissionsPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 6 — INTERNATIONAL COVERAGE (Interactive Map)
+          SECTION 6 — INTERNATIONAL COVERAGE (Interactive Console)
           ========================================================================= */}
-      <section className="py-10 sm:py-12 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-          <div className="max-w-3xl space-y-1.5">
+      <section className="py-8 sm:py-10 bg-white border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+          <div className="max-w-3xl space-y-1">
             <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               INTERNATIONAL REACH
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               International Reach. Country-Specific Requirements.
             </h2>
-            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
+            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
               Permit procedures differ across countries and flight categories. Through its international coordination network, KCL supports operators planning flights across Africa, the Middle East, Europe, Asia, the Americas and the Caribbean.
             </p>
           </div>
@@ -766,54 +766,54 @@ export default function FlightPermissionsPage() {
       {/* =========================================================================
           SECTION 7 — PERMIT TIMELINES (Transparent Planning Guidance Policy)
           ========================================================================= */}
-      <section className="py-10 sm:py-12 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="max-w-3xl space-y-1.5">
+      <section className="py-8 sm:py-10 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+          <div className="max-w-3xl space-y-1">
             <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               TIMELINE TRANSPARENCY
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               Understanding Permit Planning Times.
             </h2>
-            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
+            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
               There is no single processing time for international flight permits. Requirements and approval timelines depend on the country, nature of the flight, completeness of documentation and relevant authority procedures.
             </p>
           </div>
 
           {/* Two-Column Transparent Planning Policy */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-5 space-y-2.5 shadow-2xs">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
+            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-4 space-y-2 shadow-2xs">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#0B2545]" />
-                <h3 className="text-sm sm:text-base font-bold text-[#0B2545] font-mono uppercase tracking-wider">
+                <h3 className="text-sm font-bold text-[#0B2545] font-mono uppercase tracking-wider">
                   Official Authority Time
                 </h3>
               </div>
-              <p className="text-xs sm:text-[13.5px] text-[#16202B] font-semibold">
+              <p className="text-xs sm:text-[13px] text-[#16202B] font-semibold">
                 A processing period explicitly published or confirmed by the relevant civil aviation authority.
               </p>
-              <p className="text-xs sm:text-[13px] text-[#5C6B7A] leading-relaxed">
+              <p className="text-xs text-[#5C6B7A] leading-relaxed">
                 Many authorities stipulate mandatory minimum lead times in their national Aeronautical Information Publications (AIP) or regulatory circulars—for example, 72 hours for commercial charter landing approvals or 24 hours for standard overflights. These represent statutory review windows enforced by sovereign regulators.
               </p>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-5 space-y-2.5 shadow-2xs">
+            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-4 space-y-2 shadow-2xs">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#B88200]" />
-                <h3 className="text-sm sm:text-base font-bold text-[#0B2545] font-mono uppercase tracking-wider">
+                <h3 className="text-sm font-bold text-[#0B2545] font-mono uppercase tracking-wider">
                   Operational Planning Guidance
                 </h3>
               </div>
-              <p className="text-xs sm:text-[13.5px] text-[#16202B] font-semibold">
+              <p className="text-xs sm:text-[13px] text-[#16202B] font-semibold">
                 A suggested preparation window, clearly identified as guidance rather than a guaranteed processing time.
               </p>
-              <p className="text-xs sm:text-[13px] text-[#5C6B7A] leading-relaxed">
+              <p className="text-xs text-[#5C6B7A] leading-relaxed">
                 KCL provides dispatch teams with operational planning guidance based on recent authority responsiveness, weekend/holiday office hours, and route complexities. We do not invent processing times or guarantee approvals, as final determinations rest exclusively with the sovereign authorities.
               </p>
             </div>
           </div>
 
-          <div className="bg-white border border-[#CBD5E1] p-3 rounded-[4px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[#5C6B7A]">
+          <div className="bg-white border border-[#CBD5E1] p-2.5 rounded-[4px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-xs text-[#5C6B7A]">
             <p>
               <strong className="text-[#0B2545]">Content Review Standard: </strong>
               Country permit rules and planning windows are verified against official State AIPs, CAA circulars, and verified local handler notices.
@@ -831,24 +831,24 @@ export default function FlightPermissionsPage() {
       {/* =========================================================================
           SECTION 8 — RELATED FLIGHT SUPPORT (Graphical Photo Bento Cards)
           ========================================================================= */}
-      <section className="py-10 sm:py-12 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
-            <div className="max-w-3xl space-y-1.5">
+      <section className="py-8 sm:py-10 bg-white border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3">
+            <div className="max-w-3xl space-y-1">
               <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
                 INTEGRATED AVIATION SERVICES
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
                 Beyond Permits. Coordinated Flight Support.
               </h2>
-              <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
+              <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
                 Permits are one part of a successful flight plan. KCL also helps coordinate essential support services across international operations.
               </p>
             </div>
             <div className="shrink-0">
               <Link
                 href="/services"
-                className="kcl-btn-outline-navy px-4 py-2 min-h-[40px] text-xs sm:text-sm font-semibold inline-flex items-center rounded-[2px]"
+                className="kcl-btn-outline-navy px-3.5 py-1.5 min-h-[36px] text-xs sm:text-sm font-semibold inline-flex items-center rounded-[2px]"
               >
                 All Services →
               </Link>
@@ -856,12 +856,12 @@ export default function FlightPermissionsPage() {
           </div>
 
           {/* Graphical Photo Cards matching Homepage Bento style */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 auto-rows-fr">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 auto-rows-fr">
             {RELATED_SERVICES.map((service) => (
               <Link
                 key={service.name}
                 href={service.href}
-                className="group relative overflow-hidden rounded-[6px] border border-white/20 flex flex-col justify-between p-4 sm:p-5 min-h-[200px] sm:min-h-[220px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white hover:-translate-y-1 transition-all duration-300 ease-out shadow-xs"
+                className="group relative overflow-hidden rounded-[6px] border border-white/20 flex flex-col justify-between p-3.5 sm:p-4 min-h-[175px] sm:min-h-[190px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white hover:-translate-y-1 transition-all duration-300 ease-out shadow-xs"
               >
                 {/* Full-bleed background photo */}
                 <Image
@@ -880,21 +880,21 @@ export default function FlightPermissionsPage() {
 
                 {/* Top: Mono number badge */}
                 <div className="relative z-10 flex items-center justify-between">
-                  <span className="font-mono text-[11px] font-semibold text-white/90 bg-white/10 backdrop-blur-xs border border-white/20 px-2 py-0.5 rounded-[2px] tracking-wider">
+                  <span className="font-mono text-[10.5px] font-semibold text-white/90 bg-white/10 backdrop-blur-xs border border-white/20 px-2 py-0.5 rounded-[2px] tracking-wider">
                     SVC {service.number}
                   </span>
                 </div>
 
                 {/* Bottom: Service title + description + hover arrow */}
-                <div className="relative z-10 space-y-1.5 mt-auto pt-4">
-                  <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
+                <div className="relative z-10 space-y-1 mt-auto pt-3">
+                  <h3 className="text-[15px] sm:text-base font-bold text-white leading-tight">
                     {service.name}
                   </h3>
-                  <p className="text-xs sm:text-[13px] text-slate-200/90 font-normal leading-snug line-clamp-2">
+                  <p className="text-[11.5px] sm:text-xs text-slate-200/90 font-normal leading-snug line-clamp-2">
                     {service.desc}
                   </p>
-                  <div className="pt-1">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#F4C400] group-hover:underline underline-offset-2">
+                  <div className="pt-0.5">
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#F4C400] group-hover:underline underline-offset-2">
                       View service details <span aria-hidden="true">→</span>
                     </span>
                   </div>
@@ -908,43 +908,64 @@ export default function FlightPermissionsPage() {
       {/* =========================================================================
           SECTION 9 — WHY KCL (Operational Pillars)
           ========================================================================= */}
-      <section className="py-10 sm:py-12 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="max-w-3xl space-y-1.5">
+      <section className="py-8 sm:py-10 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+          <div className="max-w-3xl space-y-1">
             <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
               OPERATIONAL EXPERIENCE
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               Operational Experience You Can Build On.
             </h2>
-            <p className="text-[#16202B] text-[15px] sm:text-base leading-relaxed">
+            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
               KCL combines international flight support capabilities with the longstanding aviation heritage of the Kashmirwala Group. Our approach emphasizes clear communication, practical coordination and attention to the operational details behind each flight.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
             {WHY_KCL_POINTS.map((item, idx) => (
               <div
                 key={item.title}
-                className="bg-white border border-[#CBD5E1] rounded-[6px] p-4 sm:p-5 space-y-2 hover:border-[#0B2545] hover:shadow-xs transition-all duration-200 flex flex-col justify-between"
+                className="bg-white border border-[#CBD5E1] rounded-[6px] p-3.5 sm:p-4 space-y-1.5 hover:border-[#0B2545] hover:shadow-xs transition-all duration-200 flex flex-col justify-between"
               >
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] font-bold text-[#B88200]">
+                    <span className="font-mono text-[10.5px] font-bold text-[#B88200]">
                       PILLAR 0{idx + 1}
                     </span>
                     <span className="h-1.5 w-1.5 rounded-full bg-[#0B2545]/20" />
                   </div>
-                  <h3 className="text-sm sm:text-base font-bold text-[#0B2545]">
+                  <h3 className="text-sm sm:text-[15px] font-bold text-[#0B2545]">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-[13px] text-[#5C6B7A] leading-relaxed">
+                  <p className="text-xs text-[#5C6B7A] leading-relaxed">
                     {item.detail}
                   </p>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 10 — FAQ
+          ========================================================================= */}
+      <section className="py-8 sm:py-10 bg-white border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+          <div className="max-w-3xl space-y-1">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
+              DISPATCH FAQS
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
+              Flight Permit Questions, Answered.
+            </h2>
+            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
+              Essential answers to frequent questions about overflight permits, landing approvals, lead times, and operational requirements.
+            </p>
+          </div>
+
+          <PermitFaqAccordion />
         </div>
       </section>
 
