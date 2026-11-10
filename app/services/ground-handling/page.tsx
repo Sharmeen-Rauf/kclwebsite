@@ -366,58 +366,151 @@ export default function GroundHandlingPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 7 — WHY KCL (Four Factual Points)
+          SECTION 7 — WHY KCL (Four Factual Points — Premium Aviation Feature Cards)
           ========================================================================= */}
-      <section className="py-12 sm:py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="max-w-3xl space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
+      <section className="py-14 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="max-w-3xl space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B2545]/5 border border-[#0B2545]/15 text-[#0B2545] text-xs sm:text-sm font-semibold">
+              <span className="w-2 h-2 rounded-full bg-[#0B2545]"></span>
+              <span>Aviation coordination standards</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545] tracking-tight">
               Why KCL
             </h2>
-            <p className="text-base sm:text-lg text-[#16202B] leading-relaxed">
+            <p className="text-base sm:text-lg text-[#475569] leading-relaxed">
               We bring proven aviation operations discipline to airport ground handling coordination.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2 shadow-xs border-t-4 border-t-[#0B2545]">
-              
-              <h3 className="text-lg font-bold text-[#0B2545]">
-                24/7 operations desk
-              </h3>
-              <p className="text-base text-[#5C6B7A] leading-relaxed">
-                Round-the-clock coordination team monitoring flight progress, schedule revisions and station communications across all time zones.
-              </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Card 1: 24/7 Operations Desk */}
+            <div
+              tabIndex={0}
+              className="group relative bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-xl p-6 sm:p-7 shadow-[0_2px_8px_rgba(11,37,69,0.04)] hover:shadow-[0_14px_30px_rgba(11,37,69,0.1)] hover:-translate-y-1.5 focus-visible:-translate-y-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545] focus-visible:ring-offset-2 transition-all duration-300 ease-out flex flex-col justify-between motion-reduce:transform-none motion-reduce:transition-none"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-[#0B2545] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 motion-safe:transition-transform motion-safe:duration-300">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z" />
+                    </svg>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200/80">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Live 24/7 Desk
+                  </span>
+                </div>
+
+                <div className="space-y-2 pt-1">
+                  <h3 className="text-[20px] font-bold text-[#0B2545] leading-snug">
+                    24/7 operations desk
+                  </h3>
+                  <p className="text-[16px] text-[#475569] leading-relaxed">
+                    Round-the-clock coordination team monitoring flight progress, schedule revisions and station communications across all time zones.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <div className="w-8 h-1 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-16 rounded-full motion-safe:transition-all motion-safe:duration-300"></div>
+              </div>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2 shadow-xs border-t-4 border-t-[#0B2545]">
-              
-              <h3 className="text-lg font-bold text-[#0B2545]">
-                Global network of ground handling partners
-              </h3>
-              <p className="text-base text-[#5C6B7A] leading-relaxed">
-                Established working relationships with licensed airport handlers and ramp service providers internationally.
-              </p>
+            {/* Card 2: Global Network */}
+            <div
+              tabIndex={0}
+              className="group relative bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-xl p-6 sm:p-7 shadow-[0_2px_8px_rgba(11,37,69,0.04)] hover:shadow-[0_14px_30px_rgba(11,37,69,0.1)] hover:-translate-y-1.5 focus-visible:-translate-y-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545] focus-visible:ring-offset-2 transition-all duration-300 ease-out flex flex-col justify-between motion-reduce:transform-none motion-reduce:transition-none"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-[#0B2545] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 motion-safe:transition-transform motion-safe:duration-300">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-[#E2E8F0] text-[#0B2545]">
+                    Worldwide stations
+                  </span>
+                </div>
+
+                <div className="space-y-2 pt-1">
+                  <h3 className="text-[20px] font-bold text-[#0B2545] leading-snug">
+                    Global network of ground handling partners
+                  </h3>
+                  <p className="text-[16px] text-[#475569] leading-relaxed">
+                    Established working relationships with licensed airport handlers and ramp service providers internationally.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <div className="w-8 h-1 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-16 rounded-full motion-safe:transition-all motion-safe:duration-300"></div>
+              </div>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2 shadow-xs border-t-4 border-t-[#0B2545]">
-              
-              <h3 className="text-lg font-bold text-[#0B2545]">
-                One point of contact for permits and airport services
-              </h3>
-              <p className="text-base text-[#5C6B7A] leading-relaxed">
-                Single operations channel synchronizing landing permits, parking slots, fueling and handling without scattered supplier communication.
-              </p>
+            {/* Card 3: One Point of Contact */}
+            <div
+              tabIndex={0}
+              className="group relative bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-xl p-6 sm:p-7 shadow-[0_2px_8px_rgba(11,37,69,0.04)] hover:shadow-[0_14px_30px_rgba(11,37,69,0.1)] hover:-translate-y-1.5 focus-visible:-translate-y-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545] focus-visible:ring-offset-2 transition-all duration-300 ease-out flex flex-col justify-between motion-reduce:transform-none motion-reduce:transition-none"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-[#0B2545] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 motion-safe:transition-transform motion-safe:duration-300">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    </svg>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-[#E2E8F0] text-[#0B2545]">
+                    Single channel
+                  </span>
+                </div>
+
+                <div className="space-y-2 pt-1">
+                  <h3 className="text-[20px] font-bold text-[#0B2545] leading-snug">
+                    One point of contact for permits and airport services
+                  </h3>
+                  <p className="text-[16px] text-[#475569] leading-relaxed">
+                    Single operations channel synchronizing landing permits, parking slots, fueling and handling without scattered supplier communication.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <div className="w-8 h-1 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-16 rounded-full motion-safe:transition-all motion-safe:duration-300"></div>
+              </div>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-2 shadow-xs border-t-4 border-t-[#0B2545]">
-              
-              <h3 className="text-lg font-bold text-[#0B2545]">
-                Part of the Kashmirwala Group, serving aviation since 1947
-              </h3>
-              <p className="text-base text-[#5C6B7A] leading-relaxed">
-                Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.
-              </p>
+            {/* Card 4: Heritage Since 1947 */}
+            <div
+              tabIndex={0}
+              className="group relative bg-[#0B2545] text-white border border-[#0B2545] rounded-xl p-6 sm:p-7 shadow-[0_4px_14px_rgba(11,37,69,0.18)] hover:shadow-[0_16px_36px_rgba(11,37,69,0.3)] hover:-translate-y-1.5 focus-visible:-translate-y-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545] focus-visible:ring-offset-2 transition-all duration-300 ease-out flex flex-col justify-between motion-reduce:transform-none motion-reduce:transition-none"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-white/10 text-white border border-white/20 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 motion-safe:transition-transform motion-safe:duration-300">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-white/15 text-white border border-white/25 backdrop-blur-xs">
+                    Heritage since 1947
+                  </span>
+                </div>
+
+                <div className="space-y-2 pt-1">
+                  <h3 className="text-[20px] font-bold text-white leading-snug">
+                    Part of the Kashmirwala Group, serving aviation since 1947
+                  </h3>
+                  <p className="text-[16px] text-slate-200/90 leading-relaxed">
+                    Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <div className="w-8 h-1 bg-white/40 group-hover:bg-white group-hover:w-16 rounded-full motion-safe:transition-all motion-safe:duration-300"></div>
+              </div>
             </div>
           </div>
         </div>
