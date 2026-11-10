@@ -145,10 +145,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         {/* Hero Content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
           <div className="max-w-3xl mx-auto space-y-4 sm:space-y-5">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F4C400] font-bold block">
-              {service.code} · {service.category.toUpperCase()}
-            </span>
-
             <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
               {service.h1}
             </h1>
