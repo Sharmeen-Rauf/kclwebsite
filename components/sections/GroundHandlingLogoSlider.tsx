@@ -3,9 +3,7 @@ import Image from "next/image";
 import { REAL_CLIENTS } from "@/content/clients";
 
 export function GroundHandlingLogoSlider() {
-  // Loop list for smooth continuous scrolling
   const approvedClients = REAL_CLIENTS;
-  const loopGroup = [...approvedClients, ...approvedClients, ...approvedClients];
 
   return (
     <div className="space-y-6">
@@ -22,32 +20,52 @@ export function GroundHandlingLogoSlider() {
         {/* Soft edge fade masks */}
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 left-0 w-12 sm:w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"
+          className="absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 right-0 w-12 sm:w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"
+          className="absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"
         />
 
-        {/* Marquee Track */}
-        <div className="flex w-max items-center gap-12 sm:gap-16 kcl-marquee-track hover:[animation-play-state:paused]">
-          {loopGroup.map((client, idx) => (
-            <div
-              key={`${client.name}-${idx}`}
-              className="flex items-center justify-center shrink-0 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
-            >
-              <Image
-                src={client.logo}
-                alt={client.alt}
-                width={140}
-                height={48}
-                className="h-9 sm:h-11 w-auto object-contain max-w-[130px]"
-              />
-            </div>
-          ))}
+        {/* Marquee Track: Continuous Smooth Linear Marquee Loop */}
+        <div className="logo-marquee-track flex items-center">
+          {/* First Half */}
+          <div className="flex items-center gap-12 sm:gap-16 pr-12 sm:pr-16 shrink-0">
+            {approvedClients.map((client, idx) => (
+              <div
+                key={`client-a-${client.icao}-${idx}`}
+                className="flex items-center justify-center shrink-0 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+              >
+                <Image
+                  src={client.logo}
+                  alt={client.alt}
+                  width={140}
+                  height={48}
+                  className="h-9 sm:h-11 w-auto object-contain max-w-[130px]"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Second Half (Duplicate for seamless infinite linear animation) */}
+          <div className="flex items-center gap-12 sm:gap-16 pr-12 sm:pr-16 shrink-0" aria-hidden="true">
+            {approvedClients.map((client, idx) => (
+              <div
+                key={`client-b-${client.icao}-${idx}`}
+                className="flex items-center justify-center shrink-0 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+              >
+                <Image
+                  src={client.logo}
+                  alt={client.alt}
+                  width={140}
+                  height={48}
+                  className="h-9 sm:h-11 w-auto object-contain max-w-[130px]"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 }
-

@@ -123,14 +123,18 @@
   }
 }
 
-.logo-marquee-track {
+.logo-marquee-track,
+.kcl-marquee-track {
   display: flex;
   width: max-content;
-  animation: kclLogoMarquee 32s linear infinite;
+  animation: kclLogoMarquee 26s linear infinite;
+  will-change: transform;
 }
 
 .logo-marquee-track:hover,
-.logo-marquee-track:focus-within {
+.logo-marquee-track:focus-within,
+.kcl-marquee-track:hover,
+.kcl-marquee-track:focus-within {
   animation-play-state: paused;
 }
 
