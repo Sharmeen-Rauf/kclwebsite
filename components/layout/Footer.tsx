@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CONTACT_DATA } from "@/content/contact";
-import { FooterLiveClocks } from "@/components/layout/FooterLiveClocks";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -204,9 +203,6 @@ export function Footer() {
                 </svg>
               </a>
             </div>
-
-            {/* 24/7 Operations Desk Live Clocks & AFPA Badge */}
-            <FooterLiveClocks />
           </div>
 
           {/* Column 2: Services */}
