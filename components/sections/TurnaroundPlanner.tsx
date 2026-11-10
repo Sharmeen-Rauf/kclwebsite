@@ -452,24 +452,37 @@ Note: No turnaround times or prices are estimated automatically. Final arrangeme
           {/* Horizontal Turnaround Flow Strip with dedicated icons */}
           <div className="overflow-x-auto pb-4 pt-2">
             <div className="min-w-[760px] relative">
-              {/* Connecting Taxi Line */}
+              {/* Connecting Animated Taxiway Centerline */}
               <div
                 aria-hidden="true"
-                className="absolute top-6 left-6 right-6 h-0.5 bg-[#CBD5E1] -z-0"
-              />
+                className="absolute top-6 left-6 right-6 h-3 -translate-y-1/2 -z-0 pointer-events-none"
+              >
+                <svg className="w-full h-full" preserveAspectRatio="none">
+                  <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#CBD5E1" strokeWidth="2" />
+                  <line
+                    x1="0"
+                    y1="50%"
+                    x2="100%"
+                    y2="50%"
+                    stroke="#0B2545"
+                    strokeWidth="2"
+                    className="taxiway-flow-line"
+                  />
+                </svg>
+              </div>
 
               {/* Sequence Nodes */}
               <div className="grid grid-cols-8 gap-2 relative z-10">
                 {TURNAROUND_NODES.map((node) => {
                   const active = isNodeActive(node);
                   return (
-                    <div key={node.id} className="flex flex-col items-center text-center space-y-2">
+                    <div key={node.id} className="flex flex-col items-center text-center space-y-2 group">
                       {/* Node Circle with specific icon */}
                       <div
-                        className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-200 ease-out motion-reduce:transition-none ${
+                        className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ease-out motion-reduce:transition-none ${
                           active
-                            ? "bg-[#0B2545] border-[#0B2545] text-white shadow-sm"
-                            : "bg-[#F8FAFC] border-[#CBD5E1] text-[#94A3B8]"
+                            ? "bg-[#0B2545] border-[#0B2545] text-white shadow-md ring-4 ring-[#0B2545]/15 scale-105"
+                            : "bg-[#F8FAFC] border-[#CBD5E1] text-[#94A3B8] group-hover:border-slate-400 group-hover:text-slate-600"
                         }`}
                       >
                         {node.icon(active)}

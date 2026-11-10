@@ -79,12 +79,27 @@ export default function GroundHandlingPage() {
             aria-hidden="true"
             className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/90 via-[#0B2545]/65 to-[#14406E]/40"
           />
-          
+          {/* Ambient Radar Sweep Visual */}
+          <div aria-hidden="true" className="absolute -top-24 -right-24 sm:-top-32 sm:-right-32 w-[380px] sm:w-[540px] h-[380px] sm:h-[540px] rounded-full border border-sky-400/10 pointer-events-none overflow-hidden opacity-30">
+            <div className="absolute inset-0 rounded-full border border-sky-400/15" />
+            <div className="absolute inset-16 sm:inset-24 rounded-full border border-sky-400/15" />
+            <div className="absolute inset-32 sm:inset-44 rounded-full border border-sky-400/15" />
+            <div className="absolute inset-0 radar-sweep-beam bg-gradient-to-tr from-sky-400/15 via-transparent to-transparent rounded-full" />
+          </div>
         </div>
 
         {/* Hero Content (Centered, Clean Layout) */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
           <div className="max-w-3xl mx-auto space-y-4 sm:space-y-5">
+            {/* Live Operational Status Pill */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-medium shadow-sm hover:bg-white/15 transition-all">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span>Live Operations Desk · Worldwide Handling Stations</span>
+            </div>
+
             <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
               Worldwide Ground Handling Coordination
             </h1>
@@ -101,14 +116,15 @@ export default function GroundHandlingPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
               <Link
                 href="/request-flight-support?service=ground-handling"
-                className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
+                className="relative overflow-hidden bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2 group"
               >
+                <span className="animate-btn-shimmer" />
                 <span>Request Ground Handling</span>
-                <span aria-hidden="true">→</span>
+                <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
               </Link>
               <a
                 href="#turnaround-planner"
-                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] hover:bg-white/15 transition-all"
               >
                 Plan My Turnaround
               </a>
@@ -124,15 +140,15 @@ export default function GroundHandlingPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs sm:text-[13px] font-bold text-[#0B2545]">
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-0.5 px-3.5 py-1.5 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
               Scheduled and non-scheduled flights
             </span>
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-0.5 px-3.5 py-1.5 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
               Short-notice requests
             </span>
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+            <span className="inline-flex items-center gap-2 bg-white border border-emerald-300 hover:border-emerald-500 hover:-translate-y-0.5 px-3.5 py-1.5 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200 bg-emerald-50/40">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
               24/7 operations desk support
             </span>
@@ -158,8 +174,14 @@ export default function GroundHandlingPage() {
             {GROUND_HANDLING_SERVICES.map((service) => (
               <div
                 key={service.id}
-                className="group bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] overflow-hidden flex flex-col justify-between hover:border-[#0B2545] hover:shadow-md hover:-translate-y-1 transition-all duration-300 ease-out motion-reduce:transition-none motion-reduce:transform-none"
+                className="group relative bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] overflow-hidden flex flex-col justify-between hover:border-[#0B2545] hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 ease-out motion-reduce:transition-none motion-reduce:transform-none"
               >
+                {/* Top Animated Border Accent */}
+                <div
+                  aria-hidden="true"
+                  className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0B2545] via-sky-500 to-[#0B2545] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"
+                />
+
                 {/* Image on top with navy duotone overlay */}
                 <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-900">
                   <Image
@@ -167,14 +189,14 @@ export default function GroundHandlingPage() {
                     alt={service.alt}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover object-center group-hover:scale-[1.04] motion-safe:transition-transform motion-safe:duration-500 ease-out motion-reduce:transform-none"
+                    className="object-cover object-center group-hover:scale-105 motion-safe:transition-transform motion-safe:duration-700 ease-out motion-reduce:transform-none"
                   />
                   <div
                     aria-hidden="true"
                     className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/85 via-[#0B2545]/40 to-black/15 group-hover:from-[#0B2545]/90 transition-colors duration-300"
                   />
                   <div className="absolute bottom-3 left-4 right-4 z-10">
-                    <h3 className="text-lg font-bold text-white leading-tight drop-shadow-xs">
+                    <h3 className="text-lg font-bold text-white leading-tight drop-shadow-xs group-hover:translate-x-0.5 transition-transform duration-200">
                       {service.name}
                     </h3>
                   </div>
@@ -192,7 +214,7 @@ export default function GroundHandlingPage() {
                       className="text-sm font-bold text-[#0B2545] group-hover:text-[#133661] hover:underline underline-offset-4 inline-flex items-center gap-1.5 transition-colors"
                     >
                       <span>Coordinate {service.name.toLowerCase()}</span>
-                      <span aria-hidden="true">→</span>
+                      <span aria-hidden="true" className="group-hover:translate-x-1.5 motion-safe:transition-transform duration-200">→</span>
                     </Link>
                   </div>
                 </div>
@@ -238,11 +260,11 @@ export default function GroundHandlingPage() {
             {GROUND_HANDLING_FLIGHTS_SUPPORTED.map((flight) => (
               <div
                 key={flight.title}
-                className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 flex flex-col justify-between space-y-4 shadow-xs hover:border-[#0B2545] hover:shadow-sm transition-all focus-within:ring-2 focus-within:ring-[#0B2545]"
+                className="group bg-white border border-[#CBD5E1] rounded-[6px] p-6 flex flex-col justify-between space-y-4 shadow-xs hover:border-[#0B2545] hover:shadow-md hover:-translate-y-1 transition-all duration-300 focus-within:ring-2 focus-within:ring-[#0B2545] motion-reduce:transform-none motion-reduce:transition-none"
               >
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
-                    <span className="w-9 h-9 rounded-full bg-[#0B2545] text-white flex items-center justify-center shrink-0">
+                    <span className="w-9 h-9 rounded-full bg-[#0B2545] text-white flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-[#133661] group-hover:rotate-6 motion-safe:transition-all motion-safe:duration-300">
                       {flight.flightType === "airline" && (
                         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                           <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -292,7 +314,7 @@ export default function GroundHandlingPage() {
                     className="text-[15px] font-bold text-[#0B2545] hover:text-[#133661] underline-offset-4 hover:underline inline-flex items-center gap-1.5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0B2545] focus-visible:ring-offset-2 rounded-[2px]"
                   >
                     <span>Request handling</span>
-                    <span aria-hidden="true">→</span>
+                    <span aria-hidden="true" className="group-hover:translate-x-1.5 motion-safe:transition-transform duration-200">→</span>
                   </Link>
                 </div>
               </div>

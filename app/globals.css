@@ -235,9 +235,94 @@
   animation: planeTraverse 3.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
+/* Aviation Creative Animations */
+@keyframes taxiwayDash {
+  from {
+    stroke-dashoffset: 48;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.taxiway-flow-line {
+  stroke-dasharray: 6 6;
+  animation: taxiwayDash 2.5s linear infinite;
+}
+
+@keyframes buttonShimmer {
+  0% {
+    transform: translateX(-150%) skewX(-15deg);
+  }
+  25%, 100% {
+    transform: translateX(250%) skewX(-15deg);
+  }
+}
+
+.animate-btn-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  animation: buttonShimmer 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-sweep-beam {
+  animation: radarSweep 8s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes timelineSignalFlow {
+  0% {
+    left: 2%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    left: 98%;
+    opacity: 0;
+  }
+}
+
+.timeline-signal-dot {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #38BDF8;
+  border-radius: 9999px;
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px #38BDF8, 0 0 20px #38BDF8;
+  animation: timelineSignalFlow 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .taxiway-flow-line,
+  .animate-btn-shimmer,
+  .radar-sweep-beam,
+  .timeline-signal-dot {
+    animation: none !important;
+    display: none !important;
   }
   .hero-zoom-photo {
     animation: none !important;

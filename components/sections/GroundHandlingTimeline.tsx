@@ -217,16 +217,19 @@ export function GroundHandlingTimeline() {
             <div className="grid grid-cols-5 gap-6 flex-1 relative py-3">
               <div
                 aria-hidden="true"
-                className="absolute top-1/2 left-8 right-8 h-[2px] bg-[#0B2545] -translate-y-1/2 -z-0"
-              />
+                className="absolute top-1/2 left-8 right-8 h-[2px] bg-[#0B2545] -translate-y-1/2 -z-0 overflow-visible pointer-events-none"
+              >
+                {/* Flowing coordination signal dot */}
+                <div className="timeline-signal-dot" />
+              </div>
 
               {TIMELINE_STEPS.map((step, idx) => (
-                <div key={step.number} className="flex justify-center relative z-10">
+                <div key={step.number} className="flex justify-center relative z-10 group">
                   <div
                     style={{
                       transitionDelay: hasScrolledIntoView ? `${idx * 200}ms` : "0ms",
                     }}
-                    className={`w-9 h-9 rounded-full border-2 border-white bg-[#0B2545] text-white flex items-center justify-center font-bold text-[14px] shadow-sm transition-all duration-300 motion-reduce:transition-none ${
+                    className={`w-9 h-9 rounded-full border-2 border-white bg-[#0B2545] text-white flex items-center justify-center font-bold text-[14px] shadow-sm group-hover:scale-110 group-hover:ring-4 group-hover:ring-[#0B2545]/20 transition-all duration-300 motion-reduce:transition-none cursor-default ${
                       hasScrolledIntoView ? "scale-100 opacity-100" : "scale-90 opacity-90"
                     }`}
                   >
