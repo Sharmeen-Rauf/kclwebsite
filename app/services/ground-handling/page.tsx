@@ -104,87 +104,36 @@ export default function GroundHandlingPage() {
           </svg>
         </div>
 
-        {/* Hero Content Grid */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left 7 Cols: Headline, Subhead & Action Buttons */}
-            <div className="lg:col-span-7 space-y-5">
-              <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-white leading-[1.16] tracking-tight">
-                Worldwide Ground Handling Coordination
-              </h1>
+        {/* Hero Content (Centered, Clean Layout) */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
+          <div className="max-w-3xl mx-auto space-y-4 sm:space-y-5">
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
+              Worldwide Ground Handling Coordination
+            </h1>
 
-              <p className="text-lg sm:text-xl font-semibold text-slate-100 max-w-2xl leading-snug">
-                We arrange aircraft, passenger, baggage and cargo handling through trusted partners at the airport, and keep you updated from arrival to departure.
-              </p>
+            <p className="text-base sm:text-lg lg:text-xl font-semibold text-slate-100 max-w-2xl mx-auto">
+              We arrange aircraft, passenger, baggage and cargo handling through trusted partners at the airport, and keep you updated from arrival to departure.
+            </p>
 
-              <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-normal">
-                Whether you operate a commercial passenger turnaround, an urgent cargo flight or a technical fuel stop, KCL coordinates every ramp service with verified airport providers under one operations desk.
-              </p>
+            <p className="text-xs sm:text-sm lg:text-[15.5px] text-slate-200 leading-relaxed max-w-2xl mx-auto">
+              Whether you operate a commercial passenger turnaround, an urgent cargo flight or a technical fuel stop, KCL coordinates every ramp service with verified airport providers under one operations desk.
+            </p>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
-                <Link
-                  href="/request-flight-support?service=ground-handling"
-                  className="bg-[#0B2545] hover:bg-[#133661] text-white border-2 border-white min-h-[48px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
-                >
-                  <span>Request Ground Handling</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
-                <a
-                  href="#turnaround-planner"
-                  className="kcl-btn-outline-white min-h-[48px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
-                >
-                  Plan My Turnaround
-                </a>
-              </div>
-            </div>
-
-            {/* Right 5 Cols: Frosted Snapshot Card */}
-            <div className="lg:col-span-5">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-[6px] p-6 sm:p-7 space-y-4 shadow-lg text-white">
-                <div className="border-b border-white/15 pb-3">
-                  <h2 className="text-base font-bold text-white tracking-wide uppercase font-mono">
-                    Service Capabilities Snapshot
-                  </h2>
-                  <p className="text-xs text-slate-300 mt-0.5">
-                    Coordinated ground handling support across international aerodromes
-                  </p>
-                </div>
-
-                <ul className="space-y-3 text-sm sm:text-[15px]">
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs text-white">
-                      ✓
-                    </span>
-                    <span className="font-medium text-slate-100">
-                      Aircraft, passenger, baggage and cargo handling
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs text-white">
-                      ✓
-                    </span>
-                    <span className="font-medium text-slate-100">
-                      Fuelling coordination
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs text-white">
-                      ✓
-                    </span>
-                    <span className="font-medium text-slate-100">
-                      Turnaround management
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs text-white">
-                      ✓
-                    </span>
-                    <span className="font-medium text-slate-100">
-                      24/7 operations desk
-                    </span>
-                  </li>
-                </ul>
-              </div>
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
+              <Link
+                href="/request-flight-support?service=ground-handling"
+                className="bg-[#0B2545] hover:bg-[#133661] text-white border-2 border-white min-h-[48px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
+              >
+                <span>Request Ground Handling</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+              <a
+                href="#turnaround-planner"
+                className="kcl-btn-outline-white border-t-2 border-t-[#CBD5E1] min-h-[48px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+              >
+                Plan My Turnaround
+              </a>
             </div>
           </div>
         </div>
