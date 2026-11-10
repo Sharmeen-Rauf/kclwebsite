@@ -123,14 +123,14 @@ export default function GroundHandlingPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
               <Link
                 href="/request-flight-support?service=ground-handling"
-                className="bg-[#0B2545] hover:bg-[#133661] text-white border-2 border-white min-h-[48px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
+                className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
               >
                 <span>Request Ground Handling</span>
                 <span aria-hidden="true">→</span>
               </Link>
               <a
                 href="#turnaround-planner"
-                className="kcl-btn-outline-white border-t-2 border-t-[#CBD5E1] min-h-[48px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
               >
                 Plan My Turnaround
               </a>
