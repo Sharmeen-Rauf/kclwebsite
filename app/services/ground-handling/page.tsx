@@ -9,7 +9,6 @@ import {
   buildBreadcrumbJsonLd,
   buildFaqJsonLd,
 } from "@/components/seo/JsonLd";
-import { CONTACT_DATA } from "@/content/contact";
 import {
   GROUND_HANDLING_SERVICES,
   GROUND_HANDLING_FAQS,
@@ -514,81 +513,7 @@ export default function GroundHandlingPage() {
         </div>
       </section>
 
-      {/* =========================================================================
-          SECTION 10 — FINAL CTA BAND (One Only)
-          ========================================================================= */}
-      <section className="py-14 sm:py-18 bg-[#0B2545] text-white relative overflow-hidden">
-        {/* Subtle background route art */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-10 -bottom-14 sm:-bottom-10 opacity-[0.05] text-white"
-        >
-          <svg className="w-80 h-80 sm:w-96 sm:h-96" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="max-w-3xl space-y-3">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight">
-              Make the Ground Arrangements Part of the Plan.
-            </h2>
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
-              Send us your aircraft type, airport and UTC schedule.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <Link
-              href="/request-flight-support?service=ground-handling"
-              className="bg-white hover:bg-slate-100 text-[#0B2545] font-bold text-sm sm:text-base min-h-[48px] px-8 py-3.5 rounded-[2px] transition-colors text-center inline-flex items-center justify-center gap-2 shadow-sm"
-            >
-              <span>Request Ground Handling</span>
-              <span aria-hidden="true">→</span>
-            </Link>
-
-            <a
-              href={`tel:${CONTACT_DATA.primaryPhone.replace(/\s+/g, "")}`}
-              className="kcl-btn-outline-white min-h-[48px] px-7 py-3.5 font-semibold text-sm sm:text-base inline-flex items-center justify-center gap-2"
-            >
-              <span>Call the Ops Desk</span>
-            </a>
-          </div>
-
-          {/* Contact Details from /content/contact.ts */}
-          <div className="pt-6 border-t border-white/15 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs sm:text-sm text-slate-300">
-            <div>
-              <span className="text-slate-400 block text-[11px] font-mono uppercase">Operations Desk:</span>
-              <a
-                href={`mailto:${CONTACT_DATA.opsEmail}`}
-                className="text-white font-mono font-semibold hover:underline"
-              >
-                {CONTACT_DATA.opsEmail}
-              </a>
-            </div>
-
-            <div>
-              <span className="text-slate-400 block text-[11px] font-mono uppercase">Primary Phone (24/7):</span>
-              <a
-                href={`tel:${CONTACT_DATA.primaryPhone.replace(/\s+/g, "")}`}
-                className="text-white font-mono font-semibold hover:underline"
-              >
-                {CONTACT_DATA.primaryPhone}
-              </a>
-            </div>
-
-            <div>
-              <span className="text-slate-400 block text-[11px] font-mono uppercase">Secondary Phone:</span>
-              <a
-                href={`tel:${CONTACT_DATA.secondaryPhone.replace(/\s+/g, "")}`}
-                className="text-white font-mono font-semibold hover:underline"
-              >
-                {CONTACT_DATA.secondaryPhone}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </>
   );
 }
