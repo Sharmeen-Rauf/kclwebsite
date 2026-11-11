@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { submitPermitRequestAction } from "@/lib/actions";
+import { ComplementaryServicesSlider } from "@/components/sections/ComplementaryServicesSlider";
 
 interface ServiceQuickPlannerProps {
   slug: string;
@@ -607,17 +608,8 @@ Note: No prices or turnaround times are calculated automatically. Final arrangem
           )}
         </div>
 
-        {/* Complementary Services Single Line */}
-        <div className="pt-3 border-t border-[#CBD5E1]/60 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-[#5C6B7A]">
-          <span className="font-semibold text-[#0B2545]">We can also arrange:</span>
-          <Link href="/services/ground-handling" className="text-[#0B2545] font-semibold hover:underline">Ground Handling</Link>
-          <span>·</span>
-          <Link href="/services/aviation-fuel" className="text-[#0B2545] font-semibold hover:underline">Fuel</Link>
-          <span>·</span>
-          <Link href="/services/crew-logistics" className="text-[#0B2545] font-semibold hover:underline">Crew Hotels</Link>
-          <span>·</span>
-          <Link href="/services/flight-permissions" className="text-[#0B2545] font-semibold hover:underline">Permits</Link>
-        </div>
+        {/* Unique Complementary Services Cards Slider */}
+        <ComplementaryServicesSlider currentServiceSlug={slug} />
       </div>
     </div>
   );

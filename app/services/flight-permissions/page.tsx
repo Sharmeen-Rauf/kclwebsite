@@ -13,6 +13,7 @@ import { PermitRequirementSelector } from "@/components/sections/PermitRequireme
 import { ClientStrip } from "@/components/sections/ClientStrip";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
+import { ComplementaryServicesSlider } from "@/components/sections/ComplementaryServicesSlider";
 import { INTERNATIONAL_PERMIT_FAQS } from "@/content/faqs";
 
 export const metadata = buildMetadata({
@@ -303,17 +304,8 @@ export default function FlightPermissionsPage() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <PermitRequirementSelector />
 
-          {/* Complementary Services Single Line */}
-          <div className="pt-3 border-t border-[#CBD5E1]/60 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-[#5C6B7A]">
-            <span className="font-semibold text-[#0B2545]">We can also arrange:</span>
-            <Link href="/services/ground-handling" className="text-[#0B2545] font-semibold hover:underline">Ground Handling</Link>
-            <span>·</span>
-            <Link href="/services/aviation-fuel" className="text-[#0B2545] font-semibold hover:underline">Fuel</Link>
-            <span>·</span>
-            <Link href="/services/crew-logistics" className="text-[#0B2545] font-semibold hover:underline">Crew Hotels</Link>
-            <span>·</span>
-            <Link href="/services/airport-slot-coordination" className="text-[#0B2545] font-semibold hover:underline">Airport Slots</Link>
-          </div>
+          {/* Unique Complementary Services Cards Slider */}
+          <ComplementaryServicesSlider currentServiceSlug="flight-permissions" />
         </div>
       </section>
 
