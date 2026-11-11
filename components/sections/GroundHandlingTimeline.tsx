@@ -184,8 +184,8 @@ export function GroundHandlingTimeline() {
               }}
               className={`group rounded-[6px] p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 motion-reduce:transition-none hover:-translate-y-1 hover:shadow-md ${
                 step.lane === "KCL"
-                  ? "bg-white/95 backdrop-blur-xs border-2 border-[#0B2545]/25 hover:border-[#0B2545] shadow-xs"
-                  : "bg-white/80 backdrop-blur-xs border border-[#CBD5E1] hover:border-[#0B2545] shadow-2xs"
+                  ? "bg-white/95 backdrop-blur-xs border-2 border-[#0B2545]/25 hover:border-[#F4C400] shadow-xs"
+                  : "bg-white/80 backdrop-blur-xs border border-[#CBD5E1] hover:border-[#F4C400] shadow-2xs"
               } ${
                 hasScrolledIntoView ? "opacity-100 translate-y-0" : "opacity-90 translate-y-1"
               }`}

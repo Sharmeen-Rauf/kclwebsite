@@ -187,7 +187,7 @@ export default function FlightPermissionsPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <Link
                 href="/request-flight-support"
-                className="relative overflow-hidden bg-[#0B2545] hover:bg-[#133661] text-white border border-white/30 min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2 group"
+                className="relative overflow-hidden bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-sm min-h-[44px] px-7 py-3 inline-flex items-center justify-center rounded-[2px] transition-all shadow-md hover:shadow-lg gap-2 group"
               >
                 <span className="animate-btn-shimmer" />
                 <span>Request a Flight Permit</span>
@@ -195,7 +195,7 @@ export default function FlightPermissionsPage() {
               </Link>
               <a
                 href="#permit-selector"
-                className="kcl-btn-outline-white min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] hover:bg-white/15 transition-all"
+                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] hover:bg-white/15 transition-all"
               >
                 Check Document Requirements
               </a>
@@ -216,7 +216,7 @@ export default function FlightPermissionsPage() {
               Scheduled and non-scheduled flights
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-0.5 px-3 py-1 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200">
-              <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
+              <span className="h-2 w-2 rounded-full bg-[#F4C400]" />
               Short-notice requests
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-emerald-300 hover:border-emerald-500 hover:-translate-y-0.5 px-3 py-1 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200 bg-emerald-50/40">
@@ -247,10 +247,10 @@ export default function FlightPermissionsPage() {
                 key={item.name}
                 className="snap-center shrink-0 w-[82vw] sm:w-auto group relative bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] overflow-hidden flex flex-col justify-between hover:border-[#0B2545] hover:shadow-md hover:-translate-y-1 transition-all duration-300 ease-out motion-reduce:transform-none motion-reduce:transition-none"
               >
-                {/* Top Animated Shimmer Border Accent */}
+                {/* Top Animated Shimmer Border Accent with Gold Glow */}
                 <div
                   aria-hidden="true"
-                  className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0B2545] via-sky-500 to-[#0B2545] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"
+                  className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"
                 />
 
                 <div className="relative h-36 sm:h-40 w-full overflow-hidden bg-slate-900">
@@ -486,7 +486,7 @@ export default function FlightPermissionsPage() {
                   Continuous watch officers processing urgent clearances and re-routings across all time zones.
                 </p>
                 <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
+                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#F4C400] group-hover:w-12 rounded-full transition-all duration-300" />
                 </div>
               </div>
 
@@ -497,7 +497,7 @@ export default function FlightPermissionsPage() {
                   Established direct communication with Civil Aviation Authorities and air traffic control centers.
                 </p>
                 <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
+                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#F4C400] group-hover:w-12 rounded-full transition-all duration-300" />
                 </div>
               </div>
 
@@ -508,7 +508,7 @@ export default function FlightPermissionsPage() {
                   Synchronized permits, handling, fuel, and layovers without fragmented communications.
                 </p>
                 <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
+                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#F4C400] group-hover:w-12 rounded-full transition-all duration-300" />
                 </div>
               </div>
 
@@ -519,7 +519,7 @@ export default function FlightPermissionsPage() {
                   Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.
                 </p>
                 <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
+                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#F4C400] group-hover:w-12 rounded-full transition-all duration-300" />
                 </div>
               </div>
             </div>

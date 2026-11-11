@@ -306,10 +306,10 @@
   top: 50%;
   width: 10px;
   height: 10px;
-  background-color: #38BDF8;
+  background-color: #F4C400;
   border-radius: 9999px;
   transform: translateY(-50%);
-  box-shadow: 0 0 10px #38BDF8, 0 0 20px #38BDF8;
+  box-shadow: 0 0 10px #F4C400, 0 0 18px rgba(244, 196, 0, 0.8);
   animation: timelineSignalFlow 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 

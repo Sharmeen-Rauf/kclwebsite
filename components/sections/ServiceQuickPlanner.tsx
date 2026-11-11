@@ -539,7 +539,7 @@ Note: No prices or turnaround times are calculated automatically. Final arrangem
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs sm:text-sm text-[#475569]">
                 {checklist.map((c) => (
                   <li key={c} className="flex items-start gap-1.5">
-                    <span className="text-[#0B2545] font-bold" aria-hidden="true">✓</span>
+                    <span className="text-[#B88200] font-bold" aria-hidden="true">✓</span>
                     <span>{c}</span>
                   </li>
                 ))}
@@ -550,10 +550,11 @@ Note: No prices or turnaround times are calculated automatically. Final arrangem
           <div className="pt-3 border-t border-[#CBD5E1]/60 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
             <Link
               href={requestHref}
-              className="bg-[#0B2545] hover:bg-[#133661] text-white font-bold text-[14px] px-6 py-3 rounded-[2px] transition-colors shadow-xs inline-flex items-center justify-center gap-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0B2545]"
+              className="relative overflow-hidden bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-[14px] px-6 py-3 rounded-[2px] transition-all shadow-sm hover:shadow-md inline-flex items-center justify-center gap-2 group focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#F4C400]"
             >
+              <span className="animate-btn-shimmer" />
               <span>Start My Request</span>
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
             </Link>
 
             <button

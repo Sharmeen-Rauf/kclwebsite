@@ -98,7 +98,7 @@ export default function ServicesOverviewPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
               <Link
                 href="/request-flight-support"
-                className="relative overflow-hidden bg-[#0B2545] hover:bg-[#133661] text-white border border-white/30 min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2 group"
+                className="relative overflow-hidden bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-sm min-h-[44px] px-7 py-3 inline-flex items-center justify-center rounded-[2px] transition-all shadow-md hover:shadow-lg gap-2 group"
               >
                 <span className="animate-btn-shimmer" />
                 <span>Request Flight Support</span>
@@ -106,7 +106,7 @@ export default function ServicesOverviewPage() {
               </Link>
               <a
                 href="#services-directory"
-                className="bg-white/10 hover:bg-white/20 text-white border border-white/30 min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] backdrop-blur-xs transition-colors"
+                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] hover:bg-white/15 transition-all"
               >
                 Explore Core Services
               </a>
@@ -131,7 +131,7 @@ export default function ServicesOverviewPage() {
               Scheduled and non-scheduled flights
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs hover:border-[#0B2545]/40 transition-colors">
-              <span className="h-2 w-2 rounded-full bg-[#133661]" />
+              <span className="h-2 w-2 rounded-full bg-[#F4C400]" />
               Short-notice requests
             </span>
           </div>
@@ -161,8 +161,8 @@ export default function ServicesOverviewPage() {
                 key={pillar.code}
                 className="group relative bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-6 flex flex-col justify-between space-y-4 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden"
               >
-                {/* Top subtle shimmer border on hover */}
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0B2545] via-sky-500 to-[#0B2545] opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Top subtle shimmer border on hover with Gold Glow */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] opacity-0 group-hover:opacity-100 transition-opacity" />
 
                 <div className="space-y-3">
                   <span className="text-xs font-bold text-[#0B2545] bg-white border border-[#CBD5E1] px-2.5 py-0.5 inline-block rounded-[2px]">

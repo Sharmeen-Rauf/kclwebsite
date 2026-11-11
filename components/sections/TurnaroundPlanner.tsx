@@ -515,7 +515,7 @@ Note: No turnaround times or prices are estimated automatically. Final arrangeme
                   key={item.label}
                   className="flex items-start gap-2 bg-[#F8FAFC] p-2.5 rounded-[4px] border border-[#CBD5E1]/60"
                 >
-                  <span className="text-[#0B2545] font-bold text-sm leading-none shrink-0 mt-0.5" aria-hidden="true">
+                  <span className="text-[#B88200] font-bold text-sm leading-none shrink-0 mt-0.5" aria-hidden="true">
                     ✓
                   </span>
                   <div className="leading-snug">
@@ -536,10 +536,11 @@ Note: No turnaround times or prices are estimated automatically. Final arrangeme
             <div className="pt-3 border-t border-[#CBD5E1]/60 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
               <Link
                 href={requestHref}
-                className="bg-[#0B2545] hover:bg-[#133661] text-white font-bold text-[14px] px-6 py-3 rounded-[2px] transition-colors shadow-xs inline-flex items-center justify-center gap-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0B2545] focus-visible:ring-offset-2 motion-reduce:transition-none"
+                className="relative overflow-hidden bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-[14px] px-6 py-3 rounded-[2px] transition-all shadow-sm hover:shadow-md inline-flex items-center justify-center gap-2 group focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#F4C400] focus-visible:ring-offset-2 motion-reduce:transition-none"
               >
+                <span className="animate-btn-shimmer" />
                 <span>Start My Request</span>
-                <span aria-hidden="true">→</span>
+                <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
               </Link>
 
               <button

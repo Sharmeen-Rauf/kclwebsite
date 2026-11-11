@@ -62,8 +62,8 @@ export function FlightPathDivider({
           />
 
           {/* Waypoint nodes */}
-          <circle cx="320" cy={variant === "curve-down" ? 24 : 16} r="2.5" fill="#13A0D8" opacity="0.6" />
-          <circle cx="960" cy={variant === "curve-down" ? 24 : 16} r="2.5" fill="#0B2545" opacity="0.4" />
+          <circle cx="320" cy={variant === "curve-down" ? 24 : 16} r="2.5" fill="#F4C400" opacity="0.9" />
+          <circle cx="960" cy={variant === "curve-down" ? 24 : 16} r="2.5" fill="#F4C400" opacity="0.75" />
 
           {/* Airplane traversing flight-path (pure CSS offset-path or translate) */}
           <g
@@ -76,8 +76,8 @@ export function FlightPathDivider({
           >
             <path
               d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
-              fill="#0B2545"
-              className="w-3.5 h-3.5 drop-shadow-xs transform rotate-90 scale-[0.65]"
+              fill="#F4C400"
+              className="w-3.5 h-3.5 drop-shadow-[0_1px_3px_rgba(244,196,0,0.5)] transform rotate-90 scale-[0.7]"
             />
           </g>
         </svg>
