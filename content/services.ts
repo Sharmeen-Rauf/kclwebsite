@@ -926,6 +926,7 @@ export const SERVICES_DATA: ServiceDefinition[] = [
       href: "/news/what-to-send-with-a-permit-request",
     },
     presetPermitType: "landing",
+    hideFinalCta: true,
     finalCtaHeading: "Plan Aircraft Fuel Around the Real Operation.",
     finalCtaSubheading:
       "Share your airport, UTC schedule, aircraft type, and estimated uplift requirements with KCL.",
