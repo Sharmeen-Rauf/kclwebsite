@@ -509,16 +509,16 @@ Note: No turnaround times or prices are estimated automatically. Final arrangeme
               What to send for your {currentTypeObj.label.toLowerCase()} request:
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-[15px] text-[#16202B]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-[#16202B]">
               {checklistItems.map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-start gap-2.5 bg-[#F8FAFC] p-3.5 rounded-[4px] border border-[#CBD5E1]/60"
+                  className="flex items-start gap-2 bg-[#F8FAFC] p-2.5 rounded-[4px] border border-[#CBD5E1]/60"
                 >
-                  <span className="text-[#0B2545] font-bold text-lg leading-none shrink-0" aria-hidden="true">
+                  <span className="text-[#0B2545] font-bold text-sm leading-none shrink-0 mt-0.5" aria-hidden="true">
                     ✓
                   </span>
-                  <div className="leading-relaxed">
+                  <div className="leading-snug">
                     <strong className="text-[#0B2545]">{item.label}:</strong> {item.text}
                   </div>
                 </div>
@@ -613,6 +613,18 @@ Note: No turnaround times or prices are estimated automatically. Final arrangeme
                 )}
               </div>
             )}
+
+            {/* Complementary Services Single Line */}
+            <div className="mt-4 pt-3 border-t border-[#CBD5E1]/60 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-[#5C6B7A]">
+              <span className="font-semibold text-[#0B2545]">We can also arrange:</span>
+              <Link href="/services/aviation-fuel" className="text-[#0B2545] font-semibold hover:underline">Fuel</Link>
+              <span>·</span>
+              <Link href="/services/crew-logistics" className="text-[#0B2545] font-semibold hover:underline">Crew Hotels</Link>
+              <span>·</span>
+              <Link href="/services/flight-permissions" className="text-[#0B2545] font-semibold hover:underline">Permits</Link>
+              <span>·</span>
+              <Link href="/services/inflight-catering" className="text-[#0B2545] font-semibold hover:underline">Inflight Catering</Link>
+            </div>
           </div>
         </div>
       </div>

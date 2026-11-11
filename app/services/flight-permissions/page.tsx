@@ -10,8 +10,8 @@ import {
   buildFaqJsonLd,
 } from "@/components/seo/JsonLd";
 import { PermitRequirementSelector } from "@/components/sections/PermitRequirementSelector";
-import { GlobalCoverageMap } from "@/components/sections/GlobalCoverageMap";
-import { PermitFaqAccordion } from "@/components/sections/PermitFaqAccordion";
+import { ClientStrip } from "@/components/sections/ClientStrip";
+import { CtaBanner } from "@/components/sections/CtaBanner";
 import { INTERNATIONAL_PERMIT_FAQS } from "@/content/faqs";
 
 export const metadata = buildMetadata({
@@ -24,317 +24,62 @@ export const metadata = buildMetadata({
 
 const PERMIT_TYPES = [
   {
-    number: "01",
     name: "Overflight Permits",
-    badge: "TRANSIT",
     image: "/img/services/01-permits.webp",
     alt: "Cockpit flight deck waypoint navigation display for overflight permit transit",
-    summary:
-      "Permission for an aircraft to enter, cross, and exit a sovereign nation's Flight Information Region (FIR) along designated ATS airways without making a physical landing.",
-    typicalUseCase:
-      "International long-haul commercial flights, cargo transit corridors, and intercontinental private jet ferry routes crossing multiple sovereign airspaces.",
-    kclCoordinates:
-      "Diplomatic clearance applications, ATS route validation, entry/exit fix synchronization, and active follow-up with sovereign civil aviation authorities.",
-    actionLabel: "Learn about overflight permits",
+    summary: "Airspace entry, transit and exit clearances along designated ATS airways.",
     actionHref: "/services/overflight-permits",
   },
   {
-    number: "02",
     name: "Landing Permits",
-    badge: "AERODROME",
     image: "/img/services/08-slots.webp",
     alt: "Airport runway approach lights and air traffic tower for landing clearance",
-    summary:
-      "Formal regulatory approval authorizing an international civil aircraft to land at a designated foreign aerodrome for scheduled, commercial, or private operations.",
-    typicalUseCase:
-      "Commercial passenger disembarkation, air cargo uplifting or discharge, technical refueling stops, crew rest layovers, and aircraft maintenance.",
-    kclCoordinates:
-      "Direct filing with destination civil aviation authorities, aerodrome operator coordination, landing number verification, and schedule slot synchronization.",
-    actionLabel: "Learn about landing permits",
+    summary: "Destination aerodrome approvals for commercial, technical or cargo stops.",
     actionHref: "/services/landing-permits",
   },
   {
-    number: "03",
-    name: "PPR Coordination",
-    badge: "PRIOR NOTICE",
+    name: "Airport Slots & PPR",
     image: "/img/services/02-ground.webp",
     alt: "Airport ramp parking stand and aircraft ground turnaround coordination",
-    summary:
-      "Prior Permission Required (PPR) authorization negotiated directly with airport operating authorities prior to aircraft departure.",
-    typicalUseCase:
-      "High-density international hubs, capacity-constrained airports, peak travel seasons, and aerodromes with limited overnight ramp or hangar parking.",
-    kclCoordinates:
-      "Submission of arrival/departure times, apron parking confirmation, ground handling verification, and local coordinator alignment before permit validation.",
-    actionLabel: "Explore slot & PPR coordination",
+    summary: "Runway arrival slots and parking authorizations coordinated with airport operators.",
     actionHref: "/services/airport-slot-coordination",
   },
   {
-    number: "04",
-    name: "Block Permits",
-    badge: "SEASONAL",
+    name: "Block & Seasonal Permits",
     image: "/img/services/07-dispatch.webp",
     alt: "Flight planning dispatch desk with route maps and seasonal timetable charts",
-    summary:
-      "A consolidated regulatory authorization covering a scheduled sequence or series of repeated flights across an extended operating season.",
-    typicalUseCase:
-      "Scheduled airline seasonal timetables, recurring corporate shuttle rotations, charter flight series, and weekly humanitarian relief operations.",
-    kclCoordinates:
-      "Seasonal timetable filings, fleet registration schedules, block permit renewal tracking, and bilateral air service agreement compliance checks.",
-    actionLabel: "Review schedule & block filing",
+    summary: "Consolidated timetable filings for scheduled airline rotations and flight series.",
     actionHref: "/schedule-filing",
   },
   {
-    number: "05",
     name: "Short-Notice Clearances",
-    badge: "URGENT 24/7",
     image: "/img/services/06-ops.webp",
     alt: "24/7 flight operations center monitoring urgent clearance requests",
-    summary:
-      "Rapid authority coordination for urgent, last-minute, or schedule-revised flights required on short notice.",
-    typicalUseCase:
-      "Emergency spare part (AOG) delivery, urgent charter commitments, unexpected aircraft repositioning, and immediate schedule adjustments.",
-    kclCoordinates:
-      "24/7 expedited dossier preparation, direct operations desk contact with authority watch officers, and rapid transmission of validated clearance numbers.",
-    actionLabel: "Contact our 24/7 operations desk",
+    summary: "Rapid coordination for urgent, diplomatic, medevac or schedule-revised flights.",
     actionHref: "/services/operations-support",
   },
-  {
-    number: "06",
-    name: "Special Flight Permissions",
-    badge: "DIPLOMATIC & AD-HOC",
-    image: "/img/hero-flight-ops.jpg",
-    alt: "International airport ramp with commercial airliner and executive jet operations",
-    summary:
-      "Clearances for non-standard operational profiles requiring diplomatic channels, ministry approvals, or non-standard civil authorizations.",
-    typicalUseCase:
-      "Diplomatic & state head delegations, air ambulance emergency medevac flights, technical ferry flights with expired C of A, and weather diversions.",
-    kclCoordinates:
-      "Embassy liaison, foreign ministry diplomatic note processing, medevac urgent clearance priority, and non-revenue ferry flight permissions.",
-    actionLabel: "View special & ad-hoc procedures",
-    actionHref: "/non-schedule-filing",
-  },
 ];
 
-const FLIGHTS_WE_SUPPORT_CARDS = [
+const FLIGHTS_WE_SUPPORT = [
   {
-    category: "Scheduled Airlines",
-    tag: "TIMETABLE",
-    icon: (
-      <svg className="w-5 h-5 text-[#B88200]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-      </svg>
-    ),
-    typicalClearances: "Seasonal Block Overflight & Landing Authorizations",
-    operatingFocus:
-      "Published airline schedules, regional route additions, seasonal timetable changes, and regular commercial airway transit.",
-    dispatchPriorities:
-      "Bilateral agreement compliance, ICAO timetable filings, slot matching, and predictable long-term authority approvals.",
+    title: "Commercial Airlines",
+    description: "Published airline schedules, seasonal timetable filings, and regular commercial airway transit.",
+    href: "/schedule-filing",
   },
   {
-    category: "Charter & Non-Scheduled Flights",
-    tag: "AD-HOC",
-    icon: (
-      <svg className="w-5 h-5 text-[#B88200]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
-      </svg>
-    ),
-    typicalClearances: "Single-Trip & Series Commercial Charter Approvals",
-    operatingFocus:
-      "Ad-hoc passenger charters, sports team shuttles, leisure tour operators, and group incentive movements.",
-    dispatchPriorities:
-      "Fast turnarounds, passenger manifest management, local handling confirmation, and short-notice revisions.",
+    title: "Charter & Non-Scheduled",
+    description: "Ad-hoc passenger charters, sports team shuttles, leisure tours, and VIP movements.",
+    href: "/non-schedule-filing",
   },
   {
-    category: "Cargo Operators",
-    tag: "FREIGHTER",
-    icon: (
-      <svg className="w-5 h-5 text-[#B88200]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-      </svg>
-    ),
-    typicalClearances: "Freighter Landing Permits & Dangerous Goods Authorizations",
-    operatingFocus:
-      "Scheduled main-deck cargo freighters, outsized project cargo, logistics charters, and humanitarian aid transport.",
-    dispatchPriorities:
-      "Air Waybill review, consignor/consignee validation, DGD hazardous cargo checks, and heavy ramp capability checks.",
+    title: "Cargo Operators",
+    description: "Scheduled freighters, outsized project cargo, and logistics charters requiring landing clearances.",
+    href: "/request-flight-support?permitType=landing",
   },
   {
-    category: "Business & Private Aviation",
-    tag: "EXECUTIVE",
-    icon: (
-      <svg className="w-5 h-5 text-[#B88200]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-      </svg>
-    ),
-    typicalClearances: "Private & Corporate Overflight and Landing Clearances",
-    operatingFocus:
-      "Corporate flight departments, executive charter operators, owner-operated business jets, and VIP delegations.",
-    dispatchPriorities:
-      "High confidentiality, dedicated handling, FBO preferences, flexible departure windows, and swift crew authorizations.",
-  },
-  {
-    category: "Technical Stops",
-    tag: "REFUELING",
-    icon: (
-      <svg className="w-5 h-5 text-[#B88200]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-      </svg>
-    ),
-    typicalClearances: "Non-Traffic Technical Landing Clearances",
-    operatingFocus:
-      "Fuel stops on long transoceanic legs, crew change turnarounds, and technical aircraft maintenance stops.",
-    dispatchPriorities:
-      "Non-traffic declarations, rapid refueling coordination, quick turnaround slots, and minimum ground time.",
-  },
-  {
-    category: "Air Ambulance & Medevac",
-    tag: "PRIORITY",
-    icon: (
-      <svg className="w-5 h-5 text-[#B88200]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-      </svg>
-    ),
-    typicalClearances: "Priority Emergency Aeromedical Clearances",
-    operatingFocus:
-      "Critical patient repatriations, organ donor transport, and life-support aeromedical evacuation missions.",
-    dispatchPriorities:
-      "24/7 emergency dispatch, expedited authority liaison, hospital landing approvals, and secure handling channels.",
-  },
-  {
-    category: "Humanitarian & Special-Purpose",
-    tag: "SPECIAL",
-    icon: (
-      <svg className="w-5 h-5 text-[#B88200]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-      </svg>
-    ),
-    typicalClearances: "Relief Flight Exemptions & Ferry Permits",
-    operatingFocus:
-      "UN and NGO relief flights, natural disaster emergency cargo, technical ferry flights, and demonstration flights.",
-    dispatchPriorities:
-      "Fee exemption requests where eligible, special route approvals, and coordinated inter-agency approvals.",
-  },
-];
-
-const COORDINATION_PROCESS_STEPS = [
-  {
-    step: "01",
-    title: "Flight Itinerary Submission",
-    operatorRole: "Operator Action",
-    operatorTask:
-      "Submit flight route, aircraft registration, schedule timings (UTC), ICAO aerodromes, and planned crew & passenger counts.",
-    kclRole: "KCL Coordination",
-    kclTask:
-      "Review submission against published authority lead times, airspace restrictions, and mandatory bilateral air service agreements.",
-  },
-  {
-    step: "02",
-    title: "Requirements & Documentation Review",
-    operatorRole: "Operator Action",
-    operatorTask:
-      "Provide mandatory certificates: C of A, C of R, worldwide third-party insurance, AOC, and passenger/cargo manifests.",
-    kclRole: "KCL Coordination",
-    kclTask:
-      "Validate document validity dates, territorial liability coverage, and compile authority-compliant regulatory dossiers.",
-  },
-  {
-    step: "03",
-    title: "Authority Filing & Active Follow-Up",
-    operatorRole: "Operator Action",
-    operatorTask:
-      "Notify KCL operations desk of any operational revisions, departure delays, aircraft swaps, or route changes.",
-    kclRole: "KCL Coordination",
-    kclTask:
-      "Submit official requests to sovereign CAAs/ANSPs, monitor application status 24/7, and manage urgent schedule revisions.",
-  },
-  {
-    step: "04",
-    title: "Clearance Confirmation & Dispatch Briefing",
-    operatorRole: "Operator Action",
-    operatorTask:
-      "Incorporate validated permit numbers into ICAO flight plan (Item 18) and briefing packs for flight crew review.",
-    kclRole: "KCL Coordination",
-    kclTask:
-      "Transmit verified clearance numbers, validity windows, ATC routing constraints, and coordinate destination ground handlers.",
-  },
-];
-
-const RELATED_SERVICES = [
-  {
-    number: "01",
-    name: "Ground Handling",
-    href: "/services/ground-handling",
-    desc: "Aircraft, passenger, baggage, and cargo ramp handling arranged through a trusted global network of handling agents.",
-    image: "/img/services/02-ground.webp",
-    alt: "Airport ramp ground handling and aircraft turnaround operations",
-  },
-  {
-    number: "02",
-    name: "Aviation Fuel",
-    href: "/services/aviation-fuel",
-    desc: "Fuel supply coordination for Jet A1, TS1, and Avgas, with timely delivery scheduling, fuel vouchers, and payment support.",
-    image: "/img/services/04-fuel.webp",
-    alt: "Aviation fuel supply and tarmac hydrant dispensing coordination",
-  },
-  {
-    number: "03",
-    name: "Flight Planning & Dispatch",
-    href: "/services/flight-planning-dispatch",
-    desc: "Route optimization, ICAO flight plan filing, aeronautical weather analysis, NOTAM reviews, and ETOPS/EDTO planning.",
-    image: "/img/services/07-dispatch.webp",
-    alt: "Flight dispatch briefing room with aeronautical route charts",
-  },
-  {
-    number: "04",
-    name: "Airport Slots & PPR",
-    href: "/services/airport-slot-coordination",
-    desc: "Airport slot reservation, capacity allocation requests, and local PPR approvals synchronized alongside permit clearances.",
-    image: "/img/services/08-slots.webp",
-    alt: "Airport air traffic control tower overlooking illuminated runways at dusk",
-  },
-  {
-    number: "05",
-    name: "Crew Accommodation & Transport",
-    href: "/services/crew-logistics",
-    desc: "Airport-proximity crew hotel bookings, short-notice reservations, and secure airport-hotel-airport crew transfers.",
-    image: "/img/services/05-crew.webp",
-    alt: "Flight crew layover logistics, hotel accommodation and ground transport",
-  },
-  {
-    number: "06",
-    name: "Inflight Catering",
-    href: "/services/inflight-catering",
-    desc: "In-flight meal preparation and supply, special dietary requirements, and hygienic galley delivery for crew and passengers.",
-    image: "/img/services/03-catering.webp",
-    alt: "Aviation inflight catering and aircraft galley meal arrangements",
-  },
-];
-
-const WHY_KCL_POINTS = [
-  {
-    title: "International Coordination Network",
-    detail:
-      "Direct liaison with civil aviation authorities, air navigation service providers (ANSPs), and established local agents across Africa, the Middle East, Europe, Asia, the Americas, and the Caribbean.",
-  },
-  {
-    title: "24/7 Operational Support",
-    detail:
-      "Continuous operations desk coverage across all international time zones to monitor active filings, handle urgent schedule revisions, and support diverted or ad-hoc flights without delay.",
-  },
-  {
-    title: "Scheduled and Non-Scheduled Expertise",
-    detail:
-      "Comprehensive capabilities handling both long-term airline block filings and urgent ad-hoc charter, cargo, medevac, and private aviation permissions.",
-  },
-  {
-    title: "Integrated Aviation Services",
-    detail:
-      "One team coordinating your overflight clearances, landing numbers, ground handling, fuel supply vouchers, airport slots, and crew layovers under a single operations desk.",
-  },
-  {
-    title: "Kashmirwala Group Heritage Since 1947",
-    detail:
-      "Backed by more than seven decades of aviation family leadership, airline agency representation, and commercial air transport experience in the region.",
+    title: "Executive Aviation",
+    description: "Corporate flight departments, private charters, and governmental delegations needing confidential routing.",
+    href: "/request-flight-support?permitType=both",
   },
 ];
 
@@ -345,12 +90,14 @@ export default function FlightPermissionsPage() {
     { name: "Services", path: "/services" },
     { name: "Flight Permissions", path: "/services/flight-permissions" },
   ]);
-  const faqLd = buildFaqJsonLd(INTERNATIONAL_PERMIT_FAQS);
+  const visibleFaqs = INTERNATIONAL_PERMIT_FAQS.slice(0, 6);
+  const faqLd = buildFaqJsonLd(visibleFaqs);
+
   const serviceLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "International Overflight & Landing Permit Services",
-    serviceType: "Flight Permit Service",
+    name: "Worldwide Overflight & Landing Permits",
+    serviceType: "Aviation Flight Permission Coordination",
     description:
       "KCL coordinates international overflight and landing permit requests for airlines, charter, cargo and private aircraft, with 24/7 operations support.",
     provider: {
@@ -372,14 +119,13 @@ export default function FlightPermissionsPage() {
       />
 
       {/* =========================================================================
-          SECTION 1 — HERO (Homepage Height & Grand Aviation Aesthetic)
+          SECTION 1 — HERO (Compact Height 520 to 560px on Desktop)
           ========================================================================= */}
-      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[580px] sm:min-h-[620px] lg:min-h-[660px] py-16 sm:py-20 lg:py-24 flex items-center justify-center">
-        {/* Full-bleed background photo with calibrated gradient */}
+      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[520px] lg:min-h-[560px] py-12 lg:py-14 flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <Image
             src="/img/services/01-permits.webp"
-            alt="Cockpit flight deck instruments and waypoint map display during international overflight"
+            alt="International flight permits cockpit navigation display"
             fill
             priority
             sizes="100vw"
@@ -387,192 +133,116 @@ export default function FlightPermissionsPage() {
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/85 via-[#0B2545]/60 to-[#14406E]/35"
+            className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/92 via-[#0B2545]/75 to-[#14406E]/50"
           />
-          {/* Subtle airway route line-art */}
-          <svg
-            viewBox="0 0 1440 640"
-            fill="none"
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
-          >
-            <path
-              d="M-60 490 C 280 420, 620 260, 1020 220 C 1220 200, 1360 150, 1500 110"
-              stroke="#FFFFFF"
-              strokeWidth="1.5"
-              strokeDasharray="6 6"
-              className="airway-route-line"
-            />
-            <path
-              d="M-40 240 C 340 290, 740 350, 1140 280 C 1300 250, 1410 210, 1520 180"
-              stroke="#FFFFFF"
-              strokeWidth="1.2"
-            />
-            <circle cx="515" cy="340" r="4" fill="#FFFFFF" />
-            <circle cx="775" cy="275" r="4" fill="#FFFFFF" />
-            <circle cx="885" cy="145" r="4" fill="#FFFFFF" />
-          </svg>
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
-          <div className="max-w-3xl mx-auto space-y-4 sm:space-y-5">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#F4C400] font-bold block">
-              INTERNATIONAL FLIGHT PERMIT SERVICES
-            </span>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
+          <div className="max-w-3xl mx-auto space-y-3.5 sm:space-y-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.16] tracking-tight mx-auto mb-3">
               International Overflight &amp; Landing Permit Services
             </h1>
 
-            <p className="text-base sm:text-lg lg:text-xl font-semibold text-slate-100 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg font-semibold text-slate-100 max-w-2xl mx-auto leading-relaxed">
               Your Route. The Right Permissions. One Team to Coordinate.
             </p>
 
-            <p className="text-xs sm:text-sm lg:text-[15.5px] text-slate-200 leading-relaxed max-w-2xl mx-auto">
-              From routine airline operations to short-notice charter flights, KCL helps coordinate overflight, landing and special permit requests across international destinations. Share your flight details, and our operations team will help identify the applicable requirements and next steps.
+            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed max-w-2xl mx-auto">
+              From routine airline operations to short-notice charter flights, KCL coordinates overflight, landing, and special permit requests with civil aviation authorities worldwide.
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <Link
                 href="/request-flight-support"
-                className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
+                className="bg-[#0B2545] hover:bg-[#133661] text-white border border-white/30 min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2 group"
               >
                 <span>Request a Flight Permit</span>
-                <span aria-hidden="true">→</span>
+                <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
               </Link>
               <a
-                href="#permit-types"
-                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                href="#permit-selector"
+                className="kcl-btn-outline-white min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] hover:bg-white/15 transition-all"
               >
-                Explore Permit Services
+                Check Document Requirements
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Credentials Strip Below Hero */}
+      {/* Operational Chips Strip Below Hero */}
       <section
-        aria-label="Operational Credentials"
-        className="bg-[#F8FAFC] border-b border-[#E2E8F0] py-3 sm:py-3.5"
+        aria-label="Operational Capabilities"
+        className="bg-[#F8FAFC] border-b border-[#E2E8F0] py-3"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs sm:text-[13px] font-bold text-[#0B2545]">
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
-              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
-              24/7 operations desk
-            </span>
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-bold text-[#0B2545]">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1 rounded-[2px] shadow-2xs">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
               Scheduled and non-scheduled flights
             </span>
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
-              <span className="h-2 w-2 rounded-full bg-[#B88200]" />
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1 rounded-[2px] shadow-2xs">
+              <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
               Short-notice requests
+            </span>
+            <span className="inline-flex items-center gap-2 bg-white border border-emerald-300 px-3 py-1 rounded-[2px] shadow-2xs bg-emerald-50/40">
+              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
+              24/7 operations desk support
             </span>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 2 — PERMIT TYPES (Graphical Photo Cards with Visual Headers)
+          SECTION 2 — PERMIT CATEGORIES (5 Cards in 1 Row Desktop, Carousel Mobile)
           ========================================================================= */}
-      <section
-        id="permit-types"
-        className="scroll-mt-20 py-8 sm:py-10 bg-white border-b border-[#E2E8F0]"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3">
-            <div className="max-w-3xl space-y-1">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-                PERMIT CATEGORIES
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-                The Right Permission for Every Operation.
-              </h2>
-              <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
-                Different flight operations call for different permissions. KCL helps operators identify and coordinate the approvals relevant to their routes, schedules and operational requirements.
-              </p>
-            </div>
-            <div className="shrink-0">
-              <Link
-                href="/request-flight-support"
-                className="kcl-btn-outline-navy px-3.5 py-1.5 min-h-[36px] text-xs sm:text-sm font-semibold inline-flex items-center rounded-[2px]"
-              >
-                Request Permit Support →
-              </Link>
-            </div>
+      <section className="py-10 lg:py-14 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mb-4">
+            <h2 className="text-2xl font-bold text-[#0B2545] mb-2">
+              The Right Permission for Every Operation
+            </h2>
+            <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
+              Overflight and landing approvals synchronized across sovereign FIRs and destination airports.
+            </p>
           </div>
 
-          {/* Graphical Photo Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
+          <div className="flex overflow-x-auto snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-4 pb-2 sm:pb-0 scrollbar-none">
             {PERMIT_TYPES.map((item) => (
               <div
                 key={item.name}
-                className="group bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] overflow-hidden flex flex-col justify-between hover:border-[#0B2545] hover:shadow-md transition-all duration-300"
+                className="snap-center shrink-0 w-[82vw] sm:w-auto group relative bg-[#F8FAFC] border border-[#CBD5E1] rounded-[4px] overflow-hidden flex flex-col justify-between hover:border-[#0B2545] hover:shadow-xs transition-all duration-200"
               >
-                {/* Visual Image Header */}
-                <div className="relative h-36 sm:h-40 w-full overflow-hidden bg-slate-900">
+                <div className="relative h-32 sm:h-36 w-full overflow-hidden bg-slate-900">
                   <Image
                     src={item.image}
                     alt={item.alt}
                     fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                    sizes="(min-width: 1024px) 20vw, (min-width: 640px) 50vw, 82vw"
+                    className="object-cover object-center group-hover:scale-105 motion-safe:transition-transform duration-300"
                   />
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/85 via-[#0B2545]/30 to-black/20"
+                    className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/50 to-transparent"
                   />
-
-                  {/* Top Badges */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-                    <span className="font-mono text-[11px] font-bold text-white bg-[#0B2545]/90 border border-white/20 backdrop-blur-xs px-2.5 py-0.5 rounded-[2px]">
-                      PERMIT {item.number}
-                    </span>
-                    <span className="font-mono text-[10px] font-bold text-[#F4C400] bg-black/60 border border-[#F4C400]/40 backdrop-blur-xs px-2 py-0.5 rounded-[2px] uppercase tracking-wider">
-                      {item.badge}
-                    </span>
-                  </div>
-
-                  {/* Title overlay on lower photo header */}
-                  <div className="absolute bottom-3 left-3 right-3 z-10">
-                    <h3 className="text-base sm:text-lg font-bold text-white leading-tight drop-shadow-xs">
+                  <div className="absolute bottom-2.5 left-3 right-3 z-10">
+                    <h3 className="text-base font-bold text-white leading-tight">
                       {item.name}
                     </h3>
                   </div>
                 </div>
 
-                {/* Card Body */}
-                <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 space-y-3">
-                  <p className="text-xs sm:text-[13.5px] text-[#16202B] leading-relaxed">
+                <div className="p-4 flex flex-col justify-between flex-1 space-y-3">
+                  <p className="text-xs sm:text-sm text-[#475569] leading-snug line-clamp-2">
                     {item.summary}
                   </p>
-
-                  <div className="space-y-2 pt-2 border-t border-[#CBD5E1]/60 text-xs">
-                    <div>
-                      <span className="font-mono font-bold text-[#0B2545] uppercase tracking-wider block mb-0.5">
-                        Typical Use Case:
-                      </span>
-                      <p className="text-[#5C6B7A] leading-snug">{item.typicalUseCase}</p>
-                    </div>
-
-                    <div>
-                      <span className="font-mono font-bold text-[#B88200] uppercase tracking-wider block mb-0.5">
-                        What KCL Coordinates:
-                      </span>
-                      <p className="text-[#5C6B7A] leading-snug">{item.kclCoordinates}</p>
-                    </div>
-                  </div>
 
                   <div className="pt-2 border-t border-[#CBD5E1]/60">
                     <Link
                       href={item.actionHref}
-                      className="text-xs sm:text-sm font-bold font-mono text-[#0B2545] group-hover:text-[#B88200] group-hover:underline underline-offset-4 inline-flex items-center gap-1.5 transition-colors"
+                      className="text-xs font-bold text-[#0B2545] hover:underline underline-offset-2 inline-flex items-center gap-1"
                     >
-                      <span>{item.actionLabel}</span>
+                      <span>Explore permit</span>
                       <span aria-hidden="true">→</span>
                     </Link>
                   </div>
@@ -584,390 +254,259 @@ export default function FlightPermissionsPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 3 — FLIGHTS WE SUPPORT (Modern Graphical Operations Matrix)
+          SECTION 3 — INTERACTIVE SELECTOR (Compact Output & Complementary Strip)
           ========================================================================= */}
-      <section className="py-8 sm:py-10 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-          <div className="max-w-3xl space-y-1">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              OPERATIONAL SCOPE
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Permit Support for the Way You Operate.
-            </h2>
-            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
-              From commercial airline networks to emergency medevac and private aircraft, our desk coordinates regulatory permissions tailored to each mission profile.
-            </p>
-          </div>
-
-          {/* Modern Visual Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5">
-            {FLIGHTS_WE_SUPPORT_CARDS.map((item) => (
-              <div
-                key={item.category}
-                className="bg-white border border-[#CBD5E1] rounded-[6px] p-3.5 sm:p-4 flex flex-col justify-between hover:border-[#0B2545] hover:shadow-xs transition-all duration-200 group"
-              >
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <div className="w-7 h-7 rounded-[4px] bg-[#0B2545]/5 border border-[#0B2545]/15 flex items-center justify-center">
-                      {item.icon}
-                    </div>
-                    <span className="font-mono text-[9.5px] font-bold text-[#0B2545] bg-[#F8FAFC] border border-[#CBD5E1] px-2 py-0.5 rounded-[2px] uppercase tracking-wider">
-                      {item.tag}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 className="text-[15px] font-bold text-[#0B2545] group-hover:text-[#133661] transition-colors leading-snug">
-                      {item.category}
-                    </h3>
-                    <p className="text-[11.5px] font-semibold text-[#B88200] mt-0.5">
-                      {item.typicalClearances}
-                    </p>
-                  </div>
-
-                  <div className="space-y-1.5 pt-1.5 border-t border-[#CBD5E1]/50 text-xs">
-                    <div>
-                      <span className="font-mono font-bold text-[#0B2545] uppercase tracking-wider block text-[10.5px]">
-                        Operating Focus:
-                      </span>
-                      <p className="text-[#5C6B7A] leading-snug text-[11.5px]">{item.operatingFocus}</p>
-                    </div>
-
-                    <div>
-                      <span className="font-mono font-bold text-[#B88200] uppercase tracking-wider block text-[10.5px]">
-                        Dispatch Priorities:
-                      </span>
-                      <p className="text-[#5C6B7A] leading-snug text-[11.5px]">{item.dispatchPriorities}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 4 — DOCUMENT PREPARATION (Interactive Selector)
-          ========================================================================= */}
-      <section
-        id="what-you-need"
-        className="scroll-mt-20 py-8 sm:py-10 bg-white border-b border-[#E2E8F0]"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <div className="max-w-3xl space-y-1">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              DOCUMENT PREPARATION
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              What to Prepare Before Requesting a Permit.
-            </h2>
-            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
-              Documentation requirements vary by country, aircraft, operator and flight purpose. These are common details that may be requested. KCL will help identify the applicable requirements for each itinerary.
-            </p>
-          </div>
-
+      <section id="permit-selector" className="scroll-mt-16 py-10 lg:py-14 bg-[#F8FAFC] border-b border-[#CBD5E1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <PermitRequirementSelector />
+
+          {/* Complementary Services Single Line */}
+          <div className="pt-3 border-t border-[#CBD5E1]/60 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-[#5C6B7A]">
+            <span className="font-semibold text-[#0B2545]">We can also arrange:</span>
+            <Link href="/services/ground-handling" className="text-[#0B2545] font-semibold hover:underline">Ground Handling</Link>
+            <span>·</span>
+            <Link href="/services/aviation-fuel" className="text-[#0B2545] font-semibold hover:underline">Fuel</Link>
+            <span>·</span>
+            <Link href="/services/crew-logistics" className="text-[#0B2545] font-semibold hover:underline">Crew Hotels</Link>
+            <span>·</span>
+            <Link href="/services/airport-slot-coordination" className="text-[#0B2545] font-semibold hover:underline">Airport Slots</Link>
+          </div>
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 5 — COORDINATION PROCESS (Connected Step Cards)
+          SECTION 4 — COMBINED: HOW IT WORKS (LEFT) & FLIGHTS WE SUPPORT (RIGHT)
           ========================================================================= */}
-      <section className="py-8 sm:py-10 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-          <div className="max-w-3xl space-y-1">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              COORDINATION WORKFLOW
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              A Clear Process, from Request to Regulatory Decision.
-            </h2>
-            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
-              From your initial itinerary submission to regulatory authority review, every step distinguishes between operator inputs and KCL coordination responsibilities.
-            </p>
-          </div>
+      <section className="py-10 lg:py-14 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left Column: Timeline */}
+            <div className="lg:col-span-7 space-y-4">
+              <div className="mb-4">
+                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Operational Timeline</span>
+                <h2 className="text-2xl font-bold text-[#0B2545]">How Your Permit Is Coordinated</h2>
+                <p className="text-sm text-[#475569] mt-1">
+                  Structured civil aviation liaison from dossier preparation to clearance validation.
+                </p>
+              </div>
 
-          {/* 4-Step Process Timeline Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
-            {COORDINATION_PROCESS_STEPS.map((step) => (
-              <div
-                key={step.step}
-                className="bg-white border border-[#CBD5E1] rounded-[6px] p-3.5 sm:p-4 flex flex-col justify-between hover:border-[#0B2545] hover:shadow-xs transition-all duration-200 group"
-              >
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <span className="w-6 h-6 rounded-full bg-[#0B2545] text-white flex items-center justify-center font-mono font-bold text-xs ring-4 ring-[#F8FAFC]">
-                      {step.step}
-                    </span>
-                    <span className="font-mono text-[9.5px] font-bold text-[#B88200] uppercase tracking-wider">
-                      STAGE {step.step}
-                    </span>
+              <div className="relative pl-6 space-y-4 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-[#CBD5E1]">
+                <div className="relative space-y-1">
+                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-white border-2 border-[#0B2545] flex items-center justify-center text-[10px] font-bold text-[#0B2545]">
+                    1
                   </div>
-
-                  <h3 className="text-sm sm:text-[15px] font-bold text-[#0B2545] leading-snug group-hover:text-[#133661] transition-colors">
-                    {step.title}
-                  </h3>
-
-                  <div className="space-y-2 pt-1.5 border-t border-[#CBD5E1]/50 text-xs">
-                    <div>
-                      <span className="font-mono font-bold text-[#0B2545] uppercase tracking-wider block text-[10.5px]">
-                        {step.operatorRole}:
-                      </span>
-                      <p className="text-[#5C6B7A] leading-snug text-[11.5px]">
-                        {step.operatorTask}
-                      </p>
-                    </div>
-
-                    <div>
-                      <span className="font-mono font-bold text-[#B88200] uppercase tracking-wider block text-[10.5px]">
-                        {step.kclRole}:
-                      </span>
-                      <p className="text-[#5C6B7A] leading-snug text-[11.5px]">
-                        {step.kclTask}
-                      </p>
-                    </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#F1F5F9] text-[#0B2545]">You</span>
+                    <h3 className="text-sm font-bold text-[#0B2545]">Send Flight &amp; Route Details</h3>
                   </div>
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                    Submit registration, aircraft type, route waypoints, UTC schedule, and operating purpose.
+                  </p>
+                </div>
+
+                <div className="relative space-y-1">
+                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-[#0B2545] text-white flex items-center justify-center text-[10px] font-bold">
+                    2
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#0B2545] text-white">KCL Desk</span>
+                    <h3 className="text-sm font-bold text-[#0B2545]">Review Lead Times &amp; Compliance</h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                    We verify sovereign notice windows, bilateral air agreements, and required aircraft documentation.
+                  </p>
+                </div>
+
+                <div className="relative space-y-1">
+                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-[#0B2545] text-white flex items-center justify-center text-[10px] font-bold">
+                    3
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#0B2545] text-white">KCL Desk</span>
+                    <h3 className="text-sm font-bold text-[#0B2545]">Submit Through Authority Channels</h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                    Direct filing with Civil Aviation Authorities, air defense watch desks, and local aerodrome operators.
+                  </p>
+                </div>
+
+                <div className="relative space-y-1">
+                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-[#0B2545] text-white flex items-center justify-center text-[10px] font-bold">
+                    4
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#0B2545] text-white">KCL Desk</span>
+                    <h3 className="text-sm font-bold text-[#0B2545]">Validate &amp; Transmit Clearance</h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                    Clearance numbers and validity windows are verified and transmitted directly to your flight dispatch.
+                  </p>
+                </div>
+
+                <div className="relative space-y-1">
+                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-white border-2 border-[#0B2545] flex items-center justify-center text-[10px] font-bold text-[#0B2545]">
+                    5
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#F1F5F9] text-[#0B2545]">You</span>
+                    <h3 className="text-sm font-bold text-[#0B2545]">Operate with Active Flight Watch</h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                    Our 24/7 desk monitors flight progress and coordinates revisions if en-route delays occur.
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
 
-          <div className="bg-white border border-[#CBD5E1] p-2.5 rounded-[4px]">
-            <p className="text-xs font-medium text-[#5C6B7A] text-center">
-              The final result remains subject to relevant civil aviation authority decisions. KCL coordinates and tracks the filing through verified channels.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 6 — INTERNATIONAL COVERAGE (Interactive Console)
-          ========================================================================= */}
-      <section className="py-8 sm:py-10 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <div className="max-w-3xl space-y-1">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              INTERNATIONAL REACH
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              International Reach. Country-Specific Requirements.
-            </h2>
-            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
-              Permit procedures differ across countries and flight categories. Through its international coordination network, KCL supports operators planning flights across Africa, the Middle East, Europe, Asia, the Americas and the Caribbean.
-            </p>
-          </div>
-
-          <GlobalCoverageMap />
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 7 — PERMIT TIMELINES (Transparent Planning Guidance Policy)
-          ========================================================================= */}
-      <section className="py-8 sm:py-10 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-          <div className="max-w-3xl space-y-1">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              TIMELINE TRANSPARENCY
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Understanding Permit Planning Times.
-            </h2>
-            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
-              There is no single processing time for international flight permits. Requirements and approval timelines depend on the country, nature of the flight, completeness of documentation and relevant authority procedures.
-            </p>
-          </div>
-
-          {/* Two-Column Transparent Planning Policy */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
-            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-4 space-y-2 shadow-2xs">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#0B2545]" />
-                <h3 className="text-sm font-bold text-[#0B2545] font-mono uppercase tracking-wider">
-                  Official Authority Time
-                </h3>
+            {/* Right Column: Flights We Support (4 Compact Cards) */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="mb-4">
+                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Operator Coverage</span>
+                <h2 className="text-2xl font-bold text-[#0B2545]">Flights We Support</h2>
+                <p className="text-sm text-[#475569] mt-1">
+                  Permit coordination tailored for every mission profile.
+                </p>
               </div>
-              <p className="text-xs sm:text-[13px] text-[#16202B] font-semibold">
-                A processing period explicitly published or confirmed by the relevant civil aviation authority.
-              </p>
-              <p className="text-xs text-[#5C6B7A] leading-relaxed">
-                Many authorities stipulate mandatory minimum lead times in their national Aeronautical Information Publications (AIP) or regulatory circulars—for example, 72 hours for commercial charter landing approvals or 24 hours for standard overflights. These represent statutory review windows enforced by sovereign regulators.
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+                {FLIGHTS_WE_SUPPORT.map((flight) => (
+                  <div
+                    key={flight.title}
+                    className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[4px] p-4 flex flex-col justify-between space-y-2 hover:border-[#0B2545] transition-colors"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-7 h-7 rounded-full bg-[#0B2545] text-white flex items-center justify-center shrink-0">
+                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                      </div>
+                      <h3 className="text-base font-bold text-[#0B2545]">
+                        {flight.title}
+                      </h3>
+                    </div>
+                    <p className="text-xs text-[#475569] leading-snug">
+                      {flight.description}
+                    </p>
+                    <div className="pt-1">
+                      <Link
+                        href={flight.href}
+                        className="text-xs font-bold text-[#0B2545] hover:underline underline-offset-2 inline-flex items-center gap-1"
+                      >
+                        <span>Request permit</span>
+                        <span aria-hidden="true">→</span>
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 5 — COMBINED: WHY KCL (4 POINTS) & TRUSTED CLIENT LOGO SLIDER
+          ========================================================================= */}
+      <section className="py-10 lg:py-14 bg-[#F8FAFC] border-b border-[#CBD5E1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div>
+            <div className="max-w-2xl mb-4">
+              <h2 className="text-2xl font-bold text-[#0B2545] mb-2">Why KCL</h2>
+              <p className="text-sm text-[#475569] leading-relaxed">
+                Proven civil aviation authority relationships and international dispatch discipline since 1947.
               </p>
             </div>
 
-            <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-4 space-y-2 shadow-2xs">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#B88200]" />
-                <h3 className="text-sm font-bold text-[#0B2545] font-mono uppercase tracking-wider">
-                  Operational Planning Guidance
-                </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-5 space-y-1.5 shadow-2xs">
+                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Round-the-clock</span>
+                <h3 className="text-base font-bold text-[#0B2545]">24/7 operations desk</h3>
+                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                  Continuous watch officers processing urgent clearances and re-routings across all time zones.
+                </p>
               </div>
-              <p className="text-xs sm:text-[13px] text-[#16202B] font-semibold">
-                A suggested preparation window, clearly identified as guidance rather than a guaranteed processing time.
-              </p>
-              <p className="text-xs text-[#5C6B7A] leading-relaxed">
-                KCL provides dispatch teams with operational planning guidance based on recent authority responsiveness, weekend/holiday office hours, and route complexities. We do not invent processing times or guarantee approvals, as final determinations rest exclusively with the sovereign authorities.
-              </p>
+
+              <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-5 space-y-1.5 shadow-2xs">
+                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Direct Filing</span>
+                <h3 className="text-base font-bold text-[#0B2545]">Direct CAA channels</h3>
+                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                  Established direct communication with Civil Aviation Authorities and air traffic control centers.
+                </p>
+              </div>
+
+              <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-5 space-y-1.5 shadow-2xs">
+                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Unified Channel</span>
+                <h3 className="text-base font-bold text-[#0B2545]">One point of contact</h3>
+                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                  Synchronized permits, handling, fuel, and layovers without fragmented communications.
+                </p>
+              </div>
+
+              <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-5 space-y-1.5 shadow-2xs">
+                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Since 1947</span>
+                <h3 className="text-base font-bold text-[#0B2545]">Kashmirwala Group</h3>
+                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                  Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#CBD5E1] p-2.5 rounded-[4px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-xs text-[#5C6B7A]">
-            <p>
-              <strong className="text-[#0B2545]">Content Review Standard: </strong>
-              Country permit rules and planning windows are verified against official State AIPs, CAA circulars, and verified local handler notices.
-            </p>
-            <Link
-              href="/permit-directory"
-              className="text-xs font-mono font-bold text-[#0B2545] hover:text-[#B88200] hover:underline shrink-0"
-            >
-              Browse Permit Directory →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 8 — RELATED FLIGHT SUPPORT (Graphical Photo Bento Cards)
-          ========================================================================= */}
-      <section className="py-8 sm:py-10 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3">
-            <div className="max-w-3xl space-y-1">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-                INTEGRATED AVIATION SERVICES
+          <div className="pt-6 border-t border-[#CBD5E1]/60">
+            <div className="text-center mb-3">
+              <span className="text-xs font-bold text-[#5C6B7A] uppercase tracking-wider">
+                Trusted by Airlines Including
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-                Beyond Permits. Coordinated Flight Support.
-              </h2>
-              <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
-                Permits are one part of a successful flight plan. KCL also helps coordinate essential support services across international operations.
-              </p>
             </div>
-            <div className="shrink-0">
-              <Link
-                href="/services"
-                className="kcl-btn-outline-navy px-3.5 py-1.5 min-h-[36px] text-xs sm:text-sm font-semibold inline-flex items-center rounded-[2px]"
-              >
-                All Services →
-              </Link>
-            </div>
+            <ClientStrip compact />
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 6 — FREQUENTLY ASKED QUESTIONS (2-Column Accordion Desktop)
+          ========================================================================= */}
+      <section className="py-10 lg:py-14 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="max-w-2xl mb-4">
+            <h2 className="text-2xl font-bold text-[#0B2545] mb-2">
+              Frequently Asked Questions: Flight Permits
+            </h2>
+            <p className="text-sm text-[#475569]">
+              Clear answers regarding overflight permits, landing clearances, lead times, and required documentation.
+            </p>
           </div>
 
-          {/* Graphical Photo Cards matching Homepage Bento style */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 auto-rows-fr">
-            {RELATED_SERVICES.map((service) => (
-              <Link
-                key={service.name}
-                href={service.href}
-                className="group relative overflow-hidden rounded-[6px] border border-white/20 flex flex-col justify-between p-3.5 sm:p-4 min-h-[175px] sm:min-h-[190px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white hover:-translate-y-1 transition-all duration-300 ease-out shadow-xs"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {visibleFaqs.map((faq) => (
+              <details
+                key={faq.question}
+                className="group bg-[#F8FAFC] border border-[#CBD5E1] rounded-[4px] p-4 sm:p-5 transition-colors"
               >
-                {/* Full-bleed background photo */}
-                <Image
-                  src={service.image}
-                  alt={service.alt}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-
-                {/* Balanced gradient overlay so pictures remain vivid and text is crystal clear */}
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/45 to-black/20 group-hover:from-[#0B2545]/95 group-hover:via-[#0B2545]/55 transition-colors duration-300"
-                />
-
-                {/* Top: Mono number badge */}
-                <div className="relative z-10 flex items-center justify-between">
-                  <span className="font-mono text-[10.5px] font-semibold text-white/90 bg-white/10 backdrop-blur-xs border border-white/20 px-2 py-0.5 rounded-[2px] tracking-wider">
-                    SVC {service.number}
+                <summary className="flex items-center justify-between font-bold text-sm sm:text-base text-[#0B2545] cursor-pointer list-none select-none">
+                  <span className="pr-3">{faq.question}</span>
+                  <span className="w-5 h-5 rounded-full bg-white border border-[#CBD5E1] flex items-center justify-center text-[10px] text-[#0B2545] group-open:rotate-180 transition-transform duration-200 shrink-0">
+                    ▼
                   </span>
+                </summary>
+                <div className="mt-2.5 text-xs sm:text-sm text-[#16202B] leading-relaxed border-t border-[#CBD5E1]/60 pt-2.5">
+                  {faq.answer}
                 </div>
-
-                {/* Bottom: Service title + description + hover arrow */}
-                <div className="relative z-10 space-y-1 mt-auto pt-3">
-                  <h3 className="text-[15px] sm:text-base font-bold text-white leading-tight">
-                    {service.name}
-                  </h3>
-                  <p className="text-[11.5px] sm:text-xs text-slate-200/90 font-normal leading-snug line-clamp-2">
-                    {service.desc}
-                  </p>
-                  <div className="pt-0.5">
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#F4C400] group-hover:underline underline-offset-2">
-                      View service details <span aria-hidden="true">→</span>
-                    </span>
-                  </div>
-                </div>
-              </Link>
+              </details>
             ))}
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 9 — WHY KCL (Operational Pillars)
+          SECTION 7 — FINAL CTA BAND (One Only)
           ========================================================================= */}
-      <section className="py-8 sm:py-10 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-          <div className="max-w-3xl space-y-1">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              OPERATIONAL EXPERIENCE
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Operational Experience You Can Build On.
-            </h2>
-            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
-              KCL combines international flight support capabilities with the longstanding aviation heritage of the Kashmirwala Group. Our approach emphasizes clear communication, practical coordination and attention to the operational details behind each flight.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
-            {WHY_KCL_POINTS.map((item, idx) => (
-              <div
-                key={item.title}
-                className="bg-white border border-[#CBD5E1] rounded-[6px] p-3.5 sm:p-4 space-y-1.5 hover:border-[#0B2545] hover:shadow-xs transition-all duration-200 flex flex-col justify-between"
-              >
-                <div className="space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[10.5px] font-bold text-[#B88200]">
-                      PILLAR 0{idx + 1}
-                    </span>
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#0B2545]/20" />
-                  </div>
-                  <h3 className="text-sm sm:text-[15px] font-bold text-[#0B2545]">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-[#5C6B7A] leading-relaxed">
-                    {item.detail}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 10 — FAQ
-          ========================================================================= */}
-      <section className="py-8 sm:py-10 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-          <div className="max-w-3xl space-y-1">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              DISPATCH FAQS
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Flight Permit Questions, Answered.
-            </h2>
-            <p className="text-[#16202B] text-xs sm:text-sm leading-relaxed">
-              Essential answers to frequent questions about overflight permits, landing approvals, lead times, and operational requirements.
-            </p>
-          </div>
-
-          <PermitFaqAccordion />
-        </div>
-      </section>
+      <CtaBanner
+        heading="Coordinate Your Flight Permissions With Confidence"
+        subheading="Send your flight schedule, aircraft details, and route waypoints to discuss permit lead times and submission."
+        primaryLabel="Request a Flight Permit"
+        primaryHref="/request-flight-support"
+      />
     </>
   );
 }

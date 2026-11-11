@@ -360,24 +360,24 @@ What to send to KCL Ops:
               What to send for your catering request:
             </h4>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-[14.5px] text-[#16202B]">
-              <div className="flex items-start gap-2 bg-[#F8FAFC] p-3 rounded-[4px] border border-[#CBD5E1]/60">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-[#16202B]">
+              <div className="flex items-start gap-2 bg-[#F8FAFC] p-2.5 rounded-[4px] border border-[#CBD5E1]/60">
                 <span className="text-[#0B2545] font-bold" aria-hidden="true">✓</span>
                 <span>Flight date, airport (ICAO) and UTC departure time</span>
               </div>
-              <div className="flex items-start gap-2 bg-[#F8FAFC] p-3 rounded-[4px] border border-[#CBD5E1]/60">
+              <div className="flex items-start gap-2 bg-[#F8FAFC] p-2.5 rounded-[4px] border border-[#CBD5E1]/60">
                 <span className="text-[#0B2545] font-bold" aria-hidden="true">✓</span>
                 <span>Aircraft registration and type</span>
               </div>
-              <div className="flex items-start gap-2 bg-[#F8FAFC] p-3 rounded-[4px] border border-[#CBD5E1]/60">
+              <div className="flex items-start gap-2 bg-[#F8FAFC] p-2.5 rounded-[4px] border border-[#CBD5E1]/60">
                 <span className="text-[#0B2545] font-bold" aria-hidden="true">✓</span>
                 <span>Passenger and crew meal counts</span>
               </div>
-              <div className="flex items-start gap-2 bg-[#F8FAFC] p-3 rounded-[4px] border border-[#CBD5E1]/60">
+              <div className="flex items-start gap-2 bg-[#F8FAFC] p-2.5 rounded-[4px] border border-[#CBD5E1]/60">
                 <span className="text-[#0B2545] font-bold" aria-hidden="true">✓</span>
                 <span>Menu preferences and dietary or allergy needs</span>
               </div>
-              <div className="flex items-start gap-2 bg-[#F8FAFC] p-3 rounded-[4px] border border-[#CBD5E1]/60">
+              <div className="flex items-start gap-2 bg-[#F8FAFC] p-2.5 rounded-[4px] border border-[#CBD5E1]/60 sm:col-span-2">
                 <span className="text-[#0B2545] font-bold" aria-hidden="true">✓</span>
                 <span>Operations contact details</span>
               </div>
@@ -459,6 +459,18 @@ What to send to KCL Ops:
               </p>
             </form>
           )}
+
+          {/* Complementary Services Single Line */}
+          <div className="pt-3 border-t border-[#CBD5E1]/60 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-[#5C6B7A]">
+            <span className="font-semibold text-[#0B2545]">We can also arrange:</span>
+            <Link href="/services/ground-handling" className="text-[#0B2545] font-semibold hover:underline">Ground Handling</Link>
+            <span>·</span>
+            <Link href="/services/aviation-fuel" className="text-[#0B2545] font-semibold hover:underline">Fuel</Link>
+            <span>·</span>
+            <Link href="/services/crew-logistics" className="text-[#0B2545] font-semibold hover:underline">Crew Hotels</Link>
+            <span>·</span>
+            <Link href="/services/flight-permissions" className="text-[#0B2545] font-semibold hover:underline">Permits</Link>
+          </div>
         </div>
       </div>
     </div>

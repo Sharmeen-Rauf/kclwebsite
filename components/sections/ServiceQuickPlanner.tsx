@@ -534,9 +534,9 @@ Note: No prices or turnaround times are calculated automatically. Final arrangem
               </ul>
             </div>
 
-            <div className="bg-[#F8FAFC] p-4 rounded-[4px] border border-[#CBD5E1]/60 space-y-2">
+            <div className="bg-[#F8FAFC] p-4 rounded-[4px] border border-[#CBD5E1]/60 space-y-2 sm:col-span-2">
               <span className="font-bold text-[#0B2545] block">Checklist of What to Send</span>
-              <ul className="space-y-1 text-xs sm:text-sm text-[#475569]">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs sm:text-sm text-[#475569]">
                 {checklist.map((c) => (
                   <li key={c} className="flex items-start gap-1.5">
                     <span className="text-[#0B2545] font-bold" aria-hidden="true">✓</span>
@@ -604,6 +604,18 @@ Note: No prices or turnaround times are calculated automatically. Final arrangem
               )}
             </form>
           )}
+        </div>
+
+        {/* Complementary Services Single Line */}
+        <div className="pt-3 border-t border-[#CBD5E1]/60 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-[#5C6B7A]">
+          <span className="font-semibold text-[#0B2545]">We can also arrange:</span>
+          <Link href="/services/ground-handling" className="text-[#0B2545] font-semibold hover:underline">Ground Handling</Link>
+          <span>·</span>
+          <Link href="/services/aviation-fuel" className="text-[#0B2545] font-semibold hover:underline">Fuel</Link>
+          <span>·</span>
+          <Link href="/services/crew-logistics" className="text-[#0B2545] font-semibold hover:underline">Crew Hotels</Link>
+          <span>·</span>
+          <Link href="/services/flight-permissions" className="text-[#0B2545] font-semibold hover:underline">Permits</Link>
         </div>
       </div>
     </div>
