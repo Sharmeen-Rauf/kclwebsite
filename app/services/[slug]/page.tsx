@@ -12,6 +12,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ClientStrip } from "@/components/sections/ClientStrip";
 import { ServiceQuickPlanner } from "@/components/sections/ServiceQuickPlanner";
+import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 import {
   JsonLd,
   buildFaqJsonLd,
@@ -124,7 +125,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       />
 
       {/* =========================================================================
-          SECTION 1 — HERO (Compact Height 520 to 560px on Desktop)
+          SECTION 1 — HERO (Compact Height 520 to 560px on Desktop, Animated Visuals)
           ========================================================================= */}
       <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[520px] lg:min-h-[560px] py-12 lg:py-14 flex items-center justify-center">
         <div className="absolute inset-0 z-0">
@@ -140,6 +141,38 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             aria-hidden="true"
             className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/92 via-[#0B2545]/75 to-[#14406E]/50"
           />
+
+          {/* Ambient Radar Sweep Visual */}
+          <div aria-hidden="true" className="absolute -top-24 -right-24 sm:-top-32 sm:-right-32 w-[380px] sm:w-[540px] h-[380px] sm:h-[540px] rounded-full border border-sky-400/10 pointer-events-none overflow-hidden opacity-30">
+            <div className="absolute inset-0 rounded-full border border-sky-400/15" />
+            <div className="absolute inset-16 sm:inset-24 rounded-full border border-sky-400/15" />
+            <div className="absolute inset-32 sm:inset-44 rounded-full border border-sky-400/15" />
+            <div className="absolute inset-0 radar-sweep-beam bg-gradient-to-tr from-sky-400/15 via-transparent to-transparent rounded-full" />
+          </div>
+
+          {/* Airway route line-art */}
+          <svg
+            viewBox="0 0 1440 640"
+            fill="none"
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+          >
+            <path
+              d="M-60 490 C 280 420, 620 260, 1020 220 C 1220 200, 1360 150, 1500 110"
+              stroke="#FFFFFF"
+              strokeWidth="1.5"
+              strokeDasharray="6 6"
+              className="airway-route-line"
+            />
+            <path
+              d="M-40 240 C 340 290, 740 350, 1140 280 C 1300 250, 1410 210, 1520 180"
+              stroke="#FFFFFF"
+              strokeWidth="1.2"
+            />
+            <circle cx="515" cy="340" r="4" fill="#FFFFFF" />
+            <circle cx="775" cy="275" r="4" fill="#FFFFFF" />
+            <circle cx="885" cy="145" r="4" fill="#FFFFFF" />
+          </svg>
         </div>
 
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
@@ -159,8 +192,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <Link
                 href={requestHref}
-                className="bg-[#0B2545] hover:bg-[#133661] text-white border border-white/30 min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2 group"
+                className="relative overflow-hidden bg-[#0B2545] hover:bg-[#133661] text-white border border-white/30 min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2 group"
               >
+                <span className="animate-btn-shimmer" />
                 <span>{service.heroCtaLabel}</span>
                 <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
               </Link>
@@ -182,15 +216,15 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       >
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-bold text-[#0B2545]">
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1 rounded-[2px] shadow-2xs">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-0.5 px-3 py-1 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
               Scheduled and non-scheduled flights
             </span>
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1 rounded-[2px] shadow-2xs">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-0.5 px-3 py-1 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
               Short-notice requests
             </span>
-            <span className="inline-flex items-center gap-2 bg-white border border-emerald-300 px-3 py-1 rounded-[2px] shadow-2xs bg-emerald-50/40">
+            <span className="inline-flex items-center gap-2 bg-white border border-emerald-300 hover:border-emerald-500 hover:-translate-y-0.5 px-3 py-1 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200 bg-emerald-50/40">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
               24/7 operations desk support
             </span>
@@ -199,7 +233,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 2 — WHAT WE COORDINATE (Cards in 1 Row Desktop, Carousel Mobile)
+          SECTION 2 — WHAT WE COORDINATE (Cards with Animated Borders & Duotone)
           ========================================================================= */}
       <section className="py-10 lg:py-14 bg-white border-b border-[#CBD5E1]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -216,22 +250,28 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {coreHandleItems.map((item, idx) => (
               <div
                 key={item.title}
-                className="snap-center shrink-0 w-[82vw] sm:w-auto group relative bg-[#F8FAFC] border border-[#CBD5E1] rounded-[4px] overflow-hidden flex flex-col justify-between hover:border-[#0B2545] hover:shadow-xs transition-all duration-200"
+                className="snap-center shrink-0 w-[82vw] sm:w-auto group relative bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] overflow-hidden flex flex-col justify-between hover:border-[#0B2545] hover:shadow-md hover:-translate-y-1 transition-all duration-300 ease-out motion-reduce:transform-none motion-reduce:transition-none"
               >
-                <div className="relative h-32 sm:h-36 w-full overflow-hidden bg-slate-900">
+                {/* Top Animated Shimmer Border Accent */}
+                <div
+                  aria-hidden="true"
+                  className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0B2545] via-sky-500 to-[#0B2545] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"
+                />
+
+                <div className="relative h-36 sm:h-40 w-full overflow-hidden bg-slate-900">
                   <Image
                     src={getCardImage(item.title, idx, service.slug)}
                     alt={item.title}
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 82vw"
-                    className="object-cover object-center group-hover:scale-105 motion-safe:transition-transform duration-300"
+                    className="object-cover object-center group-hover:scale-105 motion-safe:transition-transform motion-safe:duration-500 ease-out"
                   />
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/50 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/50 to-transparent group-hover:from-[#0B2545]/95 transition-colors duration-300"
                   />
-                  <div className="absolute bottom-2.5 left-3 right-3 z-10">
-                    <h3 className="text-base font-bold text-white leading-tight">
+                  <div className="absolute bottom-2.5 left-3 right-3 z-10 flex items-center justify-between">
+                    <h3 className="text-base font-bold text-white leading-tight group-hover:translate-x-0.5 transition-transform duration-200">
                       {item.title}
                     </h3>
                   </div>
@@ -245,10 +285,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   <div className="pt-2 border-t border-[#CBD5E1]/60">
                     <Link
                       href={requestHref}
-                      className="text-xs font-bold text-[#0B2545] hover:underline underline-offset-2 inline-flex items-center gap-1"
+                      className="text-xs font-bold text-[#0B2545] group-hover:text-[#133661] hover:underline underline-offset-2 inline-flex items-center gap-1.5 transition-colors"
                     >
                       <span>Request coordination</span>
-                      <span aria-hidden="true">→</span>
+                      <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform duration-200">→</span>
                     </Link>
                   </div>
                 </div>
@@ -257,6 +297,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
         </div>
       </section>
+
+      {/* Subtle Airway Path Divider */}
+      <FlightPathDivider variant="curve-down" className="my-2 bg-[#F8FAFC]" />
 
       {/* =========================================================================
           SECTION 3 — QUICK PLANNER (Interactive, Compact Output & Direct Strip)
@@ -267,11 +310,26 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
+      {/* Subtle Airway Path Divider */}
+      <FlightPathDivider variant="curve-up" className="my-2 bg-white" />
+
       {/* =========================================================================
           SECTION 4 — COMBINED: HOW IT WORKS (LEFT) & WHO WE HELP (RIGHT)
           ========================================================================= */}
-      <section className="py-10 lg:py-14 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-10 lg:py-14 bg-white border-b border-[#CBD5E1]">
+        {/* Aeronautical Navigation Dot Matrix & Atmospheric Ambient Glow */}
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-[0.22]"
+            style={{
+              backgroundImage: "radial-gradient(#0B2545 1.25px, transparent 1.25px)",
+              backgroundSize: "28px 28px",
+            }}
+          />
+          <div className="absolute top-0 left-1/4 w-[500px] h-[250px] bg-gradient-to-br from-sky-400/10 via-[#0B2545]/5 to-transparent rounded-full blur-3xl -translate-y-1/2" />
+        </div>
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Timeline */}
             <div className="lg:col-span-7 space-y-4">
@@ -287,9 +345,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 {service.howItWorks.map((step, idx) => {
                   const isYou = idx === 0 || idx === service.howItWorks.length - 1;
                   return (
-                    <div key={step.step} className="relative space-y-1">
+                    <div key={step.step} className="relative space-y-1 group">
                       <div
-                        className={`absolute -left-[27px] top-1 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${
+                        className={`absolute -left-[27px] top-1 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold group-hover:scale-110 transition-transform ${
                           isYou
                             ? "bg-white border-2 border-[#0B2545] text-[#0B2545]"
                             : "bg-[#0B2545] text-white"
@@ -332,22 +390,22 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 {operatorTargets.map((item) => (
                   <div
                     key={item}
-                    className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[4px] p-4 flex flex-col justify-between space-y-2 hover:border-[#0B2545] transition-colors"
+                    className="group bg-[#F8FAFC] border border-[#CBD5E1] rounded-[4px] p-4 flex flex-col justify-between space-y-2 hover:border-[#0B2545] hover:shadow-xs transition-all duration-200"
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className="w-7 h-7 rounded-full bg-[#0B2545] text-white flex items-center justify-center shrink-0">
+                      <div className="w-7 h-7 rounded-full bg-[#0B2545] text-white flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 motion-safe:transition-all motion-safe:duration-200">
                         <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                           <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                         </svg>
                       </div>
-                      <h3 className="text-sm sm:text-base font-bold text-[#0B2545]">
+                      <h3 className="text-sm sm:text-base font-bold text-[#0B2545] group-hover:text-[#133661] transition-colors">
                         {item}
                       </h3>
                     </div>
                     <div className="pt-1">
                       <Link
                         href={requestHref}
-                        className="text-xs font-bold text-[#0B2545] hover:underline underline-offset-2 inline-flex items-center gap-1"
+                        className="text-xs font-bold text-[#0B2545] hover:underline underline-offset-2 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
                       >
                         <span>Request support</span>
                         <span aria-hidden="true">→</span>
@@ -375,36 +433,51 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-5 space-y-1.5 shadow-2xs">
-                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Round-the-clock</span>
+              <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Round-the-clock</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                </div>
                 <h3 className="text-base font-bold text-[#0B2545]">24/7 operations desk</h3>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   Active monitoring, schedule revision management, and live stakeholder coordination across time zones.
                 </p>
+                <div className="pt-2">
+                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
+                </div>
               </div>
 
-              <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-5 space-y-1.5 shadow-2xs">
+              <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
                 <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Worldwide Reach</span>
                 <h3 className="text-base font-bold text-[#0B2545]">Global partner network</h3>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   Established direct channels with certified handlers, fuel providers, and civil aviation authorities.
                 </p>
+                <div className="pt-2">
+                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
+                </div>
               </div>
 
-              <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-5 space-y-1.5 shadow-2xs">
+              <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
                 <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Unified Channel</span>
                 <h3 className="text-base font-bold text-[#0B2545]">One point of contact</h3>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   Synchronized permits, handling, fuel, and layovers without scattered communications.
                 </p>
+                <div className="pt-2">
+                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
+                </div>
               </div>
 
-              <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-5 space-y-1.5 shadow-2xs">
+              <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
                 <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Since 1947</span>
                 <h3 className="text-base font-bold text-[#0B2545]">Kashmirwala Group</h3>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.
                 </p>
+                <div className="pt-2">
+                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
+                </div>
               </div>
             </div>
           </div>
@@ -438,11 +511,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {visibleFaqs.map((faq) => (
               <details
                 key={faq.question}
-                className="group bg-[#F8FAFC] border border-[#CBD5E1] rounded-[4px] p-4 sm:p-5 transition-colors"
+                className="group bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545]/60 rounded-[4px] p-4 sm:p-5 transition-all duration-200"
               >
                 <summary className="flex items-center justify-between font-bold text-sm sm:text-base text-[#0B2545] cursor-pointer list-none select-none">
-                  <span className="pr-3">{faq.question}</span>
-                  <span className="w-5 h-5 rounded-full bg-white border border-[#CBD5E1] flex items-center justify-center text-[10px] text-[#0B2545] group-open:rotate-180 transition-transform duration-200 shrink-0">
+                  <span className="pr-3 group-hover:text-[#133661] transition-colors">{faq.question}</span>
+                  <span className="w-5 h-5 rounded-full bg-white border border-[#CBD5E1] flex items-center justify-center text-[10px] text-[#0B2545] group-open:rotate-180 group-open:bg-[#0B2545] group-open:text-white transition-all duration-200 shrink-0">
                     ▼
                   </span>
                 </summary>

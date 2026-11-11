@@ -8,6 +8,7 @@ import {
   PAKISTAN_SPECIALIST_SERVICES,
 } from "@/content/services";
 import { CtaBanner } from "@/components/sections/CtaBanner";
+import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 
 export const metadata = buildMetadata({
   title: "International Aviation Support Services | KCL",
@@ -24,7 +25,7 @@ export default function ServicesOverviewPage() {
       {/* =========================================================================
           HERO (Homepage Height & Grand Aviation Aesthetic)
           ========================================================================= */}
-      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[580px] sm:min-h-[620px] lg:min-h-[660px] py-16 sm:py-20 lg:py-24 flex items-center justify-center">
+      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[540px] sm:min-h-[580px] lg:min-h-[620px] py-14 sm:py-16 lg:py-20 flex items-center justify-center">
         {/* Full-bleed background photo with calibrated gradient */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -37,8 +38,17 @@ export default function ServicesOverviewPage() {
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/85 via-[#0B2545]/60 to-[#14406E]/35"
+            className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/90 via-[#0B2545]/75 to-[#14406E]/45"
           />
+
+          {/* Ambient Radar Sweep Visual */}
+          <div aria-hidden="true" className="absolute -top-24 -right-24 sm:-top-32 sm:-right-32 w-[380px] sm:w-[540px] h-[380px] sm:h-[540px] rounded-full border border-sky-400/10 pointer-events-none overflow-hidden opacity-30">
+            <div className="absolute inset-0 rounded-full border border-sky-400/15" />
+            <div className="absolute inset-16 sm:inset-24 rounded-full border border-sky-400/15" />
+            <div className="absolute inset-32 sm:inset-44 rounded-full border border-sky-400/15" />
+            <div className="absolute inset-0 radar-sweep-beam bg-gradient-to-tr from-sky-400/15 via-transparent to-transparent rounded-full" />
+          </div>
+
           {/* Subtle airway route line-art */}
           <svg
             viewBox="0 0 1440 640"
@@ -65,8 +75,13 @@ export default function ServicesOverviewPage() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
           <div className="max-w-3xl mx-auto space-y-4 sm:space-y-5">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xs border border-white/20 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wide text-slate-100">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Comprehensive Flight Support Network</span>
+            </div>
+
             <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
               International Aviation Support Services
             </h1>
@@ -83,14 +98,15 @@ export default function ServicesOverviewPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
               <Link
                 href="/request-flight-support"
-                className="bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
+                className="relative overflow-hidden bg-[#0B2545] hover:bg-[#133661] text-white border border-white/30 min-h-[44px] px-7 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2 group"
               >
+                <span className="animate-btn-shimmer" />
                 <span>Request Flight Support</span>
-                <span aria-hidden="true">→</span>
+                <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
               </Link>
               <a
                 href="#services-directory"
-                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="bg-white/10 hover:bg-white/20 text-white border border-white/30 min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] backdrop-blur-xs transition-colors"
               >
                 Explore Core Services
               </a>
@@ -104,18 +120,18 @@ export default function ServicesOverviewPage() {
         aria-label="Operational Credentials"
         className="bg-[#F8FAFC] border-b border-[#E2E8F0] py-3 sm:py-3.5"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs sm:text-[13px] font-bold text-[#0B2545]">
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs hover:border-[#0B2545]/40 transition-colors">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
               24/7 operations desk
             </span>
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs hover:border-[#0B2545]/40 transition-colors">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
               Scheduled and non-scheduled flights
             </span>
-            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs">
-              <span className="h-2 w-2 rounded-full bg-[#B88200]" />
+            <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3.5 py-1.5 rounded-[2px] shadow-2xs hover:border-[#0B2545]/40 transition-colors">
+              <span className="h-2 w-2 rounded-full bg-[#133661]" />
               Short-notice requests
             </span>
           </div>
@@ -123,11 +139,11 @@ export default function ServicesOverviewPage() {
       </section>
 
       {/* Six Core Services Grid */}
-      <section id="services-directory" className="scroll-mt-16 py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <section id="services-directory" className="scroll-mt-16 py-12 lg:py-14 bg-white border-b border-[#CBD5E1] relative">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="max-w-3xl space-y-2">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              OPERATIONAL SERVICES · PRIMARY SERVICE DIRECTORY
+            <span className="text-xs uppercase tracking-wider text-[#5C6B7A] font-bold block">
+              Operational Services · Primary Service Directory
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               KCL Aviation Support Services
@@ -143,13 +159,16 @@ export default function ServicesOverviewPage() {
             {KCL_SIX_CORE_SERVICES.map((pillar) => (
               <div
                 key={pillar.code}
-                className="kcl-card bg-[#F6F8FB] border border-[#CBD5E1] p-6 flex flex-col justify-between space-y-4"
+                className="group relative bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-6 flex flex-col justify-between space-y-4 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden"
               >
-                <div className="space-y-2.5">
-                  <span className="font-mono text-xs font-bold text-[#0B2545] bg-white border border-[#CBD5E1] px-2.5 py-0.5 inline-block">
+                {/* Top subtle shimmer border on hover */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0B2545] via-sky-500 to-[#0B2545] opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                <div className="space-y-3">
+                  <span className="text-xs font-bold text-[#0B2545] bg-white border border-[#CBD5E1] px-2.5 py-0.5 inline-block rounded-[2px]">
                     {pillar.code}
                   </span>
-                  <h3 className="text-xl font-bold text-[#0B2545]">
+                  <h3 className="text-lg font-bold text-[#0B2545] group-hover:text-[#133661] transition-colors">
                     <Link
                       href={pillar.primaryHref}
                       className="hover:underline underline-offset-4"
@@ -157,23 +176,24 @@ export default function ServicesOverviewPage() {
                       {pillar.title}
                     </Link>
                   </h3>
-                  <p className="text-sm text-[#16202B] leading-relaxed">
+                  <p className="text-sm text-[#475569] leading-relaxed">
                     {pillar.summary}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-slate-200 space-y-2">
+                <div className="pt-4 border-t border-[#CBD5E1]/60 space-y-2">
                   <Link
                     href={pillar.primaryHref}
-                    className="block text-sm font-bold text-[#0B2545] hover:text-[#133661]"
+                    className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0B2545] group-hover:text-[#133661]"
                   >
-                    {pillar.primaryLabel} →
+                    <span>{pillar.primaryLabel}</span>
+                    <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
                   </Link>
                   <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-[#5C6B7A]">
                     {pillar.subLinks.map((sub) => (
                       <Link
                         key={sub.href}
                         href={sub.href}
-                        className="hover:text-[#0B2545]"
+                        className="hover:text-[#0B2545] transition-colors"
                       >
                         {sub.label}
                       </Link>
@@ -185,66 +205,70 @@ export default function ServicesOverviewPage() {
           </div>
 
           {/* Scheduled vs Non-Scheduled Filing & Scope Boundary */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div className="kcl-card lg:col-span-4 bg-[#F6F8FB] border border-[#CBD5E1] p-6 space-y-2.5">
-              <span className="font-mono text-xs text-[#5C6B7A] uppercase block">
-                SCHEDULED OPERATIONS
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 pt-2">
+            <div className="group lg:col-span-4 bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-2.5 shadow-2xs hover:shadow-xs transition-all duration-200">
+              <span className="text-xs font-bold text-[#5C6B7A] uppercase tracking-wider block">
+                Scheduled Operations
               </span>
-              <h3 className="text-lg font-bold text-[#0B2545]">
+              <h3 className="text-base font-bold text-[#0B2545]">
                 Scheduled Flight Filing
               </h3>
-              <p className="text-sm text-[#16202B] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                 Seasonal and recurring airline flight permission applications,
                 schedule information, and fleet amendments.
               </p>
               <div className="pt-2 flex flex-wrap gap-3 text-xs font-bold text-[#0B2545]">
                 <Link
                   href="/services/scheduled-flights"
-                  className="kcl-link"
+                  className="hover:underline underline-offset-2 inline-flex items-center gap-1"
                 >
-                  Scheduled Flights →
+                  <span>Scheduled Flights</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
                 <Link
                   href="/schedule-filing"
-                  className="kcl-link"
+                  className="hover:underline underline-offset-2 inline-flex items-center gap-1"
                 >
-                  Pakistan Schedule Filing →
+                  <span>Pakistan Schedule Filing</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </div>
 
-            <div className="kcl-card lg:col-span-4 bg-[#F6F8FB] border border-[#CBD5E1] p-6 space-y-2.5">
-              <span className="font-mono text-xs text-[#5C6B7A] uppercase block">
-                NON-SCHEDULED &amp; CHARTER
+            <div className="group lg:col-span-4 bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-2.5 shadow-2xs hover:shadow-xs transition-all duration-200">
+              <span className="text-xs font-bold text-[#5C6B7A] uppercase tracking-wider block">
+                Non-Scheduled &amp; Charter
               </span>
-              <h3 className="text-lg font-bold text-[#0B2545]">
+              <h3 className="text-base font-bold text-[#0B2545]">
                 Non-Scheduled &amp; Charter Filing
               </h3>
-              <p className="text-sm text-[#16202B] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                 Ad-hoc passenger and cargo charters, business aviation, ferry
                 flights, and technical refueling stops.
               </p>
               <div className="pt-2 flex flex-wrap gap-3 text-xs font-bold text-[#0B2545]">
                 <Link
                   href="/services/non-scheduled-flights"
-                  className="kcl-link"
+                  className="hover:underline underline-offset-2 inline-flex items-center gap-1"
                 >
-                  Charter &amp; Non-Scheduled →
+                  <span>Charter &amp; Non-Scheduled</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
                 <Link
                   href="/non-schedule-filing"
-                  className="kcl-link"
+                  className="hover:underline underline-offset-2 inline-flex items-center gap-1"
                 >
-                  Pakistan Non-Schedule Filing →
+                  <span>Pakistan Non-Schedule Filing</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </div>
 
-            <div className="kcl-card lg:col-span-4 bg-white border border-[#CBD5E1] p-6 space-y-2">
-              <span className="font-mono text-xs font-bold text-[#0B2545] uppercase block">
-                OPERATIONAL SCOPE NOTE
+            <div className="lg:col-span-4 bg-white border border-[#CBD5E1] rounded-[4px] p-5 space-y-2 shadow-2xs">
+              <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">
+                Operational Scope Note
               </span>
-              <p className="text-xs text-[#16202B] leading-relaxed">
+              <p className="text-xs text-[#475569] leading-relaxed">
                 KCL specializes exclusively in B2B aircraft operations and
                 flight support—permissions, ground handling, catering, fuel,
                 crew accommodation, and 24/7 operational coordination. KCL does
@@ -256,52 +280,56 @@ export default function ServicesOverviewPage() {
         </div>
       </section>
 
+      <FlightPathDivider />
+
       {/* Regional Specialization Section */}
-      <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <section className="py-12 lg:py-14 bg-[#F8FAFC] border-b border-[#CBD5E1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           {/* Dedicated Pakistan Specialization Section */}
-          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-6">
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#CBD5E1] pb-4">
+          <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-6 sm:p-8 space-y-6 shadow-2xs">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#CBD5E1]/60 pb-4">
               <div>
-                <span className="font-mono text-xs uppercase text-white bg-[#0B2545] px-2.5 py-1 font-semibold inline-block mb-2">
-                  REGIONAL SPECIALIZATION · PAKISTAN (OPKR &amp; OPLR FIRs)
+                <span className="text-xs uppercase tracking-wider text-white bg-[#0B2545] px-2.5 py-1 font-semibold inline-block rounded-[2px] mb-2">
+                  Regional Specialization · Pakistan (OPKR &amp; OPLR FIRs)
                 </span>
-                <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545]">
+                <h2 className="text-2xl font-bold text-[#0B2545]">
                   Pakistan Flight Permission Specialization Pages
                 </h2>
               </div>
               <Link
                 href="/pakistan/flight-permissions"
-                className="kcl-btn-primary min-h-[44px] px-5 py-2.5 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
+                className="bg-[#0B2545] hover:bg-[#133661] text-white min-h-[40px] px-5 py-2 font-bold text-xs sm:text-sm inline-flex items-center justify-center rounded-[2px] transition-colors gap-1.5"
               >
-                Pakistan Flight Permissions Hub →
+                <span>Pakistan Flight Permissions Hub</span>
+                <span aria-hidden="true">→</span>
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {PAKISTAN_SPECIALIST_SERVICES.map((pkService) => (
                 <div
                   key={pkService.slug}
-                  className="kcl-card bg-[#F6F8FB] border border-[#CBD5E1] p-5 space-y-2.5"
+                  className="group bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-2.5 shadow-2xs hover:shadow-xs transition-all duration-200"
                 >
-                  <span className="font-mono text-xs text-[#5C6B7A] block">
+                  <span className="text-xs font-bold text-[#5C6B7A] block">
                     {pkService.code}
                   </span>
-                  <h3 className="text-lg font-bold text-[#0B2545]">
+                  <h3 className="text-base font-bold text-[#0B2545] group-hover:text-[#133661] transition-colors">
                     <Link
                       href={`/services/${pkService.slug}`}
                     >
                       {pkService.shortTitle}
                     </Link>
                   </h3>
-                  <p className="text-sm text-[#16202B] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                     {pkService.introParagraph}
                   </p>
                   <Link
                     href={`/services/${pkService.slug}`}
-                    className="kcl-link inline-block pt-1 text-sm font-bold text-[#0B2545]"
+                    className="inline-flex items-center gap-1 pt-1 text-xs sm:text-sm font-bold text-[#0B2545] hover:underline underline-offset-2"
                   >
-                    Read Pakistan Guide →
+                    <span>Read Pakistan Guide</span>
+                    <span aria-hidden="true">→</span>
                   </Link>
                 </div>
               ))}
