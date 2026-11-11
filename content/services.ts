@@ -34,6 +34,7 @@ export interface ServiceDefinition {
   relatedToolPath: { label: string; href: string };
   relatedNewsSlug: { label: string; href: string };
   presetPermitType?: "overflight" | "landing" | "both";
+  hideFinalCta?: boolean;
   finalCtaHeading: string;
   finalCtaSubheading: string;
   finalCtaLabel: string;
@@ -1430,6 +1431,7 @@ export const SERVICES_DATA: ServiceDefinition[] = [
       href: "/news/what-to-send-with-a-permit-request",
     },
     presetPermitType: "landing",
+    hideFinalCta: true,
     finalCtaHeading: "Prepare the Catering Details Before Departure Day.",
     finalCtaSubheading:
       "Send your flight date, airport, aircraft type, and meal requirements to discuss inflight catering coordination.",
