@@ -129,19 +129,6 @@ export default function InflightCateringPage() {
                 Plan My Meals
               </a>
             </div>
-
-            {/* At a glance: Snapshot Card (Facts only, no invented statistics) */}
-            <div className="pt-4 max-w-2xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-[4px] p-3.5 sm:p-4 text-xs sm:text-sm text-slate-200 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-                <span className="font-semibold text-white">Inflight meal preparation and supply</span>
-                <span className="text-white/40">|</span>
-                <span className="font-semibold text-white">Special dietary and customised meal plans</span>
-                <span className="text-white/40">|</span>
-                <span className="font-semibold text-white">Hygienic packaging</span>
-                <span className="text-white/40">|</span>
-                <span className="font-semibold text-white">24/7 operations desk</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
