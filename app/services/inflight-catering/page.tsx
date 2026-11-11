@@ -15,7 +15,6 @@ import {
   CATERING_FLIGHTS_SUPPORTED,
   CATERING_RELATED_SERVICES,
 } from "@/content/catering";
-import { CONTACT_DATA } from "@/content/contact";
 import { MealPlanner } from "@/components/sections/MealPlanner";
 import { CateringTimeline } from "@/components/sections/CateringTimeline";
 import { CateringFaqAccordion } from "@/components/sections/CateringFaqAccordion";
@@ -590,45 +589,6 @@ export default function InflightCateringPage() {
       <section className="py-12 sm:py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <CateringFaqAccordion />
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 10 — FINAL CTA BAND (One Only — Real Phone & Email)
-          ========================================================================= */}
-      <section className="bg-gradient-to-r from-[#0B2545] to-[#14406E] text-white border-t border-slate-700 py-14 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-3">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Get the Catering Details Ready Before Departure Day.
-              </h2>
-              <p className="text-slate-200 text-base leading-relaxed max-w-2xl">
-                Send your flight date, airport ICAO code, aircraft type, and meal requirements to coordinate seamless galley delivery with trusted station caterers.
-              </p>
-              <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-300">
-                <span><strong>Operations Desk:</strong> {CONTACT_DATA.opsEmail}</span>
-                <span><strong>Primary Phone (24/7):</strong> {CONTACT_DATA.primaryPhone}</span>
-                <span><strong>Secondary Phone:</strong> {CONTACT_DATA.secondaryPhone}</span>
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
-              <Link
-                href="/request-flight-support?service=inflight-catering"
-                className="bg-[#133661] hover:bg-[#1A467D] text-white min-h-[48px] px-6 py-3.5 font-bold text-sm text-center inline-flex items-center justify-center rounded-[2px] transition-colors border border-white/20 shadow-xs"
-              >
-                <span>Request Catering</span>
-                <span aria-hidden="true" className="ml-1.5">→</span>
-              </Link>
-              <a
-                href={`tel:${CONTACT_DATA.primaryPhone.replace(/\s+/g, "")}`}
-                className="kcl-btn-outline-white min-h-[48px] px-6 py-3.5 font-semibold text-sm text-center inline-flex items-center justify-center rounded-[2px]"
-              >
-                Call the Ops Desk
-              </a>
-            </div>
-          </div>
         </div>
       </section>
     </>
