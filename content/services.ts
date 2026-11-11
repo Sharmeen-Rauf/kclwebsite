@@ -1967,8 +1967,9 @@ export function getServiceBySlug(slug: string): ServiceDefinition | undefined {
 }
 
 export function getAllServiceSlugsForStaticGeneration(): string[] {
+  const dedicatedPages = ["flight-permissions", "ground-handling", "inflight-catering"];
   return [
     ...SERVICES_DATA.map((s) => s.slug),
     ...Object.keys(LEGACY_SLUG_ALIASES),
-  ];
+  ].filter((slug) => !dedicatedPages.includes(slug));
 }
