@@ -65,7 +65,7 @@ export const INTERNATIONAL_PERMIT_FAQS: FaqItem[] = [
   {
     question: "How long does a permit take?",
     answer:
-      "Processing timelines differ widely across civil aviation authorities. Official authority lead times range from 24 to 72 hours for standard overflights, to several working days for non-scheduled commercial landings or state diplomatic clearances. KCL provides route-specific planning guidance upon reviewing your itinerary.",
+      "Processing times differ by country and by type of flight. We confirm planning lead times for your route once we have your itinerary. Our flight operations desk provides route-specific guidance when you share your schedule.",
   },
   {
     question: "Can short-notice requests be handled?",

@@ -313,6 +313,21 @@
   animation: timelineSignalFlow 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
+@keyframes stampPress {
+  0% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-stamp-press {
+  animation: stampPress 250ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -320,7 +335,8 @@
   .taxiway-flow-line,
   .animate-btn-shimmer,
   .radar-sweep-beam,
-  .timeline-signal-dot {
+  .timeline-signal-dot,
+  .animate-stamp-press {
     animation: none !important;
     display: none !important;
   }

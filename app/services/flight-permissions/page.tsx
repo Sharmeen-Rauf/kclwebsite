@@ -9,7 +9,7 @@ import {
   buildBreadcrumbJsonLd,
   buildFaqJsonLd,
 } from "@/components/seo/JsonLd";
-import { PermitRequirementSelector } from "@/components/sections/PermitRequirementSelector";
+import { RoutePermitPlanner } from "@/components/sections/RoutePermitPlanner";
 import { ClientStrip } from "@/components/sections/ClientStrip";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
@@ -76,12 +76,12 @@ const FLIGHTS_WE_SUPPORT = [
   {
     title: "Cargo Operators",
     description: "Scheduled freighters, outsized project cargo, and logistics charters requiring landing clearances.",
-    href: "/request-flight-support?permitType=landing",
+    href: "/request-flight-support?service=flight-permissions&flightType=cargo",
   },
   {
     title: "Executive Aviation",
     description: "Corporate flight departments, private charters, and governmental delegations needing confidential routing.",
-    href: "/request-flight-support?permitType=both",
+    href: "/request-flight-support?service=flight-permissions&flightType=private",
   },
 ];
 
@@ -105,7 +105,7 @@ export default function FlightPermissionsPage() {
     provider: {
       "@type": "Organization",
       name: "Kashmir Corporation (Pvt.) Ltd. - KCL",
-      url: "https://kclwebsite.vercel.app",
+      url: process.env.NEXT_PUBLIC_SITE_URL || "https://kclwebsite.vercel.app",
     },
     areaServed: "Worldwide",
   };
@@ -121,7 +121,7 @@ export default function FlightPermissionsPage() {
       />
 
       {/* =========================================================================
-          SECTION 1 — HERO (Compact Height 520 to 560px on Desktop, Animated Visuals)
+          SECTION 1 — HERO (Retained as per specification)
           ========================================================================= */}
       <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[520px] lg:min-h-[560px] py-12 lg:py-14 flex items-center justify-center">
         <div className="absolute inset-0 z-0">
@@ -195,10 +195,10 @@ export default function FlightPermissionsPage() {
                 <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
               </Link>
               <a
-                href="#permit-selector"
+                href="#route-permit-planner"
                 className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px] hover:bg-white/15 transition-all"
               >
-                Check Document Requirements
+                Plan Route Permits
               </a>
             </div>
           </div>
@@ -207,17 +207,17 @@ export default function FlightPermissionsPage() {
 
       {/* Operational Chips Strip Below Hero */}
       <section
-        aria-label="Operational Capabilities"
+        aria-label="Operational capabilities"
         className="bg-[#F8FAFC] border-b border-[#E2E8F0] py-3"
       >
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-bold text-[#0B2545]">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-semibold text-[#0B2545]">
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-0.5 px-3 py-1 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
               Scheduled and non-scheduled flights
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-0.5 px-3 py-1 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200">
-              <span className="h-2 w-2 rounded-full bg-[#F4C400]" />
+              <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
               Short-notice requests
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-emerald-300 hover:border-emerald-500 hover:-translate-y-0.5 px-3 py-1 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200 bg-emerald-50/40">
@@ -229,7 +229,7 @@ export default function FlightPermissionsPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 2 — PERMIT CATEGORIES (Cards with Animated Borders & Duotone)
+          SECTION 2 — PERMIT CATEGORIES (Five Cards + Internal Links)
           ========================================================================= */}
       <section className="py-10 lg:py-14 bg-white border-b border-[#CBD5E1]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -248,10 +248,10 @@ export default function FlightPermissionsPage() {
                 key={item.name}
                 className="snap-center shrink-0 w-[82vw] sm:w-auto group relative bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] overflow-hidden flex flex-col justify-between hover:border-[#0B2545] hover:shadow-md hover:-translate-y-1 transition-all duration-300 ease-out motion-reduce:transform-none motion-reduce:transition-none"
               >
-                {/* Top Animated Shimmer Border Accent with Gold Glow */}
+                {/* Top Animated Shimmer Border Accent */}
                 <div
                   aria-hidden="true"
-                  className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"
+                  className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0B2545] via-[#38BDF8] to-[#0B2545] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"
                 />
 
                 <div className="relative h-36 sm:h-40 w-full overflow-hidden bg-slate-900">
@@ -291,6 +291,22 @@ export default function FlightPermissionsPage() {
               </div>
             ))}
           </div>
+
+          {/* Internal links to directory and regional guides */}
+          <div className="mt-6 pt-4 border-t border-[#CBD5E1]/60 flex flex-wrap items-center justify-between gap-3 text-sm text-[#475569]">
+            <span>
+              Looking for specific sovereign entry guidelines and airway requirements?
+            </span>
+            <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm font-semibold text-[#0B2545]">
+              <Link href="/permit-directory" className="hover:underline underline-offset-2 inline-flex items-center gap-1">
+                Browse Global Permit Directory <span aria-hidden="true">→</span>
+              </Link>
+              <span className="text-[#94A3B8]" aria-hidden="true">·</span>
+              <Link href="/pakistan/flight-permissions" className="hover:underline underline-offset-2 inline-flex items-center gap-1">
+                Pakistan Flight Permissions Guide <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -298,11 +314,11 @@ export default function FlightPermissionsPage() {
       <FlightPathDivider variant="curve-down" className="my-2 bg-[#F8FAFC]" />
 
       {/* =========================================================================
-          SECTION 3 — INTERACTIVE SELECTOR (Compact Output & Complementary Strip)
+          SECTION 3 — ROUTE PERMIT PLANNER & COMPLEMENTARY SERVICES
           ========================================================================= */}
-      <section id="permit-selector" className="scroll-mt-16 py-10 lg:py-14 bg-[#F8FAFC] border-b border-[#CBD5E1]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <PermitRequirementSelector />
+      <section id="route-permit-planner" className="scroll-mt-16 py-10 lg:py-14 bg-[#F8FAFC] border-b border-[#CBD5E1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <RoutePermitPlanner />
 
           {/* Unique Complementary Services Cards Slider */}
           <ComplementaryServicesSlider currentServiceSlug="flight-permissions" />
@@ -333,7 +349,7 @@ export default function FlightPermissionsPage() {
             {/* Left Column: Timeline */}
             <div className="lg:col-span-7 space-y-4">
               <div className="mb-4">
-                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Operational Timeline</span>
+                <span className="text-xs font-semibold text-[#0B2545] tracking-wide block">Operational timeline</span>
                 <h2 className="text-2xl font-bold text-[#0B2545]">How Your Permit Is Coordinated</h2>
                 <p className="text-sm text-[#475569] mt-1">
                   Structured civil aviation liaison from dossier preparation to clearance validation.
@@ -363,7 +379,7 @@ export default function FlightPermissionsPage() {
                     <h3 className="text-sm font-bold text-[#0B2545]">Review Lead Times &amp; Compliance</h3>
                   </div>
                   <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    We verify sovereign notice windows, bilateral air agreements, and required aircraft documentation.
+                    We verify sovereign notice windows, authority requirements, and required aircraft documentation.
                   </p>
                 </div>
 
@@ -376,7 +392,7 @@ export default function FlightPermissionsPage() {
                     <h3 className="text-sm font-bold text-[#0B2545]">Submit Through Authority Channels</h3>
                   </div>
                   <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    Direct filing with Civil Aviation Authorities, air defense watch desks, and local aerodrome operators.
+                    Direct filing with Civil Aviation Authorities and local aerodrome operators.
                   </p>
                 </div>
 
@@ -411,7 +427,7 @@ export default function FlightPermissionsPage() {
             {/* Right Column: Flights We Support (4 Compact Cards) */}
             <div className="lg:col-span-5 space-y-4">
               <div className="mb-4">
-                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Operator Coverage</span>
+                <span className="text-xs font-semibold text-[#0B2545] tracking-wide block">Operator coverage</span>
                 <h2 className="text-2xl font-bold text-[#0B2545]">Flights We Support</h2>
                 <p className="text-sm text-[#475569] mt-1">
                   Permit coordination tailored for every mission profile.
@@ -463,14 +479,14 @@ export default function FlightPermissionsPage() {
             <div className="max-w-2xl mb-4">
               <h2 className="text-2xl font-bold text-[#0B2545] mb-2">Why KCL</h2>
               <p className="text-sm text-[#475569] leading-relaxed">
-                Proven civil aviation authority relationships and international dispatch discipline since 1947.
+                Decades of international dispatch discipline and continuous flight support operations.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Round-the-clock</span>
+                  <span className="text-xs font-semibold text-[#0B2545] tracking-wide block">Round the clock</span>
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 </div>
                 <h3 className="text-base font-bold text-[#0B2545]">24/7 operations desk</h3>
@@ -478,52 +494,47 @@ export default function FlightPermissionsPage() {
                   Continuous watch officers processing urgent clearances and re-routings across all time zones.
                 </p>
                 <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#F4C400] group-hover:w-12 rounded-full transition-all duration-300" />
+                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
                 </div>
               </div>
 
               <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
-                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Direct Filing</span>
+                <span className="text-xs font-semibold text-[#0B2545] tracking-wide block">Direct filing</span>
                 <h3 className="text-base font-bold text-[#0B2545]">Direct CAA channels</h3>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Established direct communication with Civil Aviation Authorities and air traffic control centers.
+                  Established direct communication channels with Civil Aviation Authorities.
                 </p>
                 <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#F4C400] group-hover:w-12 rounded-full transition-all duration-300" />
+                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
                 </div>
               </div>
 
               <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
-                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Unified Channel</span>
+                <span className="text-xs font-semibold text-[#0B2545] tracking-wide block">Unified channel</span>
                 <h3 className="text-base font-bold text-[#0B2545]">One point of contact</h3>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   Synchronized permits, handling, fuel, and layovers without fragmented communications.
                 </p>
                 <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#F4C400] group-hover:w-12 rounded-full transition-all duration-300" />
+                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
                 </div>
               </div>
 
               <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
-                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Since 1947</span>
+                <span className="text-xs font-semibold text-[#0B2545] tracking-wide block">Since 1947</span>
                 <h3 className="text-base font-bold text-[#0B2545]">Kashmirwala Group</h3>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.
                 </p>
                 <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#F4C400] group-hover:w-12 rounded-full transition-all duration-300" />
+                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
                 </div>
               </div>
             </div>
           </div>
 
           <div className="pt-6 border-t border-[#CBD5E1]/60">
-            <div className="text-center mb-3">
-              <span className="text-xs font-bold text-[#5C6B7A] uppercase tracking-wider">
-                Trusted by Airlines Including
-              </span>
-            </div>
-            <ClientStrip compact />
+            <ClientStrip compact hideHeading />
           </div>
         </div>
       </section>
