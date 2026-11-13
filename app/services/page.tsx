@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ClientStrip } from "@/components/sections/ClientStrip";
 import { FollowOneFlight } from "@/components/sections/FollowOneFlight";
 import { LiveAviationClocks } from "@/components/sections/LiveAviationClocks";
+import { HeroVideoBackground } from "@/components/ui/HeroVideoBackground";
 import {
   JsonLd,
   buildBreadcrumbJsonLd,
@@ -196,15 +197,12 @@ export default function ServicesOverviewPage() {
           HERO (Homepage Height & Grand Aviation Aesthetic) — PRESERVED UNTOUCHED
           ========================================================================= */}
       <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[540px] sm:min-h-[580px] lg:min-h-[620px] py-14 sm:py-16 lg:py-20 flex items-center justify-center">
-        {/* Full-bleed background photo with calibrated gradient */}
+        {/* Full-bleed background video with instant poster and calibrated gradient */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/img/hero-flight-ops.jpg"
+          <HeroVideoBackground
+            src="/Business_jet_parked_at_dawn_8537098a.mp4"
+            poster="/img/hero-flight-ops.jpg"
             alt="Commercial airliner and private jet on airport apron with ground handling services"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center hero-zoom-photo"
           />
           <div
             aria-hidden="true"

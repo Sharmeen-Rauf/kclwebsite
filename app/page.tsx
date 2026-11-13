@@ -11,6 +11,7 @@ import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
 import { newsRepository } from "@/lib/data/news-repository";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
+import { HeroVideoBackground } from "@/components/ui/HeroVideoBackground";
 import { AircraftMissionSlider } from "@/components/sections/AircraftMissionSlider";
 import { RegionalCoverageSlider } from "@/components/sections/RegionalCoverageSlider";
 
@@ -188,15 +189,12 @@ export default async function HomePage() {
 
       {/* 1. Split Hero with Quick Permit Request Panel (min 640px / max 820px, 48px top padding) */}
       <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[640px] lg:max-h-[820px] pt-12 pb-12 flex items-center">
-        {/* Background Aircraft / Ramp Photo with Left-to-Right Navy Gradient (85% to 35%) */}
+        {/* Background Aircraft / Ramp Video with Instant Poster & Navy Gradient */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/img/hero-flight-ops.jpg"
+          <HeroVideoBackground
+            src="/Jet_taking_off_and_flying_707b15ca.mp4"
+            poster="/img/hero-flight-ops.jpg"
             alt="Commercial aircraft and business jet on an international airport ramp with ground support equipment"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center hero-zoom-photo"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/80 via-[#0B2545]/55 to-[#14406E]/30" />
           {/* Very faint route line-art background (no chart box, flight levels, or airway codes) */}

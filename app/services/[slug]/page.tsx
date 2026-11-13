@@ -13,6 +13,7 @@ import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ClientStrip } from "@/components/sections/ClientStrip";
 import { ServiceQuickPlanner } from "@/components/sections/ServiceQuickPlanner";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
+import { HeroVideoBackground } from "@/components/ui/HeroVideoBackground";
 import {
   JsonLd,
   buildFaqJsonLd,
@@ -33,6 +34,12 @@ function getServiceHeroImage(slug: string): string {
   if (slug.includes("dispatch") || slug.includes("planning")) return "/img/services/07-dispatch.webp";
   if (slug.includes("slot") || slug.includes("ppr")) return "/img/services/08-slots.webp";
   return "/img/hero-flight-ops.jpg";
+}
+
+function getServiceHeroVideo(slug: string): string | null {
+  if (slug.includes("fuel")) return "/Jet_refueling_at_night_airport_797c3335.mp4";
+  if (slug.includes("operations") || slug.includes("support")) return "/Aircraft_ground_operations_macro._ddb440da.mp4";
+  return null;
 }
 
 function getCardImage(title: string, index: number, slug = ""): string {
@@ -99,6 +106,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const visibleFaqs = service.faqs.slice(0, 6);
   const coreHandleItems = service.whatWeHandle.slice(0, 4);
   const operatorTargets = service.whoItIsFor.slice(0, 4);
+  const heroVideo = getServiceHeroVideo(service.slug);
+  const heroPoster = getServiceHeroImage(service.slug);
 
   return (
     <>
@@ -129,14 +138,22 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           ========================================================================= */}
       <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[520px] lg:min-h-[560px] py-12 lg:py-14 flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          <Image
-            src={getServiceHeroImage(service.slug)}
-            alt={`${service.h1} — international aviation flight operations`}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center hero-zoom-photo"
-          />
+          {heroVideo ? (
+            <HeroVideoBackground
+              src={heroVideo}
+              poster={heroPoster}
+              alt={`${service.h1} — international aviation flight operations`}
+            />
+          ) : (
+            <Image
+              src={heroPoster}
+              alt={`${service.h1} — international aviation flight operations`}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center hero-zoom-photo"
+            />
+          )}
           <div
             aria-hidden="true"
             className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/92 via-[#0B2545]/75 to-[#14406E]/50"
