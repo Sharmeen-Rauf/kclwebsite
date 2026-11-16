@@ -527,28 +527,54 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 sm:p-8 space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Left: Address & Phones */}
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-lg font-bold text-[#0B2545] mb-1">
-                    Head Office Address
-                  </h3>
-                  <p className="text-base text-[#1E293B] leading-relaxed">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            {/* Left Panel: Deep Navy Operations Hub (Address & 24/7 Phones) */}
+            <div className="lg:col-span-5 relative overflow-hidden bg-[#0B2545] text-white rounded-[8px] border border-[#0B2545] border-t-4 border-t-[#F4C400] p-6 sm:p-7 flex flex-col justify-between gap-6 shadow-md">
+              {/* Subtle aircraft watermark */}
+              <svg
+                viewBox="0 0 120 120"
+                fill="none"
+                aria-hidden="true"
+                className="absolute -right-6 -bottom-6 w-36 h-36 text-white/[0.05] pointer-events-none"
+              >
+                <path
+                  d="M95 25L55 48L22 38L14 46L42 62L30 82L16 80L10 86L28 92L34 110L40 104L38 90L58 78L74 106L82 98L72 65L95 25Z"
+                  fill="currentColor"
+                />
+              </svg>
+
+              <div className="relative z-10 space-y-5">
+                <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-sm font-semibold text-white">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>24/7 Operations Desk Active</span>
+                </div>
+
+                <div className="space-y-1.5">
+                  <div className="flex items-center gap-2 text-base font-bold text-[#F4C400]">
+                    <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Head Office Address</span>
+                  </div>
+                  <p className="text-base text-slate-100 leading-relaxed pl-6">
                     {CONTACT_DATA.address}
                   </p>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-[#0B2545] mb-1">
-                    Telephone (24/7)
-                  </h3>
-                  <div className="space-y-1">
+
+                <div className="space-y-2 pt-2 border-t border-white/15">
+                  <div className="flex items-center gap-2 text-base font-bold text-[#F4C400]">
+                    <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span>Telephone (24/7)</span>
+                  </div>
+                  <div className="space-y-1.5 pl-6">
                     {CONTACT_DATA.phones.map((phone) => (
                       <div key={phone}>
                         <a
                           href={`tel:${phone.replace(/\s+/g, "")}`}
-                          className="text-base font-semibold text-[#0B2545] hover:underline underline-offset-4"
+                          className="text-base font-semibold text-white hover:text-[#F4C400] transition-colors inline-flex items-center gap-2"
                         >
                           {phone}
                         </a>
@@ -557,78 +583,88 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-
-              {/* Right: Emails */}
-              <div className="space-y-3">
-                <h3 className="text-lg font-bold text-[#0B2545]">
-                  Email Addresses
-                </h3>
-                <div className="space-y-2 text-base text-[#1E293B]">
-                  <div>
-                    <span className="text-[#475569]">Operations Desk: </span>
-                    <a
-                      href={`mailto:${CONTACT_DATA.opsEmail}`}
-                      className="font-semibold text-[#0B2545] hover:underline"
-                    >
-                      {CONTACT_DATA.opsEmail}
-                    </a>
-                  </div>
-                  <div>
-                    <span className="text-[#475569]">General Inquiries: </span>
-                    <a
-                      href={`mailto:${CONTACT_DATA.infoEmail}`}
-                      className="font-semibold text-[#0B2545] hover:underline"
-                    >
-                      {CONTACT_DATA.infoEmail}
-                    </a>
-                  </div>
-                  <div>
-                    <span className="text-[#475569]">Customer Support: </span>
-                    <a
-                      href={`mailto:${CONTACT_DATA.supportEmail}`}
-                      className="font-semibold text-[#0B2545] hover:underline"
-                    >
-                      {CONTACT_DATA.supportEmail}
-                    </a>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <div className="pt-4 border-t border-[#CBD5E1] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <Link
-                href="/request-flight-support"
-                className="bg-[#0B2545] hover:bg-[#133661] text-white font-semibold text-base px-6 py-3 rounded-[4px] transition-colors inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545]"
-              >
-                <span>Request Flight Support</span>
-                <span aria-hidden="true">→</span>
-              </Link>
+            {/* Right Panel: Interactive Email Channels + Primary Action */}
+            <div className="lg:col-span-7 bg-white border border-[#CBD5E1] rounded-[8px] p-6 sm:p-7 flex flex-col justify-between gap-6 shadow-sm">
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold text-[#0B2545]">
+                  Direct Dispatch &amp; Support Channels
+                </h3>
 
-              <div className="flex flex-wrap items-center gap-5 text-base">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    {
+                      label: "Operations Desk",
+                      email: CONTACT_DATA.opsEmail,
+                      note: "Permits & dispatch",
+                    },
+                    {
+                      label: "General Inquiries",
+                      email: CONTACT_DATA.infoEmail,
+                      note: "Commercial & agency",
+                    },
+                    {
+                      label: "Customer Support",
+                      email: CONTACT_DATA.supportEmail,
+                      note: "Coordination follow-up",
+                    },
+                  ].map((item) => (
+                    <a
+                      key={item.email}
+                      href={`mailto:${item.email}`}
+                      className="group bg-[#F8FAFC] hover:bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[6px] p-4 flex flex-col justify-between gap-2 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm motion-reduce:transition-none motion-reduce:transform-none"
+                    >
+                      <div className="space-y-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-bold text-[#B88200]">
+                            {item.label}
+                          </span>
+                          <svg className="w-4 h-4 text-[#0B2545] opacity-60 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                          </svg>
+                        </div>
+                        <div className="text-base font-bold text-[#0B2545] break-all group-hover:underline underline-offset-2">
+                          {item.email}
+                        </div>
+                      </div>
+                      <div className="text-sm text-[#475569]">{item.note}</div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-5 border-t border-[#CBD5E1] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <Link
-                  href="/services"
-                  className="text-[#0B2545] font-semibold hover:underline underline-offset-4"
+                  href="/request-flight-support"
+                  className="relative overflow-hidden bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-base px-6 py-3 rounded-[4px] transition-all shadow-sm hover:shadow-md inline-flex items-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545]"
                 >
-                  Services
+                  <span className="animate-btn-shimmer" />
+                  <span>Request Flight Support</span>
+                  <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
                 </Link>
-                <span aria-hidden="true" className="text-[#CBD5E1]">
-                  |
-                </span>
-                <Link
-                  href="/permit-directory"
-                  className="text-[#0B2545] font-semibold hover:underline underline-offset-4"
-                >
-                  Permit Directory
-                </Link>
-                <span aria-hidden="true" className="text-[#CBD5E1]">
-                  |
-                </span>
-                <Link
-                  href="/contact"
-                  className="text-[#0B2545] font-semibold hover:underline underline-offset-4"
-                >
-                  Contact
-                </Link>
+
+                <div className="flex flex-wrap items-center gap-2.5 text-base">
+                  <Link
+                    href="/services"
+                    className="px-3.5 py-1.5 rounded-full bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545] text-[#0B2545] font-semibold transition-colors"
+                  >
+                    Services
+                  </Link>
+                  <Link
+                    href="/permit-directory"
+                    className="px-3.5 py-1.5 rounded-full bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545] text-[#0B2545] font-semibold transition-colors"
+                  >
+                    Permit Directory
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="px-3.5 py-1.5 rounded-full bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545] text-[#0B2545] font-semibold transition-colors"
+                  >
+                    Contact
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
