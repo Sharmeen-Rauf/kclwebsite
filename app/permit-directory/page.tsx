@@ -3,8 +3,12 @@ import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { COUNTRY_PERMIT_GUIDES } from "@/content/permits";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { InnerHero } from "@/components/sections/InnerHero";
 import { PermitChecker } from "@/components/sections/PermitChecker";
+import { CountryGuideFinder } from "@/components/sections/tools/CountryGuideFinder";
 import { CtaBanner } from "@/components/sections/CtaBanner";
+import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
+import { SERVICE_TOOL_FAQS } from "@/content/service-tool-faqs";
 
 export const metadata = buildMetadata({
   title: "Flight Permit Directory & Airspace Guide",
@@ -16,31 +20,23 @@ export const metadata = buildMetadata({
 export default function PermitDirectoryIndexPage() {
   return (
     <>
+      <JsonLd data={buildFaqJsonLd(SERVICE_TOOL_FAQS["permit-directory"])} />
       <Breadcrumbs
         items={[{ name: "Permit Directory", path: "/permit-directory" }]}
       />
 
-      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
-              DISPATCH REFERENCE · AIRSPACE &amp; AERODROME GUIDES
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white">
-              Flight Permit Directory &amp; Pre-Filing Requirements Checker
-            </h1>
-            <p className="text-lg sm:text-xl font-semibold text-slate-100">
-              Prepare Complete Documentation Before Submitting Your Application.
-            </p>
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-              Every jurisdiction applies distinct documentation rules for
-              scheduled and non-scheduled overflight and landing permissions.
-              Use the interactive checker and country profiles below to review
-              typical operator requirements, FIR codes, and primary aerodromes.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerHero
+        title="Flight Permit Directory & Pre-Filing Requirements Checker"
+        subtitle="Prepare Complete Documentation Before Submitting Your Application."
+        description="Every jurisdiction applies distinct documentation rules for scheduled and non-scheduled overflight and landing permissions. Use the interactive checker and country profiles below to review typical operator requirements, FIR codes, and primary aerodromes."
+        imageSrc="/img/services/01-permits.webp"
+        imageAlt="Cockpit flight deck waypoint navigation display for international permit directory"
+        snapshotRows={[
+          { label: "Country guides", value: "Pakistan available, more on request" },
+          { label: "Flight types", value: "Scheduled and non-scheduled" },
+          { label: "Operations desk", value: "24/7" },
+        ]}
+      />
 
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -129,6 +125,8 @@ export default function PermitDirectoryIndexPage() {
           </div>
         </div>
       </section>
+
+      <CountryGuideFinder />
 
       <CtaBanner
         heading="Need Clarification on a Specific Route or Permit Category?"

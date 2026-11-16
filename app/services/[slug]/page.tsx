@@ -8,12 +8,16 @@ import {
   getAllServiceSlugsForStaticGeneration,
   getServiceBySlug,
 } from "@/content/services";
+import { SERVICE_TOOL_FAQS } from "@/content/service-tool-faqs";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ClientStrip } from "@/components/sections/ClientStrip";
 import { ServiceQuickPlanner } from "@/components/sections/ServiceQuickPlanner";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 import { HeroVideoBackground } from "@/components/ui/HeroVideoBackground";
+import { InnerHero } from "@/components/sections/InnerHero";
+import { UtcDateWindowChecker } from "@/components/sections/tools/UtcDateWindowChecker";
+import { TrafficOrTechnicalStop } from "@/components/sections/tools/TrafficOrTechnicalStop";
 import {
   JsonLd,
   buildFaqJsonLd,
@@ -104,6 +108,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   )}&service=${encodeURIComponent(service.slug)}`;
 
   const visibleFaqs = service.faqs.slice(0, 6);
+  const schemaFaqs = [
+    ...visibleFaqs,
+    ...(SERVICE_TOOL_FAQS[service.slug] || []),
+  ];
   const coreHandleItems = service.whatWeHandle.slice(0, 4);
   const operatorTargets = service.whoItIsFor.slice(0, 4);
   const heroVideo = getServiceHeroVideo(service.slug);
@@ -119,7 +127,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             path: service.canonicalPath || `/services/${service.slug}`,
             serviceType: service.shortTitle,
           }),
-          buildFaqJsonLd(visibleFaqs),
+          buildFaqJsonLd(schemaFaqs),
         ]}
       />
 
@@ -134,9 +142,47 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       />
 
       {/* =========================================================================
-          SECTION 1 — HERO (Compact Height 520 to 560px on Desktop, Animated Visuals)
+          SECTION 1 — HERO (Shared InnerHero for Overflight & Landing Permits)
           ========================================================================= */}
-      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[520px] lg:min-h-[560px] py-12 lg:py-14 flex items-center justify-center">
+      {service.slug === "overflight-permits" ||
+      service.slug === "landing-permits" ? (
+        <InnerHero
+          title={service.h1}
+          subtitle={service.heroHeadline}
+          description={service.introParagraph}
+          imageSrc={heroPoster}
+          imageAlt={`${service.h1} — international aviation flight operations`}
+          buttons={[
+            {
+              label: service.heroCtaLabel,
+              href: requestHref,
+              variant: "primary",
+            },
+            {
+              label: `Plan My ${service.shortTitle}`,
+              href: "#quick-planner",
+              variant: "outline",
+            },
+          ]}
+          snapshotRows={
+            service.slug === "overflight-permits"
+              ? [
+                  { label: "Permit type", value: "Overflight" },
+                  { label: "Flights", value: "Scheduled and non-scheduled" },
+                  { label: "Operations desk", value: "24/7" },
+                ]
+              : [
+                  {
+                    label: "Permit type",
+                    value: "Landing, including technical stops",
+                  },
+                  { label: "Flights", value: "Scheduled and non-scheduled" },
+                  { label: "Operations desk", value: "24/7" },
+                ]
+          }
+        />
+      ) : (
+        <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[520px] lg:min-h-[560px] py-12 lg:py-14 flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           {heroVideo ? (
             <HeroVideoBackground
@@ -225,6 +271,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
         </div>
       </section>
+      )}
 
       {/* Operational Chips Strip Below Hero */}
       <section
@@ -544,6 +591,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
         </div>
       </section>
+
+      {service.slug === "overflight-permits" && <UtcDateWindowChecker />}
+      {service.slug === "landing-permits" && <TrafficOrTechnicalStop />}
 
       {/* =========================================================================
           SECTION 7 — FINAL CTA BAND (One Only)

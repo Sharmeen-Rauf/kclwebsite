@@ -2,8 +2,11 @@ import React from "react";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { InnerHero } from "@/components/sections/InnerHero";
+import { RequestMessageComposer } from "@/components/sections/tools/RequestMessageComposer";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ClientStrip } from "@/components/sections/ClientStrip";
+import { SERVICE_TOOL_FAQS } from "@/content/service-tool-faqs";
 import {
   JsonLd,
   buildFaqJsonLd,
@@ -52,7 +55,10 @@ export default function NonScheduleFilingPage() {
             path: "/non-schedule-filing",
             serviceType: "Non-Scheduled & Charter Flight Support",
           }),
-          buildFaqJsonLd(NONSCHEDULE_FAQS),
+          buildFaqJsonLd([
+            ...NONSCHEDULE_FAQS,
+            ...(SERVICE_TOOL_FAQS["non-schedule-filing"] || []),
+          ]),
         ]}
       />
 
@@ -60,42 +66,30 @@ export default function NonScheduleFilingPage() {
         items={[{ name: "Non-Schedule Filing", path: "/non-schedule-filing" }]}
       />
 
-      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
-              CHARTER, CARGO, FERRY &amp; TECHNICAL STOP OPERATIONS
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white">
-              Charter Flight Support &amp; Non-Scheduled Permissions in Pakistan
-            </h1>
-            <p className="text-lg sm:text-xl font-semibold text-slate-100">
-              Responsive 24/7 Coordination When Mission Timelines Move Fast.
-            </p>
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-              Ad-hoc passenger charters, cargo freighters, delivery flights, and
-              technical refueling stops operate on dynamic schedules. As an AFPA
-              Authorized Flight Permission Agent, Kashmir Corporation Pvt Ltd
-              (KCL) provides charter flight support and non-scheduled permission
-              coordination across Pakistan airspace and international airports.
-            </p>
-            <div className="pt-2 flex flex-wrap gap-3">
-              <Link
-                href="/request-permit?flightType=non-schedule"
-                className="kcl-btn-primary min-h-[48px] px-6 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
-              >
-                Request Charter / Non-Schedule Support
-              </Link>
-              <Link
-                href="/schedule-filing"
-                className="kcl-btn-outline-white min-h-[48px] px-5 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
-              >
-                View Seasonal Schedule Filing
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <InnerHero
+        title="Charter Flight Support & Non-Scheduled Permissions in Pakistan"
+        subtitle="Responsive 24/7 Coordination When Mission Timelines Move Fast."
+        description="Ad-hoc passenger charters, cargo freighters, delivery flights, and technical refueling stops operate on dynamic schedules. As an AFPA Authorized Flight Permission Agent, Kashmir Corporation Pvt Ltd (KCL) provides charter flight support and non-scheduled permission coordination across Pakistan airspace and international airports."
+        imageSrc="/img/services/06-ops.webp"
+        imageAlt="24/7 flight operations desk supporting charter and non-scheduled aircraft movements"
+        buttons={[
+          {
+            label: "Request Charter / Non-Schedule Support",
+            href: "/request-permit?flightType=non-schedule",
+            variant: "primary",
+          },
+          {
+            label: "View Seasonal Schedule Filing",
+            href: "/schedule-filing",
+            variant: "outline",
+          },
+        ]}
+        snapshotRows={[
+          { label: "Filing type", value: "Charter, cargo, private, ferry" },
+          { label: "Short-notice requests", value: "Welcome" },
+          { label: "Operations desk", value: "24/7" },
+        ]}
+      />
 
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
@@ -225,6 +219,7 @@ export default function NonScheduleFilingPage() {
       </section>
 
       <ClientStrip compact />
+      <RequestMessageComposer />
       <CtaBanner
         heading="Operating an Upcoming Charter, Ferry or Tech Stop in Pakistan?"
         subheading="Transmit your itinerary, aircraft registration, and required ground services to KCL's 24/7 operations desk to initiate non-scheduled coordination."

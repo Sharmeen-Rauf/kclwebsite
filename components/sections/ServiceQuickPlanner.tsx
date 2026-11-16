@@ -4,6 +4,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { submitPermitRequestAction } from "@/lib/actions";
 import { ComplementaryServicesSlider } from "@/components/sections/ComplementaryServicesSlider";
+import { FuelGradeConverter } from "@/components/sections/tools/FuelGradeConverter";
+import { LayoverTimelineBuilder } from "@/components/sections/tools/LayoverTimelineBuilder";
+import { ChangeImpactMap } from "@/components/sections/tools/ChangeImpactMap";
+import { IcaoFlightPlanExplorer } from "@/components/sections/tools/IcaoFlightPlanExplorer";
+import { PermitSlotPprGuide } from "@/components/sections/tools/PermitSlotPprGuide";
 
 interface ServiceQuickPlannerProps {
   slug: string;
@@ -607,6 +612,12 @@ Note: No prices or turnaround times are calculated automatically. Final arrangem
             </form>
           )}
         </div>
+
+        {slug === "aviation-fuel" && <FuelGradeConverter />}
+        {slug === "crew-logistics" && <LayoverTimelineBuilder />}
+        {slug === "operations-support" && <ChangeImpactMap />}
+        {slug === "flight-planning-dispatch" && <IcaoFlightPlanExplorer />}
+        {slug === "airport-slot-coordination" && <PermitSlotPprGuide />}
 
         {/* Unique Complementary Services Cards Slider */}
         <ComplementaryServicesSlider currentServiceSlug={slug} />

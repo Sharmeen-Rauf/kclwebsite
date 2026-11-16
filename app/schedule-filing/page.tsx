@@ -2,8 +2,11 @@ import React from "react";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { InnerHero } from "@/components/sections/InnerHero";
+import { SeasonFleetCheck } from "@/components/sections/tools/SeasonFleetCheck";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ClientStrip } from "@/components/sections/ClientStrip";
+import { SERVICE_TOOL_FAQS } from "@/content/service-tool-faqs";
 import {
   JsonLd,
   buildFaqJsonLd,
@@ -52,7 +55,10 @@ export default function ScheduleFilingPage() {
             path: "/schedule-filing",
             serviceType: "Scheduled Airline Permission Coordination",
           }),
-          buildFaqJsonLd(SCHEDULE_FAQS),
+          buildFaqJsonLd([
+            ...SCHEDULE_FAQS,
+            ...(SERVICE_TOOL_FAQS["schedule-filing"] || []),
+          ]),
         ]}
       />
 
@@ -60,43 +66,30 @@ export default function ScheduleFilingPage() {
         items={[{ name: "Schedule Filing", path: "/schedule-filing" }]}
       />
 
-      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
-              IATA SEASONAL &amp; TIMETABLE OPERATIONS
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white">
-              Scheduled Flight Permissions &amp; Timetable Filing in Pakistan
-            </h1>
-            <p className="text-lg sm:text-xl font-semibold text-slate-100">
-              Structured Seasonal Submissions and Ongoing Fleet Revision Control.
-            </p>
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-              Commercial airlines operating regular passenger and cargo services
-              across Pakistan need disciplined regulatory administration ahead
-              of every IATA Summer and Winter season. As an AFPA Authorized
-              Flight Permission Agent, Kashmir Corporation Pvt Ltd (KCL)
-              coordinates scheduled and non-scheduled flight permissions across
-              the Karachi (OPKR) and Lahore (OPLR) Flight Information Regions.
-            </p>
-            <div className="pt-2 flex flex-wrap gap-3">
-              <Link
-                href="/request-permit?flightType=schedule"
-                className="kcl-btn-primary min-h-[48px] px-6 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
-              >
-                Discuss Seasonal Schedule Filing
-              </Link>
-              <Link
-                href="/non-schedule-filing"
-                className="kcl-btn-outline-white min-h-[48px] px-5 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
-              >
-                Operating an Ad-Hoc Charter Instead?
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <InnerHero
+        title="Scheduled Flight Permissions & Timetable Filing in Pakistan"
+        subtitle="Structured Seasonal Submissions and Ongoing Fleet Revision Control."
+        description="Commercial airlines operating regular passenger and cargo services across Pakistan need disciplined regulatory administration ahead of every IATA Summer and Winter season. As an AFPA Authorized Flight Permission Agent, Kashmir Corporation Pvt Ltd (KCL) coordinates scheduled and non-scheduled flight permissions across the Karachi (OPKR) and Lahore (OPLR) Flight Information Regions."
+        imageSrc="/img/services/07-dispatch.webp"
+        imageAlt="Flight planning dispatch desk with seasonal airline timetable charts"
+        buttons={[
+          {
+            label: "Discuss Seasonal Schedule Filing",
+            href: "/request-permit?flightType=schedule",
+            variant: "primary",
+          },
+          {
+            label: "Operating an Ad-Hoc Charter Instead?",
+            href: "/non-schedule-filing",
+            variant: "outline",
+          },
+        ]}
+        snapshotRows={[
+          { label: "Filing type", value: "Scheduled flights" },
+          { label: "Seasons", value: "IATA Summer and Winter" },
+          { label: "Operations desk", value: "24/7" },
+        ]}
+      />
 
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
@@ -248,6 +241,7 @@ export default function ScheduleFilingPage() {
       </section>
 
       <ClientStrip compact />
+      <SeasonFleetCheck />
       <CtaBanner
         heading="Preparing Your Next IATA Seasonal Timetable for Pakistan?"
         subheading="Connect your network planning or dispatch desk with KCL to coordinate seasonal overflight and landing submissions and ongoing fleet updates."
