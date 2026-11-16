@@ -208,18 +208,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/schedule-filing"
-                  className="text-[#5C6B7A] hover:text-[#0B2545] hover:underline underline-offset-4 transition-colors"
-                >
-                  Schedule Filing
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/non-schedule-filing"
                   className="text-[#5C6B7A] hover:text-[#0B2545] hover:underline underline-offset-4 transition-colors"
                 >
-                  Non-Schedule and Charter
+                  Schedule &amp; Non-Schedule Filing
                 </Link>
               </li>
               <li>

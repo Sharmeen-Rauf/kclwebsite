@@ -93,14 +93,9 @@ const PRIMARY_NAV: NavItem[] = [
         desc: "Traffic stops & technical refueling arrivals",
       },
       {
-        label: "Scheduled Flight Filing",
-        href: "/schedule-filing",
-        desc: "Seasonal airline timetables & fleet revisions",
-      },
-      {
-        label: "Non-Scheduled & Charter Filing",
+        label: "Schedule & Non-Schedule Filing",
         href: "/non-schedule-filing",
-        desc: "Ad-hoc charters, cargo, private & ferry flights",
+        desc: "Seasonal airline timetables, charters, cargo & ferry flights",
       },
     ],
   },
