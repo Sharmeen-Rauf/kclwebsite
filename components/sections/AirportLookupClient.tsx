@@ -164,10 +164,10 @@ export function AirportLookupClient() {
                     key={airport.icao}
                     className="hover:bg-[#F6F8FB] transition-colors"
                   >
-                    <td className="py-3.5 px-4 font-mono font-bold text-[#0B2545] border-r border-[#CBD5E1] whitespace-nowrap">
+                    <td className="py-3.5 px-4 font-bold text-[#0B2545] border-r border-[#CBD5E1] whitespace-nowrap">
                       {airport.icao}
                     </td>
-                    <td className="py-3.5 px-4 font-mono font-semibold text-[#5C6B7A] border-r border-[#CBD5E1] whitespace-nowrap">
+                    <td className="py-3.5 px-4 font-semibold text-[#5C6B7A] border-r border-[#CBD5E1] whitespace-nowrap">
                       {airport.iata || "—"}
                     </td>
                     <td className="py-3.5 px-4 font-medium text-[#16202B] border-r border-[#CBD5E1]">
@@ -183,15 +183,15 @@ export function AirportLookupClient() {
                       <button
                         type="button"
                         onClick={() => handleCopy(airport.icao)}
-                        className="px-2.5 py-1 text-xs border border-[#CBD5E1] bg-white hover:bg-slate-100 text-[#0B2545] font-semibold rounded-[2px]"
+                        className="px-2.5 py-1 text-sm border border-[#CBD5E1] bg-white hover:bg-slate-100 text-[#0B2545] font-semibold rounded-[2px] cursor-pointer"
                       >
-                        {copiedCode === airport.icao ? "Copied!" : "Copy ICAO"}
+                        {copiedCode === airport.icao ? "Copied!" : "Copy"}
                       </button>
                       <Link
-                        href={`/request-permit?to=${encodeURIComponent(airport.icao)}`}
-                        className="px-2.5 py-1 text-xs bg-[#0B2545] hover:bg-[#133661] text-white font-semibold rounded-[2px] inline-block"
+                        href={`/request-flight-support?to=${encodeURIComponent(airport.icao)}`}
+                        className="px-2.5 py-1 text-sm bg-[#0B2545] hover:bg-[#133661] text-white font-semibold rounded-[2px] inline-block"
                       >
-                        File Permit →
+                        Use in a request
                       </Link>
                     </td>
                   </tr>

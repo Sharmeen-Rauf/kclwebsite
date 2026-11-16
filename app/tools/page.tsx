@@ -2,43 +2,85 @@ import React from "react";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { InnerHero } from "@/components/sections/InnerHero";
+import { ToolSuggestionForm } from "@/components/sections/tools/ToolSuggestionForm";
+import { ClientStrip } from "@/components/sections/ClientStrip";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 
 export const metadata = buildMetadata({
-  title: "Aviation Dispatch Tools (ICAO, Prefixes, UTC)",
+  title: "Aviation Dispatch Tools (ICAO, Prefixes, UTC, Unit Converter)",
   description:
-    "Operational reference utilities for flight dispatchers: ICAO phonetic alphabet, aircraft registration prefixes and UTC to Pakistan (PKT) converter.",
+    "Free reference tools used by dispatchers, flight followers and operations teams: Airport Code Lookup, UTC Time Zone Planner, ICAO Phonetic Alphabet, Aircraft Registration Prefixes, Unit Converter, and Flight Time Estimator.",
   path: "/tools",
 });
 
 const TOOLS_LIST = [
   {
-    code: "TOOL-01",
-    title: "ICAO Phonetic Alphabet & Telephony Reference",
-    href: "/tools/icao-phonetic-alphabet",
-    summary:
-      "Standard A–Z ICAO radiotelephony spelling alphabet, numerals 0–9 pronunciation, Morse code table, and interactive callsign/tail-number spell-out converter.",
-  },
-  {
-    code: "TOOL-02",
-    title: "Aircraft Registration Prefixes Directory",
-    href: "/tools/aircraft-registration-prefixes",
-    summary:
-      "Searchable international aircraft nationality registration marks (AP- Pakistan, VH- Australia, V8- Brunei, 3B- Mauritius, XU- Cambodia, A6- UAE, and more) with ICAO aerodrome region prefixes.",
-  },
-  {
-    code: "TOOL-03",
-    title: "UTC / Pakistan Time (PKT) Converter",
-    href: "/tools/utc-time-converter",
-    summary:
-      "Convert flight schedule ETD/ETA timestamps between Zulu/UTC and Pakistan Standard Time (PKT, UTC+5), plus key regional station offsets.",
-  },
-  {
-    code: "TOOL-04",
-    title: "Worldwide Airport Code Lookup (ICAO & IATA)",
+    title: "Airport Code Lookup",
     href: "/tools/airport-code-lookup",
-    summary:
-      "Search international 4-letter ICAO and 3-letter IATA aerodrome codes, city names, and commercial airports worldwide using bundled OurAirports open data.",
+    summary: "Search ICAO, IATA or city worldwide using bundled airport data.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+    ),
+  },
+  {
+    title: "UTC and Time Zone Planner",
+    href: "/tools/utc-time-converter",
+    summary: "Compare UTC, PKT and station times with a Call Window Finder.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>
+    ),
+  },
+  {
+    title: "ICAO Phonetic Alphabet",
+    href: "/tools/icao-phonetic-alphabet",
+    summary: "Spell any callsign or registration in NATO/ICAO phonetics.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+        <line x1="12" y1="19" x2="12" y2="23" />
+      </svg>
+    ),
+  },
+  {
+    title: "Aircraft Registration Prefixes",
+    href: "/tools/aircraft-registration-prefixes",
+    summary: "Search international aircraft nationality prefixes by code or country.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Unit Converter",
+    href: "/tools/aviation-unit-converter",
+    summary: "Convert aviation fuel, distance, speed and altitude units.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polyline points="17 1 21 5 17 9" />
+        <path d="M3 11V9a4 4 0 0 1 4-4h14" />
+        <polyline points="7 23 3 19 7 15" />
+        <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+      </svg>
+    ),
+  },
+  {
+    title: "Flight Time Estimator",
+    href: "/tools/flight-time-estimator",
+    summary: "Estimate flight duration and UTC arrival from distance and speed.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polygon points="3 11 22 2 13 21 11 13 3 11" />
+      </svg>
+    ),
   },
 ];
 
@@ -47,89 +89,82 @@ export default function ToolsIndexPage() {
     <>
       <Breadcrumbs items={[{ name: "Aviation Tools", path: "/tools" }]} />
 
-      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
-              FLIGHT DISPATCH REFERENCE UTILITIES
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white">
-              Aviation Dispatch &amp; Flight Operations Tools
-            </h1>
-            <p className="text-lg sm:text-xl font-semibold text-slate-100">
-              Quick-Access Reference Tables for Flight Planning and Permit Preparation.
-            </p>
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-              Built for airline dispatchers, flight followers, and charter
-              coordinators verifying aircraft nationality marks, radiotelephony
-              readbacks, and UTC/PKT schedule conversions before filing.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerHero
+        title="Aviation Dispatch & Flight Operations Tools"
+        subtitle="Free reference tools used by dispatchers, flight followers and operations teams."
+        description="Built for airline dispatchers, flight followers, and charter coordinators verifying airport codes, UTC schedules, aircraft nationality marks, and unit conversions."
+        imageSrc="/img/services/07-dispatch.webp"
+        imageAlt="Flight planning and dispatch briefing desk with aeronautical charts"
+        buttons={[
+          {
+            label: "Request Flight Support",
+            href: "/request-flight-support",
+            variant: "primary",
+          },
+          {
+            label: "Browse Glossary & Checklists",
+            href: "/aviation-resources",
+            variant: "outline",
+          },
+        ]}
+        snapshotRows={[
+          { label: "Available tools", value: "6 dispatch utilities" },
+          { label: "Data storage", value: "Runs in browser only" },
+          { label: "Operations desk", value: "24/7" },
+        ]}
+      />
 
-      <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="py-12 lg:py-14 bg-[#F8FAFC] border-b border-[#CBD5E1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {TOOLS_LIST.map((tool) => (
               <article
                 key={tool.href}
-                className="kcl-card bg-white border border-[#CBD5E1] p-6 flex flex-col justify-between"
+                className="bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[6px] p-6 flex flex-col justify-between gap-5 transition-colors motion-reduce:transition-none"
               >
-                <div>
-                  <span className="font-mono text-xs text-[#5C6B7A] font-semibold block mb-2">
-                    {tool.code}
-                  </span>
-                  <h2 className="no-accent-bar text-xl font-bold text-[#0B2545] mb-3">
+                <div className="space-y-3">
+                  <div className="w-10 h-10 rounded-[4px] bg-[#F8FAFC] border border-[#CBD5E1] text-[#0B2545] flex items-center justify-center">
+                    {tool.icon}
+                  </div>
+                  <h2 className="text-xl font-bold text-[#0B2545]">
                     <Link
                       href={tool.href}
+                      className="hover:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545] rounded-[2px]"
                     >
                       {tool.title}
                     </Link>
                   </h2>
-                  <p className="text-sm text-[#16202B] leading-relaxed mb-6">
+                  <p className="text-base text-[#475569] leading-relaxed">
                     {tool.summary}
                   </p>
                 </div>
 
                 <Link
                   href={tool.href}
-                  className="kcl-btn-primary min-h-[44px] px-4 py-2.5 font-semibold text-sm inline-flex items-center justify-between rounded-[2px]"
+                  className="bg-[#0B2545] hover:bg-[#133661] text-white font-semibold text-base min-h-[44px] px-4 py-2.5 inline-flex items-center justify-between rounded-[4px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545] focus-visible:ring-offset-2 motion-reduce:transition-none"
                 >
-                  <span>Open Dispatch Tool</span>
-                  <span className="font-mono">→</span>
+                  <span>Open tool</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
               </article>
             ))}
           </div>
 
-          <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
-              <h2 className="no-accent-bar text-lg font-bold text-[#0B2545]">
-                Preparing a Pakistan Overflight or Landing Request?
-              </h2>
-              <p className="text-sm text-[#16202B]">
-                Download our one-page PDF checklist of operator details, route
-                waypoints, and aircraft certificates to include with your
-                submission.
-              </p>
-            </div>
-            <a
-              href="/files/kcl-permit-request-checklist.pdf"
-              download
-              className="kcl-btn-primary min-h-[44px] px-5 py-2.5 font-bold text-sm whitespace-nowrap inline-flex items-center justify-center rounded-[2px]"
-            >
-              Download Checklist (PDF)
-            </a>
-          </div>
+          <ToolSuggestionForm />
+        </div>
+      </section>
+
+      <section className="py-8 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <ClientStrip compact hideHeading />
         </div>
       </section>
 
       <CtaBanner
-        heading="Ready to Coordinate Your Next Flight Through Pakistan?"
+        heading="Ready to Coordinate Your Next Flight?"
         subheading="Move from flight planning to permit coordination—transmit your route, UTC timings, and aircraft registration to our 24/7 operations desk."
         primaryLabel="Request Flight Support"
-        primaryHref="/request-permit"
+        primaryHref="/request-flight-support"
       />
     </>
   );

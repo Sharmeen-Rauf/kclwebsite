@@ -328,6 +328,84 @@
   animation: stampPress 250ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
+@keyframes aboutDrawOutline {
+  from {
+    stroke-dashoffset: 1200;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.about-draw-1947 {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: aboutDrawOutline 2.2s ease-out forwards;
+}
+
+@keyframes aboutPlaneTraverse {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+.about-hero-plane {
+  offset-path: path("M 40 220 Q 320 70 680 110");
+  offset-rotate: auto;
+  animation: aboutPlaneTraverse 4.5s ease-in-out forwards;
+}
+
+.about-facts-plane {
+  offset-path: path("M -40 90 Q 450 20 960 75");
+  offset-rotate: auto;
+  animation: aboutPlaneTraverse 28s linear infinite;
+}
+
+@keyframes taxiwaySignsDrift {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.taxiway-signs-track {
+  display: flex;
+  width: max-content;
+  animation: taxiwaySignsDrift 38s linear infinite;
+}
+
+.taxiway-signs-wrapper:hover .taxiway-signs-track,
+.taxiway-signs-wrapper:focus-within .taxiway-signs-track,
+.taxiway-signs-track.is-paused {
+  animation-play-state: paused;
+}
+
+@keyframes approachLightPulse {
+  0%, 100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.approach-light-dot {
+  animation: approachLightPulse 2.4s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -349,9 +427,24 @@
     stroke-dashoffset: 0 !important;
   }
   .logo-marquee-track,
-  .regional-slider-track {
+  .regional-slider-track,
+  .taxiway-signs-track {
     animation: none !important;
     transform: none !important;
+  }
+  .about-draw-1947 {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  .about-hero-plane,
+  .about-facts-plane {
+    animation: none !important;
+    opacity: 0.7 !important;
+    offset-distance: 50% !important;
+  }
+  .approach-light-dot {
+    animation: none !important;
+    opacity: 0.7 !important;
   }
   .heading-fade-init {
     opacity: 1 !important;

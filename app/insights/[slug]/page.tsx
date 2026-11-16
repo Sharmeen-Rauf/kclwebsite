@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import { newsRepository } from "@/lib/data/news-repository";
+import { INSIGHTS_EXTRA_META } from "@/content/insights-summaries";
+import { InsightCoverSvg } from "@/components/sections/InsightCoverSvg";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { JsonLd, buildArticleJsonLd } from "@/components/seo/JsonLd";
@@ -193,15 +194,26 @@ export default async function InsightsArticlePage({
               </p>
             </header>
 
-            <div className="mb-8 border border-[#CBD5E1] bg-[#0B2545]">
-              <Image
-                src={post.coverImage}
+            <div className="mb-8 border border-[#CBD5E1] bg-[#0B2545] rounded-[4px] overflow-hidden">
+              <InsightCoverSvg
+                kind={INSIGHTS_EXTRA_META[post.slug]?.coverKind || "route-arc"}
                 alt={post.coverAlt}
-                width={800}
-                height={450}
-                className="w-full h-auto block"
+                className="w-full h-56 sm:h-64"
               />
             </div>
+
+            {INSIGHTS_EXTRA_META[post.slug] && (
+              <div className="mb-8 bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 space-y-2.5">
+                <h2 className="text-lg font-bold text-[#0B2545]">
+                  In 30 seconds
+                </h2>
+                <ul className="space-y-1.5 text-base text-[#1E293B] list-disc pl-5">
+                  {INSIGHTS_EXTRA_META[post.slug].takeaways.map((pt) => (
+                    <li key={pt}>{pt}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             <div className="prose-kcl">{renderMdxBody(post.content)}</div>
 

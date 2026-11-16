@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { InnerHero } from "@/components/sections/InnerHero";

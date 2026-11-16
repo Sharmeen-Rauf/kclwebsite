@@ -4,7 +4,26 @@ import { buildMetadata } from "@/lib/seo";
 import { ICAO_PHONETIC_ALPHABET, ICAO_NUMERALS } from "@/content/tools-data";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { PhoneticConverterClient } from "@/components/sections/PhoneticConverterClient";
+import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
 import { CtaBanner } from "@/components/sections/CtaBanner";
+
+const PHONETIC_FAQS = [
+  {
+    question: "Why do pilots and dispatchers use the ICAO phonetic alphabet?",
+    answer:
+      "The ICAO radiotelephony spelling alphabet assigns clear code words to letters and numerals so registrations, callsigns, and clearances are understood accurately over radio or phone regardless of accent or static.",
+  },
+  {
+    question: "What is the difference between Nine and Niner in aviation?",
+    answer:
+      "In ICAO radiotelephony, the numeral 9 is pronounced Niner to distinguish it clearly from the German word Nein and from Five over noisy voice channels.",
+  },
+  {
+    question: "How should an aircraft registration be spelled out?",
+    answer:
+      "Spell out each letter using its ICAO code word, such as Alfa Papa dash Bravo Golf Zulu for AP-BGZ.",
+  },
+];
 
 export const metadata = buildMetadata({
   title: "ICAO Phonetic Alphabet & Telephony Chart",
@@ -16,6 +35,7 @@ export const metadata = buildMetadata({
 export default function IcaoPhoneticAlphabetPage() {
   return (
     <>
+      <JsonLd data={buildFaqJsonLd(PHONETIC_FAQS)} />
       <Breadcrumbs
         items={[
           { name: "Aviation Tools", path: "/tools" },
@@ -29,9 +49,6 @@ export default function IcaoPhoneticAlphabetPage() {
       <section className="bg-[#0B2545] text-white py-12 sm:py-16 border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-[#133661] border border-slate-600 px-3 py-1 inline-block">
-              DISPATCH REFERENCE // ICAO ANNEX 10 VOLUME II
-            </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">
               ICAO Phonetic Alphabet &amp; Radiotelephony Reference
             </h1>
@@ -138,6 +155,37 @@ export default function IcaoPhoneticAlphabetPage() {
             >
               Pakistan Flight Permission Services →
             </Link>
+          </div>
+          <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-4 flex flex-wrap items-center justify-between gap-3 text-base">
+            <span className="text-[#475569]">
+              Reference only. Check official sources for operations.
+            </span>
+            <Link
+              href="/request-flight-support"
+              className="font-semibold text-[#0B2545] hover:underline underline-offset-2"
+            >
+              Need help with a flight? Request Flight Support →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <h2 className="text-2xl font-bold text-[#0B2545]">
+            Frequently Asked Questions: ICAO Phonetic Alphabet
+          </h2>
+          <div className="divide-y divide-[#CBD5E1] border border-[#CBD5E1] bg-[#F8FAFC]">
+            {PHONETIC_FAQS.map((faq) => (
+              <div key={faq.question} className="p-6">
+                <h3 className="text-base font-bold text-[#0B2545] mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-base text-[#16202B] leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

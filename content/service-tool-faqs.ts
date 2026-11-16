@@ -120,5 +120,17 @@ export const SERVICE_TOOL_FAQS: Record<string, FaqItem[]> = {
         "Our desk works 24/7 and will confirm what the authorities and providers can support.",
     },
   ],
+  "pakistan-atlas": [
+    {
+      question: "Which airports in Pakistan do you support?",
+      answer:
+        "Tell us your airport and we confirm what we can arrange; the atlas lists the main airports.",
+    },
+    {
+      question: "Do I need a different permit for each airport?",
+      answer:
+        "It depends on the type of flight and route. Send us your itinerary and we confirm what applies.",
+    },
+  ],
 };
 

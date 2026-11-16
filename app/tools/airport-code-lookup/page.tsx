@@ -71,6 +71,18 @@ export default function AirportCodeLookupPage() {
           {/* Interactive Search Tool */}
           <AirportLookupClient />
 
+          <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-4 flex flex-wrap items-center justify-between gap-3 text-base">
+            <span className="text-[#475569]">
+              Reference only. Check official sources for operations.
+            </span>
+            <Link
+              href="/request-flight-support"
+              className="font-semibold text-[#0B2545] hover:underline underline-offset-2"
+            >
+              Need help with a flight? Request Flight Support →
+            </Link>
+          </div>
+
           {/* Operational Explanation Card */}
           <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-[2px] space-y-4">
             <h2 className="text-xl font-bold text-[#0B2545]">

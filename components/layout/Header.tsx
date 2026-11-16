@@ -106,27 +106,22 @@ const PRIMARY_NAV: NavItem[] = [
   },
   {
     label: "Resources",
-    href: "/aviation-resources",
+    href: "/tools",
     children: [
       {
-        label: "Aviation Resources & Checklists",
-        href: "/aviation-resources",
-        desc: "Preparation guides & downloadable PDF checklist",
-      },
-      {
-        label: "Aviation Insights & Articles",
-        href: "/insights",
-        desc: "Practical perspectives on flight operations",
-      },
-      {
-        label: "Pakistan Airspace Guide (OPKR/OPLR)",
-        href: "/permit-directory/pakistan",
-        desc: "FIR waypoints, airports & documentation reference",
-      },
-      {
-        label: "Dispatch Reference Utilities",
+        label: "Aviation Tools",
         href: "/tools",
-        desc: "UTC/PKT converter, ICAO alphabet & reg prefixes",
+        desc: "Free reference tools",
+      },
+      {
+        label: "Guides and Articles",
+        href: "/insights",
+        desc: "Practical briefings",
+      },
+      {
+        label: "Glossary and Checklists",
+        href: "/aviation-resources",
+        desc: "Terms and PDF checklist",
       },
     ],
   },

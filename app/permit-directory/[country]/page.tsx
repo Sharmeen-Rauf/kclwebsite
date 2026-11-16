@@ -8,7 +8,11 @@ import {
   getCountryPermitBySlug,
 } from "@/content/permits";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { InnerHero } from "@/components/sections/InnerHero";
 import { PermitChecker } from "@/components/sections/PermitChecker";
+import { PakistanAirportsAtlas } from "@/components/sections/PakistanAirportsAtlas";
+import { SERVICE_TOOL_FAQS } from "@/content/service-tool-faqs";
+import { ClientStrip } from "@/components/sections/ClientStrip";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
 
@@ -82,9 +86,14 @@ export default async function CountryPermitDetailPage({
     },
   ];
 
+  const schemaFaqs = [
+    ...guide.faqs,
+    ...(guide.slug === "pakistan" ? SERVICE_TOOL_FAQS["pakistan-atlas"] || [] : []),
+  ];
+
   return (
     <>
-      <JsonLd data={buildFaqJsonLd(guide.faqs)} />
+      <JsonLd data={buildFaqJsonLd(schemaFaqs)} />
 
       <Breadcrumbs
         items={[
@@ -96,76 +105,33 @@ export default async function CountryPermitDetailPage({
         ]}
       />
 
-      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="kcl-card lg:col-span-8 space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-              <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
-                <span className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-2.5 py-1 font-semibold">
-                  ISO: {guide.isoCode}
-                </span>
-                <span className="bg-white/10 backdrop-blur-sm border border-white/25 text-slate-100 px-2.5 py-1">
-                  FIR: {guide.firCodes.join(" / ")}
-                </span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl font-bold text-white">
-                {guide.countryName} Overflight &amp; Landing Permit Guide
-              </h1>
-
-              <p className="text-lg sm:text-xl font-semibold text-slate-100">
-                Dispatch Planning Reference for OPKR &amp; OPLR Airspace and International Aerodromes.
-              </p>
-
-              <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-                {guide.summary}
-              </p>
-
-              <div className="pt-2 flex flex-wrap gap-3">
-                <Link
-                  href={`/request-permit?country=${encodeURIComponent(
-                    guide.countryName
-                  )}`}
-                  className="kcl-btn-primary min-h-[48px] px-6 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
-                >
-                  Coordinate a {guide.countryName} Permit
-                </Link>
-                <a
-                  href="/files/kcl-permit-request-checklist.pdf"
-                  download
-                  className="kcl-btn-outline-white min-h-[48px] px-5 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
-                >
-                  Download Permit Checklist (PDF)
-                </a>
-              </div>
-            </div>
-
-            <div className="kcl-card lg:col-span-4 bg-black/45 backdrop-blur-md border border-white/20 p-5 space-y-3 font-mono text-xs rounded-[2px]">
-              <div className="border-b border-white/20 pb-2 text-white font-semibold">
-                AIRSPACE &amp; AUTHORITY DATA
-              </div>
-              <div>
-                <span className="text-slate-300 block">CIVIL AVIATION AUTHORITY</span>
-                <span className="text-white font-semibold">
-                  {guide.caaAuthorityName}
-                </span>
-              </div>
-              <div>
-                <span className="text-slate-300 block">FLIGHT INFORMATION REGIONS</span>
-                <span className="text-white font-semibold">
-                  {guide.firCodes.join(", ")}
-                </span>
-              </div>
-              <div>
-                <span className="text-slate-300 block">FILING NOTES</span>
-                <span className="text-slate-200 font-sans text-xs">
-                  {guide.airwaysNotes}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <InnerHero
+        title={`${guide.countryName} Overflight & Landing Permit Guide`}
+        subtitle="Dispatch Planning Reference for OPKR & OPLR Airspace and International Aerodromes."
+        description={guide.summary}
+        imageSrc="/img/services/01-permits.webp"
+        imageAlt={`${guide.countryName} overflight and landing permit navigation display`}
+        buttons={[
+          {
+            label: `Coordinate a ${guide.countryName} Permit`,
+            href: `/request-flight-support?country=${encodeURIComponent(
+              guide.countryName
+            )}`,
+            variant: "primary",
+          },
+          {
+            label: "Download Permit Checklist (PDF)",
+            href: "/files/kcl-permit-request-checklist.pdf",
+            variant: "outline",
+          },
+        ]}
+        snapshotTitle="Airspace & Authority Snapshot"
+        snapshotRows={[
+          { label: "Authority", value: guide.caaAuthorityName },
+          { label: "Flight Information Regions", value: guide.firCodes.join(", ") },
+          { label: "Operations desk", value: "24/7" },
+        ]}
+      />
 
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -284,6 +250,8 @@ export default async function CountryPermitDetailPage({
             </div>
           </div>
 
+          {guide.slug === "pakistan" && <PakistanAirportsAtlas />}
+
           {/* Country FAQs */}
           <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8">
             <h2 className="no-accent-bar text-2xl font-bold text-[#0B2545] mb-6">
@@ -302,6 +270,12 @@ export default async function CountryPermitDetailPage({
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-8 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <ClientStrip compact hideHeading />
         </div>
       </section>
 

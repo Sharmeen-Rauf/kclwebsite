@@ -1,9 +1,28 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import fs from "fs";
+import path from "path";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { JsonLd, buildOrganizationJsonLd } from "@/components/seo/JsonLd";
+import { JsonLd, buildBreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { CONTACT_DATA } from "@/content/contact";
+import { ClientStrip } from "@/components/sections/ClientStrip";
+import { CtaBanner } from "@/components/sections/CtaBanner";
+import {
+  LegacyTimelineSlider,
+  type LegacyMilestone,
+} from "@/components/sections/about/LegacyTimelineSlider";
+import {
+  LeadershipSlider,
+  type LeaderProfile,
+} from "@/components/sections/about/LeadershipSlider";
+import { AboutFactsBand } from "@/components/sections/about/AboutFactsBand";
+import { HowWeWorkBand } from "@/components/sections/about/HowWeWorkBand";
+import {
+  CredentialsTaxiway,
+  type CredentialBoard,
+} from "@/components/sections/about/CredentialsTaxiway";
 
 export const metadata = buildMetadata({
   title: "About KCL | International Flight Support & Permits",
@@ -13,26 +32,63 @@ export const metadata = buildMetadata({
   omitTitleSuffix: true,
 });
 
-const LEADERSHIP_TIMELINE = [
+function publicFileIfExists(relativePath: string): string | null {
+  const fullPath = path.join(process.cwd(), "public", relativePath);
+  return fs.existsSync(fullPath) ? `/${relativePath.replace(/\\/g, "/")}` : null;
+}
+
+const RAW_MILESTONES = [
   {
+    slug: "1947",
+    era: "1947",
+    text: "The Kashmirwala Group is founded by Haji Fazal Ahmed Kashmirwala and becomes a pioneer in Pakistan's aviation and travel industry.",
+  },
+  {
+    slug: "early-years",
+    era: "Early years",
+    text: "Kashmir Corporation is appointed the first General Sales Agent and ground handling agent for the national airline (PIA) at three domestic stations: Hyderabad, Sukkur and Nawab Shah.",
+  },
+  {
+    slug: "1960",
+    era: "1960",
+    text: "Aftab Ahmed Kashmirwala becomes Chairman, trained by his father, and leads the company's work with foreign airlines.",
+  },
+  {
+    slug: "2013",
+    era: "2013",
+    text: "Shakil Aftab Kashmirwala becomes Chairman.",
+  },
+  {
+    slug: "today",
+    era: "Today",
+    text: "KCL International Flight Support supports airlines, private operators, cargo carriers and charter operators worldwide through Kashmir Corporation (Pvt.) Ltd. and PakTurk Enterprises (Pvt.) Ltd.",
+  },
+];
+
+const RAW_LEADERS = [
+  {
+    slug: "haji-fazal-ahmed-kashmirwala",
     initials: "FA",
     name: "Haji Fazal Ahmed Kashmirwala",
     role: "Founder",
     details: null,
   },
   {
+    slug: "aftab-ahmed-kashmirwala",
     initials: "AA",
     name: "Aftab Ahmed Kashmirwala",
     role: "Chairman 1960 to 2013",
     details: "Trained by his father, led the company's work with foreign airlines.",
   },
   {
+    slug: "shakil-aftab-kashmirwala",
     initials: "SA",
     name: "Shakil Aftab Kashmirwala",
     role: "Chairman 2013 to present",
     details: null,
   },
   {
+    slug: "omer-shakil-kashmirwala",
     initials: "OS",
     name: "Omer Shakil Kashmirwala",
     role: "Chief Executive Officer",
@@ -40,6 +96,7 @@ const LEADERSHIP_TIMELINE = [
       "Head of Cargo; background in airline sales, marketing, reservations and ticketing; studying Aviation Business Administration at Embry-Riddle Aeronautical University.",
   },
   {
+    slug: "owais-shakil-kashmirwala",
     initials: "OW",
     name: "Owais Shakil Kashmirwala",
     role: "Director",
@@ -52,338 +109,431 @@ const EIGHT_SERVICES = [
   {
     name: "Flight Permissions",
     href: "/services/overflight-permits",
-    description:
-      "Overflight permits, landing permits, PPR coordination, block permits and short-notice clearance, with 24/7 support. Final approvals rest with the civil aviation authorities.",
+    summary: "Overflight, landing, PPR and short-notice permits worldwide.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
   },
   {
     name: "Ground Handling",
     href: "/services/ground-handling",
-    description:
-      "Aircraft, passenger, baggage and cargo handling, fuelling coordination and turnaround management through a trusted global partner network.",
+    summary: "Aircraft, passenger, baggage, cargo and turnaround support.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z" />
+      </svg>
+    ),
   },
   {
     name: "Aviation Fuel",
     href: "/services/aviation-fuel",
-    description:
-      "Fuel supply coordination for Jet A1, TS1 and Avgas/100LL, with delivery scheduling, documentation and payment support.",
+    summary: "Jet A-1, TS-1 and Avgas 100LL uplift coordination.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 22h12" />
+        <path d="M4 9h10" />
+        <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+      </svg>
+    ),
   },
   {
     name: "Flight Planning and Dispatch",
     href: "/services/flight-planning-dispatch",
-    description:
-      "Route optimisation, flight planning, ICAO flight plan filing, weather monitoring, NOTAM review and ETOPS/EDTO planning support.",
+    summary: "Route optimisation, ICAO filing, weather, NOTAM and ETOPS.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polygon points="3 11 22 2 13 21 11 13 3 11" />
+      </svg>
+    ),
   },
   {
     name: "Airport Slot Coordination",
     href: "/services/airport-slot-coordination",
-    description:
-      "Slot requests and timing coordinated alongside your permits.",
+    summary: "Slot requests and timing aligned with your permits.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>
+    ),
   },
   {
     name: "Crew Accommodation and Transport (HOTAC)",
     href: "/services/crew-logistics",
-    description:
-      "Airport-proximity hotels, short-notice bookings, group bookings and airport-hotel-airport transfers.",
+    summary: "Airport-proximity hotels and crew transfers.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 21h18" />
+        <path d="M5 21V7l8-4v18" />
+        <path d="M19 21V11l-6-4" />
+      </svg>
+    ),
   },
   {
     name: "Inflight Catering",
     href: "/services/inflight-catering",
-    description:
-      "In-flight meal preparation and supply, special dietary plans, hygienic packaging.",
+    summary: "Passenger and crew meals, including special dietary plans.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+      </svg>
+    ),
   },
   {
     name: "24/7 Operations Support",
     href: "/services/operations-support",
-    description:
-      "Round-the-clock coordination for urgent, ad-hoc, diplomatic and diverted flights.",
+    summary: "Round-the-clock help for urgent, ad-hoc and diverted flights.",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72" />
+      </svg>
+    ),
   },
 ];
 
-const LICENCES_AND_MEMBERSHIPS = [
+const RAW_CREDENTIALS = [
   {
+    slug: "afpa",
+    abbr: "AFPA",
     title: "AFPA License Holder",
     authority: "Pakistan Civil Aviation Authority",
   },
   {
+    slug: "dts",
+    abbr: "DTS",
     title: "DTS License Holder",
     authority: "Department of Tourist Services",
   },
   {
+    slug: "fagsa",
+    abbr: "FAGSA",
     title: "FAGSA",
     authority: "Federation of Airline General Sales Agents",
   },
   {
+    slug: "taap",
+    abbr: "TAAP",
     title: "TAAP",
     authority: "Travel Agents Association of Pakistan",
   },
   {
+    slug: "kcci",
+    abbr: "KCCI",
     title: "Karachi Chamber of Commerce and Industry",
     authority: "Member",
   },
   {
+    slug: "aca",
+    abbr: "ACA",
     title: "Air Cargo Association",
     authority: "Member",
   },
 ];
 
 export default function AboutPage() {
-  const organizationLd = buildOrganizationJsonLd();
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://kclwebsite.vercel.app";
+
+  const milestones: LegacyMilestone[] = RAW_MILESTONES.map((m) => ({
+    ...m,
+    imageSrc: publicFileIfExists(`img/about/timeline-${m.slug}.webp`),
+  }));
+
+  const leaders: LeaderProfile[] = RAW_LEADERS.map((l) => ({
+    ...l,
+    photoSrc: publicFileIfExists(`img/team/${l.slug}.webp`),
+  }));
+
+  const credentials: CredentialBoard[] = RAW_CREDENTIALS.map((c) => ({
+    ...c,
+    logoSrc: publicFileIfExists(`img/credentials/${c.slug}.svg`),
+  }));
+
+  const organizationLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "KCL International Flight Support",
+    legalName: "Kashmir Corporation (Pvt.) Ltd.",
+    url: siteUrl,
+    parentOrganization: {
+      "@type": "Organization",
+      name: "Kashmirwala Group",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: CONTACT_DATA.address,
+      addressLocality: "Karachi",
+      addressCountry: "PK",
+    },
+    telephone: CONTACT_DATA.phones,
+    email: [
+      CONTACT_DATA.opsEmail,
+      CONTACT_DATA.infoEmail,
+      CONTACT_DATA.supportEmail,
+    ],
+    sameAs: [
+      CONTACT_DATA.social.facebook,
+      CONTACT_DATA.social.instagram,
+      CONTACT_DATA.social.linkedin,
+    ],
+    memberOf: RAW_CREDENTIALS.map((c) => ({
+      "@type": "Organization",
+      name: `${c.title} (${c.authority})`,
+    })),
+  };
+
+  const breadcrumbLd = buildBreadcrumbJsonLd([
+    { name: "About KCL", path: "/about" },
+  ]);
 
   return (
     <>
-      <JsonLd data={organizationLd} />
+      <JsonLd data={[organizationLd, breadcrumbLd]} />
       <Breadcrumbs items={[{ name: "About KCL", path: "/about" }]} />
 
-      {/* 1. Hero & Intro */}
-      <section className="bg-[#0B2545] text-white py-14 sm:py-20 border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
-            About KCL International Flight Support
-          </h1>
-          <p className="text-lg sm:text-xl text-slate-100 leading-relaxed max-w-4xl">
-            KCL International Flight Support provides permits, ground handling, fuel, catering and crew services for airlines, private operators, cargo carriers and charter operators worldwide, with a team on call 24/7. We are part of the Kashmirwala Group, which has served aviation since 1947.
-          </p>
-        </div>
-      </section>
+      {/* 1. Hero */}
+      <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[520px] lg:min-h-[560px] py-12 lg:py-14 flex items-center">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/img/hero-flight-ops.jpg"
+            alt="Commercial aircraft and business jet on an international airport ramp"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center hero-zoom-photo"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/92 via-[#0B2545]/75 to-[#14406E]/45"
+          />
 
-      {/* 2. Our Story */}
-      <section className="py-12 sm:py-16 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-            Our story
-          </h2>
-          <p className="text-base sm:text-lg text-[#16202B] leading-relaxed">
-            The Kashmirwala Group was founded in 1947 by Haji Fazal Ahmed Kashmirwala and became a pioneer in Pakistan&apos;s aviation and travel industry, known for passenger and cargo air transportation. Kashmir Corporation was appointed the first General Sales Agent and ground handling agent for the national airline (PIA) at three domestic stations: Hyderabad, Sukkur and Nawab Shah. Today the Group works through Kashmir Corporation (Pvt.) Ltd. and PakTurk Enterprises (Pvt.) Ltd.
-          </p>
-        </div>
-      </section>
+          {/* Large outlined numeral 1947 behind the headline (stroke only, white 8% opacity) */}
+          <svg
+            viewBox="0 0 900 260"
+            aria-hidden="true"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-[540px] sm:w-[760px] h-auto pointer-events-none select-none"
+          >
+            <text
+              x="10"
+              y="210"
+              fill="none"
+              stroke="#FFFFFF"
+              strokeOpacity="0.08"
+              strokeWidth="2.5"
+              fontSize="220"
+              fontWeight="800"
+              className="about-draw-1947"
+            >
+              1947
+            </text>
+          </svg>
 
-      {/* 3. Three Generations of Leadership */}
-      <section className="py-12 sm:py-16 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Three generations of leadership
-            </h2>
-            <p className="text-base sm:text-lg text-[#5C6B7A] mt-2">
-              Continuous family leadership guiding aviation operations, airline agency representations, and international flight support across eight decades.
-            </p>
+          {/* Thin route arc with small plane crossing once */}
+          <svg
+            viewBox="0 0 720 260"
+            fill="none"
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full pointer-events-none opacity-35"
+          >
+            <path
+              d="M 40 220 Q 320 70 680 110"
+              stroke="#FFFFFF"
+              strokeWidth="1.2"
+              strokeDasharray="5 5"
+            />
+          </svg>
+          <div
+            aria-hidden="true"
+            className="about-hero-plane absolute top-0 left-0 text-white pointer-events-none"
+          >
+            <svg className="w-4 h-4 rotate-90" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L15 9L22 12L15 14L12 22L9 14L2 12L9 9L12 2Z" />
+            </svg>
           </div>
+        </div>
 
-          <div className="relative border-l-2 border-[#CBD5E1] ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-8">
-            {LEADERSHIP_TIMELINE.map((leader) => (
-              <div key={leader.name} className="relative group">
-                {/* Neutral circle with initials */}
-                <div
-                  aria-hidden="true"
-                  className="absolute -left-[41px] sm:-left-[49px] top-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white border-2 border-[#0B2545] text-[#0B2545] flex items-center justify-center font-bold text-xs sm:text-sm shadow-xs"
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.16] tracking-tight">
+                About KCL International Flight Support
+              </h1>
+              <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-2xl">
+                KCL International Flight Support provides permits, ground handling, fuel, catering and crew services for airlines, private operators, cargo carriers and charter operators worldwide, with a team on call 24/7. We are part of the Kashmirwala Group, which has served aviation since 1947.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+                <Link
+                  href="/request-flight-support"
+                  className="bg-white hover:bg-slate-100 text-[#0B2545] font-bold text-base min-h-[44px] px-6 py-2.5 inline-flex items-center justify-center rounded-[4px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2545]"
                 >
-                  {leader.initials}
-                </div>
-
-                <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-5 sm:p-6 space-y-2">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
-                      {leader.name}
-                    </h3>
-                    <span className="text-base font-semibold text-[#5C6B7A]">
-                      {leader.role}
-                    </span>
-                  </div>
-                  {leader.details && (
-                    <p className="text-base text-[#16202B] leading-relaxed pt-1">
-                      {leader.details}
-                    </p>
-                  )}
-                </div>
+                  Request Flight Support
+                </Link>
+                <a
+                  href="#leadership"
+                  className="border border-white/60 hover:bg-white/15 text-white font-semibold text-base min-h-[44px] px-6 py-2.5 inline-flex items-center justify-center rounded-[4px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2545]"
+                >
+                  Meet the Leadership
+                </a>
               </div>
-            ))}
+            </div>
+
+            {/* Frosted Snapshot Card */}
+            <div className="lg:col-span-5">
+              <div className="bg-white/10 backdrop-blur-md border border-white/25 rounded-[6px] p-5 sm:p-6 shadow-lg space-y-3">
+                <div className="text-lg font-bold text-white border-b border-white/20 pb-2.5">
+                  Company Snapshot
+                </div>
+                <dl className="space-y-2.5 text-base">
+                  <div className="flex justify-between gap-3 border-b border-white/10 pb-2">
+                    <dt className="text-slate-200">Group</dt>
+                    <dd className="font-semibold text-white text-right">
+                      Part of the Kashmirwala Group
+                    </dd>
+                  </div>
+                  <div className="flex justify-between gap-3 border-b border-white/10 pb-2">
+                    <dt className="text-slate-200">Aviation heritage</dt>
+                    <dd className="font-semibold text-white text-right">
+                      Serving aviation since 1947
+                    </dd>
+                  </div>
+                  <div className="flex justify-between gap-3 border-b border-white/10 pb-2">
+                    <dt className="text-slate-200">Head office</dt>
+                    <dd className="font-semibold text-white text-right">
+                      Karachi
+                    </dd>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <dt className="text-slate-200">Availability</dt>
+                    <dd className="font-semibold text-white text-right">
+                      24/7 operations desk
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 4. What We Do */}
-      <section className="py-12 sm:py-16 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      {/* 2. Legacy Timeline Slider */}
+      <LegacyTimelineSlider milestones={milestones} />
+
+      {/* 3. Leadership Slider */}
+      <LeadershipSlider leaders={leaders} />
+
+      {/* 4. Facts Band */}
+      <AboutFactsBand />
+
+      {/* 5. What We Do (Compact 8-tile Icon Strip) */}
+      <section className="relative py-12 sm:py-16 bg-white border-b border-[#CBD5E1] overflow-hidden">
+        {/* Subtle aeronautical-chart grid background (4-5% opacity) */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #0B2545 1px, transparent 1px), linear-gradient(to bottom, #0B2545 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               What we do
             </h2>
-            <p className="text-base sm:text-lg text-[#5C6B7A] mt-2">
+            <p className="text-base text-[#475569] mt-1">
               We coordinate the eight core requirements of international flight operations through dedicated 24/7 flight support desks.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {EIGHT_SERVICES.map((service) => (
-              <div
+              <Link
                 key={service.name}
-                className="bg-[#F6F8FB] border border-[#CBD5E1] rounded-[4px] p-6 flex flex-col justify-between space-y-3"
+                href={service.href}
+                className="group bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545] rounded-[6px] p-4 flex flex-col justify-between gap-3 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545]"
               >
                 <div className="space-y-2">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
+                  <div className="w-9 h-9 rounded-[4px] bg-white border border-[#CBD5E1] text-[#0B2545] flex items-center justify-center">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-[#0B2545] group-hover:underline underline-offset-2">
                     {service.name}
                   </h3>
-                  <p className="text-base text-[#16202B] leading-relaxed">
-                    {service.description}
+                  <p className="text-base text-[#475569] leading-snug">
+                    {service.summary}
                   </p>
                 </div>
-                <div className="pt-2">
-                  <Link
-                    href={service.href}
-                    className="text-base font-semibold text-[#0B2545] hover:text-[#133661] underline underline-offset-4 inline-flex items-center gap-1.5"
-                  >
-                    <span>View service details</span>
-                    <span aria-hidden="true">→</span>
-                  </Link>
-                </div>
-              </div>
+                <span className="text-base font-semibold text-[#0B2545]">
+                  View service →
+                </span>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. How We Work */}
-      <section className="py-12 sm:py-16 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              How we work
-            </h2>
-            <p className="text-base sm:text-lg text-[#5C6B7A] mt-2">
-              Our operational approach is built around clarity, speed, and dependable flight coordination.
-            </p>
-          </div>
+      {/* 6. How We Work */}
+      <HowWeWorkBand />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-6 space-y-3">
-              <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
-                One point of contact
-              </h3>
-              <p className="text-base text-[#16202B] leading-relaxed">
-                You work with a dedicated coordinator who oversees all aspects of your flight, keeping permits, handling, fuel and crew services aligned.
-              </p>
-            </div>
+      {/* 7. Credentials as Airport Taxiway Signs */}
+      <CredentialsTaxiway credentials={credentials} />
 
-            <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-6 space-y-3">
-              <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
-                24/7 coordination across time zones
-              </h3>
-              <p className="text-base text-[#16202B] leading-relaxed">
-                Our operations desk operates around the clock to assist with schedule revisions, unexpected turnarounds, technical stops and short-notice clearances.
-              </p>
-            </div>
-
-            <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-6 space-y-3">
-              <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
-                Clear communication
-              </h3>
-              <p className="text-base text-[#16202B] leading-relaxed">
-                We share timely updates, confirmed permit numbers and transparent status reports directly with your dispatch and operations control center.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-5">
-            <p className="text-base font-medium text-[#5C6B7A] text-center">
-              Approvals are decided by the relevant civil aviation authorities.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Licences and Memberships */}
-      <section className="py-12 sm:py-16 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Licences and memberships
-            </h2>
-            <p className="text-base sm:text-lg text-[#5C6B7A] mt-2">
-              KCL operates under official regulatory credentials and recognized aviation trade memberships.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto border border-[#CBD5E1] rounded-[4px]">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-[#0B2545] text-white">
-                  <th className="py-3.5 px-4 sm:px-6 text-base font-semibold border-r border-white/20 w-1/2">
-                    License / Organization
-                  </th>
-                  <th className="py-3.5 px-4 sm:px-6 text-base font-semibold w-1/2">
-                    Issuing Authority / Membership Body
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#CBD5E1] bg-white">
-                {LICENCES_AND_MEMBERSHIPS.map((item) => (
-                  <tr key={item.title} className="hover:bg-[#F6F8FB] transition-colors">
-                    <td className="py-3.5 px-4 sm:px-6 text-base font-semibold text-[#0B2545] border-r border-[#CBD5E1]">
-                      {item.title}
-                    </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-base text-[#16202B]">
-                      {item.authority}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Contact & Internal Links */}
-      <section className="py-12 sm:py-16 bg-[#F6F8FB] border-b border-[#CBD5E1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      {/* 8. Contact */}
+      <section className="py-12 sm:py-16 bg-[#F8FAFC] border-b border-[#CBD5E1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               Contact
             </h2>
-            <p className="text-base sm:text-lg text-[#5C6B7A] mt-2">
+            <p className="text-base text-[#475569] mt-1">
               Reach our 24/7 international flight operations desk directly.
             </p>
           </div>
 
-          <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-6 sm:p-8 space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Address */}
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-[#0B2545]">
-                  Head Office Address
-                </h3>
-                <p className="text-base text-[#16202B] leading-relaxed">
-                  {CONTACT_DATA.address}
-                </p>
-              </div>
-
-              {/* Phone Numbers */}
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-[#0B2545]">
-                  Telephone (24/7)
-                </h3>
-                <div className="space-y-1">
-                  {CONTACT_DATA.phones.map((phone) => (
-                    <div key={phone}>
-                      <a
-                        href={`tel:${phone.replace(/\s+/g, "")}`}
-                        className="text-base text-[#16202B] hover:text-[#0B2545] font-semibold underline underline-offset-4"
-                      >
-                        {phone}
-                      </a>
-                    </div>
-                  ))}
+          <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 sm:p-8 space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Left: Address & Phones */}
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-lg font-bold text-[#0B2545] mb-1">
+                    Head Office Address
+                  </h3>
+                  <p className="text-base text-[#1E293B] leading-relaxed">
+                    {CONTACT_DATA.address}
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-[#0B2545] mb-1">
+                    Telephone (24/7)
+                  </h3>
+                  <div className="space-y-1">
+                    {CONTACT_DATA.phones.map((phone) => (
+                      <div key={phone}>
+                        <a
+                          href={`tel:${phone.replace(/\s+/g, "")}`}
+                          className="text-base font-semibold text-[#0B2545] hover:underline underline-offset-4"
+                        >
+                          {phone}
+                        </a>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Emails */}
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-[#0B2545]">
+              {/* Right: Emails */}
+              <div className="space-y-3">
+                <h3 className="text-lg font-bold text-[#0B2545]">
                   Email Addresses
                 </h3>
-                <div className="space-y-1 text-base text-[#16202B]">
+                <div className="space-y-2 text-base text-[#1E293B]">
                   <div>
-                    <span className="text-[#5C6B7A]">Operations Desk: </span>
+                    <span className="text-[#475569]">Operations Desk: </span>
                     <a
                       href={`mailto:${CONTACT_DATA.opsEmail}`}
                       className="font-semibold text-[#0B2545] hover:underline"
@@ -392,7 +542,7 @@ export default function AboutPage() {
                     </a>
                   </div>
                   <div>
-                    <span className="text-[#5C6B7A]">General Inquiries: </span>
+                    <span className="text-[#475569]">General Inquiries: </span>
                     <a
                       href={`mailto:${CONTACT_DATA.infoEmail}`}
                       className="font-semibold text-[#0B2545] hover:underline"
@@ -401,7 +551,7 @@ export default function AboutPage() {
                     </a>
                   </div>
                   <div>
-                    <span className="text-[#5C6B7A]">Customer Support: </span>
+                    <span className="text-[#475569]">Customer Support: </span>
                     <a
                       href={`mailto:${CONTACT_DATA.supportEmail}`}
                       className="font-semibold text-[#0B2545] hover:underline"
@@ -416,13 +566,12 @@ export default function AboutPage() {
             <div className="pt-4 border-t border-[#CBD5E1] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <Link
                 href="/request-flight-support"
-                className="bg-[#0B2545] hover:bg-[#133661] text-white font-semibold text-base px-6 py-3 rounded-[2px] transition-colors inline-flex items-center gap-2"
+                className="bg-[#0B2545] hover:bg-[#133661] text-white font-semibold text-base px-6 py-3 rounded-[4px] transition-colors inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545]"
               >
                 <span>Request Flight Support</span>
                 <span aria-hidden="true">→</span>
               </Link>
 
-              {/* 8. Internal links: Services, Permit Directory and Contact */}
               <div className="flex flex-wrap items-center gap-5 text-base">
                 <Link
                   href="/services"
@@ -453,6 +602,21 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* 9. Trusted By (Logo Slider) */}
+      <section className="py-8 bg-white border-b border-[#CBD5E1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <ClientStrip compact hideHeading />
+        </div>
+      </section>
+
+      {/* 10. One Final CTA Band */}
+      <CtaBanner
+        heading="Ready to Coordinate Your Next Flight?"
+        subheading="Share your flight schedule, aircraft details, and route with our 24/7 operations desk."
+        primaryLabel="Request Flight Support"
+        primaryHref="/request-flight-support"
+      />
     </>
   );
 }
