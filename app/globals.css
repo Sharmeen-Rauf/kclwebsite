@@ -43,14 +43,20 @@
     background-attachment: fixed;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: #0B2545;
     line-height: 1.2;
     letter-spacing: -0.015em;
     font-weight: 700;
   }
 
-  p, li {
+  p,
+  li {
     max-width: 72ch;
   }
 
@@ -103,6 +109,7 @@
   from {
     stroke-dashoffset: 600;
   }
+
   to {
     stroke-dashoffset: 0;
   }
@@ -118,6 +125,7 @@
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -142,6 +150,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -161,12 +170,10 @@
 
 .kcl-hero-bg {
   background-image:
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       rgba(11, 37, 69, 0.90) 0%,
       rgba(11, 37, 69, 0.70) 55%,
-      rgba(20, 64, 110, 0.45) 100%
-    ),
+      rgba(20, 64, 110, 0.45) 100%),
     url("/img/hero-flight-ops.jpg");
   background-size: cover;
   background-position: center;
@@ -178,6 +185,7 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(1.06);
   }
@@ -219,12 +227,15 @@
     offset-distance: 0%;
     opacity: 0;
   }
+
   8% {
     opacity: 0.9;
   }
+
   90% {
     opacity: 0.9;
   }
+
   100% {
     offset-distance: 100%;
     opacity: 0;
@@ -240,6 +251,7 @@
   from {
     stroke-dashoffset: 48;
   }
+
   to {
     stroke-dashoffset: 0;
   }
@@ -254,7 +266,9 @@
   0% {
     transform: translateX(-150%) skewX(-15deg);
   }
-  25%, 100% {
+
+  25%,
+  100% {
     transform: translateX(250%) skewX(-15deg);
   }
 }
@@ -274,6 +288,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -289,12 +304,15 @@
     left: 2%;
     opacity: 0;
   }
+
   12% {
     opacity: 1;
   }
+
   88% {
     opacity: 1;
   }
+
   100% {
     left: 98%;
     opacity: 0;
@@ -318,6 +336,7 @@
     transform: scale(1.15);
     opacity: 0.8;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -332,6 +351,7 @@
   from {
     stroke-dashoffset: 1200;
   }
+
   to {
     stroke-dashoffset: 0;
   }
@@ -348,12 +368,15 @@
     offset-distance: 0%;
     opacity: 0;
   }
+
   10% {
     opacity: 0.9;
   }
+
   90% {
     opacity: 0.9;
   }
+
   100% {
     offset-distance: 100%;
     opacity: 0;
@@ -376,6 +399,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -404,10 +428,25 @@
   animation-play-state: paused;
 }
 
+.complementary-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: taxiwaySignsDrift 32s linear infinite;
+}
+
+.complementary-marquee-wrapper:hover .complementary-marquee-track,
+.complementary-marquee-wrapper:focus-within .complementary-marquee-track,
+.complementary-marquee-track.is-paused {
+  animation-play-state: paused;
+}
+
 @keyframes approachLightPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.25;
   }
+
   50% {
     opacity: 1;
   }
@@ -421,6 +460,7 @@
   html {
     scroll-behavior: auto;
   }
+
   .taxiway-flow-line,
   .animate-btn-shimmer,
   .radar-sweep-beam,
@@ -429,57 +469,72 @@
     animation: none !important;
     display: none !important;
   }
+
   .hero-zoom-photo {
     animation: none !important;
     transform: none !important;
   }
+
   .airway-route-line {
     animation: none !important;
     stroke-dashoffset: 0 !important;
   }
+
   .logo-marquee-track,
   .regional-slider-track,
   .taxiway-signs-track,
-  .leadership-marquee-track {
+  .leadership-marquee-track,
+  .complementary-marquee-track {
     animation: none !important;
     transform: none !important;
   }
+
   .about-draw-1947 {
     animation: none !important;
     stroke-dashoffset: 0 !important;
   }
+
   .about-hero-plane,
   .about-facts-plane {
     animation: none !important;
     opacity: 0.7 !important;
     offset-distance: 50% !important;
   }
+
   .approach-light-dot {
     animation: none !important;
     opacity: 0.7 !important;
   }
+
   .heading-fade-init {
     opacity: 1 !important;
     transform: none !important;
   }
+
   .heading-visible {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
+
   .plane-traverse {
     animation: none !important;
     opacity: 0.7 !important;
     offset-distance: 50% !important;
   }
+
   .route-progress-bar {
     display: none !important;
   }
+
   .btn-arrow {
     transform: none !important;
     transition: none !important;
   }
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
