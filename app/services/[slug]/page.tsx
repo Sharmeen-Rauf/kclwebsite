@@ -38,7 +38,7 @@ function getServiceHeroImage(slug: string): string {
 
 function getServiceHeroVideo(slug: string): string | null {
   if (slug.includes("fuel")) return "/Jet_refueling_at_night_airport_797c3335.mp4";
-  if (slug.includes("operations") || slug.includes("support")) return "/Aircraft_ground_operations_macro._ddb440da.mp4";
+  if (slug.includes("operations") || slug.includes("support")) return "/Aircraft_ground_operations_macro_ddb440da.mp4";
   return null;
 }
 

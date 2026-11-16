@@ -71,7 +71,7 @@ export default function GroundHandlingPage() {
       <section className="relative overflow-hidden text-white border-b border-slate-800 min-h-[520px] lg:min-h-[560px] py-12 lg:py-14 flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <HeroVideoBackground
-            src="/Airliner_turnaround_ground_opera._6bd387ba.mp4"
+            src="/Airliner_turnaround_ground_opera_6bd387ba.mp4"
             poster="/img/services/02-ground.webp"
             alt="Aircraft ramp ground handling, apron marshalling and turnaround operations at international airport"
           />
