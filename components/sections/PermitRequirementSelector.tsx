@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { motion } from "motion/react";
 
 interface FlightRequirementTab {
   id: string;
@@ -172,14 +173,15 @@ Inquire: https://kclwebsite.vercel.app/request-flight-support`;
         {TABS.map((tab) => {
           const isActive = tab.id === activeTabId;
           return (
-            <div
+            <motion.div
               key={tab.id}
               role="tabpanel"
               id={`panel-${tab.id}`}
               aria-labelledby={`tab-${tab.id}`}
-              className={`${
-                isActive ? "block opacity-100 translate-y-0" : "hidden"
-              } transition-all duration-200 ease-out motion-reduce:transition-none`}
+              initial={false}
+              animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+              className={isActive ? "block" : "hidden"}
             >
               <div className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 sm:p-8 space-y-6 shadow-xs">
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-4 border-b border-[#CBD5E1]">
@@ -315,7 +317,7 @@ Inquire: https://kclwebsite.vercel.app/request-flight-support`;
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

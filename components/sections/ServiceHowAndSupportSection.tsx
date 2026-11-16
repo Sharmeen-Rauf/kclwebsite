@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 export interface TimelineStepItem {
   badge: string;
@@ -79,9 +82,17 @@ export function ServiceHowAndSupportSection({
 
             <div className="relative pl-8 space-y-3.5 before:absolute before:left-3 before:top-3 before:bottom-3 before:w-[2px] before:bg-gradient-to-b before:from-[#0B2545] before:via-[#F4C400] before:to-[#0B2545]">
               {steps.map((step, idx) => (
-                <div
+                <motion.div
                   key={step.title}
-                  className="group relative bg-[#F8FAFC] hover:bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[8px] p-4 shadow-2xs hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:transform-none"
+                  initial={{ opacity: 0, x: -8 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{
+                    duration: 0.35,
+                    delay: idx * 0.06,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="group relative bg-[#F8FAFC] hover:bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[8px] p-4 shadow-2xs hover:shadow-md transition-colors duration-300"
                 >
                   <div
                     className={`absolute -left-[33px] top-4 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none ${
@@ -111,7 +122,7 @@ export function ServiceHowAndSupportSection({
                   <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
                     {step.detail}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

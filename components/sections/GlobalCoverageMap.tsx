@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { AnimatePresence, motion } from "motion/react";
 import { COUNTRY_GUIDES } from "@/content/countries";
 
 interface RegionInfo {
@@ -149,11 +150,10 @@ export function GlobalCoverageMap() {
               onClick={() => setSelectedRegionId(region.id)}
               onMouseEnter={() => setHoveredRegionId(region.id)}
               onMouseLeave={() => setHoveredRegionId(null)}
-              className={`px-3 py-1.5 rounded-[3px] font-mono text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer select-none ${
-                isSelected
+              className={`px-3 py-1.5 rounded-[3px] font-mono text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer select-none ${isSelected
                   ? "bg-[#F4C400] text-[#0B2545] shadow-xs"
                   : "bg-white/5 hover:bg-white/12 text-slate-300 hover:text-white border border-white/10"
-              }`}
+                }`}
             >
               <span className={`text-[10px] ${isSelected ? "text-[#0B2545]/80" : "text-[#F4C400]"}`}>
                 {region.number}
@@ -167,75 +167,86 @@ export function GlobalCoverageMap() {
       {/* 3. Main Console: Split 2-Column Console Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[400px]">
         {/* Left Column (5 Cols): Active Region Real Photo + Intelligence Details */}
-        <div className="lg:col-span-5 p-4 sm:p-5 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10 bg-[#0B2545]/90 space-y-4">
-          <div className="space-y-3">
-            {/* Real Regional Photograph Header */}
-            <div className="relative h-32 sm:h-36 w-full rounded-[4px] overflow-hidden border border-white/15 bg-slate-900 shadow-inner">
-              <Image
-                src={activeRegion.image}
-                alt={activeRegion.alt}
-                fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover object-center transition-transform duration-700 ease-out scale-100 hover:scale-105"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/40 to-transparent"
-              />
-              <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5">
-                <span className="font-mono text-[10px] font-bold text-white bg-black/60 border border-white/20 px-2 py-0.5 rounded-[2px] backdrop-blur-xs">
-                  REGION {activeRegion.number}
-                </span>
-                <span className="font-mono text-[10px] font-bold text-[#F4C400] bg-[#0B2545]/80 border border-[#F4C400]/40 px-2 py-0.5 rounded-[2px] backdrop-blur-xs uppercase">
-                  ACTIVE CORRIDOR
-                </span>
-              </div>
-              <div className="absolute bottom-2 left-2.5 right-2.5 z-10">
-                <h3 className="text-base sm:text-lg font-bold text-white leading-tight drop-shadow-xs">
-                  {activeRegion.name}
-                </h3>
-                <p className="text-[11px] text-[#F4C400] font-mono truncate">
-                  {activeRegion.corridor}
-                </p>
-              </div>
-            </div>
-
-            {/* Description */}
-            <p className="text-xs sm:text-[13px] text-slate-200 leading-relaxed">
-              {activeRegion.description}
-            </p>
-
-            {/* Structured Specifications Grid */}
-            <div className="bg-[#071B33]/80 border border-white/10 rounded-[4px] p-2.5 sm:p-3 space-y-2 text-xs">
-              <div className="flex items-start justify-between gap-2">
-                <span className="font-mono text-[10.5px] uppercase text-[#F4C400] shrink-0">
-                  Key FIRs:
-                </span>
-                <span className="font-mono text-[11px] text-slate-200 text-right leading-tight">
-                  {activeRegion.keyFirs}
-                </span>
-              </div>
-              <div className="flex items-start justify-between gap-2 pt-1 border-t border-white/10">
-                <span className="font-mono text-[10.5px] uppercase text-slate-400 shrink-0">
-                  Planning:
-                </span>
-                <span className="text-[11px] text-slate-200 text-right">
-                  {activeRegion.leadTimeGuidance}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Region Action */}
-          <div className="pt-2">
-            <Link
-              href="/request-flight-support"
-              className="w-full bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-xs sm:text-sm py-2 px-4 rounded-[2px] inline-flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+        <div className="lg:col-span-5 p-4 sm:p-5 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10 bg-[#0B2545]/90">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeRegion.id}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col justify-between h-full space-y-4"
             >
-              <span>Inquire {activeRegion.shortName} Clearances</span>
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+              <div className="space-y-3">
+                {/* Real Regional Photograph Header */}
+                <div className="relative h-32 sm:h-36 w-full rounded-[4px] overflow-hidden border border-white/15 bg-slate-900 shadow-inner">
+                  <Image
+                    src={activeRegion.image}
+                    alt={activeRegion.alt}
+                    fill
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-cover object-center transition-transform duration-700 ease-out scale-100 hover:scale-105"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/40 to-transparent"
+                  />
+                  <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5">
+                    <span className="font-mono text-[10px] font-bold text-white bg-black/60 border border-white/20 px-2 py-0.5 rounded-[2px] backdrop-blur-xs">
+                      REGION {activeRegion.number}
+                    </span>
+                    <span className="font-mono text-[10px] font-bold text-[#F4C400] bg-[#0B2545]/80 border border-[#F4C400]/40 px-2 py-0.5 rounded-[2px] backdrop-blur-xs uppercase">
+                      ACTIVE CORRIDOR
+                    </span>
+                  </div>
+                  <div className="absolute bottom-2 left-2.5 right-2.5 z-10">
+                    <h3 className="text-base sm:text-lg font-bold text-white leading-tight drop-shadow-xs">
+                      {activeRegion.name}
+                    </h3>
+                    <p className="text-[11px] text-[#F4C400] font-mono truncate">
+                      {activeRegion.corridor}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-xs sm:text-[13px] text-slate-200 leading-relaxed">
+                  {activeRegion.description}
+                </p>
+
+                {/* Structured Specifications Grid */}
+                <div className="bg-[#071B33]/80 border border-white/10 rounded-[4px] p-2.5 sm:p-3 space-y-2 text-xs">
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="font-mono text-[10.5px] uppercase text-[#F4C400] shrink-0">
+                      Key FIRs:
+                    </span>
+                    <span className="font-mono text-[11px] text-slate-200 text-right leading-tight">
+                      {activeRegion.keyFirs}
+                    </span>
+                  </div>
+                  <div className="flex items-start justify-between gap-2 pt-1 border-t border-white/10">
+                    <span className="font-mono text-[10.5px] uppercase text-slate-400 shrink-0">
+                      Planning:
+                    </span>
+                    <span className="text-[11px] text-slate-200 text-right">
+                      {activeRegion.leadTimeGuidance}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Region Action */}
+              <div className="pt-2">
+                <Link
+                  href="/request-flight-support"
+                  className="w-full bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-xs sm:text-sm py-2 px-4 rounded-[2px] inline-flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+                >
+                  <span>Inquire {activeRegion.shortName} Clearances</span>
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Right Column (7 Cols): Interactive Radar Schematic SVG Map */}

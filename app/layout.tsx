@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { RouteProgressBar } from "@/components/ui/RouteProgressBar";
 import { HeadingObserver } from "@/components/ui/HeadingObserver";
 import { AviationBackgroundOverlay } from "@/components/ui/AviationBackgroundOverlay";
+import { MotionProvider } from "@/components/ui/MotionProvider";
 import {
   JsonLd,
   buildOrganizationJsonLd,
@@ -66,11 +67,13 @@ export default function RootLayout({
         </a>
         <JsonLd data={[buildOrganizationJsonLd(), buildWebSiteJsonLd()]} />
         <OpsStrip />
-        <Header />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <MotionProvider>
+          <Header />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

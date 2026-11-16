@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "motion/react";
 
 interface NavDropdownItem {
   label: string;
@@ -133,9 +134,21 @@ const PRIMARY_NAV: NavItem[] = [
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 h-20 bg-white text-[#0B2545] border-b border-slate-200">
+    <header
+      className={`sticky top-0 z-40 h-20 text-[#0B2545] border-b border-slate-200 transition-all duration-200 ${
+        scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-white"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center justify-between h-full gap-6 lg:gap-10">
           {/* Original KCL Brand Logo (no white box) */}
@@ -208,8 +221,8 @@ export function Header() {
                   </Link>
 
                   {/* Hover Dropdown Menu */}
-                  <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 focus-within:visible focus-within:opacity-100 transition-all duration-150 absolute left-0 top-full pt-1 w-80 z-50">
-                    <div className="bg-white border border-slate-200 shadow-xl rounded-[2px] py-2 divide-y divide-slate-100 text-[#0B2545]">
+                  <div className="invisible opacity-0 translate-y-1.5 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 focus-within:visible focus-within:opacity-100 focus-within:translate-y-0 transition-all duration-200 ease-out absolute left-0 top-full pt-1 w-80 z-50">
+                    <div className="bg-white border border-slate-200 border-t-2 border-t-[#F4C400] shadow-xl rounded-[2px] py-2 divide-y divide-slate-100 text-[#0B2545]">
                       {item.children.map((sub) => (
                         <Link
                           key={sub.href}
@@ -271,50 +284,56 @@ export function Header() {
       </div>
 
       {/* Mobile Drawer */}
-      {mobileOpen && (
-        <nav
-          id="mobile-primary-menu"
-          aria-label="Mobile Navigation"
-          className="lg:hidden bg-white text-[#0B2545] border-t border-slate-200 px-4 pt-3 pb-6 space-y-2 shadow-lg"
-        >
-          {PRIMARY_NAV.map((item) => {
-            const isActive =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname === item.href ||
-                  pathname.startsWith(`${item.href}/`);
-            return (
-              <div key={item.label} className="space-y-1">
-                <Link
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block px-3 py-2.5 text-sm font-bold capitalize border-l-2 ${
-                    isActive
-                      ? "border-[var(--accent)] bg-[#F6F8FB] text-[#0B2545]"
-                      : "border-transparent text-[#16202B] hover:bg-[#F6F8FB]"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-                {item.children && (
-                  <div className="pl-5 grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1 pb-2">
-                    {item.children.map((sub) => (
-                      <Link
-                        key={sub.href}
-                        href={sub.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="px-3 py-2 bg-[#F6F8FB] border border-slate-200 text-xs font-semibold text-[#0B2545] hover:border-[#0B2545]"
-                      >
-                        {sub.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </nav>
-      )}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.nav
+            id="mobile-primary-menu"
+            aria-label="Mobile Navigation"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:hidden bg-white text-[#0B2545] border-t border-slate-200 px-4 pt-3 pb-6 space-y-2 shadow-lg"
+          >
+            {PRIMARY_NAV.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname === item.href ||
+                    pathname.startsWith(`${item.href}/`);
+              return (
+                <div key={item.label} className="space-y-1">
+                  <Link
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`block px-3 py-2.5 text-sm font-bold capitalize border-l-2 ${
+                      isActive
+                        ? "border-[var(--accent)] bg-[#F6F8FB] text-[#0B2545]"
+                        : "border-transparent text-[#16202B] hover:bg-[#F6F8FB]"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.children && (
+                    <div className="pl-5 grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1 pb-2">
+                      {item.children.map((sub) => (
+                        <Link
+                          key={sub.href}
+                          href={sub.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="px-3 py-2 bg-[#F6F8FB] border border-slate-200 text-xs font-semibold text-[#0B2545] hover:border-[#0B2545]"
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

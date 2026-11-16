@@ -12,6 +12,11 @@ import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
 import { newsRepository } from "@/lib/data/news-repository";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 import { HeroVideoBackground } from "@/components/ui/HeroVideoBackground";
+import { HeroRouteOverlay } from "@/components/sections/HeroRouteOverlay";
+import {
+  MotionStaggerGrid,
+  MotionStaggerItem,
+} from "@/components/ui/MotionPrimitives";
 import { AircraftMissionSlider } from "@/components/sections/AircraftMissionSlider";
 import { RegionalCoverageSlider } from "@/components/sections/RegionalCoverageSlider";
 
@@ -197,35 +202,8 @@ export default async function HomePage() {
             alt="Commercial aircraft and business jet on an international airport ramp with ground support equipment"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/80 via-[#0B2545]/55 to-[#14406E]/30" />
-          {/* Very faint route line-art background (no chart box, flight levels, or airway codes) */}
-          <svg
-            viewBox="0 0 1440 640"
-            fill="none"
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
-          >
-            <path
-              d="M-60 490 C 280 420, 620 260, 1020 220 C 1220 200, 1360 150, 1500 110"
-              stroke="#FFFFFF"
-              strokeWidth="1.5"
-              strokeDasharray="6 6"
-              className="airway-route-line"
-            />
-            <path
-              d="M-40 240 C 340 290, 740 350, 1140 280 C 1300 250, 1410 210, 1520 180"
-              stroke="#FFFFFF"
-              strokeWidth="1.2"
-            />
-            <path
-              d="M420 620 C 560 450, 720 310, 910 120"
-              stroke="#FFFFFF"
-              strokeWidth="1"
-              strokeDasharray="4 5"
-            />
-            <circle cx="515" cy="340" r="4" fill="#FFFFFF" />
-            <circle cx="775" cy="275" r="4" fill="#FFFFFF" />
-            <circle cx="885" cy="145" r="4" fill="#FFFFFF" />
-          </svg>
+          {/* Restrained one-time animated international route line-art */}
+          <HeroRouteOverlay />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -386,58 +364,59 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 auto-rows-fr">
+          <MotionStaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 auto-rows-fr">
             {BENTO_SERVICES.map((service) => (
-              <Link
-                key={service.number}
-                href={service.href}
-                className={`group relative overflow-hidden rounded-[6px] border border-white/20 flex flex-col justify-between p-4 sm:p-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white hover:-translate-y-1 focus-visible:-translate-y-1 transition-all duration-300 ease-out motion-reduce:transition-none motion-reduce:transform-none ${service.gridSpan}`}
-              >
-                {/* Full-bleed background photo */}
-                <Image
-                  src={service.image}
-                  alt={service.alt}
-                  fill
-                  sizes={service.sizes}
-                  className="object-cover object-center group-hover:scale-[1.04] group-focus-visible:scale-[1.04] motion-safe:transition-transform motion-safe:duration-500 ease-out motion-reduce:transform-none"
-                />
+              <MotionStaggerItem key={service.number} className={service.gridSpan}>
+                <Link
+                  href={service.href}
+                  className="group relative overflow-hidden rounded-[6px] border border-white/20 flex flex-col justify-between p-4 sm:p-5 h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white hover:-translate-y-1 focus-visible:-translate-y-1 transition-all duration-300 ease-out motion-reduce:transition-none motion-reduce:transform-none"
+                >
+                  {/* Full-bleed background photo */}
+                  <Image
+                    src={service.image}
+                    alt={service.alt}
+                    fill
+                    sizes={service.sizes}
+                    className="object-cover object-center group-hover:scale-[1.04] group-focus-visible:scale-[1.04] motion-safe:transition-transform motion-safe:duration-500 ease-out motion-reduce:transform-none"
+                  />
 
-                {/* Balanced gradient overlay so pictures remain vivid, clear, and graphical */}
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B2545]/80 via-[#0B2545]/35 to-black/15 group-hover:from-[#0B2545]/85 group-hover:via-[#0B2545]/45 group-hover:to-black/20 group-focus-visible:from-[#0B2545]/85 group-focus-visible:via-[#0B2545]/45 group-focus-visible:to-black/20 transition-colors duration-300"
-                />
+                  {/* Balanced gradient overlay so pictures remain vivid, clear, and graphical */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B2545]/80 via-[#0B2545]/35 to-black/15 group-hover:from-[#0B2545]/85 group-hover:via-[#0B2545]/45 group-hover:to-black/20 group-focus-visible:from-[#0B2545]/85 group-focus-visible:via-[#0B2545]/45 group-focus-visible:to-black/20 transition-colors duration-300"
+                  />
 
-                {/* Top-left: Mono number badge */}
-                <div className="relative z-10 flex items-center justify-between">
-                  <span className="font-mono text-[11px] font-semibold text-white/90 bg-white/10 backdrop-blur-sm border border-white/20 px-2 py-0.5 rounded-[2px] inline-block tracking-wider">
-                    {service.number}
-                  </span>
-                </div>
-
-                {/* Bottom: Service title + one-line description + sliding 'Learn more →' */}
-                <div className="relative z-10 space-y-1.5 mt-auto pt-4">
-                  <h3
-                    className={`${
-                      service.isLarge
-                        ? "text-lg sm:text-xl lg:text-[22px]"
-                        : "text-base sm:text-[17px]"
-                    } font-semibold text-white leading-tight`}
-                  >
-                    {service.title}
-                  </h3>
-                  <p className="text-[13px] sm:text-[13.5px] text-slate-200/90 font-normal leading-snug line-clamp-2">
-                    {service.description}
-                  </p>
-                  <div className="pt-0.5">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-white opacity-100 translate-y-0 sm:opacity-0 sm:translate-y-1.5 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 sm:group-focus-visible:opacity-100 sm:group-focus-visible:translate-y-0 motion-safe:transition-all motion-safe:duration-200 motion-reduce:transform-none">
-                      Learn more <span aria-hidden="true">→</span>
+                  {/* Top-left: Mono number badge */}
+                  <div className="relative z-10 flex items-center justify-between">
+                    <span className="font-mono text-[11px] font-semibold text-white/90 bg-white/10 backdrop-blur-sm border border-white/20 px-2 py-0.5 rounded-[2px] inline-block tracking-wider">
+                      {service.number}
                     </span>
                   </div>
-                </div>
-              </Link>
+
+                  {/* Bottom: Service title + one-line description + sliding 'Learn more →' */}
+                  <div className="relative z-10 space-y-1.5 mt-auto pt-4">
+                    <h3
+                      className={`${
+                        service.isLarge
+                          ? "text-lg sm:text-xl lg:text-[22px]"
+                          : "text-base sm:text-[17px]"
+                      } font-semibold text-white leading-tight`}
+                    >
+                      {service.title}
+                    </h3>
+                    <p className="text-[13px] sm:text-[13.5px] text-slate-200/90 font-normal leading-snug line-clamp-2">
+                      {service.description}
+                    </p>
+                    <div className="pt-0.5">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-white opacity-100 translate-y-0 sm:opacity-0 sm:translate-y-1.5 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 sm:group-focus-visible:opacity-100 sm:group-focus-visible:translate-y-0 motion-safe:transition-all motion-safe:duration-200 motion-reduce:transform-none">
+                        Learn more <span aria-hidden="true">→</span>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </MotionStaggerItem>
             ))}
-          </div>
+          </MotionStaggerGrid>
         </div>
       </section>
 

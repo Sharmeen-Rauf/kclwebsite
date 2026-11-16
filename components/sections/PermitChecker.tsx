@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { AnimatePresence, motion } from "motion/react";
 
 type OperationCategory =
   | "scheduled-airline"
@@ -446,7 +447,15 @@ export function PermitChecker() {
 
         {/* Output Panel (Matched Height, No Empty Space) */}
         <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-          <div className="space-y-4">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${operationCategory}-${serviceFocus}`}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="space-y-4"
+            >
             <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#CBD5E1]">
               <div>
                 <span className="text-xs uppercase text-[#B88200] font-bold">
@@ -492,7 +501,8 @@ export function PermitChecker() {
                 ))}
               </ul>
             </div>
-          </div>
+            </motion.div>
+          </AnimatePresence>
 
           {/* Operational & Regulatory Boundary Box */}
           <div className="bg-[#F6F8FB] border-l-4 border-[#0B2545] p-4 text-xs text-[#5C6B7A] space-y-1 mt-auto">
