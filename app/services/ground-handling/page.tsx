@@ -14,12 +14,12 @@ import {
   GROUND_HANDLING_FAQS,
   GROUND_HANDLING_FLIGHTS_SUPPORTED,
 } from "@/content/ground-handling";
-import { CONTACT_DATA } from "@/content/contact";
 import { TurnaroundPlanner } from "@/components/sections/TurnaroundPlanner";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 import { HeroVideoBackground } from "@/components/ui/HeroVideoBackground";
 import { ServiceHowAndSupportSection } from "@/components/sections/ServiceHowAndSupportSection";
 import { WhyKclSection } from "@/components/sections/WhyKclSection";
+import { CtaBanner } from "@/components/sections/CtaBanner";
 
 export const metadata = buildMetadata({
   title: "Worldwide Ground Handling Coordination | KCL",
@@ -368,40 +368,13 @@ export default function GroundHandlingPage() {
       {/* =========================================================================
           SECTION 7 — FINAL CTA BAND (One Only)
           ========================================================================= */}
-      <section className="py-10 lg:py-12 bg-gradient-to-r from-[#0B2545] to-[#14406E] text-white">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            <div className="lg:col-span-8 space-y-2">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Arrange Your Ground Handling Coordination
-              </h2>
-              <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl">
-                Send your flight date, station ICAO, aircraft type, and needed services to discuss handling arrangements.
-              </p>
-              <div className="pt-1 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-xs text-slate-300">
-                <span><strong>Desk:</strong> {CONTACT_DATA.opsEmail}</span>
-                <span><strong>Phone (24/7):</strong> {CONTACT_DATA.primaryPhone}</span>
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-2.5">
-              <Link
-                href="/request-flight-support?service=ground-handling"
-                className="bg-[#133661] hover:bg-[#1A467D] text-white min-h-[44px] px-6 py-2.5 font-bold text-sm text-center inline-flex items-center justify-center rounded-[2px] transition-colors border border-white/20 shadow-xs"
-              >
-                <span>Request Handling Support</span>
-                <span aria-hidden="true" className="ml-1.5">→</span>
-              </Link>
-              <a
-                href={`tel:${CONTACT_DATA.primaryPhone.replace(/\s+/g, "")}`}
-                className="kcl-btn-outline-white min-h-[44px] px-6 py-2.5 font-semibold text-sm text-center inline-flex items-center justify-center rounded-[2px]"
-              >
-                Call the Ops Desk
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CtaBanner
+        eyebrow="Ground Handling Coordination"
+        heading="Arrange Your Ground Handling Coordination"
+        subheading="Send your flight date, station ICAO, aircraft type, and needed services to discuss handling arrangements."
+        primaryLabel="Request Handling Support"
+        primaryHref="/request-flight-support?service=ground-handling"
+      />
     </>
   );
 }
