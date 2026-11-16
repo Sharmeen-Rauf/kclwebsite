@@ -19,78 +19,8 @@ export function Footer() {
         </Link>
       </div>
 
-      <footer aria-label="Site Footer" className="bg-white text-[#16202B] relative overflow-hidden">
-        {/* (a) Executive Navy Gradient Pre-Footer Banner */}
-        <section
-          aria-label="Flight Itinerary Support"
-          className="relative overflow-hidden bg-gradient-to-r from-[#0B2545] via-[#0F3560] to-[#14406E] border-t border-b border-[#1E4B7A] py-8 sm:py-10 text-white"
-        >
-        {/* Subtle Airplane Silhouette Background Watermark */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-10 -bottom-14 sm:-bottom-10 opacity-[0.06] text-white"
-        >
-          <svg
-            className="w-80 h-80 sm:w-96 sm:h-96"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-10">
-          {/* Left: Airplane Icon, Eyebrow, Heading & Paragraph */}
-          <div className="flex items-start gap-4 sm:gap-5 max-w-3xl">
-            <div
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center shrink-0 shadow-md mt-1"
-              aria-hidden="true"
-            >
-              <svg
-                className="w-6 h-6 sm:w-7 sm:h-7 transform -rotate-45"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
-              </svg>
-            </div>
-
-            <div className="space-y-1.5">
-              <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#F4C400] block">
-                FLIGHT ITINERARY COORDINATION
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
-                Planning a Flight? Let&apos;s Get the Details Moving.
-              </h2>
-              <p className="text-[15px] sm:text-base text-slate-200/90 leading-relaxed font-medium">
-                Share your route, aircraft specifications, UTC schedule, and ground requirements. Our 24/7 operations desk will review authority pathways and confirm what we can arrange.
-              </p>
-            </div>
-          </div>
-
-          {/* Right: Action Button with 24/7 response badge */}
-          <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end gap-2.5 shrink-0 self-stretch sm:self-auto">
-            <Link
-              href="/request-flight-support"
-              className="w-full sm:w-auto bg-white hover:bg-slate-100 text-[#0B2545] px-7 py-3.5 rounded-[3px] font-bold text-sm sm:text-base inline-flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg transition-all group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2545]"
-            >
-              <span>Request Flight Support</span>
-              <span className="btn-arrow font-bold">
-                →
-              </span>
-            </Link>
-            <span className="text-xs font-semibold text-slate-300 inline-flex items-center gap-1.5 self-center lg:self-end">
-              <span
-                className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"
-                aria-hidden="true"
-              />
-              24/7 Active Operations Desk · Fast Turnaround
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* (b) Four-column white footer */}
+      <footer aria-label="Site Footer" className="bg-white text-[#16202B] relative overflow-hidden border-t border-[#CBD5E1]">
+      {/* Four-column white footer */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-12 border-b border-[#CBD5E1]">
           {/* Column 1: Brand, Description, Contact, Clocks */}
