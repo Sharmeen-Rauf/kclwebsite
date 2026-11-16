@@ -366,67 +366,30 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.16] tracking-tight">
-                About KCL International Flight Support
-              </h1>
-              <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-2xl">
-                KCL International Flight Support provides permits, ground handling, fuel, catering and crew services for airlines, private operators, cargo carriers and charter operators worldwide, with a team on call 24/7. We are part of the Kashmirwala Group, which has served aviation since 1947.
-              </p>
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
+          <div className="max-w-3xl mx-auto space-y-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.16] tracking-tight mx-auto">
+              About KCL International Flight Support
+            </h1>
+            <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-2xl mx-auto">
+              KCL International Flight Support provides permits, ground handling, fuel, catering and crew services for airlines, private operators, cargo carriers and charter operators worldwide, with a team on call 24/7. We are part of the Kashmirwala Group, which has served aviation since 1947.
+            </p>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
-                <Link
-                  href="/request-flight-support"
-                  className="relative overflow-hidden bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-base min-h-[44px] px-6 py-2.5 inline-flex items-center justify-center rounded-[4px] transition-all shadow-md hover:shadow-lg gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F4C400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2545]"
-                >
-                  <span className="animate-btn-shimmer" />
-                  <span>Request Flight Support</span>
-                  <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
-                </Link>
-                <a
-                  href="#leadership"
-                  className="border border-white/60 border-t-2 border-t-[#F4C400] hover:bg-white/15 text-white font-semibold text-base min-h-[44px] px-6 py-2.5 inline-flex items-center justify-center rounded-[4px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2545]"
-                >
-                  Meet the Leadership
-                </a>
-              </div>
-            </div>
-
-            {/* Frosted Snapshot Card */}
-            <div className="lg:col-span-5">
-              <div className="bg-white/10 backdrop-blur-md border border-white/25 border-t-2 border-t-[#F4C400] rounded-[6px] p-5 sm:p-6 shadow-lg space-y-3">
-                <div className="text-lg font-bold text-white border-b border-white/20 pb-2.5">
-                  Company Snapshot
-                </div>
-                <dl className="space-y-2.5 text-base">
-                  <div className="flex justify-between gap-3 border-b border-white/10 pb-2">
-                    <dt className="text-slate-200">Group</dt>
-                    <dd className="font-semibold text-white text-right">
-                      Part of the Kashmirwala Group
-                    </dd>
-                  </div>
-                  <div className="flex justify-between gap-3 border-b border-white/10 pb-2">
-                    <dt className="text-slate-200">Aviation heritage</dt>
-                    <dd className="font-semibold text-white text-right">
-                      Serving aviation since 1947
-                    </dd>
-                  </div>
-                  <div className="flex justify-between gap-3 border-b border-white/10 pb-2">
-                    <dt className="text-slate-200">Head office</dt>
-                    <dd className="font-semibold text-white text-right">
-                      Karachi
-                    </dd>
-                  </div>
-                  <div className="flex justify-between gap-3">
-                    <dt className="text-slate-200">Availability</dt>
-                    <dd className="font-semibold text-white text-right">
-                      24/7 operations desk
-                    </dd>
-                  </div>
-                </dl>
-              </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <Link
+                href="/request-flight-support"
+                className="relative overflow-hidden bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-base min-h-[44px] px-7 py-3 inline-flex items-center justify-center rounded-[2px] transition-all shadow-md hover:shadow-lg gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F4C400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2545]"
+              >
+                <span className="animate-btn-shimmer" />
+                <span>Request Flight Support</span>
+                <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
+              </Link>
+              <a
+                href="#leadership"
+                className="kcl-btn-outline-white border-t-2 border-t-[#F4C400] min-h-[44px] px-6 py-3 font-semibold text-base inline-flex items-center justify-center rounded-[2px] hover:bg-white/15 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2545]"
+              >
+                Meet the Leadership
+              </a>
             </div>
           </div>
         </div>
