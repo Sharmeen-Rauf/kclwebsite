@@ -90,9 +90,13 @@ export function HowWeWorkBand() {
             {HOW_WE_WORK_POINTS.map((item) => (
               <div
                 key={item.num}
-                className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-1 hover:shadow-md rounded-[6px] p-6 space-y-3 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none"
+                className="group relative overflow-hidden bg-white border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-1.5 hover:shadow-xl rounded-[8px] p-6 space-y-3 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none"
               >
-                <div className="w-12 h-12 rounded-full bg-[#0B2545] border-2 border-[#F4C400] text-[#F4C400] text-xl font-bold flex items-center justify-center group-hover:scale-110 motion-safe:transition-transform duration-300">
+                <div
+                  aria-hidden="true"
+                  className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 motion-reduce:transition-none"
+                />
+                <div className="w-12 h-12 rounded-full bg-[#0B2545] border-2 border-[#F4C400] text-[#F4C400] text-xl font-bold flex items-center justify-center group-hover:scale-110 group-hover:ring-4 group-hover:ring-[#F4C400]/25 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none">
                   {item.num}
                 </div>
                 <h3 className="text-xl font-bold text-[#0B2545]">

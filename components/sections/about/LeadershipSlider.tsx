@@ -27,16 +27,18 @@ function LeaderNodeCard({
 }) {
   return (
     <article
-      className={`group relative overflow-hidden rounded-[8px] border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none motion-reduce:transform-none ${
+      className={`group relative overflow-hidden rounded-[8px] border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl motion-reduce:transition-none motion-reduce:transform-none ${
         featured
-          ? "bg-[#0B2545] border-[#F4C400]/70 text-white shadow-md"
+          ? "bg-[#0B2545] border-[#F4C400]/70 text-white shadow-md hover:shadow-[#0B2545]/25"
           : "bg-white border-[#CBD5E1] hover:border-[#0B2545] text-[#0B2545] shadow-sm"
       }`}
     >
-      {/* Top Gold Accent Bar */}
+      {/* Animated Sweeping Top Gold Accent Bar */}
       <div
         aria-hidden="true"
-        className="h-1 w-full bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545]"
+        className={`h-1 w-full bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] transition-transform duration-500 origin-left motion-reduce:transition-none ${
+          featured ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+        }`}
       />
 
       {/* Subtle Aviation Plane Watermark SVG */}
@@ -68,7 +70,7 @@ function LeaderNodeCard({
           </div>
         ) : (
           <div
-            className={`w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold shrink-0 border-2 shadow-sm transition-transform duration-300 group-hover:scale-105 ${
+            className={`w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold shrink-0 border-2 shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:ring-4 group-hover:ring-[#F4C400]/25 motion-reduce:transition-none motion-reduce:transform-none ${
               featured
                 ? "bg-[#F4C400] border-white/30 text-[#0B2545]"
                 : "bg-[#0B2545] border-[#F4C400] text-[#F4C400]"

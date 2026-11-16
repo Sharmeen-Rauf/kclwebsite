@@ -474,14 +474,14 @@ export default function AboutPage() {
               <Link
                 key={service.name}
                 href={service.href}
-                className="group relative overflow-hidden bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-1 hover:shadow-md rounded-[6px] p-4 flex flex-col justify-between gap-3 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545]"
+                className="group relative overflow-hidden bg-[#F8FAFC] hover:bg-white border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-1.5 hover:shadow-xl rounded-[8px] p-5 flex flex-col justify-between gap-3 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545]"
               >
                 <div
                   aria-hidden="true"
-                  className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 motion-reduce:transition-none"
                 />
-                <div className="space-y-2">
-                  <div className="w-9 h-9 rounded-[4px] bg-white border border-[#CBD5E1] group-hover:bg-[#0B2545] group-hover:text-[#F4C400] group-hover:border-[#0B2545] text-[#0B2545] flex items-center justify-center transition-colors duration-300">
+                <div className="space-y-2.5">
+                  <div className="w-10 h-10 rounded-[6px] bg-white border border-[#CBD5E1] group-hover:bg-[#0B2545] group-hover:text-[#F4C400] group-hover:border-[#0B2545] group-hover:scale-110 group-hover:rotate-3 text-[#0B2545] flex items-center justify-center transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none">
                     {service.icon}
                   </div>
                   <h3 className="text-lg font-bold text-[#0B2545] group-hover:underline underline-offset-2">
@@ -613,14 +613,18 @@ export default function AboutPage() {
                     <a
                       key={item.email}
                       href={`mailto:${item.email}`}
-                      className="group bg-[#F8FAFC] hover:bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[6px] p-4 flex flex-col justify-between gap-2 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm motion-reduce:transition-none motion-reduce:transform-none"
+                      className="group relative overflow-hidden bg-[#F8FAFC] hover:bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[8px] p-4 flex flex-col justify-between gap-2 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg motion-reduce:transition-none motion-reduce:transform-none"
                     >
-                      <div className="space-y-1">
+                      <div
+                        aria-hidden="true"
+                        className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 motion-reduce:transition-none"
+                      />
+                      <div className="space-y-1 pt-0.5">
                         <div className="flex items-center justify-between">
                           <span className="text-sm font-bold text-[#B88200]">
                             {item.label}
                           </span>
-                          <svg className="w-4 h-4 text-[#0B2545] opacity-60 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <svg className="w-4 h-4 text-[#0B2545] opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                             <polyline points="22,6 12,13 2,6" />
                           </svg>
