@@ -489,35 +489,6 @@ export default function ServicesOverviewPage() {
           </div>
         </div>
       </section>
-
-      {/* =========================================================================
-          SECTION 6 — FINAL CTA BAND (ONE ONLY)
-          ========================================================================= */}
-      <section id="final-cta" className="py-12 lg:py-16 bg-[#0B2545] text-white">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight max-w-2xl mx-auto">
-            Planning a Flight? Send Us Your Itinerary.
-          </h2>
-          <p className="text-base text-slate-200 max-w-2xl mx-auto leading-relaxed">
-            Share your schedule, aircraft type, route, and requested service package with our 24/7 flight coordination team.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
-            <Link
-              href="/request-flight-support"
-              className="bg-white hover:bg-slate-100 text-[#0B2545] min-h-[46px] px-8 py-3 font-bold text-base inline-flex items-center justify-center rounded-[2px] transition-colors shadow-sm gap-2"
-            >
-              <span>Request Flight Support</span>
-              <span aria-hidden="true">→</span>
-            </Link>
-            <a
-              href="tel:+923268088706"
-              className="kcl-btn-outline-white min-h-[46px] px-7 py-3 font-semibold text-base inline-flex items-center justify-center rounded-[2px] hover:bg-white/10 transition-colors"
-            >
-              Call the Ops Desk
-            </a>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
