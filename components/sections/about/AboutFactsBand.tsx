@@ -65,12 +65,12 @@ export function AboutFactsBand() {
         >
           <path
             d="M -40 90 Q 450 20 960 75"
-            stroke="#FFFFFF"
-            strokeWidth="1.2"
+            stroke="#F4C400"
+            strokeWidth="1.5"
             strokeDasharray="6 6"
           />
         </svg>
-        <div className="about-facts-plane absolute top-0 left-0 text-white">
+        <div className="about-facts-plane absolute top-0 left-0 text-[#F4C400]">
           <svg
             className="w-5 h-5 rotate-90"
             viewBox="0 0 24 24"
@@ -85,28 +85,28 @@ export function AboutFactsBand() {
       <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
           <div className="space-y-1">
-            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4C400]">
               {yearVal}
             </div>
             <div className="text-base text-slate-200">Group founded</div>
           </div>
 
           <div className="space-y-1">
-            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4C400]">
               {hoursVal}/7
             </div>
             <div className="text-base text-slate-200">Operations desk</div>
           </div>
 
           <div className="space-y-1">
-            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4C400]">
               {servicesVal}
             </div>
             <div className="text-base text-slate-200">Core services</div>
           </div>
 
           <div className="space-y-1">
-            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4C400]">
               {regionsVal}
             </div>
             <div className="text-base text-slate-200">Regions supported</div>

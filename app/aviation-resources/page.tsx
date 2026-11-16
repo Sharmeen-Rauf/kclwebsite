@@ -43,6 +43,7 @@ export default function AviationResourcesPage() {
       />
 
       <InnerHero
+        kicker="Operator resource library"
         title="Aviation Glossary and Checklists"
         subtitle="Plain-English terms and a checklist you can send to your team."
         description="Look up standard airspace, permit, and dispatch abbreviations, or copy and download our Flight Inquiry Checklist before submitting your route."

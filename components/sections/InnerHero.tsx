@@ -14,6 +14,7 @@ export interface SnapshotRow {
 }
 
 interface InnerHeroProps {
+  kicker?: string;
   title: string;
   subtitle?: string;
   description?: string;
@@ -31,6 +32,7 @@ const HERO_CHIPS = [
 ];
 
 export function InnerHero({
+  kicker,
   title,
   subtitle,
   description,
@@ -84,8 +86,16 @@ export function InnerHero({
 
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          {/* Left: H1, Subhead, Buttons & Three Chips */}
+          {/* Left: Kicker, H1, Subhead, Buttons & Three Chips */}
           <div className="lg:col-span-7 space-y-4">
+            {kicker && (
+              <div className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#F4C400]">
+                <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+                </svg>
+                <span>{kicker}</span>
+              </div>
+            )}
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.16] tracking-tight max-w-2xl">
               {title}
             </h1>

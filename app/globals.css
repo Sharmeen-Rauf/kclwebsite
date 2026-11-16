@@ -393,6 +393,17 @@
   animation-play-state: paused;
 }
 
+.leadership-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: taxiwaySignsDrift 42s linear infinite;
+}
+
+.leadership-marquee-wrapper:hover .leadership-marquee-track,
+.leadership-marquee-wrapper:focus-within .leadership-marquee-track {
+  animation-play-state: paused;
+}
+
 @keyframes approachLightPulse {
   0%, 100% {
     opacity: 0.25;
@@ -428,7 +439,8 @@
   }
   .logo-marquee-track,
   .regional-slider-track,
-  .taxiway-signs-track {
+  .taxiway-signs-track,
+  .leadership-marquee-track {
     animation: none !important;
     transform: none !important;
   }

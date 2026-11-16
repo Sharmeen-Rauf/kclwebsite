@@ -39,6 +39,7 @@ export default async function InsightsPage() {
       <Breadcrumbs items={[{ name: "Insights", path: "/insights" }]} />
 
       <InnerHero
+        kicker="Operational briefings"
         title="Aviation Insights & Flight Support Articles"
         subtitle="Practical Perspectives on Aviation Operations."
         description="Our insights are written for the professionals who plan, coordinate and support aircraft movements. They focus on useful context and clear explanations rather than generic industry headlines."

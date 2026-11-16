@@ -9,6 +9,7 @@ import { JsonLd, buildBreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { CONTACT_DATA } from "@/content/contact";
 import { ClientStrip } from "@/components/sections/ClientStrip";
 import { CtaBanner } from "@/components/sections/CtaBanner";
+import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 import {
   LegacyTimelineSlider,
   type LegacyMilestone,
@@ -310,7 +311,15 @@ export default function AboutPage() {
             className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/92 via-[#0B2545]/75 to-[#14406E]/45"
           />
 
-          {/* Large outlined numeral 1947 behind the headline (stroke only, white 8% opacity) */}
+          {/* Ambient Radar Sweep Visual */}
+          <div aria-hidden="true" className="absolute -top-24 -right-24 sm:-top-32 sm:-right-32 w-[380px] sm:w-[540px] h-[380px] sm:h-[540px] rounded-full border border-sky-400/15 pointer-events-none overflow-hidden opacity-35">
+            <div className="absolute inset-0 rounded-full border border-sky-400/15" />
+            <div className="absolute inset-16 sm:inset-24 rounded-full border border-sky-400/15" />
+            <div className="absolute inset-32 sm:inset-44 rounded-full border border-[#F4C400]/20" />
+            <div className="absolute inset-0 radar-sweep-beam bg-gradient-to-tr from-[#F4C400]/20 via-sky-400/10 to-transparent rounded-full" />
+          </div>
+
+          {/* Large outlined numeral 1947 behind the headline (stroke only, subtle gold/white) */}
           <svg
             viewBox="0 0 900 260"
             aria-hidden="true"
@@ -320,8 +329,8 @@ export default function AboutPage() {
               x="10"
               y="210"
               fill="none"
-              stroke="#FFFFFF"
-              strokeOpacity="0.08"
+              stroke="#F4C400"
+              strokeOpacity="0.12"
               strokeWidth="2.5"
               fontSize="220"
               fontWeight="800"
@@ -336,20 +345,22 @@ export default function AboutPage() {
             viewBox="0 0 720 260"
             fill="none"
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full pointer-events-none opacity-35"
+            className="absolute inset-0 w-full h-full pointer-events-none opacity-45"
           >
             <path
               d="M 40 220 Q 320 70 680 110"
-              stroke="#FFFFFF"
-              strokeWidth="1.2"
+              stroke="#F4C400"
+              strokeWidth="1.4"
               strokeDasharray="5 5"
             />
+            <circle cx="40" cy="220" r="3.5" fill="#F4C400" />
+            <circle cx="680" cy="110" r="3.5" fill="#F4C400" />
           </svg>
           <div
             aria-hidden="true"
-            className="about-hero-plane absolute top-0 left-0 text-white pointer-events-none"
+            className="about-hero-plane absolute top-0 left-0 text-[#F4C400] pointer-events-none"
           >
-            <svg className="w-4 h-4 rotate-90" viewBox="0 0 24 24" fill="currentColor">
+            <svg className="w-5 h-5 rotate-90" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L15 9L22 12L15 14L12 22L9 14L2 12L9 9L12 2Z" />
             </svg>
           </div>
@@ -368,13 +379,15 @@ export default function AboutPage() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <Link
                   href="/request-flight-support"
-                  className="bg-white hover:bg-slate-100 text-[#0B2545] font-bold text-base min-h-[44px] px-6 py-2.5 inline-flex items-center justify-center rounded-[4px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2545]"
+                  className="relative overflow-hidden bg-[#F4C400] hover:bg-[#e0b400] text-[#0B2545] font-bold text-base min-h-[44px] px-6 py-2.5 inline-flex items-center justify-center rounded-[4px] transition-all shadow-md hover:shadow-lg gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F4C400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2545]"
                 >
-                  Request Flight Support
+                  <span className="animate-btn-shimmer" />
+                  <span>Request Flight Support</span>
+                  <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
                 </Link>
                 <a
                   href="#leadership"
-                  className="border border-white/60 hover:bg-white/15 text-white font-semibold text-base min-h-[44px] px-6 py-2.5 inline-flex items-center justify-center rounded-[4px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2545]"
+                  className="border border-white/60 border-t-2 border-t-[#F4C400] hover:bg-white/15 text-white font-semibold text-base min-h-[44px] px-6 py-2.5 inline-flex items-center justify-center rounded-[4px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2545]"
                 >
                   Meet the Leadership
                 </a>
@@ -383,7 +396,7 @@ export default function AboutPage() {
 
             {/* Frosted Snapshot Card */}
             <div className="lg:col-span-5">
-              <div className="bg-white/10 backdrop-blur-md border border-white/25 rounded-[6px] p-5 sm:p-6 shadow-lg space-y-3">
+              <div className="bg-white/10 backdrop-blur-md border border-white/25 border-t-2 border-t-[#F4C400] rounded-[6px] p-5 sm:p-6 shadow-lg space-y-3">
                 <div className="text-lg font-bold text-white border-b border-white/20 pb-2.5">
                   Company Snapshot
                 </div>
@@ -442,6 +455,12 @@ export default function AboutPage() {
         />
         <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div>
+            <span className="text-sm font-bold tracking-wide text-[#B88200] inline-flex items-center gap-1.5 mb-1">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+              </svg>
+              <span>Core capabilities</span>
+            </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               What we do
             </h2>
@@ -455,10 +474,14 @@ export default function AboutPage() {
               <Link
                 key={service.name}
                 href={service.href}
-                className="group bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545] rounded-[6px] p-4 flex flex-col justify-between gap-3 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545]"
+                className="group relative overflow-hidden bg-[#F8FAFC] border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-1 hover:shadow-md rounded-[6px] p-4 flex flex-col justify-between gap-3 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545]"
               >
+                <div
+                  aria-hidden="true"
+                  className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
                 <div className="space-y-2">
-                  <div className="w-9 h-9 rounded-[4px] bg-white border border-[#CBD5E1] text-[#0B2545] flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-[4px] bg-white border border-[#CBD5E1] group-hover:bg-[#0B2545] group-hover:text-[#F4C400] group-hover:border-[#0B2545] text-[#0B2545] flex items-center justify-center transition-colors duration-300">
                     {service.icon}
                   </div>
                   <h3 className="text-lg font-bold text-[#0B2545] group-hover:underline underline-offset-2">
@@ -468,8 +491,9 @@ export default function AboutPage() {
                     {service.summary}
                   </p>
                 </div>
-                <span className="text-base font-semibold text-[#0B2545]">
-                  View service →
+                <span className="text-base font-semibold text-[#0B2545] inline-flex items-center gap-1">
+                  <span>View service</span>
+                  <span aria-hidden="true" className="group-hover:translate-x-1 motion-safe:transition-transform">→</span>
                 </span>
               </Link>
             ))}
@@ -483,10 +507,18 @@ export default function AboutPage() {
       {/* 7. Credentials as Airport Taxiway Signs */}
       <CredentialsTaxiway credentials={credentials} />
 
+      <FlightPathDivider variant="curve-down" className="bg-[#F8FAFC]" />
+
       {/* 8. Contact */}
       <section className="py-12 sm:py-16 bg-[#F8FAFC] border-b border-[#CBD5E1]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div>
+            <span className="text-sm font-bold tracking-wide text-[#B88200] inline-flex items-center gap-1.5 mb-1">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+              </svg>
+              <span>Direct operations desk</span>
+            </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               Contact
             </h2>

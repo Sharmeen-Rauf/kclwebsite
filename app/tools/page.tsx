@@ -90,6 +90,7 @@ export default function ToolsIndexPage() {
       <Breadcrumbs items={[{ name: "Aviation Tools", path: "/tools" }]} />
 
       <InnerHero
+        kicker="Dispatch reference utilities"
         title="Aviation Dispatch & Flight Operations Tools"
         subtitle="Free reference tools used by dispatchers, flight followers and operations teams."
         description="Built for airline dispatchers, flight followers, and charter coordinators verifying airport codes, UTC schedules, aircraft nationality marks, and unit conversions."

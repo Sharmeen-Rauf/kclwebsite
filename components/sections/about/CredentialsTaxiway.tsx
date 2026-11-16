@@ -32,9 +32,9 @@ export function CredentialsTaxiway({ credentials }: CredentialsTaxiwayProps) {
     <div
       key={`${keyPrefix}-${item.slug}`}
       tabIndex={keyPrefix === "primary" ? 0 : -1}
-      className="group shrink-0 w-[290px] sm:w-[320px] bg-[#0B2545] border-2 border-white/80 rounded-[8px] px-5 py-4 flex items-center gap-4 shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#071930]"
+      className="group shrink-0 w-[290px] sm:w-[320px] bg-[#0B2545] border-2 border-white/80 hover:border-[#F4C400] rounded-[8px] px-5 py-4 flex items-center gap-4 shadow-md transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F4C400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071930]"
     >
-      <div className="w-14 h-14 rounded-[6px] bg-white/10 border border-white/25 flex items-center justify-center shrink-0 overflow-hidden">
+      <div className="w-14 h-14 rounded-[6px] bg-white/10 border border-[#F4C400]/50 flex items-center justify-center shrink-0 overflow-hidden">
         {item.logoSrc ? (
           <Image
             src={item.logoSrc}
@@ -44,7 +44,7 @@ export function CredentialsTaxiway({ credentials }: CredentialsTaxiwayProps) {
             className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         ) : (
-          <span className="text-base font-bold text-white tracking-tight">
+          <span className="text-base font-bold text-[#F4C400] tracking-tight">
             {item.abbr}
           </span>
         )}
@@ -67,6 +67,12 @@ export function CredentialsTaxiway({ credentials }: CredentialsTaxiwayProps) {
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="max-w-3xl">
+          <span className="text-sm font-bold tracking-wide text-[#F4C400] inline-flex items-center gap-1.5 mb-1">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+            </svg>
+            <span>Regulatory credentials</span>
+          </span>
           <h2
             id="credentials-taxiway-heading"
             className="text-2xl sm:text-3xl font-bold text-white"
@@ -83,7 +89,7 @@ export function CredentialsTaxiway({ credentials }: CredentialsTaxiwayProps) {
           {/* Dashed Taxiway Centreline */}
           <div
             aria-hidden="true"
-            className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t-2 border-dashed border-white/25 pointer-events-none"
+            className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t-2 border-dashed border-[#F4C400]/60 pointer-events-none"
           />
 
           <div
@@ -99,7 +105,7 @@ export function CredentialsTaxiway({ credentials }: CredentialsTaxiwayProps) {
             </div>
           </div>
 
-          {/* Soft Sequence of Small White Approach Lights */}
+          {/* Soft Sequence of Small Approach Lights */}
           <div
             aria-hidden="true"
             className="mt-6 flex items-center justify-center gap-5 sm:gap-8"
@@ -108,7 +114,7 @@ export function CredentialsTaxiway({ credentials }: CredentialsTaxiwayProps) {
               <span
                 key={idx}
                 style={{ animationDelay: `${idx * 200}ms` }}
-                className="approach-light-dot w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.85)]"
+                className="approach-light-dot w-2.5 h-2.5 rounded-full bg-[#F4C400] shadow-[0_0_10px_rgba(244,196,0,0.9)]"
               />
             ))}
           </div>

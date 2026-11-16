@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 export interface LegacyMilestone {
@@ -17,16 +17,14 @@ interface LegacyTimelineSliderProps {
 export function LegacyTimelineSlider({ milestones }: LegacyTimelineSliderProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const dragStartX = useRef(0);
-  const scrollStartLeft = useRef(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const selectIndex = (index: number) => {
-    const clamped = Math.max(0, Math.min(milestones.length - 1, index));
-    setActiveIndex(clamped);
+    const wrapped = (index + milestones.length) % milestones.length;
+    setActiveIndex(wrapped);
     const container = scrollRef.current;
     if (!container) return;
-    const card = container.children[clamped] as HTMLElement | undefined;
+    const card = container.children[wrapped] as HTMLElement | undefined;
     if (card) {
       container.scrollTo({
         left: card.offsetLeft - container.offsetLeft,
@@ -35,33 +33,30 @@ export function LegacyTimelineSlider({ milestones }: LegacyTimelineSliderProps) 
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowRight") {
-      e.preventDefault();
-      selectIndex(activeIndex + 1);
-    } else if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      selectIndex(activeIndex - 1);
-    }
-  };
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches || isPaused || milestones.length <= 1) return;
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    const container = scrollRef.current;
-    if (!container) return;
-    setIsDragging(true);
-    dragStartX.current = e.pageX - container.offsetLeft;
-    scrollStartLeft.current = container.scrollLeft;
-  };
+    const timer = setInterval(() => {
+      if (document.hidden) return;
+      setActiveIndex((prev) => {
+        const next = (prev + 1) % milestones.length;
+        const container = scrollRef.current;
+        if (container) {
+          const card = container.children[next] as HTMLElement | undefined;
+          if (card) {
+            container.scrollTo({
+              left: card.offsetLeft - container.offsetLeft,
+              behavior: "smooth",
+            });
+          }
+        }
+        return next;
+      });
+    }, 4200);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - dragStartX.current) * 1.2;
-    scrollRef.current.scrollLeft = scrollStartLeft.current - walk;
-  };
-
-  const stopDragging = () => setIsDragging(false);
+    return () => clearInterval(timer);
+  }, [isPaused, milestones.length]);
 
   const progressPct =
     milestones.length > 1
@@ -71,12 +66,21 @@ export function LegacyTimelineSlider({ milestones }: LegacyTimelineSliderProps) 
   return (
     <section
       aria-labelledby="legacy-timeline-heading"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
       className="py-12 sm:py-16 bg-white border-b border-[#CBD5E1]"
-      onKeyDown={handleKeyDown}
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
+            <span className="text-sm font-bold tracking-wide text-[#B88200] inline-flex items-center gap-1.5 mb-1">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+              </svg>
+              <span>Aviation heritage</span>
+            </span>
             <h2
               id="legacy-timeline-heading"
               className="text-2xl sm:text-3xl font-bold text-[#0B2545]"
@@ -90,38 +94,18 @@ export function LegacyTimelineSlider({ milestones }: LegacyTimelineSliderProps) 
               </strong>
             </p>
           </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => selectIndex(activeIndex - 1)}
-              disabled={activeIndex === 0}
-              aria-label="Previous milestone"
-              className="w-10 h-10 rounded-[4px] border border-[#CBD5E1] bg-[#F8FAFC] hover:border-[#0B2545] disabled:opacity-40 text-[#0B2545] font-bold text-lg flex items-center justify-center cursor-pointer disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545]"
-            >
-              ←
-            </button>
-            <button
-              type="button"
-              onClick={() => selectIndex(activeIndex + 1)}
-              disabled={activeIndex === milestones.length - 1}
-              aria-label="Next milestone"
-              className="w-10 h-10 rounded-[4px] border border-[#CBD5E1] bg-[#F8FAFC] hover:border-[#0B2545] disabled:opacity-40 text-[#0B2545] font-bold text-lg flex items-center justify-center cursor-pointer disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545]"
-            >
-              →
-            </button>
-          </div>
+          <div className="h-1 w-24 rounded-full bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545]" />
         </div>
 
-        {/* Timeline Track with Nodes & Progress Fill */}
+        {/* Animated Timeline Track with Gold Active Halo */}
         <div className="relative pt-2 pb-1">
-          <div className="relative h-1 bg-[#E2E8F0] rounded-full">
+          <div className="relative h-1.5 bg-[#E2E8F0] rounded-full overflow-hidden">
             <div
-              className="absolute top-0 left-0 h-full bg-[#0B2545] rounded-full transition-all duration-300 motion-reduce:transition-none"
+              className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#0B2545] to-[#F4C400] rounded-full transition-all duration-700 ease-out motion-reduce:transition-none"
               style={{ width: `${progressPct}%` }}
             />
           </div>
-          <div className="relative -mt-3 flex items-center justify-between">
+          <div className="relative -mt-3.5 flex items-center justify-between">
             {milestones.map((m, idx) => {
               const isActive = idx === activeIndex;
               const isPassed = idx <= activeIndex;
@@ -135,16 +119,16 @@ export function LegacyTimelineSlider({ milestones }: LegacyTimelineSliderProps) 
                   className="group flex flex-col items-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B2545] rounded-[4px] px-1"
                 >
                   <span
-                    className={`w-5 h-5 rounded-full border-2 transition-transform motion-reduce:transition-none ${
+                    className={`w-5 h-5 rounded-full border-2 transition-all duration-300 motion-reduce:transition-none ${
                       isActive
-                        ? "bg-[#0B2545] border-[#0B2545] scale-115 ring-4 ring-[#0B2545]/15"
+                        ? "bg-[#F4C400] border-[#0B2545] scale-125 ring-4 ring-[#F4C400]/35"
                         : isPassed
                         ? "bg-[#0B2545] border-[#0B2545]"
                         : "bg-white border-[#94A3B8] group-hover:border-[#0B2545]"
                     }`}
                   />
                   <span
-                    className={`text-base font-semibold ${
+                    className={`text-base font-semibold transition-colors ${
                       isActive ? "text-[#0B2545]" : "text-[#475569]"
                     }`}
                   >
@@ -156,14 +140,10 @@ export function LegacyTimelineSlider({ milestones }: LegacyTimelineSliderProps) 
           </div>
         </div>
 
-        {/* Horizontal Scroll-Snap Cards */}
+        {/* Smooth Auto-Advancing & Touch-Swipeable Cards */}
         <div
           ref={scrollRef}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={stopDragging}
-          onMouseLeave={stopDragging}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3 scrollbar-none select-none cursor-grab active:cursor-grabbing"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3 scrollbar-none"
         >
           {milestones.map((m, idx) => {
             const isActive = idx === activeIndex;
@@ -171,12 +151,18 @@ export function LegacyTimelineSlider({ milestones }: LegacyTimelineSliderProps) 
               <article
                 key={m.slug}
                 onClick={() => selectIndex(idx)}
-                className={`snap-start shrink-0 w-[82vw] sm:w-[340px] lg:w-[360px] rounded-[6px] border p-5 sm:p-6 flex flex-col justify-between gap-4 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none ${
+                className={`snap-start shrink-0 w-[82vw] sm:w-[340px] lg:w-[360px] relative rounded-[6px] border p-5 sm:p-6 flex flex-col justify-between gap-4 cursor-pointer transition-all duration-500 motion-reduce:transition-none motion-reduce:transform-none overflow-hidden ${
                   isActive
-                    ? "bg-[#F8FAFC] border-[#0B2545] shadow-sm scale-[1.01]"
-                    : "bg-white border-[#CBD5E1] opacity-85 hover:opacity-100"
+                    ? "bg-[#F8FAFC] border-[#0B2545] shadow-md -translate-y-1"
+                    : "bg-white border-[#CBD5E1] opacity-85 hover:opacity-100 hover:border-[#0B2545]"
                 }`}
               >
+                <div
+                  aria-hidden="true"
+                  className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] transition-opacity duration-300 ${
+                    isActive ? "opacity-100" : "opacity-0"
+                  }`}
+                />
                 <div className="space-y-3">
                   <div className="text-xl font-bold text-[#0B2545]">
                     {m.era}
@@ -204,4 +190,3 @@ export function LegacyTimelineSlider({ milestones }: LegacyTimelineSliderProps) 
     </section>
   );
 }
-

@@ -26,6 +26,7 @@ export default function PermitDirectoryIndexPage() {
       />
 
       <InnerHero
+        kicker="Airspace & aerodrome guides"
         title="Flight Permit Directory & Pre-Filing Requirements Checker"
         subtitle="Prepare Complete Documentation Before Submitting Your Application."
         description="Every jurisdiction applies distinct documentation rules for scheduled and non-scheduled overflight and landing permissions. Use the interactive checker and country profiles below to review typical operator requirements, FIR codes, and primary aerodromes."

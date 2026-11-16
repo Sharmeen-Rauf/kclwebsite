@@ -56,6 +56,12 @@ export function HowWeWorkBand() {
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div>
+          <span className="text-sm font-bold tracking-wide text-[#B88200] inline-flex items-center gap-1.5 mb-1">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+            </svg>
+            <span>Operational methodology</span>
+          </span>
           <h2
             id="how-we-work-heading"
             className="text-2xl sm:text-3xl font-bold text-[#0B2545]"
@@ -74,7 +80,7 @@ export function HowWeWorkBand() {
             className="hidden md:block absolute top-6 left-12 right-12 h-[2px] bg-[#CBD5E1] overflow-hidden"
           >
             <div
-              className={`h-full bg-[#0B2545] transition-all duration-1000 ease-out motion-reduce:transition-none ${
+              className={`h-full bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] transition-all duration-1000 ease-out motion-reduce:transition-none ${
                 lineDrawn ? "w-full" : "w-0"
               }`}
             />
@@ -84,9 +90,9 @@ export function HowWeWorkBand() {
             {HOW_WE_WORK_POINTS.map((item) => (
               <div
                 key={item.num}
-                className="bg-white border border-[#CBD5E1] rounded-[6px] p-6 space-y-3"
+                className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] hover:-translate-y-1 hover:shadow-md rounded-[6px] p-6 space-y-3 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none"
               >
-                <div className="w-12 h-12 rounded-full bg-[#0B2545] text-white text-xl font-bold flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-[#0B2545] border-2 border-[#F4C400] text-[#F4C400] text-xl font-bold flex items-center justify-center group-hover:scale-110 motion-safe:transition-transform duration-300">
                   {item.num}
                 </div>
                 <h3 className="text-xl font-bold text-[#0B2545]">
