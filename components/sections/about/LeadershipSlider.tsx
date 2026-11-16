@@ -59,18 +59,18 @@ function LeaderNodeCard({
       <div className="relative z-10 p-5 sm:p-6 flex items-start gap-4">
         {/* Crest / Photo */}
         {leader.photoSrc ? (
-          <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#F4C400] shrink-0 shadow-sm">
+          <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-[#F4C400] shrink-0 shadow-md bg-[#081B33]">
             <Image
               src={leader.photoSrc}
               alt={`${leader.name}, ${leader.role}`}
               fill
-              sizes="64px"
-              className="object-cover"
+              sizes="80px"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
             />
           </div>
         ) : (
           <div
-            className={`w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold shrink-0 border-2 shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:ring-4 group-hover:ring-[#F4C400]/25 motion-reduce:transition-none motion-reduce:transform-none ${
+            className={`w-20 h-20 rounded-full flex items-center justify-center text-lg font-bold shrink-0 border-2 shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:ring-4 group-hover:ring-[#F4C400]/25 motion-reduce:transition-none motion-reduce:transform-none ${
               featured
                 ? "bg-[#F4C400] border-white/30 text-[#0B2545]"
                 : "bg-[#0B2545] border-[#F4C400] text-[#F4C400]"
@@ -141,7 +141,7 @@ function VerticalFlightConnector() {
 }
 
 export function LeadershipSlider({ leaders }: LeadershipSliderProps) {
-  const [founder, second, third, ceo, director] = leaders;
+  const [founder, second, third, ceo, cargoHead, director] = leaders;
 
   return (
     <section
@@ -149,7 +149,7 @@ export function LeadershipSlider({ leaders }: LeadershipSliderProps) {
       aria-labelledby="leadership-heading"
       className="scroll-mt-16 py-12 sm:py-16 bg-[#F8FAFC] border-b border-[#CBD5E1] overflow-hidden"
     >
-      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div className="max-w-[1220px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-sm font-bold tracking-wide text-[#B88200] inline-flex items-center gap-2">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -206,32 +206,39 @@ export function LeadershipSlider({ leaders }: LeadershipSliderProps) {
             </div>
           )}
 
-          {/* Branching Connector to Two Executive Pillars */}
-          <div aria-hidden="true" className="w-full max-w-2xl hidden md:flex flex-col items-center">
+          {/* Branching Connector to Three Executive Pillars */}
+          <div aria-hidden="true" className="w-full max-w-4xl hidden lg:flex flex-col items-center">
             <div className="w-0.5 h-6 bg-[#0B2545]" />
-            <div className="w-1/2 h-0.5 bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545]" />
-            <div className="w-1/2 flex justify-between">
+            <div className="w-2/3 h-0.5 bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545]" />
+            <div className="w-2/3 flex justify-between">
               <div className="w-0.5 h-6 bg-[#0B2545]" />
+              <div className="w-0.5 h-6 bg-[#F4C400]" />
               <div className="w-0.5 h-6 bg-[#0B2545]" />
             </div>
           </div>
 
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <VerticalFlightConnector />
           </div>
 
-          {/* Tier 4: CEO & Director Side-by-Side */}
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5 pt-1 md:pt-0">
+          {/* Tier 4: Fourth Generation — CEO, Head of Cargo & Director */}
+          <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-5 pt-1 lg:pt-0">
             {ceo && (
               <LeaderNodeCard
                 leader={ceo}
-                generationLabel="Executive Leadership"
+                generationLabel="Fourth Generation · CEO"
+              />
+            )}
+            {cargoHead && (
+              <LeaderNodeCard
+                leader={cargoHead}
+                generationLabel="Fourth Generation · Cargo"
               />
             )}
             {director && (
               <LeaderNodeCard
                 leader={director}
-                generationLabel="Operations & Flight Leadership"
+                generationLabel="Fourth Generation · Director"
               />
             )}
           </div>

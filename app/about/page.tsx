@@ -72,37 +72,54 @@ const RAW_LEADERS = [
     initials: "FA",
     name: "Haji Fazal Ahmed Kashmirwala",
     role: "Founder",
-    details: null,
+    imageFile: "img/haji-fazal-khashmirwala.png",
+    details:
+      "Founded the Kashmirwala Group in 1947, pioneering Pakistan's aviation and travel industry.",
   },
   {
     slug: "aftab-ahmed-kashmirwala",
     initials: "AA",
     name: "Aftab Ahmed Kashmirwala",
-    role: "Chairman 1960 to 2013",
-    details: "Trained by his father, led the company's work with foreign airlines.",
+    role: "Chairman 1960 – 2013",
+    imageFile: "img/late-chairman-square.jpg",
+    details:
+      "Served as COO when Kashmir Corporation became PIA's first GSA and Ground Handling Agent at Hyderabad, Sukkur, and Nawab Shah; trained by his father, he led the company's work with foreign airlines.",
   },
   {
     slug: "shakil-aftab-kashmirwala",
     initials: "SA",
     name: "Shakil Aftab Kashmirwala",
-    role: "Chairman 2013 to present",
-    details: null,
+    role: "Chairman (2013 – Present)",
+    imageFile: "img/CHAIRMAN PIC 1.jpg",
+    details:
+      "Guiding the third generation at KCL International Flight Support, delivering reliable and seamless aviation support backed by decades of industry expertise.",
   },
   {
     slug: "omer-shakil-kashmirwala",
     initials: "OS",
     name: "Omer Shakil Kashmirwala",
     role: "Chief Executive Officer",
+    imageFile: "img/CEO PICTURE 1.jpg",
     details:
-      "Head of Cargo; background in airline sales, marketing, reservations and ticketing; studying Aviation Business Administration at Embry-Riddle Aeronautical University.",
+      "Leading operational excellence across flight permits, ground handling, and 24/7 global coordination built on trust and service reliability.",
+  },
+  {
+    slug: "osman-shakil-kashmirwala",
+    initials: "OK",
+    name: "Osman Shakil Kashmirwala",
+    role: "Head of Cargo",
+    imageFile: "img/osman-shakil-kashmirwala.webp",
+    details:
+      "Overseeing cargo operations and business development, with prior experience in airline sales, marketing, reservations and ticketing (Sabre and Amadeus); pursuing a B.S. in Aviation Business Administration at Embry-Riddle Aeronautical University.",
   },
   {
     slug: "owais-shakil-kashmirwala",
     initials: "OW",
     name: "Owais Shakil Kashmirwala",
     role: "Director",
+    imageFile: "img/cap owais.png",
     details:
-      "Holds a Commercial Pilot Licence, pursuing Certified Flight Instructor qualification.",
+      "Commercial Pilot License (CPL) holder pursuing his Certified Flight Instructor (CFI) qualification, contributing to the continued growth of the Kashmirwala Group in aviation.",
   },
 ];
 
@@ -244,8 +261,12 @@ export default function AboutPage() {
   }));
 
   const leaders: LeaderProfile[] = RAW_LEADERS.map((l) => ({
-    ...l,
-    photoSrc: publicFileIfExists(`img/team/${l.slug}.webp`),
+    slug: l.slug,
+    initials: l.initials,
+    name: l.name,
+    role: l.role,
+    details: l.details,
+    photoSrc: publicFileIfExists(l.imageFile) ?? publicFileIfExists(`img/team/${l.slug}.webp`),
   }));
 
   const credentials: CredentialBoard[] = RAW_CREDENTIALS.map((c) => ({
