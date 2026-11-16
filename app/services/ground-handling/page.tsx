@@ -16,9 +16,10 @@ import {
 } from "@/content/ground-handling";
 import { CONTACT_DATA } from "@/content/contact";
 import { TurnaroundPlanner } from "@/components/sections/TurnaroundPlanner";
-import { ClientStrip } from "@/components/sections/ClientStrip";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 import { HeroVideoBackground } from "@/components/ui/HeroVideoBackground";
+import { ServiceHowAndSupportSection } from "@/components/sections/ServiceHowAndSupportSection";
+import { WhyKclSection } from "@/components/sections/WhyKclSection";
 
 export const metadata = buildMetadata({
   title: "Worldwide Ground Handling Coordination | KCL",
@@ -251,221 +252,83 @@ export default function GroundHandlingPage() {
       {/* Subtle Airway Path Divider */}
       <FlightPathDivider variant="curve-up" className="my-2 bg-white" />
 
-      {/* =========================================================================
-          SECTION 4 — COMBINED: HOW IT WORKS (LEFT) & FLIGHTS WE SUPPORT (RIGHT)
-          ========================================================================= */}
-      <section className="relative overflow-hidden py-10 lg:py-14 bg-white border-b border-[#CBD5E1]">
-        {/* Aeronautical Navigation Dot Matrix & Atmospheric Ambient Glow */}
-        <div aria-hidden="true" className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-          <div
-            className="absolute inset-0 opacity-[0.22]"
-            style={{
-              backgroundImage: "radial-gradient(#0B2545 1.25px, transparent 1.25px)",
-              backgroundSize: "28px 28px",
-            }}
-          />
-          <div className="absolute top-0 left-1/4 w-[500px] h-[250px] bg-gradient-to-br from-sky-400/10 via-[#0B2545]/5 to-transparent rounded-full blur-3xl -translate-y-1/2" />
-        </div>
+      <ServiceHowAndSupportSection
+        timelineHeading="How Your Ground Handling Is Arranged"
+        timelineSubheading="Structured operations liaison connecting dispatch teams with certified apron handlers."
+        steps={[
+          {
+            badge: "You",
+            isYou: true,
+            title: "Send Aircraft & Schedule Details",
+            detail:
+              "Provide registration, aircraft type, station ICAO, arrival/departure schedule in UTC, and needed ramp services.",
+          },
+          {
+            badge: "KCL Desk",
+            title: "Check Station Handling & Equipment",
+            detail:
+              "We verify ramp stand allocation, GPU/ASU requirements, pushback tugs, and staff availability with licensed handlers.",
+          },
+          {
+            badge: "KCL Desk",
+            title: "Issue Handling Briefing & Confirmations",
+            detail:
+              "Receive handler VHF frequencies, station supervisor contacts, and ramp confirmation numbers for crew OFP.",
+          },
+          {
+            badge: "KCL Desk",
+            title: "Coordinate Schedule Variations",
+            detail:
+              "If en-route delays or slot adjustments occur, our 24/7 desk realigns local ground resources instantly.",
+          },
+          {
+            badge: "You",
+            isYou: true,
+            title: "Stay Informed Through Departure",
+            detail:
+              "We track chocks-on to chocks-off, ensuring safe turnarounds and prompt documentation departure messages.",
+          },
+        ]}
+        supportHeading="Flights We Support"
+        supportSubheading="Whatever you fly, we arrange the ground side."
+        supportCards={supportedFlights.map((flight) => ({
+          title: flight.title,
+          description: flight.description,
+          href: `/request-flight-support?service=ground-handling&flightType=${flight.flightType}`,
+          ctaLabel: "Request handling",
+        }))}
+      />
 
-        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Column: Timeline */}
-            <div className="lg:col-span-7 space-y-4">
-              <div className="mb-4">
-                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Operational Timeline</span>
-                <h2 className="text-2xl font-bold text-[#0B2545]">How Your Ground Handling Is Arranged</h2>
-                <p className="text-sm text-[#475569] mt-1">
-                  Structured operations liaison connecting dispatch teams with certified apron handlers.
-                </p>
-              </div>
-
-              <div className="relative pl-6 space-y-4 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-[#CBD5E1]">
-                <div className="relative space-y-1 group">
-                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-white border-2 border-[#0B2545] flex items-center justify-center text-[10px] font-bold text-[#0B2545] group-hover:scale-110 transition-transform">
-                    1
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#F1F5F9] text-[#0B2545]">You</span>
-                    <h3 className="text-sm font-bold text-[#0B2545]">Send Aircraft &amp; Schedule Details</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    Provide registration, aircraft type, station ICAO, arrival/departure schedule in UTC, and needed ramp services.
-                  </p>
-                </div>
-
-                <div className="relative space-y-1 group">
-                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-[#0B2545] text-white flex items-center justify-center text-[10px] font-bold group-hover:scale-110 transition-transform">
-                    2
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#0B2545] text-white">KCL Desk</span>
-                    <h3 className="text-sm font-bold text-[#0B2545]">Check Station Handling &amp; Equipment</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    We verify ramp stand allocation, GPU/ASU requirements, pushback tugs, and staff availability with licensed handlers.
-                  </p>
-                </div>
-
-                <div className="relative space-y-1 group">
-                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-[#0B2545] text-white flex items-center justify-center text-[10px] font-bold group-hover:scale-110 transition-transform">
-                    3
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#0B2545] text-white">KCL Desk</span>
-                    <h3 className="text-sm font-bold text-[#0B2545]">Issue Handling Briefing &amp; Confirmations</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    Receive handler VHF frequencies, station supervisor contacts, and ramp confirmation numbers for crew OFP.
-                  </p>
-                </div>
-
-                <div className="relative space-y-1 group">
-                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-[#0B2545] text-white flex items-center justify-center text-[10px] font-bold group-hover:scale-110 transition-transform">
-                    4
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#0B2545] text-white">KCL Desk</span>
-                    <h3 className="text-sm font-bold text-[#0B2545]">Coordinate Schedule Variations</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    If en-route delays or slot adjustments occur, our 24/7 desk realigns local ground resources instantly.
-                  </p>
-                </div>
-
-                <div className="relative space-y-1 group">
-                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-white border-2 border-[#0B2545] flex items-center justify-center text-[10px] font-bold text-[#0B2545] group-hover:scale-110 transition-transform">
-                    5
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#F1F5F9] text-[#0B2545]">You</span>
-                    <h3 className="text-sm font-bold text-[#0B2545]">Stay Informed Through Departure</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    We track chocks-on to chocks-off, ensuring safe turnarounds and prompt documentation departure messages.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Flights We Support (4 Compact Cards) */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="mb-4">
-                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Operator Coverage</span>
-                <h2 className="text-2xl font-bold text-[#0B2545]">Flights We Support</h2>
-                <p className="text-sm text-[#475569] mt-1">
-                  Whatever you fly, we arrange the ground side.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
-                {supportedFlights.map((flight) => (
-                  <div
-                    key={flight.title}
-                    className="group bg-[#F8FAFC] border border-[#CBD5E1] rounded-[4px] p-4 flex flex-col justify-between space-y-2 hover:border-[#0B2545] hover:shadow-xs transition-all duration-200"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-7 h-7 rounded-full bg-[#0B2545] text-white flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 motion-safe:transition-all motion-safe:duration-200">
-                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                        </svg>
-                      </div>
-                      <h3 className="text-base font-bold text-[#0B2545] group-hover:text-[#133661] transition-colors">
-                        {flight.title}
-                      </h3>
-                    </div>
-                    <p className="text-xs text-[#475569] leading-snug">
-                      {flight.description}
-                    </p>
-                    <div className="pt-1">
-                      <Link
-                        href={`/request-flight-support?service=ground-handling&flightType=${flight.flightType}`}
-                        className="text-xs font-bold text-[#0B2545] hover:underline underline-offset-2 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
-                      >
-                        <span>Request handling</span>
-                        <span aria-hidden="true">→</span>
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 5 — COMBINED: WHY KCL (4 POINTS) & TRUSTED CLIENT LOGO SLIDER
-          ========================================================================= */}
-      <section className="py-10 lg:py-14 bg-[#F8FAFC] border-b border-[#CBD5E1]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div>
-            <div className="max-w-2xl mb-4">
-              <h2 className="text-2xl font-bold text-[#0B2545] mb-2">Why KCL</h2>
-              <p className="text-sm text-[#475569] leading-relaxed">
-                We bring proven aviation operations discipline to airport ground handling coordination.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Round-the-clock</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                </div>
-                <h3 className="text-base font-bold text-[#0B2545]">24/7 operations desk</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Coordination team monitoring flight progress, schedule revisions and station communications across all time zones.
-                </p>
-                <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#F4C400] group-hover:w-12 rounded-full transition-all duration-300" />
-                </div>
-              </div>
-
-              <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
-                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Worldwide Reach</span>
-                <h3 className="text-base font-bold text-[#0B2545]">Global handling network</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Established working relationships with licensed airport handlers and ramp service providers internationally.
-                </p>
-                <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#F4C400] group-hover:w-12 rounded-full transition-all duration-300" />
-                </div>
-              </div>
-
-              <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
-                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Unified Channel</span>
-                <h3 className="text-base font-bold text-[#0B2545]">One point of contact</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Single operations channel synchronizing landing permits, parking slots, fueling and handling without scattered supplier communication.
-                </p>
-                <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#F4C400] group-hover:w-12 rounded-full transition-all duration-300" />
-                </div>
-              </div>
-
-              <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
-                <span className="text-xs font-bold text-[#0B2545] uppercase tracking-wider block">Since 1947</span>
-                <h3 className="text-base font-bold text-[#0B2545]">Kashmirwala Group</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.
-                </p>
-                <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#F4C400] group-hover:w-12 rounded-full transition-all duration-300" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-6 border-t border-[#CBD5E1]/60">
-            <div className="text-center mb-3">
-              <span className="text-xs font-bold text-[#5C6B7A] uppercase tracking-wider">
-                Trusted by Airlines Including
-              </span>
-            </div>
-            <ClientStrip compact />
-          </div>
-        </div>
-      </section>
+      <WhyKclSection
+        subheading="We bring proven aviation operations discipline to airport ground handling coordination."
+        cards={[
+          {
+            kicker: "Round the clock",
+            title: "24/7 operations desk",
+            description:
+              "Coordination team monitoring flight progress, schedule revisions and station communications across all time zones.",
+            pulse: true,
+          },
+          {
+            kicker: "Worldwide reach",
+            title: "Global handling network",
+            description:
+              "Established working relationships with licensed airport handlers and ramp service providers internationally.",
+          },
+          {
+            kicker: "Unified channel",
+            title: "One point of contact",
+            description:
+              "Single operations channel synchronizing landing permits, parking slots, fueling and handling without scattered supplier communication.",
+          },
+          {
+            kicker: "Since 1947",
+            title: "Kashmirwala Group",
+            description:
+              "Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.",
+          },
+        ]}
+      />
 
       {/* =========================================================================
           SECTION 6 — FREQUENTLY ASKED QUESTIONS (2-Column Accordion Desktop)

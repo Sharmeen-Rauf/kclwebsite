@@ -11,10 +11,11 @@ import {
   buildFaqJsonLd,
 } from "@/components/seo/JsonLd";
 import { RoutePermitPlanner } from "@/components/sections/RoutePermitPlanner";
-import { ClientStrip } from "@/components/sections/ClientStrip";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 import { ComplementaryServicesSlider } from "@/components/sections/ComplementaryServicesSlider";
+import { ServiceHowAndSupportSection } from "@/components/sections/ServiceHowAndSupportSection";
+import { WhyKclSection } from "@/components/sections/WhyKclSection";
 import { INTERNATIONAL_PERMIT_FAQS } from "@/content/faqs";
 
 export const metadata = buildMetadata({
@@ -272,216 +273,88 @@ export default function FlightPermissionsPage() {
       {/* Subtle Airway Path Divider */}
       <FlightPathDivider variant="curve-up" className="my-2 bg-white" />
 
-      {/* =========================================================================
-          SECTION 4 — COMBINED: HOW IT WORKS (LEFT) & FLIGHTS WE SUPPORT (RIGHT)
-          ========================================================================= */}
-      <section className="relative overflow-hidden py-10 lg:py-14 bg-white border-b border-[#CBD5E1]">
-        {/* Aeronautical Navigation Dot Matrix & Atmospheric Ambient Glow */}
-        <div aria-hidden="true" className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-          <div
-            className="absolute inset-0 opacity-[0.22]"
-            style={{
-              backgroundImage: "radial-gradient(#0B2545 1.25px, transparent 1.25px)",
-              backgroundSize: "28px 28px",
-            }}
-          />
-          <div className="absolute top-0 left-1/4 w-[500px] h-[250px] bg-gradient-to-br from-sky-400/10 via-[#0B2545]/5 to-transparent rounded-full blur-3xl -translate-y-1/2" />
-        </div>
+      <ServiceHowAndSupportSection
+        timelineHeading="How Your Permit Is Coordinated"
+        timelineSubheading="Structured civil aviation liaison from dossier preparation to clearance validation."
+        steps={[
+          {
+            badge: "You",
+            isYou: true,
+            title: "Send Flight & Route Details",
+            detail:
+              "Submit registration, aircraft type, route waypoints, UTC schedule, and operating purpose.",
+          },
+          {
+            badge: "KCL Desk",
+            title: "Review Lead Times & Compliance",
+            detail:
+              "We verify sovereign notice windows, authority requirements, and required aircraft documentation.",
+          },
+          {
+            badge: "KCL Desk",
+            title: "Submit Through Authority Channels",
+            detail:
+              "Direct filing with Civil Aviation Authorities and local aerodrome operators.",
+          },
+          {
+            badge: "KCL Desk",
+            title: "Validate & Transmit Clearance",
+            detail:
+              "Clearance numbers and validity windows are verified and transmitted directly to your flight dispatch.",
+          },
+          {
+            badge: "You",
+            isYou: true,
+            title: "Operate with Active Flight Watch",
+            detail:
+              "Our 24/7 desk monitors flight progress and coordinates revisions if en-route delays occur.",
+          },
+        ]}
+        supportHeading="Flights We Support"
+        supportSubheading="Permit coordination tailored for every mission profile."
+        supportCards={FLIGHTS_WE_SUPPORT.map((flight) => ({
+          title: flight.title,
+          description: flight.description,
+          href: flight.href,
+          ctaLabel: "Request permit",
+          image: "/img/services/01-permits.webp",
+        }))}
+      />
 
-        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Column: Timeline */}
-            <div className="lg:col-span-7 space-y-4">
-              <div className="mb-4">
-                <span className="text-xs font-semibold text-[#0B2545] tracking-wide block">Operational timeline</span>
-                <h2 className="text-2xl font-bold text-[#0B2545]">How Your Permit Is Coordinated</h2>
-                <p className="text-sm text-[#475569] mt-1">
-                  Structured civil aviation liaison from dossier preparation to clearance validation.
-                </p>
-              </div>
-
-              <div className="relative pl-6 space-y-4 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-[#CBD5E1]">
-                <div className="relative space-y-1 group">
-                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-white border-2 border-[#0B2545] flex items-center justify-center text-[10px] font-bold text-[#0B2545] group-hover:scale-110 transition-transform">
-                    1
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#F1F5F9] text-[#0B2545]">You</span>
-                    <h3 className="text-sm font-bold text-[#0B2545]">Send Flight &amp; Route Details</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    Submit registration, aircraft type, route waypoints, UTC schedule, and operating purpose.
-                  </p>
-                </div>
-
-                <div className="relative space-y-1 group">
-                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-[#0B2545] text-white flex items-center justify-center text-[10px] font-bold group-hover:scale-110 transition-transform">
-                    2
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#0B2545] text-white">KCL Desk</span>
-                    <h3 className="text-sm font-bold text-[#0B2545]">Review Lead Times &amp; Compliance</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    We verify sovereign notice windows, authority requirements, and required aircraft documentation.
-                  </p>
-                </div>
-
-                <div className="relative space-y-1 group">
-                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-[#0B2545] text-white flex items-center justify-center text-[10px] font-bold group-hover:scale-110 transition-transform">
-                    3
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#0B2545] text-white">KCL Desk</span>
-                    <h3 className="text-sm font-bold text-[#0B2545]">Submit Through Authority Channels</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    Direct filing with Civil Aviation Authorities and local aerodrome operators.
-                  </p>
-                </div>
-
-                <div className="relative space-y-1 group">
-                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-[#0B2545] text-white flex items-center justify-center text-[10px] font-bold group-hover:scale-110 transition-transform">
-                    4
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#0B2545] text-white">KCL Desk</span>
-                    <h3 className="text-sm font-bold text-[#0B2545]">Validate &amp; Transmit Clearance</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    Clearance numbers and validity windows are verified and transmitted directly to your flight dispatch.
-                  </p>
-                </div>
-
-                <div className="relative space-y-1 group">
-                  <div className="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-white border-2 border-[#0B2545] flex items-center justify-center text-[10px] font-bold text-[#0B2545] group-hover:scale-110 transition-transform">
-                    5
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-[2px] bg-[#F1F5F9] text-[#0B2545]">You</span>
-                    <h3 className="text-sm font-bold text-[#0B2545]">Operate with Active Flight Watch</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    Our 24/7 desk monitors flight progress and coordinates revisions if en-route delays occur.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Flights We Support (4 Compact Cards) */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="mb-4">
-                <span className="text-xs font-semibold text-[#0B2545] tracking-wide block">Operator coverage</span>
-                <h2 className="text-2xl font-bold text-[#0B2545]">Flights We Support</h2>
-                <p className="text-sm text-[#475569] mt-1">
-                  Permit coordination tailored for every mission profile.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
-                {FLIGHTS_WE_SUPPORT.map((flight) => (
-                  <div
-                    key={flight.title}
-                    className="group bg-[#F8FAFC] border border-[#CBD5E1] rounded-[4px] p-4 flex flex-col justify-between space-y-2 hover:border-[#0B2545] hover:shadow-xs transition-all duration-200"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-7 h-7 rounded-full bg-[#0B2545] text-white flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 motion-safe:transition-all motion-safe:duration-200">
-                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                        </svg>
-                      </div>
-                      <h3 className="text-base font-bold text-[#0B2545] group-hover:text-[#133661] transition-colors">
-                        {flight.title}
-                      </h3>
-                    </div>
-                    <p className="text-xs text-[#475569] leading-snug">
-                      {flight.description}
-                    </p>
-                    <div className="pt-1">
-                      <Link
-                        href={flight.href}
-                        className="text-xs font-bold text-[#0B2545] hover:underline underline-offset-2 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
-                      >
-                        <span>Request permit</span>
-                        <span aria-hidden="true">→</span>
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 5 — COMBINED: WHY KCL (4 POINTS) & TRUSTED CLIENT LOGO SLIDER
-          ========================================================================= */}
-      <section className="py-10 lg:py-14 bg-[#F8FAFC] border-b border-[#CBD5E1]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div>
-            <div className="max-w-2xl mb-4">
-              <h2 className="text-2xl font-bold text-[#0B2545] mb-2">Why KCL</h2>
-              <p className="text-sm text-[#475569] leading-relaxed">
-                Decades of international dispatch discipline and continuous flight support operations.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-[#0B2545] tracking-wide block">Round the clock</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                </div>
-                <h3 className="text-base font-bold text-[#0B2545]">24/7 operations desk</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Continuous watch officers processing urgent clearances and re-routings across all time zones.
-                </p>
-                <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
-                </div>
-              </div>
-
-              <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
-                <span className="text-xs font-semibold text-[#0B2545] tracking-wide block">Direct filing</span>
-                <h3 className="text-base font-bold text-[#0B2545]">Direct CAA channels</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Established direct communication channels with Civil Aviation Authorities.
-                </p>
-                <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
-                </div>
-              </div>
-
-              <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
-                <span className="text-xs font-semibold text-[#0B2545] tracking-wide block">Unified channel</span>
-                <h3 className="text-base font-bold text-[#0B2545]">One point of contact</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Synchronized permits, handling, fuel, and layovers without fragmented communications.
-                </p>
-                <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
-                </div>
-              </div>
-
-              <div className="group bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[4px] p-5 space-y-1.5 shadow-2xs hover:shadow-xs transition-all duration-200">
-                <span className="text-xs font-semibold text-[#0B2545] tracking-wide block">Since 1947</span>
-                <h3 className="text-base font-bold text-[#0B2545]">Kashmirwala Group</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.
-                </p>
-                <div className="pt-2">
-                  <div className="w-6 h-0.5 bg-[#0B2545]/20 group-hover:bg-[#0B2545] group-hover:w-12 rounded-full transition-all duration-300" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-6 border-t border-[#CBD5E1]/60">
-            <ClientStrip compact hideHeading />
-          </div>
-        </div>
-      </section>
+      <WhyKclSection
+        subheading="Decades of international dispatch discipline and continuous flight support operations."
+        cards={[
+          {
+            kicker: "Round the clock",
+            title: "24/7 operations desk",
+            description:
+              "Continuous watch officers processing urgent clearances and re-routings across all time zones.",
+            image: "/img/services/06-ops.webp",
+            pulse: true,
+          },
+          {
+            kicker: "Direct filing",
+            title: "Direct CAA channels",
+            description:
+              "Established direct communication channels with Civil Aviation Authorities.",
+            image: "/img/services/01-permits.webp",
+          },
+          {
+            kicker: "Unified channel",
+            title: "One point of contact",
+            description:
+              "Synchronized permits, handling, fuel, and layovers without fragmented communications.",
+            image: "/img/services/07-dispatch.webp",
+          },
+          {
+            kicker: "Since 1947",
+            title: "Kashmirwala Group",
+            description:
+              "Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.",
+            image: "/img/hero-flight-ops.jpg",
+          },
+        ]}
+      />
 
       {/* =========================================================================
           SECTION 6 — FREQUENTLY ASKED QUESTIONS (2-Column Accordion Desktop)
