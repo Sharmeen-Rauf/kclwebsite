@@ -1,3 +1,5 @@
+import { KCL_FACTS } from "@/content/facts";
+
 export interface AirlineClient {
   name: string;
   icao: string;
@@ -6,57 +8,23 @@ export interface AirlineClient {
   logo: string;
   alt: string;
   summary: string;
+  displayPermission: boolean;
 }
 
-export const REAL_CLIENTS: AirlineClient[] = [
-  {
-    name: "Qantas",
-    icao: "QFA",
-    iata: "QF",
-    country: "Australia",
-    logo: "/img/imgi_11_qantas airline (1).png",
-    alt: "Qantas Airways (ICAO: QFA) official logo",
+export const REAL_CLIENTS: AirlineClient[] = KCL_FACTS.clients
+  .filter((c): c is typeof c & { logo: string } => Boolean(c.logo))
+  .map((c) => ({
+    name: c.name,
+    icao: c.icao,
+    iata: c.iata,
+    country: c.country,
+    logo: c.logo,
+    alt: `${c.name} (ICAO: ${c.icao}) official logo`,
     summary:
-      "Overflight permission facilitation and operational flight support across Pakistan Flight Information Regions.",
-  },
-  {
-    name: "Royal Brunei Airlines",
-    icao: "RBA",
-    iata: "BI",
-    country: "Brunei Darussalam",
-    logo: "/img/imgi_12_brunei airline.jpg",
-    alt: "Royal Brunei Airlines (ICAO: RBA) official logo",
-    summary:
-      "Scheduled and non-scheduled flight permission facilitation and airway clearance coordination.",
-  },
-  {
-    name: "Air Mauritius",
-    icao: "MAU",
-    iata: "MK",
-    country: "Mauritius",
-    logo: "/img/imgi_13_air mauritius.png",
-    alt: "Air Mauritius (ICAO: MAU) official logo",
-    summary:
-      "Authorized flight permission filing and operational liaison with Pakistan aviation authorities.",
-  },
-  {
-    name: "Virgin Australia",
-    icao: "VOZ",
-    iata: "VA",
-    country: "Australia",
-    logo: "/img/Virgin-Logo-1.png",
-    alt: "Virgin Australia (ICAO: VOZ) official logo",
-    summary:
-      "International flight permission facilitation and airspace coordination across Pakistan Flight Information Regions.",
-  },
-  {
-    name: "Batik Air",
-    icao: "BTK",
-    iata: "ID",
-    country: "Indonesia",
-    logo: "/img/batik-air.png",
-    alt: "Batik Air (ICAO: BTK) official logo",
-    summary:
-      "Scheduled and non-scheduled flight permission facilitation, ground handling coordination and 24/7 operational support.",
-  },
-];
+      "Flight permission facilitation and operational coordination across approved KCL coverage tiers.",
+    displayPermission: c.displayPermission,
+  }));
+
+export const DISPLAYABLE_CLIENTS: AirlineClient[] = REAL_CLIENTS.filter(
+  (c) => c.displayPermission
+);

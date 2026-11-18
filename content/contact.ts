@@ -1,3 +1,5 @@
+import { KCL_FACTS, renderFact } from "@/content/facts";
+
 export interface ContactDetails {
   primaryPhone: string;
   secondaryPhone: string;
@@ -14,33 +16,43 @@ export interface ContactDetails {
   phone: string;
   email: string;
   linkedinUrl: string;
+  escalationLabel: string;
+  whatsapp: string | null;
 }
 
-export function isRealContactValue(val?: string): boolean {
+export function isRealContactValue(val?: string | null): boolean {
   if (!val) return false;
   const trimmed = val.trim();
   if (!trimmed) return false;
-  if (trimmed.startsWith("{{") && trimmed.endsWith("}}")) return false;
+  if (trimmed.includes("{{") || trimmed.includes("}}")) return false;
   return true;
 }
 
+const primaryPhone = renderFact(KCL_FACTS.contact.primaryPhone) || "+92 320 5486243";
+const opsEmail = renderFact(KCL_FACTS.contact.opsEmail) || "ops@kclpk.org";
+const infoEmail = renderFact(KCL_FACTS.contact.infoEmail) || "info@kclpk.org";
+const supportEmail = renderFact(KCL_FACTS.contact.supportEmail) || "cs@kclpk.org";
+const address =
+  renderFact(KCL_FACTS.contact.address) ||
+  "Head Office, 4th Floor, NACON NHOWA Tower, M.D.M. Wafai Road, Karachi 74200, Pakistan";
+const escalationLabel =
+  renderFact(KCL_FACTS.contact.escalationLabel) || "24/7 urgent escalation line";
+const whatsapp = renderFact(KCL_FACTS.contact.whatsapp);
+
 export const CONTACT_DATA: ContactDetails = {
-  primaryPhone: "+92 326 8088706",
-  secondaryPhone: "+92 333 2334171",
-  phones: ["+92 326 8088706", "+92 333 2334171"],
-  opsEmail: "ops@kclpk.org",
-  infoEmail: "info@kclpk.org",
-  supportEmail: "cs@kclpk.org",
-  address:
-    "Head Office, 4th Floor, NACON NHOWA Tower, M.D.M. Wafai Road, Karachi 74200, Pakistan",
-  social: {
-    instagram: "https://instagram.com/kcl_afpa",
-    facebook: "https://facebook.com/profile.php?id=61574059260242",
-    linkedin: "https://linkedin.com/company/kashmir-corporation-pvt-ltd",
-  },
-  phone: "+92 326 8088706",
-  email: "ops@kclpk.org",
-  linkedinUrl: "https://linkedin.com/company/kashmir-corporation-pvt-ltd",
+  primaryPhone,
+  secondaryPhone: "",
+  phones: [primaryPhone],
+  opsEmail,
+  infoEmail,
+  supportEmail,
+  address,
+  social: { ...KCL_FACTS.contact.social },
+  phone: primaryPhone,
+  email: opsEmail,
+  linkedinUrl: KCL_FACTS.contact.social.linkedin,
+  escalationLabel,
+  whatsapp,
 };
 
 export const CONTACT_DETAILS = CONTACT_DATA;

@@ -1,13 +1,16 @@
 import { CONTACT_DATA } from "@/content/contact";
+import { KCL_FACTS, renderFact } from "@/content/facts";
 
 export const SITE_CONFIG = {
-  name: "Kashmir Corporation (Pvt.) Ltd.",
-  brandName: "KCL International Flight Support",
+  name: renderFact(KCL_FACTS.entity.legalName) || "Kashmir Corporation (Private) Limited",
+  brandName: renderFact(KCL_FACTS.entity.tradingName) || "KCL International Flight Support",
   shortName: "KCL",
-  tagline: "International Flight Support. Coordinated with Confidence.",
-  authorityBadge: "International Flight Support & Aviation Services",
-  pakistanSpecializationBadge: "AFPA Authorized Flight Permission Agent (Pakistan)",
-  heritageNote: "Backed by the Kashmirwala Group, serving aviation since 1947.",
+  tagline: KCL_FACTS.coverage.shortStatement,
+  authorityBadge: "Pakistan Filing & Regional Flight Support",
+  pakistanSpecializationBadge: `${renderFact(KCL_FACTS.entity.afpaLicence)} (${renderFact(KCL_FACTS.entity.issuer)})`,
+  heritageNote:
+    renderFact(KCL_FACTS.entity.groupStatement) ||
+    "Part of the Kashmirwala Group, founded in 1947.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://kclpk.org",
   opsPhone: CONTACT_DATA.primaryPhone,
   secondaryPhone: CONTACT_DATA.secondaryPhone,
@@ -17,15 +20,20 @@ export const SITE_CONFIG = {
   supportEmail: CONTACT_DATA.supportEmail,
   address: CONTACT_DATA.address,
   social: CONTACT_DATA.social,
-  // Backward compatibility getters
+  escalationLabel: CONTACT_DATA.escalationLabel,
+  afpaLicence: renderFact(KCL_FACTS.entity.afpaLicence) || "AFPA/001/2024",
+  afpaIssuer:
+    renderFact(KCL_FACTS.entity.issuer) || "Pakistan Civil Aviation Authority",
+  timezone: renderFact(KCL_FACTS.entity.timezone) || "PKT (UTC+5)",
+  // Backward compatibility getters (no invented SITA/AFTN/WhatsApp)
   opsPhonePlaceholder: CONTACT_DATA.primaryPhone,
-  opsWhatsappPlaceholder: CONTACT_DATA.primaryPhone,
+  opsWhatsappPlaceholder: CONTACT_DATA.whatsapp || "",
   opsEmailPlaceholder: CONTACT_DATA.opsEmail,
   commercialEmailPlaceholder: CONTACT_DATA.infoEmail,
-  aftnSitaPlaceholder: "Available upon formal dispatch handling request",
+  aftnSitaPlaceholder: "",
   addressPlaceholder: CONTACT_DATA.address,
-  afpaLicensePlaceholder: "AFPA Authorized (Pakistan Civil Aviation Authority)",
-  responseTimePlaceholder: "24/7 Operations Desk",
+  afpaLicensePlaceholder: `${renderFact(KCL_FACTS.entity.afpaLicence)} (${renderFact(KCL_FACTS.entity.issuer)})`,
+  responseTimePlaceholder: CONTACT_DATA.escalationLabel,
 } as const;
 
 export function formatClassNames(

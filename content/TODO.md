@@ -1,44 +1,43 @@
-# KCL International Flight Support — Verification Checklist & Placeholders (`/content/TODO.md`)
+# KCL International Flight Support — Verification Checklist & To-Fill Tracker (`/content/TODO.md`)
 
-This file tracks all management verification questions, placeholder tokens, and pre-launch SEO/compliance tasks from **KCL | INTERNATIONAL FLIGHT SUPPORT (Version 2.0 | 03 November 2026)**.
-
----
-
-## 1. Approval & SEO Implementation Checklist (V2 Management Sign-Off)
-
-- [ ] **Geographic Scope & Delivery Model:** Confirm international geographic scope (e.g., LinkedIn's published region list) and whether KCL acts directly or through partner providers before publishing a coverage map or country list outside Pakistan.
-- [ ] **AFPA Registration & Legal Wording:** Confirm exact AFPA registration/legal wording (`{{AFPA_REGISTRATION_CONFIRMATION}}`) and permitted logo/certification display.
-- [ ] **Reconciled Contact & Address Data:** Confirm official legal name (`Kashmir Corporation (Pvt.) Ltd.`), verified physical address (`{{VERIFIED_ADDRESS}}`), operations telephone (`{{PHONE}}`), operations email (`{{OPERATIONS_EMAIL}}`), WhatsApp (`{{WHATSAPP}}`), and operating hours (reconciling differences between `kclpk.org` and LinkedIn).
-- [ ] **Flight Planning, Dispatch & Airport Slots:** Confirm whether flight planning, dispatch assistance, and airport slot coordination are actively offered and their exact contractual deliverables (ensuring KCL is never presented as replacing the operator's certified dispatchers or operational control).
-- [ ] **Client Logo Usage Rights:** Confirm client logo usage rights and relationship descriptions for Qantas, Royal Brunei Airlines, Air Mauritius, Virgin Australia, and Batik Air before live publication.
-- [ ] **Kashmirwala Group 1947 Heritage:** Confirm the Kashmirwala Group 1947 history wording and keep it strictly separated from KCL's entity incorporation date.
-- [ ] **Keyword Demand & Intent Mapping:** Validate keyword demand and ensure one distinct target search intent per indexable page (implemented across all 21 V2 routes).
-- [ ] **Legacy `.html` Permanent Redirects:** Permanent redirects configured in `next.config.mjs` from `/index.html`, `/About.html`, `/Services.html`, `/Schedule_Filing.html`, `/Non_Schedule_Filing.html`, `/Contact_Us.html`, and `/Customer_Support.html` to the new Next.js routes.
-- [ ] **Metadata, Schema, Sitemaps & Canonicals:** Unique SEO title, meta description, canonical URL, OpenGraph tags, JSON-LD schema, `sitemap.ts`, and `robots.ts` implemented.
-- [ ] **Analytics & Search Console:** Connect Google Search Console, analytics, and qualified inquiry measurement prior to production launch.
-- [ ] **Zero Invented Claims:** No invented approvals, pricing, processing times, performance statistics, reviews, or breaking news. Forms show an explicit **Inquiry Review Preview** without fake submission success messages or console logging of sensitive details.
-- [ ] **Regulatory Guide Review:** Review local regulations, review dates, and authoritative source links before publishing regulatory guides.
+Source of truth: **"Draft Answers to The Questions We Must Answer" (Operations, 05 November 2026)** and `/content/facts.ts`.
 
 ---
 
-## 2. Active Placeholder Tokens (`/lib/utils.ts`)
+## PART 0 — Management Flags (Possible Source Typos Read Conservatively)
 
-| Placeholder Token | Meaning / Usage | Current File Location |
-| :--- | :--- | :--- |
-| `{{VERIFIED_ADDRESS}}` | Reconciled registered office address (resolving website vs. LinkedIn discrepancy) | `/lib/utils.ts`, `/app/contact/page.tsx`, `/app/about/page.tsx`, `/components/layout/Footer.tsx` |
-| `{{OPERATIONS_EMAIL}}` | Verified operations email address for flight support inquiries | `/lib/utils.ts`, `/app/contact/page.tsx`, `/app/request-flight-support/page.tsx`, `/components/forms/PermitRequestForm.tsx`, `/components/forms/ContactForm.tsx` |
-| `{{PHONE}}` | Verified operations telephone number | `/lib/utils.ts`, `/components/layout/OpsStrip.tsx`, `/components/layout/Footer.tsx`, `/app/contact/page.tsx` |
-| `{{WHATSAPP}}` | Verified operations WhatsApp contact | `/lib/utils.ts` |
-| `{{COMMERCIAL_EMAIL}}` | Verified commercial & partnerships email | `/lib/utils.ts`, `/app/customer-support/page.tsx` |
-| `{{AFTN_SITA_CODE}}` | Verified AFTN / SITA dispatch address (if applicable) | `/lib/utils.ts` |
-| `{{AFPA_REGISTRATION_CONFIRMATION}}` | Approved AFPA registration / license reference text | `/lib/utils.ts`, `/app/about/page.tsx` |
-| `{{RESPONSE_EXPECTATION_CONFIRMATION}}` | Confirmed operations response expectation / watch hours | `/lib/utils.ts` |
+The following three sentences in the 05 November 2026 source were interpreted conservatively as typos. Management must confirm if any reading should be reversed:
+
+1. **Slide 3 ("The site must say 'worldwide permits' today.")** -> Read as: the site must **NOT** claim "worldwide permits" today.
+2. **Slide 3 ("Asia, Middle East and Africa from public claims for now.")** -> Read as: public claims are **limited to Asia, Middle East and Africa** (the launch regions). Do not claim Europe, the Americas, the Caribbean, or Oceania.
+3. **Slide 19 Proof ("Use all airline logos until verified in writing.")** -> Read as: show **NO** airline logos or client names publicly until each is verified in writing (`displayPermission: true`).
 
 ---
 
-## 3. Visual & Downloadable Assets in `/public`
+## PART 1 — Open `toFill` Items (Hidden From Public Pages Until Supplied)
 
-- `/public/img/kcl-logo.svg` — Replace with official KCL vector logo.
-- `/public/img/client-qantas.svg`, `client-royal-brunei.svg`, `client-air-mauritius.svg`, `client-virgin-australia.svg` — Replace with approved partner marks once written authorization is confirmed.
-- `/public/img/ops-ramp-handling.svg` & `/public/img/news-ops-desk.svg` — Replace with approved KCL corporate/operations imagery.
-- `/public/files/kcl-permit-request-checklist.pdf` — Replace with final branded KCL Flight Inquiry Checklist PDF.
+| Field / Item | Where Defined | Owner Role | Current Public Behaviour |
+| :--- | :--- | :--- | :--- |
+| `entity.licenceValidity` | `/content/facts.ts` | Compliance / Operations Manager | Hidden until supplied |
+| `entity.secpRegistration` | `/content/facts.ts` | Finance / Legal | Hidden until supplied |
+| `entity.ntn` | `/content/facts.ts` | Finance / Legal | Hidden until supplied |
+| `entity.incorporationYear` | `/content/facts.ts` | Management / Legal | Hidden; only Kashmirwala Group 1947 is shown |
+| `coverage.directAccessAllowancesPerCountry` | `/content/facts.ts` | Operations | Detail column hidden until supplied |
+| `clients[].displayPermission` (Qantas Airways, Batik Air, Royal Brunei Airlines, Jetstar, Virgin Australia) | `/content/facts.ts` | Business Development | Client names & logos hidden until written permission recorded |
+| `contact.legacyPhones` (`+92 326 8088706`, `+92 333 2334171`) | `/content/facts.ts` | Management | Hidden unless Management confirms keeping them alongside `+92 320 5486243` |
+| `contact.whatsapp` | `/content/facts.ts` | Operations | WhatsApp button hidden until number supplied |
+| `contact.sita` | `/content/facts.ts` | Operations | Never published until issued and tested |
+| `contact.aftn` | `/content/facts.ts` | Operations | Requested via PCAA/OCAA; never published until issued and tested |
+| `contact.staffingHours` | `/content/facts.ts` | Operations | Hidden; channel labelled `24/7 urgent escalation line` |
+| `services.airportSlotCoordination.airports` | `/content/facts.ts` | Operations | Airport list hidden; displays "Slot coordination is arranged where KCL has airport contacts. Tell us your airport." |
+| `fuel.prepaymentPerAirport` | `/content/facts.ts` | Operations / Fuel Desk | Hidden per airport; states prepayment is confirmed per airport |
+| `fuel` Avgas / TS-1 confirmation | `/content/facts.ts` | Operations | Removed unless Operations confirms |
+| Country guides (Bahrain, Qatar, Kenya, Ghana, Mauritius, Togo, Central African Republic) | `/content/countries.ts` | Operations | Marked `Guide in preparation` until authority links, lead times & docs are verified |
+| Out-of-hours escalation process detail | `/app/urgent-requests` | Operations | Process detail hidden until Operations supplies it |
+| Per-flight-type document differences | `/app/resources/requirements-by-flight-type` | Operations | Shared document list shown; per-type differences hidden until supplied |
+| Top 10 real email/WhatsApp questions | `/app/resources/top-questions` | Operations | Page hidden (`noindex` / unlinked) until Operations supplies the 10 real questions |
+| Fuel release guide review | `/app/resources/fuel-release-guide` | Operations | Guide text hidden until Operations reviews; unit converter & uplift checklist live |
+| Management & Operations Desk names/bios/photos | `/app/about` | Management / HR | Hidden until each person's written approval is recorded |
+| Non-AFPA memberships (FAGSA, TAAP, DTS, KCCI, ACA) | `/app/about`, `/app/compliance` | Compliance / Management | Hidden until each is marked confirmed and current |
+| Legal pages sign-off (Privacy Policy, Terms, Cookie Notice) | `/app/privacy-policy`, `/app/terms`, `/app/cookie-notice` | Legal | Marked `draft` (`noindex`, excluded from sitemap & nav) until Legal approves |
+| GA4 & Google Search Console property owner | `/app/layout.tsx` | Marketing | Measurement ID & Search Console verification pending Marketing setup |
