@@ -4,7 +4,7 @@ import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import { SERVICE_TOOL_FAQS } from "@/content/service-tool-faqs";
 
-type FuelGradeId = "jet-a1" | "ts-1" | "avgas-100ll" | "not-sure";
+type FuelGradeId = "jet-a1" | "not-sure";
 type FuelUnit = "litres" | "gallons" | "kilograms" | "pounds";
 
 interface GradeInfo {
@@ -20,39 +20,24 @@ const FUEL_GRADES: GradeInfo[] = [
     id: "jet-a1",
     label: "Jet A-1",
     description:
-      "Kerosene-type turbine fuel, the standard jet fuel at most airports worldwide. Freezing point limit of minus 47°C.",
+      "Kerosene-type turbine fuel, confirmed per airport for into-plane delivery and fuel release.",
     aircraftExamples: "Turbine jets and turboprops",
     typicalDensity: 0.8,
   },
   {
-    id: "ts-1",
-    label: "TS-1",
-    description:
-      "Kerosene-type turbine fuel used mainly in Russia and neighbouring countries.",
-    aircraftExamples: "Turbine jets and turboprops",
-    typicalDensity: 0.78,
-  },
-  {
-    id: "avgas-100ll",
-    label: "Avgas 100LL",
-    description: "Low-lead gasoline for piston-engine aircraft.",
-    aircraftExamples: "Piston singles and twins",
-    typicalDensity: 0.72,
-  },
-  {
     id: "not-sure",
-    label: "Not sure",
+    label: "Confirm per airport",
     description:
-      "Check your aircraft flight manual or ask your operations team. Send us the aircraft type and we will help you confirm the grade with the supplier.",
-    aircraftExamples: "Any aircraft — share aircraft type for confirmation",
+      "Check your aircraft flight manual or request a fuel quote with your aircraft type and airport ICAO.",
+    aircraftExamples: "Any turbine aircraft — share aircraft type and airport ICAO",
     typicalDensity: null,
   },
 ];
 
 const DENSITY_PRESETS = [
   { label: "Jet A-1 (0.80)", value: 0.8 },
-  { label: "TS-1 (0.78)", value: 0.78 },
-  { label: "Avgas (0.72)", value: 0.72 },
+  { label: "Jet A-1 Cold (0.82)", value: 0.82 },
+  { label: "Jet A-1 Warm (0.78)", value: 0.78 },
 ];
 
 const LITRES_PER_US_GALLON = 3.785411784;
@@ -63,23 +48,6 @@ function GradeIcon({ id }: { id: FuelGradeId }) {
     return (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z" />
-      </svg>
-    );
-  }
-  if (id === "ts-1") {
-    return (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93 4.93 19.07" />
-      </svg>
-    );
-  }
-  if (id === "avgas-100ll") {
-    return (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M3 22h12" />
-        <path d="M4 9h10" />
-        <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
-        <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2 2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5" />
       </svg>
     );
   }

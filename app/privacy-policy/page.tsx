@@ -3,12 +3,15 @@ import { buildMetadata } from "@/lib/seo";
 import { SITE_CONFIG } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
-export const metadata = buildMetadata({
-  title: "Privacy Policy",
-  description:
-    "Privacy Policy for Kashmir Corporation Pvt Ltd (KCL) regarding airline dispatch data, flight permit applications and operational communications.",
-  path: "/privacy-policy",
-});
+export const metadata = {
+  ...buildMetadata({
+    title: "Privacy Policy (Draft)",
+    description:
+      "Draft Privacy Policy for Kashmir Corporation (Private) Limited regarding flight permit applications and operational communications.",
+    path: "/privacy-policy",
+  }),
+  robots: { index: false, follow: false },
+};
 
 export default function PrivacyPolicyPage() {
   return (
@@ -21,12 +24,15 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-10 space-y-6">
             <header className="border-b border-[#CBD5E1] pb-4">
-              <span className="font-mono text-xs text-[#5C6B7A] uppercase block">
-                LEGAL &amp; DATA PROTECTION
+              <span className="text-sm text-[#5C6B7A] block">
+                Draft — Pending Legal Approval
               </span>
               <h1 className="text-3xl font-bold text-[#0B2545] mt-1">
                 Privacy Policy
               </h1>
+              <p className="text-sm text-[#5C6B7A] mt-2">
+                Approvals are issued by the relevant authorities; KCL coordinates the request.
+              </p>
             </header>
 
             <p className="text-sm sm:text-base text-[#16202B]">

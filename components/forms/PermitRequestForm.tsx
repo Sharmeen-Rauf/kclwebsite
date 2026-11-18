@@ -1,9 +1,24 @@
 "use client";
 
-import React, { useActionState } from "react";
+import React, { useActionState, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { submitPermitRequestAction, type ActionState } from "@/lib/actions";
 import { SITE_CONFIG } from "@/lib/utils";
+import { CONTACT_DATA } from "@/content/contact";
+import { getCountryCoverageTier } from "@/lib/coverage";
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+function trackGaEvent(eventName: string, params?: Record<string, unknown>) {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", eventName, params);
+  }
+}
 
 const INITIAL_STATE: ActionState = { status: "idle" };
 
@@ -40,10 +55,24 @@ export function PermitRequestForm({
   defaultEmail = "",
   defaultNotes = "",
 }: PermitRequestFormProps) {
+  const pathname = usePathname();
   const [state, formAction, isPending] = useActionState(
     submitPermitRequestAction,
     INITIAL_STATE
   );
+  const [routeToInput, setRouteToInput] = useState(defaultRouteTo);
+  const [hasStarted, setHasStarted] = useState(false);
+
+  const coverageHint = routeToInput.trim()
+    ? getCountryCoverageTier(routeToInput.trim())
+    : null;
+
+  const handleFormStart = () => {
+    if (!hasStarted) {
+      setHasStarted(true);
+      trackGaEvent("form_start", { form_name: "flight_support_request", source_page: pathname });
+    }
+  };
 
   if (state.status === "preview" && state.previewSummary) {
     const s = state.previewSummary;
@@ -123,8 +152,25 @@ export function PermitRequestForm({
     <form
       action={formAction}
       noValidate
+      onFocus={handleFormStart}
+      onSubmit={(e) => {
+        const fd = new FormData(e.currentTarget);
+        const qualified = Boolean(
+          String(fd.get("operatorName") || "").trim() &&
+            String(fd.get("aircraftTypeAndReg") || "").trim() &&
+            (String(fd.get("routeFrom") || "").trim() ||
+              String(fd.get("routeTo") || "").trim()) &&
+            String(fd.get("dateTimeUtc") || "").trim()
+        );
+        trackGaEvent("form_submit", {
+          form_name: "flight_support_request",
+          qualified,
+          source_page: pathname,
+        });
+      }}
       className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-6"
     >
+      <input type="hidden" name="sourcePage" value={pathname} />
       <div className="border-b border-[#CBD5E1] pb-4 flex flex-wrap items-center justify-between gap-2">
         <div>
           <span className="font-mono text-xs uppercase text-[#5C6B7A] block">
@@ -267,12 +313,21 @@ export function PermitRequestForm({
               name="routeTo"
               type="text"
               required
-              defaultValue={defaultRouteTo}
-              placeholder="Dest ICAO/Airport"
-              aria-label="Destination Airport ICAO or City"
-              className="w-full min-h-[44px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] font-mono text-sm text-[#16202B] uppercase rounded-[2px]"
+              value={routeToInput}
+              onChange={(e) => setRouteToInput(e.target.value)}
+              placeholder="Dest ICAO/Country"
+              aria-label="Destination Airport ICAO or Country"
+              className="w-full min-h-[44px] px-3 py-2 bg-[#F6F8FB] border border-[#CBD5E1] text-sm text-[#16202B] uppercase rounded-[2px]"
             />
           </div>
+          {coverageHint && (
+            <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
+              <span className={`text-xs font-bold px-2.5 py-0.5 rounded-[2px] ${coverageHint.badgeClass}`}>
+                {coverageHint.label}
+              </span>
+              <span className="text-[#5C6B7A]">{coverageHint.description}</span>
+            </div>
+          )}
           {(state.fieldErrors?.routeFrom || state.fieldErrors?.routeTo) && (
             <p className="mt-1 text-xs text-red-700 font-medium">
               {state.fieldErrors?.routeFrom?.[0] ||
@@ -416,28 +471,54 @@ export function PermitRequestForm({
         />
       </div>
 
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2 border-t border-[#CBD5E1]">
-        <p className="text-xs text-[#5C6B7A]">
-          Required information varies according to flight type and destination.
-          This form prepares an inquiry review preview and is not a permit
-          application submitted to an authority. See our{" "}
-          <Link
-            href="/privacy-policy"
-            className="underline text-[#0B2545] font-medium"
-          >
-            Privacy Policy
-          </Link>
-          .
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-[#CBD5E1]">
+        <div className="space-y-2">
+          <p className="text-sm font-semibold text-[#0B2545]">
+            Our Operations Controller replies first.
+          </p>
+          <div className="flex flex-wrap items-center gap-3 text-sm">
+            <a
+              href={`tel:${CONTACT_DATA.primaryPhone.replace(/\s+/g, "")}`}
+              onClick={() => trackGaEvent("call_click", { phone: CONTACT_DATA.primaryPhone })}
+              className="font-semibold text-[#0B2545] underline underline-offset-4"
+            >
+              Call {CONTACT_DATA.primaryPhone} ({CONTACT_DATA.escalationLabel})
+            </a>
+            <span className="text-[#94A3B8]">·</span>
+            <a
+              href={`mailto:${CONTACT_DATA.opsEmail}`}
+              onClick={() => trackGaEvent("email_click", { email: CONTACT_DATA.opsEmail })}
+              className="font-semibold text-[#0B2545] underline underline-offset-4"
+            >
+              Email {CONTACT_DATA.opsEmail}
+            </a>
+            {CONTACT_DATA.whatsapp && (
+              <>
+                <span className="text-[#94A3B8]">·</span>
+                <a
+                  href={`https://wa.me/${CONTACT_DATA.whatsapp.replace(/[^0-9]/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-[#0B2545] underline underline-offset-4"
+                >
+                  WhatsApp
+                </a>
+              </>
+            )}
+          </div>
+          <p className="text-xs text-[#5C6B7A]">
+            Approvals are issued by the relevant authorities; KCL coordinates the request.
+          </p>
+        </div>
 
         <button
           type="submit"
           disabled={isPending}
-          className="kcl-btn-primary min-h-[48px] px-7 py-3 disabled:opacity-60 font-bold text-sm tracking-tight inline-flex items-center justify-center rounded-[2px] cursor-pointer whitespace-nowrap"
+          className="bg-[#F4C400] hover:bg-[#DFB200] text-[#0B2545] min-h-[48px] px-7 py-3 disabled:opacity-60 font-bold text-base inline-flex items-center justify-center rounded-[2px] cursor-pointer whitespace-nowrap transition-colors"
         >
           {isPending
-            ? "Preparing Preview..."
-            : "Review Flight Inquiry → Send Via Confirmed Channel"}
+            ? "Preparing Inquiry..."
+            : "Submit Flight Support Request →"}
         </button>
       </div>
     </form>

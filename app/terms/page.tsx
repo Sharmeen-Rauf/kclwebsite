@@ -3,12 +3,15 @@ import { buildMetadata } from "@/lib/seo";
 import { SITE_CONFIG } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
-export const metadata = buildMetadata({
-  title: "Terms of Service",
-  description:
-    "Terms of Service governing the use of the Kashmir Corporation Pvt Ltd (KCL) website, dispatch tools and online permit request forms.",
-  path: "/terms",
-});
+export const metadata = {
+  ...buildMetadata({
+    title: "Terms of Service (Draft)",
+    description:
+      "Draft Terms of Service governing the use of the Kashmir Corporation (Private) Limited website and permit request forms.",
+    path: "/terms",
+  }),
+  robots: { index: false, follow: false },
+};
 
 export default function TermsPage() {
   return (
@@ -19,12 +22,15 @@ export default function TermsPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-10 space-y-6">
             <header className="border-b border-[#CBD5E1] pb-4">
-              <span className="font-mono text-xs text-[#5C6B7A] uppercase block">
-                OPERATIONAL &amp; WEBSITE TERMS
+              <span className="text-sm text-[#5C6B7A] block">
+                Draft — Pending Legal Approval
               </span>
               <h1 className="text-3xl font-bold text-[#0B2545] mt-1">
                 Terms of Service
               </h1>
+              <p className="text-sm text-[#5C6B7A] mt-2">
+                Approvals are issued by the relevant authorities; KCL coordinates the request.
+              </p>
             </header>
 
             <p className="text-sm sm:text-base text-[#16202B]">

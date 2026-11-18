@@ -9,6 +9,7 @@ import {
   DOCUMENTS_WHERE_APPLICABLE,
   FLIGHT_TYPES_CONFIG,
 } from "@/content/permit-checklists";
+import { getCountryCoverageTier } from "@/lib/coverage";
 
 export type PermitStopType = "overflight" | "landing" | "tech_stop";
 
@@ -21,13 +22,9 @@ export interface RouteStop {
 
 const REGIONS: Array<"All" | WorldRegion> = [
   "All",
-  "Middle East",
   "Asia",
-  "Europe",
+  "Middle East",
   "Africa",
-  "Americas",
-  "Caribbean",
-  "Oceania",
 ];
 
 const STAMP_TILTS = [-3.5, 4, -2.5, 3.5, -4, 2, -1.5, 4.5];
@@ -497,23 +494,31 @@ export function RoutePermitPlanner() {
 
               {isCountryDropdownOpen && filteredCountries.length > 0 && (
                 <ul className="absolute left-0 right-0 top-full mt-1 bg-white border border-[#CBD5E1] rounded-[4px] shadow-lg max-h-56 overflow-y-auto z-30 divide-y divide-[#CBD5E1]/60">
-                  {filteredCountries.map((c) => (
-                    <li key={c.iso}>
-                      <button
-                        type="button"
-                        onClick={() => handleAddStop(c)}
-                        className="w-full text-left px-3 py-2 text-xs sm:text-sm hover:bg-[#F8FAFC] flex items-center justify-between transition-colors cursor-pointer"
-                      >
-                        <div className="flex items-center gap-2">
-                          <span className="font-bold text-[#0B2545] w-6">[{c.iso}]</span>
-                          <span className="text-[#16202B] font-semibold">{c.name}</span>
-                        </div>
-                        <span className="text-xs text-[#5C6B7A] bg-slate-100 px-1.5 py-0.5 rounded-[2px]">
-                          + Add stop
-                        </span>
-                      </button>
-                    </li>
-                  ))}
+                  {filteredCountries.map((c) => {
+                    const tier = getCountryCoverageTier(c.name);
+                    return (
+                      <li key={c.iso}>
+                        <button
+                          type="button"
+                          onClick={() => handleAddStop(c)}
+                          className="w-full text-left px-3 py-2 text-sm hover:bg-[#F8FAFC] flex items-center justify-between gap-2 transition-colors cursor-pointer"
+                        >
+                          <div className="flex items-center gap-2 min-w-0">
+                            <span className="font-bold text-[#0B2545] w-8 shrink-0">[{c.iso}]</span>
+                            <span className="text-[#16202B] font-semibold truncate">{c.name}</span>
+                          </div>
+                          <div className="flex items-center gap-2 shrink-0">
+                            <span className={`text-xs font-semibold px-2 py-0.5 rounded-[2px] ${tier.badgeClass}`}>
+                              {tier.label}
+                            </span>
+                            <span className="text-xs text-[#5C6B7A] bg-slate-100 px-1.5 py-0.5 rounded-[2px]">
+                              + Add
+                            </span>
+                          </div>
+                        </button>
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </div>
@@ -530,13 +535,14 @@ export function RoutePermitPlanner() {
                 {routeStops.map((stop, index) => {
                   const isFirst = index === 0;
                   const isLast = index === routeStops.length - 1;
+                  const tier = getCountryCoverageTier(stop.countryName);
 
                   return (
                     <div
                       key={stop.id}
                       className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[4px] p-2.5 sm:p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5"
                     >
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="w-5 h-5 rounded-full bg-white border border-[#CBD5E1] text-[#0B2545] text-xs font-bold flex items-center justify-center shrink-0">
                           {index + 1}
                         </span>
@@ -546,6 +552,9 @@ export function RoutePermitPlanner() {
                           </span>
                           <span className="text-xs text-[#5C6B7A] ml-1.5 font-semibold">
                             ({stop.iso})
+                          </span>
+                          <span className={`ml-2 text-xs font-semibold px-2 py-0.5 rounded-[2px] ${tier.badgeClass}`}>
+                            {tier.label}
                           </span>
                           {isLast && stop.type === "landing" && (
                             <span className="text-[11px] bg-[#0B2545] text-white px-1.5 py-0.5 rounded-[2px] ml-2 font-bold">

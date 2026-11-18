@@ -14,6 +14,8 @@ import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ServiceQuickPlanner } from "@/components/sections/ServiceQuickPlanner";
 import { ServiceHowAndSupportSection } from "@/components/sections/ServiceHowAndSupportSection";
 import { WhyKclSection } from "@/components/sections/WhyKclSection";
+import { FuelQuoteForm } from "@/components/sections/FuelQuoteForm";
+import { FuelGradeConverter } from "@/components/sections/tools/FuelGradeConverter";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 import { HeroVideoBackground } from "@/components/ui/HeroVideoBackground";
 import { InnerHero } from "@/components/sections/InnerHero";
@@ -470,6 +472,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       {service.slug === "overflight-permits" && <UtcDateWindowChecker />}
       {service.slug === "landing-permits" && <TrafficOrTechnicalStop />}
+      {service.slug === "aviation-fuel" && (
+        <>
+          <FuelQuoteForm />
+          <FuelGradeConverter />
+        </>
+      )}
 
       {/* =========================================================================
           SECTION 7 — FINAL CTA BAND (One Only)

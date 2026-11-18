@@ -75,10 +75,57 @@ export async function submitPermitRequestAction(
     };
   }
 
+  const sourcePage = String(formData.get("sourcePage") || "/request-flight-support");
+  const qualified = Boolean(
+    parsed.data.operatorName.trim() &&
+      parsed.data.aircraftTypeAndReg.trim() &&
+      (parsed.data.routeFrom.trim() || parsed.data.routeTo.trim()) &&
+      parsed.data.dateTimeUtc.trim()
+  );
+
+  // Persist to Supabase `leads` table when configured (no sensitive console logging)
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY ||
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (supabaseUrl && supabaseKey) {
+    try {
+      await fetch(`${supabaseUrl}/rest/v1/leads`, {
+        method: "POST",
+        headers: {
+          apikey: supabaseKey,
+          Authorization: `Bearer ${supabaseKey}`,
+          "Content-Type": "application/json",
+          Prefer: "return=minimal",
+        },
+        body: JSON.stringify({
+          status: "New",
+          source_page: sourcePage,
+          qualified,
+          operator_name: parsed.data.operatorName,
+          contact_name: parsed.data.contactName,
+          email: parsed.data.email,
+          phone: parsed.data.phoneOrWhatsapp || null,
+          flight_type: parsed.data.flightType,
+          permit_type: parsed.data.permitType,
+          route_from: parsed.data.routeFrom,
+          route_to: parsed.data.routeTo,
+          date_time_utc: parsed.data.dateTimeUtc,
+          aircraft_type_and_reg: parsed.data.aircraftTypeAndReg,
+          services_needed: parsed.data.servicesNeeded,
+          notes: parsed.data.notes || null,
+          notify_email: "ops@kclpk.org",
+        }),
+      });
+    } catch {
+      // Fail silently so operator still receives the formatted review & direct handoff
+    }
+  }
+
   return {
     status: "preview",
     message:
-      "Inquiry summary prepared for review. Until live backend/email handoff is connected, review your formatted flight support brief below and send via KCL's confirmed operational channel.",
+      "Inquiry summary prepared. Our Operations Controller replies first. You can also call our 24/7 urgent escalation line or send directly to ops@kclpk.org.",
     previewSummary: {
       operatorName: parsed.data.operatorName,
       contactName: parsed.data.contactName,

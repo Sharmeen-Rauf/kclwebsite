@@ -29,9 +29,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/permit-checklist/landing",
     "/permit-checklist/charter-non-scheduled",
     "/permit-checklist/cargo",
-    "/clients",
-    "/privacy-policy",
-    "/terms",
+    "/coverage",
+    "/fees-and-payments",
+    "/compliance",
+    "/urgent-requests",
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
