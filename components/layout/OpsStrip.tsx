@@ -9,34 +9,27 @@ export function OpsStrip() {
         {/* Left: 24/7 Operations Desk, Phones & Email */}
         <div className="flex items-center gap-3 sm:gap-4 overflow-x-auto no-scrollbar whitespace-nowrap">
           <Link
-            href="/customer-support"
+            href="/urgent-requests"
             className="kcl-link inline-flex items-center gap-1.5 text-slate-100 hover:text-white transition-colors font-medium shrink-0"
-            title="24/7 Flight Operations Desk"
+            title="24/7 urgent escalation line"
           >
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
             <span className="text-[11px] sm:text-xs font-semibold">
-              24/7 Ops Desk:
+              {CONTACT_DATA.escalationLabel}:
             </span>
           </Link>
 
           <div className="flex items-center gap-2 text-[11px] sm:text-xs text-slate-200">
             <a
               href={`tel:${CONTACT_DATA.primaryPhone.replace(/\s+/g, "")}`}
-              className="hover:text-white hover:underline underline-offset-2 transition-colors font-mono"
+              className="hover:text-white hover:underline underline-offset-2 transition-colors"
             >
               {CONTACT_DATA.primaryPhone}
             </a>
             <span className="text-slate-500">|</span>
             <a
-              href={`tel:${CONTACT_DATA.secondaryPhone.replace(/\s+/g, "")}`}
-              className="hidden md:inline hover:text-white hover:underline underline-offset-2 transition-colors font-mono"
-            >
-              {CONTACT_DATA.secondaryPhone}
-            </a>
-            <span className="text-slate-500 hidden md:inline">|</span>
-            <a
               href={`mailto:${CONTACT_DATA.opsEmail}`}
-              className="hover:text-white hover:underline underline-offset-2 transition-colors font-mono"
+              className="hover:text-white hover:underline underline-offset-2 transition-colors"
             >
               {CONTACT_DATA.opsEmail}
             </a>

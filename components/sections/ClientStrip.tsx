@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { REAL_CLIENTS } from "@/content/clients";
+import { DISPLAYABLE_CLIENTS } from "@/content/clients";
 
 interface ClientStripProps {
   compact?: boolean;
@@ -8,7 +8,10 @@ interface ClientStripProps {
 }
 
 export function ClientStrip({ compact = false, hideHeading = false }: ClientStripProps) {
-  const approvedClients = REAL_CLIENTS;
+  const approvedClients = DISPLAYABLE_CLIENTS;
+  if (approvedClients.length === 0) {
+    return null;
+  }
 
   return (
     <section

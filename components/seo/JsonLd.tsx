@@ -1,5 +1,6 @@
 import React from "react";
 import { SITE_CONFIG } from "@/lib/utils";
+import { KCL_FACTS } from "@/content/facts";
 
 interface JsonLdProps {
   data: Record<string, unknown> | Array<Record<string, unknown>>;
@@ -18,13 +19,26 @@ export function buildOrganizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: SITE_CONFIG.name,
+    name: SITE_CONFIG.brandName,
+    legalName: SITE_CONFIG.name,
     alternateName: "KCL International Flight Support",
     slogan: SITE_CONFIG.tagline,
-    description:
-      "International flight support and aviation services provider for scheduled and non-scheduled flight permits, ground handling, catering, fuel supply and crew accommodation worldwide.",
+    description: KCL_FACTS.coverage.statement,
     url: SITE_CONFIG.url,
     logo: `${SITE_CONFIG.url}/img/kclf%20final%20logo.png`,
+    parentOrganization: {
+      "@type": "Organization",
+      name: "Kashmirwala Group",
+    },
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "AFPA Licence",
+      identifier: SITE_CONFIG.afpaLicence,
+      recognizedBy: {
+        "@type": "GovernmentOrganization",
+        name: SITE_CONFIG.afpaIssuer,
+      },
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: "Head Office, 4th Floor, NACON NHOWA Tower, M.D.M. Wafai Road",
@@ -37,32 +51,34 @@ export function buildOrganizationJsonLd() {
       "https://www.facebook.com/profile.php?id=61574059260242",
       "https://www.linkedin.com/company/kashmir-corporation-pvt-ltd",
     ],
-    areaServed: "Worldwide",
+    areaServed: [
+      "Pakistan",
+      "Bahrain",
+      "Qatar",
+      "Kenya",
+      "Central African Republic",
+      "Togo",
+      "Ghana",
+      "Mauritius",
+    ],
     contactPoint: [
       {
         "@type": "ContactPoint",
-        contactType: "24/7 Flight Operations Desk",
-        telephone: "+92 326 8088706",
-        email: "ops@kclpk.org",
-        availableLanguage: ["English", "Urdu"],
-      },
-      {
-        "@type": "ContactPoint",
-        contactType: "Operations Secondary",
-        telephone: "+92 333 2334171",
-        email: "ops@kclpk.org",
+        contactType: "24/7 urgent escalation line",
+        telephone: SITE_CONFIG.opsPhone,
+        email: SITE_CONFIG.opsEmail,
         availableLanguage: ["English", "Urdu"],
       },
       {
         "@type": "ContactPoint",
         contactType: "Customer Support",
-        email: "cs@kclpk.org",
+        email: SITE_CONFIG.supportEmail,
         availableLanguage: ["English", "Urdu"],
       },
       {
         "@type": "ContactPoint",
         contactType: "General Inquiries",
-        email: "info@kclpk.org",
+        email: SITE_CONFIG.infoEmail,
         availableLanguage: ["English", "Urdu"],
       },
     ],

@@ -14,7 +14,7 @@ interface CtaBannerProps {
 export function CtaBanner({
   eyebrow = "Flight Itinerary Coordination",
   heading = "Planning a Flight? Let's Get the Details Moving.",
-  subheading = "Share your route, aircraft specifications, UTC schedule, and ground requirements. Our 24/7 operations desk will review authority pathways and confirm what we can arrange.",
+  subheading = "Share your route, aircraft specifications, UTC schedule, and ground requirements. Our Operations Controller will review authority pathways and confirm what we can arrange.",
   primaryLabel = "Request Flight Support",
   primaryHref = "/request-flight-support",
 }: CtaBannerProps) {
@@ -82,7 +82,7 @@ export function CtaBanner({
               className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"
               aria-hidden="true"
             />
-            24/7 Active Operations Desk
+            24/7 urgent escalation line
           </span>
         </div>
       </div>

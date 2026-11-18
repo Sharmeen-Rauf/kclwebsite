@@ -33,11 +33,11 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: "International Flight Support & Aviation Services | KCL",
+    default: "Flight Support & Permits: Pakistan, Middle East, Africa | KCL",
     template: "%s",
   },
   description:
-    "International flight support, overflight and landing permits, ground handling, aviation fuel, catering and crew logistics for operators worldwide.",
+    "Pakistan permit filing, direct authority access in 7 countries, plus handling, fuel, catering and crew hotels. Quote on request.",
   openGraph: {
     type: "website",
     locale: "en_US",
