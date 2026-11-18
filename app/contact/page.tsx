@@ -110,21 +110,21 @@ export default function ContactPage() {
                 <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
                   Contact Information
                 </h2>
-                <p className="text-xs sm:text-sm text-[#5C6B7A] leading-relaxed">
-                  Our 24/7 flight operations desk coordinates worldwide permits, ground handling, fuel supply, catering, and crew logistics directly with civil aviation authorities and airport operators.
+                <p className="text-sm sm:text-base text-[#5C6B7A] leading-relaxed">
+                  Our Operations Controller team coordinates Pakistan permit filing, direct authority access in 7 countries, and partner-supported ground handling, fuel supply, catering, and crew logistics across Asia, the Middle East, and Africa.
                 </p>
-                <dl className="space-y-3 text-sm pt-2">
+                <dl className="space-y-3 text-base pt-2">
                   <div className="border-b border-[#CBD5E1] pb-2">
-                    <dt className="font-mono text-xs text-[#5C6B7A] uppercase">
+                    <dt className="text-sm text-[#5C6B7A]">
                       Head Office Address
                     </dt>
-                    <dd className="font-medium text-[#0B2545] mt-0.5 text-xs sm:text-sm leading-snug">
+                    <dd className="font-medium text-[#0B2545] mt-0.5 text-base leading-snug">
                       {SITE_CONFIG.address}
                     </dd>
                   </div>
                   <div className="border-b border-[#CBD5E1] pb-2">
-                    <dt className="font-mono text-xs text-[#5C6B7A] uppercase">
-                      24/7 Operations Desk Email
+                    <dt className="text-sm text-[#5C6B7A]">
+                      24/7 urgent escalation line Email
                     </dt>
                     <dd className="font-mono font-bold text-[#0B2545] mt-0.5 text-xs sm:text-sm">
                       <a href={`mailto:${SITE_CONFIG.opsEmail}`} className="hover:underline">

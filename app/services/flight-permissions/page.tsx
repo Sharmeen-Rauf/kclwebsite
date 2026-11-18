@@ -17,11 +17,11 @@ import { ComplementaryServicesSlider } from "@/components/sections/Complementary
 import { ServiceHowAndSupportSection } from "@/components/sections/ServiceHowAndSupportSection";
 import { WhyKclSection } from "@/components/sections/WhyKclSection";
 import { INTERNATIONAL_PERMIT_FAQS } from "@/content/faqs";
+import { KCL_FACTS } from "@/content/facts";
 
 export const metadata = buildMetadata({
-  title: "Worldwide Overflight & Landing Permits | KCL",
-  description:
-    "KCL coordinates international overflight and landing permit requests for airlines, charter, cargo and private aircraft, with 24/7 operations support.",
+  title: "Overflight & Landing Permits | Pakistan Filing and Coordination | KCL",
+  description: KCL_FACTS.coverage.statement,
   path: "/services/flight-permissions",
   omitTitleSuffix: true,
 });
@@ -59,7 +59,7 @@ const PERMIT_TYPES = [
     name: "Short-Notice Clearances",
     image: "/img/services/06-ops.webp",
     alt: "24/7 flight operations center monitoring urgent clearance requests",
-    summary: "Rapid coordination for urgent, diplomatic, medevac or schedule-revised flights.",
+    summary: "Coordination for urgent, diplomatic, medevac or schedule-revised flights.",
     actionHref: "/services/operations-support",
   },
 ];
@@ -100,16 +100,24 @@ export default function FlightPermissionsPage() {
   const serviceLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Worldwide Overflight & Landing Permits",
+    name: "Overflight & Landing Permits | Pakistan Filing and Coordination",
     serviceType: "Aviation Flight Permission Coordination",
-    description:
-      "KCL coordinates international overflight and landing permit requests for airlines, charter, cargo and private aircraft, with 24/7 operations support.",
+    description: KCL_FACTS.coverage.statement,
     provider: {
       "@type": "Organization",
-      name: "Kashmir Corporation (Pvt.) Ltd. - KCL",
+      name: "Kashmir Corporation (Private) Limited",
       url: process.env.NEXT_PUBLIC_SITE_URL || "https://kclwebsite.vercel.app",
     },
-    areaServed: "Worldwide",
+    areaServed: [
+      "Pakistan",
+      "Bahrain",
+      "Qatar",
+      "Kenya",
+      "Central African Republic",
+      "Togo",
+      "Ghana",
+      "Mauritius",
+    ],
   };
 
   return (
@@ -126,9 +134,9 @@ export default function FlightPermissionsPage() {
           SECTION 1 — HERO (Shared InnerHero Styling)
           ========================================================================= */}
       <InnerHero
-        title="International Overflight & Landing Permit Services"
+        title="Overflight and Landing Permits, Filed in Pakistan and Coordinated Abroad"
         subtitle="Your Route. The Right Permissions. One Team to Coordinate."
-        description="From routine airline operations to short-notice charter flights, KCL coordinates overflight, landing, and special permit requests with civil aviation authorities worldwide."
+        description={KCL_FACTS.coverage.statement}
         imageSrc="/img/services/01-permits.webp"
         imageAlt="International flight permits cockpit navigation display"
         buttons={[
@@ -237,18 +245,38 @@ export default function FlightPermissionsPage() {
             ))}
           </div>
 
+          {/* Fees Policy & Diplomatic Scope Note */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 space-y-1.5">
+              <h3 className="text-base font-bold text-[#0B2545]">
+                Authority Charges (Pass-Through)
+              </h3>
+              <p className="text-base text-[#16202B] leading-relaxed">
+                {KCL_FACTS.fees.authorityCharges.value}
+              </p>
+            </div>
+            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 space-y-1.5">
+              <h3 className="text-base font-bold text-[#0B2545]">
+                KCL Service Charge &amp; Diplomatic Scope
+              </h3>
+              <p className="text-base text-[#16202B] leading-relaxed">
+                {KCL_FACTS.fees.serviceCharge.value} {KCL_FACTS.services.diplomaticAndTrafficRights}
+              </p>
+            </div>
+          </div>
+
           {/* Internal links to directory and regional guides */}
-          <div className="mt-6 pt-4 border-t border-[#CBD5E1]/60 flex flex-wrap items-center justify-between gap-3 text-sm text-[#475569]">
+          <div className="mt-6 pt-4 border-t border-[#CBD5E1]/60 flex flex-wrap items-center justify-between gap-3 text-base text-[#475569]">
             <span>
-              Looking for specific sovereign entry guidelines and airway requirements?
+              Looking for country entry guidelines and coverage tiers?
             </span>
-            <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm font-semibold text-[#0B2545]">
+            <div className="flex flex-wrap items-center gap-4 text-sm font-semibold text-[#0B2545]">
               <Link href="/permit-directory" className="hover:underline underline-offset-2 inline-flex items-center gap-1">
-                Browse Global Permit Directory <span aria-hidden="true">→</span>
+                Browse Permit Directory <span aria-hidden="true">→</span>
               </Link>
               <span className="text-[#94A3B8]" aria-hidden="true">·</span>
-              <Link href="/pakistan/flight-permissions" className="hover:underline underline-offset-2 inline-flex items-center gap-1">
-                Pakistan Flight Permissions Guide <span aria-hidden="true">→</span>
+              <Link href="/coverage" className="hover:underline underline-offset-2 inline-flex items-center gap-1">
+                Coverage and Access <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
@@ -325,18 +353,18 @@ export default function FlightPermissionsPage() {
         subheading="Decades of international dispatch discipline and continuous flight support operations."
         cards={[
           {
-            kicker: "Round the clock",
-            title: "24/7 operations desk",
+            kicker: "Escalation",
+            title: "24/7 urgent escalation line",
             description:
-              "Continuous watch officers processing urgent clearances and re-routings across all time zones.",
+              "Operations Controller follow-up for urgent clearances and schedule updates.",
             image: "/img/services/06-ops.webp",
             pulse: true,
           },
           {
             kicker: "Direct filing",
-            title: "Direct CAA channels",
+            title: "Pakistan & 7 direct-access states",
             description:
-              "Established direct communication channels with Civil Aviation Authorities.",
+              "Permits filed in Pakistan and coordinated directly with authorities in 7 countries.",
             image: "/img/services/01-permits.webp",
           },
           {
@@ -347,10 +375,10 @@ export default function FlightPermissionsPage() {
             image: "/img/services/07-dispatch.webp",
           },
           {
-            kicker: "Since 1947",
+            kicker: "Group founded 1947",
             title: "Kashmirwala Group",
             description:
-              "Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.",
+              "Part of the Kashmirwala Group, founded in 1947, providing reliable operational continuity.",
             image: "/img/hero-flight-ops.jpg",
           },
         ]}

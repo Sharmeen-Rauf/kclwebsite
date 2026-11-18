@@ -5,7 +5,8 @@ import { buildMetadata } from "@/lib/seo";
 import { QuickPermitRequestCard } from "@/components/sections/QuickPermitRequestCard";
 import { PermitChecker } from "@/components/sections/PermitChecker";
 import { RequestTrackerPreview } from "@/components/sections/RequestTrackerPreview";
-import { REAL_CLIENTS } from "@/content/clients";
+import { DISPLAYABLE_CLIENTS } from "@/content/clients";
+import { KCL_FACTS } from "@/content/facts";
 import { HOME_FAQS } from "@/content/faqs";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
@@ -18,12 +19,12 @@ import {
   MotionStaggerItem,
 } from "@/components/ui/MotionPrimitives";
 import { AircraftMissionSlider } from "@/components/sections/AircraftMissionSlider";
-import { RegionalCoverageSlider } from "@/components/sections/RegionalCoverageSlider";
+import { ThreeTierCoverageMap } from "@/components/sections/ThreeTierCoverageMap";
 
 export const metadata = buildMetadata({
-  title: "International Flight Support & Aviation Services | KCL",
+  title: "Flight Support & Permits: Pakistan, Middle East, Africa | KCL",
   description:
-    "From flight permissions and ground handling to fuel, catering and crew arrangements, KCL helps airlines, charter operators and private aviation teams coordinate the essentials of international flight operations.",
+    "Pakistan permit filing, direct authority access in 7 countries, plus handling, fuel, catering and crew hotels. Quote on request.",
   path: "/",
   omitTitleSuffix: true,
 });
@@ -129,9 +130,9 @@ const BENTO_SERVICES = [
 
 const QUICK_TOOLS = [
   {
-    name: "UTC / PKT Time Converter",
-    desc: "Convert flight schedule timestamps between Zulu / UTC and Pakistan Standard Time.",
-    href: "/tools/utc-pkt-converter",
+    name: "UTC & World Time Planner",
+    desc: "Compare UTC / Zulu time with PKT and station local times across international hubs.",
+    href: "/tools/utc-time-converter",
   },
   {
     name: "ICAO Phonetic Alphabet",
@@ -182,11 +183,10 @@ export default async function HomePage() {
     },
   ];
 
-  const marqueeLoopGroup = [
-    ...REAL_CLIENTS,
-    ...REAL_CLIENTS,
-    ...REAL_CLIENTS,
-  ];
+  const marqueeLoopGroup =
+    DISPLAYABLE_CLIENTS.length > 0
+      ? [...DISPLAYABLE_CLIENTS, ...DISPLAYABLE_CLIENTS, ...DISPLAYABLE_CLIENTS]
+      : [];
 
   return (
     <>
@@ -214,8 +214,8 @@ export default async function HomePage() {
                 International Flight Support, Handled by One Team
               </h1>
 
-              <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed max-w-xl">
-                From flight permissions and ground handling to fuel, catering and crew arrangements, KCL helps airlines, charter operators and private aviation teams coordinate the essentials of international flight operations.
+              <p className="text-base text-slate-200 leading-relaxed max-w-xl">
+                Permits filed in Pakistan and coordinated in 7 countries, with handling, fuel, catering and crew hotels from one team.
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
@@ -248,90 +248,116 @@ export default async function HomePage() {
         className="bg-[#F6F8FB] border-b border-[#CBD5E1] py-3"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-5 text-xs font-bold text-[#0B2545]">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-5 text-sm font-bold text-[#0B2545]">
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
-              24/7 Operations Desk
+              24/7 urgent escalation line
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
-              Schedule and Non-Schedule
+              Pakistan filing
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-[#CBD5E1] px-3 py-1.5 rounded-[2px]">
               <span className="h-2 w-2 rounded-full bg-[#0B2545]" />
-              Worldwide Support
+              Direct access in 7 countries
             </span>
           </div>
         </div>
       </section>
 
-      {/* "Trusted by operators" Infinite Slow Logo Marquee Section */}
+      {/* Who We Help (Audience Order) */}
       <section
-        aria-label="Trusted by operators"
-        className="bg-white border-b border-[#CBD5E1] py-5 overflow-hidden"
+        aria-label="Who we help"
+        className="bg-white border-b border-[#CBD5E1] py-6"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-            <div className="shrink-0 flex items-center gap-3">
-              <span className="text-xs font-mono uppercase tracking-wider font-bold text-[#B88200]">
-                Trusted by operators
-              </span>
-              <span
-                className="hidden md:inline-block h-4 w-px bg-[#CBD5E1]"
-                aria-hidden="true"
-              />
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {KCL_FACTS.audience.map((aud) => (
+              <div
+                key={aud.id}
+                className="bg-[#F6F8FB] border border-[#CBD5E1] rounded-[4px] p-4 space-y-1"
+              >
+                <h2 className="text-base font-bold text-[#0B2545]">
+                  {aud.title}
+                </h2>
+                <p className="text-base text-[#5C6B7A] leading-snug">
+                  {aud.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="relative flex-1 overflow-hidden">
-              <div className="logo-marquee-track items-center">
-                {/* First identical half */}
-                <div className="flex items-center gap-10 sm:gap-14 pr-10 sm:pr-14">
-                  {marqueeLoopGroup.map((client, idx) => (
-                    <Link
-                      key={`marquee-a-${client.icao}-${idx}`}
-                      href="/clients"
-                      title={`${client.name} (${client.icao})`}
-                      className="shrink-0 inline-flex items-center justify-center px-3 py-1.5 grayscale opacity-75 hover:grayscale-0 hover:opacity-100 focus-visible:grayscale-0 focus-visible:opacity-100 transition-all duration-300"
-                    >
-                      <Image
-                        src={client.logo}
-                        alt={client.alt}
-                        width={140}
-                        height={40}
-                        className="h-8 sm:h-9 w-auto object-contain"
-                      />
-                    </Link>
-                  ))}
-                </div>
-
-                {/* Second identical half for smooth -50% continuous loop */}
-                <div
+      {/* "Trusted by operators" Infinite Slow Logo Marquee Section (hidden until displayPermission is true) */}
+      {marqueeLoopGroup.length > 0 && (
+        <section
+          aria-label="Trusted by operators"
+          className="bg-white border-b border-[#CBD5E1] py-5 overflow-hidden"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+              <div className="shrink-0 flex items-center gap-3">
+                <span className="text-sm font-bold text-[#B88200]">
+                  Trusted by operators
+                </span>
+                <span
+                  className="hidden md:inline-block h-4 w-px bg-[#CBD5E1]"
                   aria-hidden="true"
-                  className="flex items-center gap-10 sm:gap-14 pr-10 sm:pr-14"
-                >
-                  {marqueeLoopGroup.map((client, idx) => (
-                    <Link
-                      key={`marquee-b-${client.icao}-${idx}`}
-                      href="/clients"
-                      tabIndex={-1}
-                      title={`${client.name} (${client.icao})`}
-                      className="shrink-0 inline-flex items-center justify-center px-3 py-1.5 grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                    >
-                      <Image
-                        src={client.logo}
-                        alt=""
-                        width={140}
-                        height={40}
-                        className="h-8 sm:h-9 w-auto object-contain"
-                      />
-                    </Link>
-                  ))}
+                />
+              </div>
+
+              <div className="relative flex-1 overflow-hidden">
+                <div className="logo-marquee-track items-center">
+                  {/* First identical half */}
+                  <div className="flex items-center gap-10 sm:gap-14 pr-10 sm:pr-14">
+                    {marqueeLoopGroup.map((client, idx) => (
+                      <Link
+                        key={`marquee-a-${client.icao}-${idx}`}
+                        href="/clients"
+                        title={`${client.name} (${client.icao})`}
+                        className="shrink-0 inline-flex items-center justify-center px-3 py-1.5 grayscale opacity-75 hover:grayscale-0 hover:opacity-100 focus-visible:grayscale-0 focus-visible:opacity-100 transition-all duration-300"
+                      >
+                        <Image
+                          src={client.logo}
+                          alt={client.alt}
+                          width={140}
+                          height={40}
+                          className="h-8 sm:h-9 w-auto object-contain"
+                        />
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Second identical half for smooth -50% continuous loop */}
+                  <div
+                    aria-hidden="true"
+                    className="flex items-center gap-10 sm:gap-14 pr-10 sm:pr-14"
+                  >
+                    {marqueeLoopGroup.map((client, idx) => (
+                      <Link
+                        key={`marquee-b-${client.icao}-${idx}`}
+                        href="/clients"
+                        tabIndex={-1}
+                        title={`${client.name} (${client.icao})`}
+                        className="shrink-0 inline-flex items-center justify-center px-3 py-1.5 grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                      >
+                        <Image
+                          src={client.logo}
+                          alt=""
+                          width={140}
+                          height={40}
+                          className="h-8 sm:h-9 w-auto object-contain"
+                        />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 2. Core Operational Services */}
       <section className="py-10 sm:py-14 bg-white border-b border-[#CBD5E1]">
@@ -449,42 +475,41 @@ export default async function HomePage() {
 
       <FlightPathDivider variant="curve-up" />
 
-      {/* 4. Global Coverage — Supporting Flight Operations Across Borders */}
+      {/* 4. Regional Coverage — Three-Tier Coverage Map */}
       <section className="py-14 sm:py-18 bg-white border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="max-w-3xl space-y-3">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-                GLOBAL FLIGHT OPERATIONS
+              <span className="text-sm text-[#B88200] font-bold block">
+                Where We Support
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-                Supporting Flight Operations Across Borders.
+                Pakistan Filing, Direct Access, and Regional Partners.
               </h2>
               <p className="text-[#16202B] text-base leading-relaxed">
-                KCL coordinates overflight and landing permits, ground handling, fuel, catering and crew logistics for international flights. Tell us your route and we will confirm what we can arrange.
+                {KCL_FACTS.coverage.statement}
               </p>
             </div>
             <div className="bg-[#F6F8FB] border border-[#CBD5E1] p-3.5 rounded-[2px] max-w-sm">
-              <span className="text-xs font-mono font-bold text-[#B88200] block mb-1">
-                OPERATIONAL NOTE
+              <span className="text-sm font-bold text-[#B88200] block mb-1">
+                Operational Note
               </span>
-              <p className="text-xs text-[#5C6B7A] leading-snug">
-                Specific countries and partners are confirmed per itinerary.
+              <p className="text-sm text-[#5C6B7A] leading-snug">
+                {KCL_FACTS.coverage.elsewhereLine}
               </p>
             </div>
           </div>
 
-          {/* Linear Infinite Animated Coverage Slider */}
-          <RegionalCoverageSlider />
+          <ThreeTierCoverageMap />
 
           {/* Small note with link to Pakistan guide */}
-          <div className="bg-[#F6F8FB] border border-[#CBD5E1] p-4 rounded-[2px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm">
+          <div className="bg-[#F6F8FB] border border-[#CBD5E1] p-4 rounded-[2px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-base">
             <p className="text-[#5C6B7A] leading-relaxed">
-              KCL is based in Pakistan, so we also offer detailed local guides for flights to and over Pakistan.
+              KCL is based in Karachi, Pakistan, with detailed local guides for flights to and over Pakistan.
             </p>
             <Link
               href="/pakistan/flight-permissions"
-              className="text-xs font-bold text-[#0B2545] hover:text-[#B88200] hover:underline underline-offset-4 font-mono inline-flex items-center gap-1 shrink-0"
+              className="text-sm font-bold text-[#0B2545] hover:text-[#B88200] hover:underline underline-offset-4 inline-flex items-center gap-1 shrink-0"
             >
               <span>Explore Pakistan Guide</span>
               <span aria-hidden="true">→</span>
@@ -497,8 +522,8 @@ export default async function HomePage() {
       <section aria-label="Why Choose KCL" className="py-10 sm:py-12 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="space-y-1.5">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#B88200] font-bold block">
-              OPERATIONAL ADVANTAGE
+            <span className="text-sm text-[#B88200] font-bold block">
+              Operational Advantage
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               Why Choose KCL
@@ -507,12 +532,12 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3.5 pt-1">
             {[
-              "24/7 support with rapid response",
-              "Overflight and landing permit coordination worldwide",
-              "Direct coordination with civil aviation authorities and airport operators",
+              "24/7 urgent escalation line",
+              "Pakistan permit filing and direct authority access in 7 countries",
+              "Partner-supported coordination across Asia, the Middle East, and Africa",
               "One team for permits, handling, fuel, catering and crew services",
               "Experience with urgent, ad-hoc, diplomatic and diverted flights",
-              "Clear communication with a dedicated support contact",
+              "Clear communication with a dedicated Operations Controller contact",
             ].map((item) => (
               <div key={item} className="flex items-start gap-3">
                 <span className="text-[#B88200] font-bold text-base leading-none select-none mt-1">―</span>

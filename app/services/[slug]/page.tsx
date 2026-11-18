@@ -399,21 +399,21 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       />
 
       <WhyKclSection
-        subheading="Aviation operations discipline and global partner coordination since 1947."
+        subheading="Aviation operations discipline across Pakistan, the Middle East, Asia, and Africa."
         cards={[
           {
-            kicker: "Round the clock",
-            title: "24/7 operations desk",
+            kicker: "Escalation",
+            title: "24/7 urgent escalation line",
             description:
-              "Active monitoring, schedule revision management, and live stakeholder coordination across time zones.",
+              "Operations Controller monitoring schedule revision updates and station coordination.",
             image: "/img/services/06-ops.webp",
             pulse: true,
           },
           {
-            kicker: "Worldwide reach",
-            title: "Global partner network",
+            kicker: "Regional network",
+            title: "Asia, Middle East & Africa",
             description:
-              "Established direct channels with certified handlers, fuel providers, and civil aviation authorities.",
+              "Direct authority coordination in 7 countries and partner-supported coverage across our launch regions.",
             image: heroPoster,
           },
           {
@@ -424,10 +424,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             image: "/img/services/07-dispatch.webp",
           },
           {
-            kicker: "Since 1947",
+            kicker: "Group founded 1947",
             title: "Kashmirwala Group",
             description:
-              "Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.",
+              "Part of the Kashmirwala Group, founded in 1947, providing reliable operational continuity.",
             image: "/img/hero-flight-ops.jpg",
           },
         ]}

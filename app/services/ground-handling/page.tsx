@@ -22,9 +22,9 @@ import { WhyKclSection } from "@/components/sections/WhyKclSection";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 
 export const metadata = buildMetadata({
-  title: "Worldwide Ground Handling Coordination | KCL",
+  title: "Ground Handling Coordination | Pakistan, Middle East & Africa | KCL",
   description:
-    "Aircraft, passenger, baggage and cargo handling, fuelling coordination and turnaround management at airports worldwide. One team, 24/7.",
+    "Aircraft, passenger, baggage and cargo handling, fuelling coordination and turnaround management across Pakistan, the Middle East, Asia, and Africa.",
   path: "/services/ground-handling",
   omitTitleSuffix: true,
 });
@@ -40,16 +40,16 @@ export default function GroundHandlingPage() {
   const serviceLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Worldwide Ground Handling Coordination",
+    name: "Ground Handling Coordination",
     serviceType: "Aviation Ground Handling Coordination",
     description:
-      "Aircraft, passenger, baggage and cargo handling, fuelling coordination and turnaround management at airports worldwide. One team, 24/7.",
+      "Aircraft, passenger, baggage and cargo handling, fuelling coordination and turnaround management across Pakistan, the Middle East, Asia, and Africa.",
     provider: {
       "@type": "Organization",
-      name: "Kashmir Corporation (Pvt.) Ltd. - KCL",
+      name: "Kashmir Corporation (Private) Limited",
       url: "https://kclwebsite.vercel.app",
     },
-    areaServed: "Worldwide",
+    areaServed: ["Asia", "Middle East", "Africa"],
   };
 
   const visibleFaqs = GROUND_HANDLING_FAQS.slice(0, 6);
@@ -303,17 +303,17 @@ export default function GroundHandlingPage() {
         subheading="We bring proven aviation operations discipline to airport ground handling coordination."
         cards={[
           {
-            kicker: "Round the clock",
-            title: "24/7 operations desk",
+            kicker: "Escalation",
+            title: "24/7 urgent escalation line",
             description:
-              "Coordination team monitoring flight progress, schedule revisions and station communications across all time zones.",
+              "Operations Controller monitoring flight progress, schedule revisions and station communications.",
             pulse: true,
           },
           {
-            kicker: "Worldwide reach",
-            title: "Global handling network",
+            kicker: "Regional network",
+            title: "Asia, Middle East & Africa",
             description:
-              "Established working relationships with licensed airport handlers and ramp service providers internationally.",
+              "Working relationships with licensed airport handlers and ramp service providers across our launch regions.",
           },
           {
             kicker: "Unified channel",
@@ -322,10 +322,10 @@ export default function GroundHandlingPage() {
               "Single operations channel synchronizing landing permits, parking slots, fueling and handling without scattered supplier communication.",
           },
           {
-            kicker: "Since 1947",
+            kicker: "Group founded 1947",
             title: "Kashmirwala Group",
             description:
-              "Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.",
+              "Part of the Kashmirwala Group, founded in 1947, providing reliable operational continuity.",
           },
         ]}
       />

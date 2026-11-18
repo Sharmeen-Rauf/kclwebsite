@@ -12,12 +12,12 @@ export const HOME_FAQS: FaqItem[] = [
   {
     question: "Which countries do you support?",
     answer:
-      "KCL coordinates overflight and landing permits, ground handling, fuel, and flight support worldwide across key international corridors in the Middle East, Europe, Asia, Africa, the Americas, and the Caribbean. Tell us your route and schedule, and our 24/7 operations desk will confirm the clearances and support available for your specific itinerary.",
+      "We file flight permits in Pakistan. In Bahrain, Qatar, Kenya, the Central African Republic, Togo, Ghana and Mauritius we coordinate and follow up directly with the authority. Across the rest of Asia, the Middle East and Africa we work through partners. Elsewhere, tell us your route and we will advise and introduce a partner.",
   },
   {
     question: "Can multiple services be requested together?",
     answer:
-      "Yes. Operators can submit complete route strings and required services (permits, handling, fuel, catering, and crew hotels) in a single inquiry so our 24/7 operations desk coordinates the entire operational scope concurrently.",
+      "Yes. Operators can submit complete route strings and required services (permits, handling, fuel, catering, and crew hotels) in a single inquiry so our team coordinates the entire operational scope concurrently.",
   },
   {
     question: "Who makes the final decision on an overflight or landing permission?",
@@ -32,7 +32,7 @@ export const HOME_FAQS: FaqItem[] = [
   {
     question: "How much lead time is typically required for permit clearance?",
     answer:
-      "Lead times vary by jurisdiction and operation category. Standard overflight permits typically take 24 to 72 hours, while non-scheduled charter landings, diplomatic flights, or extra-section commercial schedules may require 4 to 7 working days.",
+      "Lead times vary by jurisdiction and operation category. Share your route and planned UTC schedule, and we will confirm the applicable lead-time guidance for your request.",
   },
   {
     question: "What is the difference between an overflight and a landing permit?",
@@ -42,7 +42,7 @@ export const HOME_FAQS: FaqItem[] = [
   {
     question: "How does KCL handle short-notice charter or emergency flights?",
     answer:
-      "Our operations desk is staffed 24/7 to receive and prioritize urgent requests for medical evacuation (medevac), humanitarian relief, technical fuel stops, and urgent business charter clearances with expedited authority liaison.",
+      "Our 24/7 urgent escalation line receives urgent requests for medical evacuation (medevac), humanitarian relief, technical fuel stops, and short-notice business charter clearances with authority liaison.",
   },
 ];
 
@@ -70,7 +70,7 @@ export const INTERNATIONAL_PERMIT_FAQS: FaqItem[] = [
   {
     question: "Can short-notice requests be handled?",
     answer:
-      "Yes. Our flight operations desk is staffed 24/7 to assist with urgent, ad-hoc, and short-notice clearances for medical evacuations, technical aircraft diversions, and last-minute charter rotations, working through urgent authority channels where available.",
+      "Yes. Our 24/7 urgent escalation line assists with urgent, ad-hoc, and short-notice clearances for medical evacuations, technical aircraft diversions, and last-minute charter rotations, working through authority channels where available.",
   },
   {
     question: "Can KCL support scheduled and non-scheduled flights?",
@@ -80,11 +80,11 @@ export const INTERNATIONAL_PERMIT_FAQS: FaqItem[] = [
   {
     question: "What happens when flight details change?",
     answer:
-      "If your schedule, aircraft registration, routing points, or crew details change, inform our operations desk immediately. We prepare and submit official amendment notifications to the relevant civil aviation authorities to ensure your permit remains valid for departure.",
+      "If your schedule, aircraft registration, routing points, or crew details change, inform our team immediately. We prepare and submit official amendment notifications to the relevant civil aviation authorities to ensure your permit remains valid for departure.",
   },
   {
     question: "Can permit requests include ground handling and fuel?",
     answer:
-      "Yes. KCL coordinates full integrated flight support. You can combine overflight and landing permits with on-tarmac ground handling, aviation fuel releases (Jet A1, TS1, Avgas), airport slots, and crew hotel layovers within a single operational request.",
+      "Yes. KCL coordinates integrated flight support. You can combine overflight and landing permits with on-tarmac ground handling, Jet A-1 aviation fuel releases, airport slots, and crew hotel layovers within a single operational request.",
   },
 ];
