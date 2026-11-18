@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { OpsStrip } from "@/components/layout/OpsStrip";
@@ -51,9 +52,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
   return (
     <html lang="en" className={`${jakarta.variable} ${plexMono.variable}`}>
       <body className="flex flex-col min-h-screen text-[#16202B] relative">
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="kcl-ga4" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${gaId}');`}
+            </Script>
+          </>
+        )}
         <AviationBackgroundOverlay />
         <Suspense fallback={null}>
           <RouteProgressBar />

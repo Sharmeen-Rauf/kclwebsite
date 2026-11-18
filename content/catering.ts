@@ -183,7 +183,7 @@ export const CATERING_RELATED_SERVICES: CateringRelatedService[] = [
   {
     title: "Aviation Fuel",
     description:
-      "Jet A-1 fuel uplift coordination scheduled to meet your turnaround window at airports worldwide.",
+      "Jet A-1 fuel uplift coordination scheduled to meet your turnaround window.",
     href: "/services/aviation-fuel",
     tag: "Fuelling",
     image: "/img/services/04-fuel.webp",

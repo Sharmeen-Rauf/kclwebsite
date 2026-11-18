@@ -23,6 +23,8 @@ export interface CountryPermitGuide {
   }>;
   summary: string;
   airwaysNotes: string;
+  lastVerified?: string;
+  ownerRole?: string;
   requirements: {
     schedule: {
       overflight: PermitRequirementMatrix;

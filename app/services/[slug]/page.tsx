@@ -309,7 +309,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               {service.sectionH2WithKeyword || "What We Coordinate"}
             </h2>
             <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-              We coordinate the core operational elements of {service.shortTitle.toLowerCase()} with verified providers worldwide.
+              We coordinate the core operational elements of {service.shortTitle.toLowerCase()} across Pakistan, the Middle East, Asia, and Africa.
             </p>
           </div>
 
