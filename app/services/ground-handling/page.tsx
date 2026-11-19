@@ -22,9 +22,9 @@ import { WhyKclSection } from "@/components/sections/WhyKclSection";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 
 export const metadata = buildMetadata({
-  title: "Ground Handling Coordination | Pakistan, Middle East & Africa | KCL",
+  title: "Worldwide Ground Handling Coordination | KCL",
   description:
-    "Aircraft, passenger, baggage and cargo handling, fuelling coordination and turnaround management across Pakistan, the Middle East, Asia, and Africa.",
+    "Aircraft, passenger, baggage and cargo handling, fuelling coordination and turnaround management at airports worldwide. One team, 24/7.",
   path: "/services/ground-handling",
   omitTitleSuffix: true,
 });
@@ -40,16 +40,16 @@ export default function GroundHandlingPage() {
   const serviceLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Ground Handling Coordination",
+    name: "Worldwide Ground Handling Coordination",
     serviceType: "Aviation Ground Handling Coordination",
     description:
-      "Aircraft, passenger, baggage and cargo handling, fuelling coordination and turnaround management across Pakistan, the Middle East, Asia, and Africa.",
+      "Aircraft, passenger, baggage and cargo handling, fuelling coordination and turnaround management at airports worldwide. One team, 24/7.",
     provider: {
       "@type": "Organization",
-      name: "Kashmir Corporation (Private) Limited",
+      name: "Kashmir Corporation (Pvt.) Ltd. - KCL",
       url: "https://kclwebsite.vercel.app",
     },
-    areaServed: ["Asia", "Middle East", "Africa"],
+    areaServed: "Worldwide",
   };
 
   const visibleFaqs = GROUND_HANDLING_FAQS.slice(0, 6);
@@ -117,7 +117,7 @@ export default function GroundHandlingPage() {
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
           <div className="max-w-3xl mx-auto space-y-3.5 sm:space-y-4">
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.16] tracking-tight mx-auto mb-3">
-              Ground Handling Coordination
+              Worldwide Ground Handling Coordination
             </h1>
 
             <p className="text-base sm:text-lg font-semibold text-slate-100 max-w-2xl mx-auto leading-relaxed">
@@ -165,7 +165,7 @@ export default function GroundHandlingPage() {
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-emerald-300 hover:border-emerald-500 hover:-translate-y-0.5 px-3 py-1 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200 bg-emerald-50/40">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
-              24/7 urgent escalation line
+              24/7 operations desk support
             </span>
           </div>
         </div>
@@ -181,7 +181,7 @@ export default function GroundHandlingPage() {
               What We Coordinate
             </h2>
             <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-              Core apron and passenger handling elements coordinated through qualified handling partners across Pakistan, the Middle East, Asia, and Africa.
+              Core apron and passenger handling elements coordinated through qualified handling partners at airports worldwide.
             </p>
           </div>
 
@@ -303,17 +303,17 @@ export default function GroundHandlingPage() {
         subheading="We bring proven aviation operations discipline to airport ground handling coordination."
         cards={[
           {
-            kicker: "Escalation",
-            title: "24/7 urgent escalation line",
+            kicker: "Round the clock",
+            title: "24/7 operations desk",
             description:
-              "Operations Controller monitoring flight progress, schedule revisions and station communications.",
+              "Coordination team monitoring flight progress, schedule revisions and station communications across all time zones.",
             pulse: true,
           },
           {
-            kicker: "Regional network",
-            title: "Asia, Middle East & Africa",
+            kicker: "Worldwide reach",
+            title: "Global handling network",
             description:
-              "Working relationships with licensed airport handlers and ramp service providers across our launch regions.",
+              "Established working relationships with licensed airport handlers and ramp service providers internationally.",
           },
           {
             kicker: "Unified channel",
@@ -322,10 +322,10 @@ export default function GroundHandlingPage() {
               "Single operations channel synchronizing landing permits, parking slots, fueling and handling without scattered supplier communication.",
           },
           {
-            kicker: "Group founded 1947",
+            kicker: "Since 1947",
             title: "Kashmirwala Group",
             description:
-              "Part of the Kashmirwala Group, founded in 1947, providing reliable operational continuity.",
+              "Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.",
           },
         ]}
       />

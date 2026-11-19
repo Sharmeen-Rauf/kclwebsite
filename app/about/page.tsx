@@ -7,7 +7,6 @@ import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd, buildBreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { CONTACT_DATA } from "@/content/contact";
-import { KCL_FACTS, renderFact } from "@/content/facts";
 import { ClientStrip } from "@/components/sections/ClientStrip";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
@@ -29,7 +28,7 @@ import {
 export const metadata = buildMetadata({
   title: "About KCL | International Flight Support & Permits",
   description:
-    "KCL International Flight Support is part of the Kashmirwala Group, founded in 1947. Pakistan permit filing, direct authority access in 7 countries, and partner-supported services across Asia, the Middle East, and Africa.",
+    "KCL International Flight Support is part of the Kashmirwala Group, serving aviation since 1947. Permits, handling, fuel, catering and crew services worldwide.",
   path: "/about",
   omitTitleSuffix: true,
 });
@@ -63,7 +62,7 @@ const RAW_MILESTONES = [
   {
     slug: "today",
     era: "Today",
-    text: "KCL International Flight Support supports airlines, private operators, cargo carriers and charter operators across Pakistan, the Middle East, Asia, and Africa through Kashmir Corporation (Private) Limited and PakTurk Enterprises (Pvt.) Ltd.",
+    text: "KCL International Flight Support supports airlines, private operators, cargo carriers and charter operators worldwide through Kashmir Corporation (Pvt.) Ltd. and PakTurk Enterprises (Pvt.) Ltd.",
   },
 ];
 
@@ -128,7 +127,7 @@ const EIGHT_SERVICES = [
   {
     name: "Flight Permissions",
     href: "/services/overflight-permits",
-    summary: "Pakistan filing, 7 direct-access countries, and partner-supported permits.",
+    summary: "Overflight, landing, PPR and short-notice permits worldwide.",
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -217,8 +216,38 @@ const RAW_CREDENTIALS = [
   {
     slug: "afpa",
     abbr: "AFPA",
-    title: `AFPA Licence ${renderFact(KCL_FACTS.entity.afpaLicence) || "AFPA/001/2024"}`,
-    authority: renderFact(KCL_FACTS.entity.issuer) || "Pakistan Civil Aviation Authority",
+    title: "AFPA License Holder",
+    authority: "Pakistan Civil Aviation Authority",
+  },
+  {
+    slug: "dts",
+    abbr: "DTS",
+    title: "DTS License Holder",
+    authority: "Department of Tourist Services",
+  },
+  {
+    slug: "fagsa",
+    abbr: "FAGSA",
+    title: "FAGSA",
+    authority: "Federation of Airline General Sales Agents",
+  },
+  {
+    slug: "taap",
+    abbr: "TAAP",
+    title: "TAAP",
+    authority: "Travel Agents Association of Pakistan",
+  },
+  {
+    slug: "kcci",
+    abbr: "KCCI",
+    title: "Karachi Chamber of Commerce and Industry",
+    authority: "Member",
+  },
+  {
+    slug: "aca",
+    abbr: "ACA",
+    title: "Air Cargo Association",
+    authority: "Member",
   },
 ];
 
@@ -231,22 +260,14 @@ export default function AboutPage() {
     imageSrc: publicFileIfExists(`img/about/timeline-${m.slug}.webp`),
   }));
 
-  const leaders: LeaderProfile[] = RAW_LEADERS.map((l) => {
-    // Keep Management photos and bios hidden until each person's approval is recorded
-    const isHistorical =
-      l.slug === "haji-fazal-ahmed-kashmirwala" ||
-      l.slug === "aftab-ahmed-kashmirwala";
-    return {
-      slug: l.slug,
-      initials: l.initials,
-      name: l.name,
-      role: l.role,
-      details: isHistorical ? l.details : null,
-      photoSrc: isHistorical
-        ? publicFileIfExists(l.imageFile) ?? publicFileIfExists(`img/team/${l.slug}.webp`)
-        : null,
-    };
-  });
+  const leaders: LeaderProfile[] = RAW_LEADERS.map((l) => ({
+    slug: l.slug,
+    initials: l.initials,
+    name: l.name,
+    role: l.role,
+    details: l.details,
+    photoSrc: publicFileIfExists(l.imageFile) ?? publicFileIfExists(`img/team/${l.slug}.webp`),
+  }));
 
   const credentials: CredentialBoard[] = RAW_CREDENTIALS.map((c) => ({
     ...c,
@@ -372,7 +393,7 @@ export default function AboutPage() {
               About KCL International Flight Support
             </h1>
             <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-2xl mx-auto">
-              Part of the Kashmirwala Group, founded in 1947. {KCL_FACTS.coverage.statement}
+              KCL International Flight Support provides permits, ground handling, fuel, catering and crew services for airlines, private operators, cargo carriers and charter operators worldwide, with a team on call 24/7. We are part of the Kashmirwala Group, which has served aviation since 1947.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
@@ -472,61 +493,6 @@ export default function AboutPage() {
 
       <FlightPathDivider variant="curve-down" className="bg-[#F8FAFC]" />
 
-      {/* Company Information Block */}
-      <section aria-labelledby="company-info-heading" className="py-12 sm:py-14 bg-white border-b border-[#CBD5E1]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div>
-            <span className="text-sm font-bold text-[#B88200] block mb-1">
-              Corporate Profile
-            </span>
-            <h2 id="company-info-heading" className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
-              Company Information
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 space-y-1">
-              <span className="text-sm font-semibold text-[#5C6B7A] block">Legal Name</span>
-              <p className="text-base font-bold text-[#0B2545]">{renderFact(KCL_FACTS.entity.legalName)}</p>
-            </div>
-            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 space-y-1">
-              <span className="text-sm font-semibold text-[#5C6B7A] block">Trading Name</span>
-              <p className="text-base font-bold text-[#0B2545]">{renderFact(KCL_FACTS.entity.tradingName)}</p>
-            </div>
-            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 space-y-1">
-              <span className="text-sm font-semibold text-[#5C6B7A] block">Group</span>
-              <p className="text-base font-bold text-[#0B2545]">{renderFact(KCL_FACTS.entity.groupStatement)}</p>
-            </div>
-            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 space-y-1">
-              <span className="text-sm font-semibold text-[#5C6B7A] block">AFPA Licence</span>
-              <p className="text-base font-bold text-[#0B2545]">
-                {renderFact(KCL_FACTS.entity.afpaLicence)} ({renderFact(KCL_FACTS.entity.issuer)})
-              </p>
-            </div>
-            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 space-y-1">
-              <span className="text-sm font-semibold text-[#5C6B7A] block">Head Office &amp; Time Zone</span>
-              <p className="text-base font-medium text-[#0B2545]">
-                {CONTACT_DATA.address} · {renderFact(KCL_FACTS.entity.timezone)}
-              </p>
-            </div>
-            <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 space-y-1">
-              <span className="text-sm font-semibold text-[#5C6B7A] block">Operations Contact</span>
-              <p className="text-base font-bold text-[#0B2545]">
-                {CONTACT_DATA.opsEmail} · {CONTACT_DATA.primaryPhone}
-              </p>
-            </div>
-            {renderFact(KCL_FACTS.entity.incorporationYear) && (
-              <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-[6px] p-5 space-y-1">
-                <span className="text-sm font-semibold text-[#5C6B7A] block">Incorporation Year</span>
-                <p className="text-base font-bold text-[#0B2545]">
-                  {renderFact(KCL_FACTS.entity.incorporationYear)}
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
       {/* 8. Contact */}
       <section className="py-12 sm:py-16 bg-[#F8FAFC] border-b border-[#CBD5E1]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
@@ -535,13 +501,13 @@ export default function AboutPage() {
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
               </svg>
-              <span>Urgent escalation &amp; dispatch</span>
+              <span>Direct operations desk</span>
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
               Contact
             </h2>
             <p className="text-base text-[#475569] mt-1">
-              Reach our {CONTACT_DATA.escalationLabel} and operations email directly.
+              Reach our 24/7 international flight operations desk directly.
             </p>
           </div>
 
@@ -564,7 +530,7 @@ export default function AboutPage() {
               <div className="relative z-10 space-y-5">
                 <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-sm font-semibold text-white">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>{CONTACT_DATA.escalationLabel}</span>
+                  <span>24/7 Operations Desk Active</span>
                 </div>
 
                 <div className="space-y-1.5">
@@ -703,7 +669,7 @@ export default function AboutPage() {
       {/* 10. One Final CTA Band */}
       <CtaBanner
         heading="Ready to Coordinate Your Next Flight?"
-        subheading="Share your flight schedule, aircraft details, and route with our Operations Controller."
+        subheading="Share your flight schedule, aircraft details, and route with our 24/7 operations desk."
         primaryLabel="Request Flight Support"
         primaryHref="/request-flight-support"
       />

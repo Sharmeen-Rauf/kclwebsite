@@ -30,7 +30,7 @@ const PRIMARY_NAV: NavItem[] = [
       {
         label: "01 · Flight Permission Facilitation",
         href: "/services/flight-permissions",
-        desc: "Pakistan filing & regional permit coordination",
+        desc: "Overflight & landing permit coordination worldwide",
       },
       {
         label: "02 · Ground Handling",
@@ -76,17 +76,12 @@ const PRIMARY_NAV: NavItem[] = [
       {
         label: "Flight Permissions Overview",
         href: "/services/flight-permissions",
-        desc: "Pakistan filing & regional permit coordination",
-      },
-      {
-        label: "Coverage and Access",
-        href: "/coverage",
-        desc: "Pakistan filing, 7 direct-access countries & partner regions",
+        desc: "Overflight & landing permits worldwide",
       },
       {
         label: "Permit Directory",
         href: "/permit-directory",
-        desc: "8 approved country guides (Pakistan + 7 direct access)",
+        desc: "Country permit guides (Pakistan listed inside)",
       },
       {
         label: "Overflight Permits",
@@ -112,37 +107,17 @@ const PRIMARY_NAV: NavItem[] = [
       {
         label: "Aviation Tools",
         href: "/tools",
-        desc: "Free dispatch reference tools",
+        desc: "Free reference tools",
       },
       {
         label: "Guides and Articles",
         href: "/insights",
-        desc: "Practical operational briefings",
+        desc: "Practical briefings",
       },
       {
         label: "Glossary and Checklists",
         href: "/aviation-resources",
         desc: "Terms and PDF checklist",
-      },
-      {
-        label: "Coverage and Access",
-        href: "/coverage",
-        desc: "Where we file and where we coordinate",
-      },
-      {
-        label: "Fees and Payments",
-        href: "/fees-and-payments",
-        desc: "Authority pass-through & KCL quote model",
-      },
-      {
-        label: "Licences and Compliance",
-        href: "/compliance",
-        desc: "AFPA/001/2024 & review standards",
-      },
-      {
-        label: "Urgent Requests",
-        href: "/urgent-requests",
-        desc: "24/7 urgent escalation line & steps",
       },
     ],
   },
@@ -246,18 +221,8 @@ export function Header() {
                   </Link>
 
                   {/* Hover Dropdown Menu */}
-                  <div
-                    className={`invisible opacity-0 translate-y-1.5 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 focus-within:visible focus-within:opacity-100 focus-within:translate-y-0 transition-all duration-200 ease-out absolute left-0 top-full pt-1 z-50 ${
-                      item.children.length > 5 ? "w-[460px]" : "w-80"
-                    }`}
-                  >
-                    <div
-                      className={`bg-white border border-slate-200 border-t-2 border-t-[#F4C400] shadow-xl rounded-[2px] py-2 text-[#0B2545] ${
-                        item.children.length > 5
-                          ? "grid grid-cols-2 divide-x divide-y divide-slate-100"
-                          : "divide-y divide-slate-100"
-                      }`}
-                    >
+                  <div className="invisible opacity-0 translate-y-1.5 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 focus-within:visible focus-within:opacity-100 focus-within:translate-y-0 transition-all duration-200 ease-out absolute left-0 top-full pt-1 w-80 z-50">
+                    <div className="bg-white border border-slate-200 border-t-2 border-t-[#F4C400] shadow-xl rounded-[2px] py-2 divide-y divide-slate-100 text-[#0B2545]">
                       {item.children.map((sub) => (
                         <Link
                           key={sub.href}

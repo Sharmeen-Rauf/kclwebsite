@@ -820,7 +820,7 @@ export const SERVICES_DATA: ServiceDefinition[] = [
     h1: "Aviation Fuel Arrangements & Coordination",
     heroHeadline: "Fuel Planning Starts Long Before Uplift.",
     introParagraph:
-      "Jet A-1, into-plane, fuel release and prepayment are confirmed per airport. Credit is subject to approval. Lead time varies by airport. Request a quote.",
+      "Fuel supply coordination for Jet A1, TS1 and Avgas/100LL, with delivery scheduling, documentation and payment support. KCL assists operators with communicating refueling requirements and coordinating arrangements through trusted fuel providers.",
     heroCtaLabel: "Discuss Fuel Arrangements",
     whatItIsHeading: "Connecting Fuel Requirements with the Wider Itinerary",
     whatItIs: [

@@ -1,12 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { DISPLAYABLE_CLIENTS } from "@/content/clients";
+import { REAL_CLIENTS } from "@/content/clients";
 
 export function GroundHandlingLogoSlider() {
-  const approvedClients = DISPLAYABLE_CLIENTS;
-  if (approvedClients.length === 0) {
-    return null;
-  }
+  const approvedClients = REAL_CLIENTS;
 
   return (
     <div className="space-y-6">

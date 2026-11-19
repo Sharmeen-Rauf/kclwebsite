@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
-import { DISPLAYABLE_CLIENTS } from "@/content/clients";
+import { REAL_CLIENTS } from "@/content/clients";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 
@@ -42,65 +42,54 @@ export default function ClientsPage() {
 
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          {DISPLAYABLE_CLIENTS.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {DISPLAYABLE_CLIENTS.map((client) => (
-                <article
-                  key={client.icao}
-                  className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between gap-4 pb-4 mb-4 border-b border-[#CBD5E1]">
-                      <div>
-                        <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
-                          {client.name}
-                        </h2>
-                        <p className="text-sm text-[#5C6B7A]">
-                          State of Registry: {client.country}
-                        </p>
-                      </div>
-                      <span className="text-xs font-bold bg-[#0B2545] text-white px-2.5 py-1">
-                        ICAO: {client.icao} · IATA: {client.iata}
-                      </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {REAL_CLIENTS.map((client) => (
+              <article
+                key={client.icao}
+                className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-4 pb-4 mb-4 border-b border-[#CBD5E1]">
+                    <div>
+                      <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
+                        {client.name}
+                      </h2>
+                      <p className="font-mono text-xs text-[#5C6B7A]">
+                        State of Registry: {client.country}
+                      </p>
                     </div>
-
-                    <div className="my-4 bg-white border border-[#CBD5E1] p-5 flex items-center justify-center h-24">
-                      <Image
-                        src={client.logo}
-                        alt={client.alt}
-                        width={240}
-                        height={64}
-                        className="max-h-14 w-auto object-contain"
-                      />
-                    </div>
-
-                    <p className="text-base text-[#16202B] leading-relaxed">
-                      {client.summary}
-                    </p>
+                    <span className="font-mono text-xs font-bold bg-[#0B2545] text-white px-2.5 py-1">
+                      ICAO: {client.icao} · IATA: {client.iata}
+                    </span>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-[#CBD5E1] flex items-center justify-between text-sm text-[#5C6B7A]">
-                    <span>Verified Operator Reference</span>
-                    <Link
-                      href="/request-flight-support"
-                      className="kcl-link font-bold text-[#0B2545]"
-                    >
-                      Coordinate Flight Support →
-                    </Link>
+                  <div className="my-4 bg-white border border-[#CBD5E1] p-5 flex items-center justify-center h-24">
+                    <Image
+                      src={client.logo}
+                      alt={client.alt}
+                      width={240}
+                      height={64}
+                      className="max-h-14 w-auto object-contain"
+                    />
                   </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="bg-white border border-[#CBD5E1] rounded-[4px] p-8 text-center space-y-3">
-              <h2 className="text-xl font-bold text-[#0B2545]">
-                Operator References Pending Written Display Confirmation
-              </h2>
-              <p className="text-base text-[#5C6B7A] max-w-2xl mx-auto">
-                KCL supports scheduled airlines, charter operators, and cargo carriers across Pakistan, the Middle East, Asia, and Africa. Operator names and logos are published only with written permission.
-              </p>
-            </div>
-          )}
+
+                  <p className="text-sm sm:text-base text-[#16202B] leading-relaxed">
+                    {client.summary}
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-[#CBD5E1] flex items-center justify-between text-xs font-mono text-[#5C6B7A]">
+                  <span>PUBLISHED OPERATOR REFERENCE</span>
+                  <Link
+                    href="/request-flight-support"
+                    className="kcl-link font-sans font-bold text-[#0B2545]"
+                  >
+                    Coordinate Flight Support →
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
 
           <div className="kcl-card bg-white border border-[#CBD5E1] p-6 sm:p-8 space-y-4">
             <span className="font-mono text-xs uppercase text-[#5C6B7A] block">

@@ -14,8 +14,6 @@ import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ServiceQuickPlanner } from "@/components/sections/ServiceQuickPlanner";
 import { ServiceHowAndSupportSection } from "@/components/sections/ServiceHowAndSupportSection";
 import { WhyKclSection } from "@/components/sections/WhyKclSection";
-import { FuelQuoteForm } from "@/components/sections/FuelQuoteForm";
-import { FuelGradeConverter } from "@/components/sections/tools/FuelGradeConverter";
 import { FlightPathDivider } from "@/components/ui/FlightPathDivider";
 import { HeroVideoBackground } from "@/components/ui/HeroVideoBackground";
 import { InnerHero } from "@/components/sections/InnerHero";
@@ -309,7 +307,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               {service.sectionH2WithKeyword || "What We Coordinate"}
             </h2>
             <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-              We coordinate the core operational elements of {service.shortTitle.toLowerCase()} across Pakistan, the Middle East, Asia, and Africa.
+              We coordinate the core operational elements of {service.shortTitle.toLowerCase()} with verified providers worldwide.
             </p>
           </div>
 
@@ -401,21 +399,21 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       />
 
       <WhyKclSection
-        subheading="Aviation operations discipline across Pakistan, the Middle East, Asia, and Africa."
+        subheading="Aviation operations discipline and global partner coordination since 1947."
         cards={[
           {
-            kicker: "Escalation",
-            title: "24/7 urgent escalation line",
+            kicker: "Round the clock",
+            title: "24/7 operations desk",
             description:
-              "Operations Controller monitoring schedule revision updates and station coordination.",
+              "Active monitoring, schedule revision management, and live stakeholder coordination across time zones.",
             image: "/img/services/06-ops.webp",
             pulse: true,
           },
           {
-            kicker: "Regional network",
-            title: "Asia, Middle East & Africa",
+            kicker: "Worldwide reach",
+            title: "Global partner network",
             description:
-              "Direct authority coordination in 7 countries and partner-supported coverage across our launch regions.",
+              "Established direct channels with certified handlers, fuel providers, and civil aviation authorities.",
             image: heroPoster,
           },
           {
@@ -426,10 +424,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             image: "/img/services/07-dispatch.webp",
           },
           {
-            kicker: "Group founded 1947",
+            kicker: "Since 1947",
             title: "Kashmirwala Group",
             description:
-              "Part of the Kashmirwala Group, founded in 1947, providing reliable operational continuity.",
+              "Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.",
             image: "/img/hero-flight-ops.jpg",
           },
         ]}
@@ -472,12 +470,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       {service.slug === "overflight-permits" && <UtcDateWindowChecker />}
       {service.slug === "landing-permits" && <TrafficOrTechnicalStop />}
-      {service.slug === "aviation-fuel" && (
-        <>
-          <FuelQuoteForm />
-          <FuelGradeConverter />
-        </>
-      )}
 
       {/* =========================================================================
           SECTION 7 — FINAL CTA BAND (One Only)

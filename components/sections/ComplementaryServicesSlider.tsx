@@ -22,7 +22,7 @@ const ALL_COMPLEMENTARY_SERVICES: ServiceCard[] = [
     slug: "ground-handling",
     badge: "Ramp & Turnaround",
     title: "Ground Handling",
-    description: "Aircraft turnaround, baggage, ramp servicing and passenger handling across regional stations.",
+    description: "Aircraft turnaround, baggage, ramp servicing and passenger handling at worldwide stations.",
     href: "/services/ground-handling",
     icon: (
       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -64,7 +64,7 @@ const ALL_COMPLEMENTARY_SERVICES: ServiceCard[] = [
     slug: "flight-permissions",
     badge: "Permit Clearance",
     title: "Flight Permissions",
-    description: "Overflight and landing permits filed in Pakistan and coordinated across 7 direct-access countries.",
+    description: "Worldwide overflight and landing permits facilitated with civil aviation authorities 24/7.",
     href: "/services/flight-permissions",
     icon: (
       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

@@ -20,9 +20,9 @@ import { ServiceHowAndSupportSection } from "@/components/sections/ServiceHowAnd
 import { WhyKclSection } from "@/components/sections/WhyKclSection";
 
 export const metadata = buildMetadata({
-  title: "Inflight Catering Coordination | Pakistan, Middle East & Africa | KCL",
+  title: "Inflight Catering Coordination Worldwide | KCL",
   description:
-    "Inflight meals for passengers and crew, special dietary plans and bulk catering arranged across Pakistan, the Middle East, Asia, and Africa.",
+    "Inflight meals for passengers and crew, special dietary plans and bulk catering arranged at airports worldwide. One team, 24/7.",
   path: "/services/inflight-catering",
   omitTitleSuffix: true,
 });
@@ -38,16 +38,16 @@ export default function InflightCateringPage() {
   const serviceLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Inflight Catering Coordination",
+    name: "Inflight Catering Coordination Worldwide",
     serviceType: "Aircraft Inflight Catering Coordination",
     description:
-      "Inflight meals for passengers and crew, special dietary plans and bulk catering arranged across Pakistan, the Middle East, Asia, and Africa.",
+      "Inflight meals for passengers and crew, special dietary plans and bulk catering arranged at airports worldwide. One team, 24/7.",
     provider: {
       "@type": "Organization",
-      name: "Kashmir Corporation (Private) Limited",
+      name: "Kashmir Corporation (Pvt.) Ltd. - KCL",
       url: "https://kclwebsite.vercel.app",
     },
-    areaServed: ["Asia", "Middle East", "Africa"],
+    areaServed: "Worldwide",
   };
 
   const visibleFaqs = CATERING_FAQS.slice(0, 6);
@@ -120,7 +120,7 @@ export default function InflightCateringPage() {
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
           <div className="max-w-3xl mx-auto space-y-3.5 sm:space-y-4">
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.16] tracking-tight mx-auto mb-3">
-              Inflight Catering Coordination
+              Inflight Catering Coordination Worldwide
             </h1>
 
             <p className="text-base sm:text-lg font-semibold text-slate-100 max-w-2xl mx-auto leading-relaxed">
@@ -168,7 +168,7 @@ export default function InflightCateringPage() {
             </span>
             <span className="inline-flex items-center gap-2 bg-white border border-emerald-300 hover:border-emerald-500 hover:-translate-y-0.5 px-3 py-1 rounded-[2px] shadow-2xs hover:shadow-xs transition-all duration-200 bg-emerald-50/40">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
-              24/7 urgent escalation line
+              24/7 operations desk support
             </span>
           </div>
         </div>
@@ -184,7 +184,7 @@ export default function InflightCateringPage() {
               What We Arrange
             </h2>
             <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-              Flight meal production, special dietary menus and airside galley delivery through flight catering kitchens across Pakistan, the Middle East, Asia, and Africa.
+              Flight meal production, special dietary menus and airside galley delivery through verified flight catering kitchens worldwide.
             </p>
           </div>
 
@@ -307,21 +307,21 @@ export default function InflightCateringPage() {
       />
 
       <WhyKclSection
-        subheading="We bring aviation operations discipline to inflight catering coordination."
+        subheading="We bring proven aviation operations discipline to worldwide inflight catering coordination."
         cards={[
           {
-            kicker: "Escalation",
-            title: "24/7 urgent escalation line",
+            kicker: "Round the clock",
+            title: "24/7 operations desk",
             description:
-              "Operations Controller monitoring flight progress, schedule revisions and station communications.",
+              "Coordination team monitoring flight progress, schedule revisions and station communications across all time zones.",
             image: "/img/services/06-ops.webp",
             pulse: true,
           },
           {
-            kicker: "Regional network",
-            title: "Asia, Middle East & Africa",
+            kicker: "Worldwide reach",
+            title: "Global catering network",
             description:
-              "Working relationships with licensed flight kitchens and airport catering suppliers across our launch regions.",
+              "Established working relationships with licensed flight kitchens and airport catering suppliers internationally.",
             image: "/img/services/03-catering.webp",
           },
           {
@@ -332,10 +332,10 @@ export default function InflightCateringPage() {
             image: "/img/services/07-dispatch.webp",
           },
           {
-            kicker: "Group founded 1947",
+            kicker: "Since 1947",
             title: "Kashmirwala Group",
             description:
-              "Part of the Kashmirwala Group, founded in 1947, providing reliable operational continuity.",
+              "Decades of leadership in commercial air transport and airline representation, providing reliable operational stability.",
             image: "/img/hero-flight-ops.jpg",
           },
         ]}

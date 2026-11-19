@@ -79,7 +79,7 @@ const ALL_EIGHT_SERVICES = [
   },
   {
     title: "Aviation Fuel",
-    description: "Jet A-1 into-plane, fuel release, and prepayment confirmed per airport.",
+    description: "Jet A-1, TS-1 and Avgas 100LL arranged with trusted suppliers.",
     href: "/services/aviation-fuel",
     photo: "/img/services/04-fuel.webp",
     alt: "Aviation fuel truck refueling aircraft wing on airport tarmac",
@@ -141,8 +141,7 @@ const SERVICES_ITEM_LIST_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "KCL Aviation Support Services",
-  description:
-    "Flight permissions, ground handling, Jet A-1 fuel, catering, and crew arrangements across Pakistan, the Middle East, Asia, and Africa.",
+  description: "Comprehensive flight support services coordinated worldwide.",
   itemListElement: ALL_EIGHT_SERVICES.map((srv, idx) => ({
     "@type": "ListItem",
     position: idx + 1,
@@ -156,7 +155,7 @@ const SERVICES_FAQS = [
   {
     question: "What services does KCL offer?",
     answer:
-      "KCL arranges flight permission facilitation, Jet A-1 fuel supply, ground handling, catering, crew accommodation, flight planning and dispatch support, and airport slot coordination across Pakistan, the Middle East, Asia, and Africa.",
+      "KCL arranges flight planning and dispatch, airport slot coordination, international flight permissions, aircraft ground handling, aviation fuel supply, inflight catering coordination, crew accommodation and transport, and 24/7 operations support worldwide.",
   },
   {
     question: "Can I request several services in one request?",
