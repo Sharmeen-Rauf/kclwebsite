@@ -8,6 +8,7 @@ import { InnerHero } from "@/components/sections/InnerHero";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { CtaBanner } from "@/components/sections/CtaBanner";
+import { MotionStaggerGrid, MotionStaggerItem } from "@/components/ui/MotionPrimitives";
 
 export const metadata = buildMetadata({
   title: "Contact KCL International Flight Support",
@@ -88,33 +89,32 @@ export default function ContactPage() {
       <section className="py-12 sm:py-16 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           {/* Top 3 Guidance Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <MotionStaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {GUIDANCE_CARDS.map((card) => (
-              <div
-                key={card.title}
-                className="group relative overflow-hidden bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[8px] p-6 space-y-3 shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none"
-              >
-                <div
-                  aria-hidden="true"
-                  className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 motion-reduce:transition-none"
-                />
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-[#B88200]">
-                    {card.kicker}
-                  </span>
-                  <div className="w-9 h-9 rounded-[4px] bg-[#F8FAFC] border border-[#CBD5E1] text-[#0B2545] flex items-center justify-center">
-                    {card.icon}
+              <MotionStaggerItem key={card.title}>
+                <div className="group relative overflow-hidden bg-white border border-[#CBD5E1] hover:border-[#0B2545] rounded-[8px] p-6 space-y-3 h-full shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none">
+                  <div
+                    aria-hidden="true"
+                    className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0B2545] via-[#F4C400] to-[#0B2545] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 motion-reduce:transition-none"
+                  />
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-bold text-[#B88200]">
+                      {card.kicker}
+                    </span>
+                    <div className="w-9 h-9 rounded-[4px] bg-[#F8FAFC] border border-[#CBD5E1] text-[#0B2545] flex items-center justify-center">
+                      {card.icon}
+                    </div>
                   </div>
+                  <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
+                    {card.title}
+                  </h2>
+                  <p className="text-base text-[#475569] leading-relaxed">
+                    {card.description}
+                  </p>
                 </div>
-                <h2 className="no-accent-bar text-xl font-bold text-[#0B2545]">
-                  {card.title}
-                </h2>
-                <p className="text-base text-[#475569] leading-relaxed">
-                  {card.description}
-                </p>
-              </div>
+              </MotionStaggerItem>
             ))}
-          </div>
+          </MotionStaggerGrid>
 
           {/* Main Split: Inquiry Form (7 Cols) + Deep Navy Operations Hub (5 Cols) */}
           <div id="contact-form" className="scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">

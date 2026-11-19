@@ -4,6 +4,7 @@ import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { REAL_CLIENTS } from "@/content/clients";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { InnerHero } from "@/components/sections/InnerHero";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 
 export const metadata = buildMetadata({
@@ -18,27 +19,26 @@ export default function ClientsPage() {
     <>
       <Breadcrumbs items={[{ name: "Clients", path: "/clients" }]} />
 
-      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
-              PUBLISHED CORPORATE REFERENCES · SUBJECT TO MANAGEMENT REVIEW
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white">
-              International Airlines &amp; Operators Served by KCL
-            </h1>
-            <p className="text-lg sm:text-xl font-semibold text-slate-100">
-              Operational Flight Permission Facilitation &amp; Station Coordination.
-            </p>
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-              Commercial airlines and international flight operations teams work
-              with Kashmir Corporation (Pvt.) Ltd. (KCL) for flight permission
-              facilitation, ground handling, catering services, fuel supply,
-              crew accommodation arrangements, and 24/7 operational support.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerHero
+        kicker="Published corporate references"
+        title="International Airlines & Operators Served by KCL"
+        subtitle="Operational Flight Permission Facilitation & Station Coordination."
+        description="Commercial airlines and international flight operations teams work with Kashmir Corporation (Pvt.) Ltd. (KCL) for flight permission facilitation, ground handling, catering services, fuel supply, crew accommodation arrangements, and 24/7 operational support."
+        imageSrc="/img/hero-flight-ops.jpg"
+        imageAlt="Commercial airlines and business aircraft on international airport apron"
+        buttons={[
+          {
+            label: "Request Flight Support",
+            href: "/request-flight-support",
+            variant: "primary",
+          },
+          {
+            label: "Explore Services",
+            href: "/services",
+            variant: "outline",
+          },
+        ]}
+      />
 
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">

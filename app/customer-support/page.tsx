@@ -3,6 +3,7 @@ import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { SITE_CONFIG } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { InnerHero } from "@/components/sections/InnerHero";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 
 export const metadata = buildMetadata({
@@ -19,27 +20,26 @@ export default function CustomerSupportPage() {
         items={[{ name: "Customer Support", path: "/customer-support" }]}
       />
 
-      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
-              ACTIVE INQUIRIES &amp; COORDINATION UPDATES
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white">
-              Aviation Customer Support &amp; Operations Contact
-            </h1>
-            <p className="text-lg sm:text-xl font-semibold text-slate-100">
-              Clear Answers for Active Aviation Inquiries.
-            </p>
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-              Use this page to reach the appropriate KCL team regarding an
-              existing request, requested service or operational question.
-              Include only the information needed to identify the matter and
-              avoid sharing sensitive documents through unsecured channels.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerHero
+        kicker="Active inquiries & coordination updates"
+        title="Aviation Customer Support & Operations Contact"
+        subtitle="Clear Answers for Active Aviation Inquiries."
+        description="Use this page to reach the appropriate KCL team regarding an existing request, requested service or operational question. Include only the information needed to identify the matter and avoid sharing sensitive documents through unsecured channels."
+        imageSrc="/img/services/06-ops.webp"
+        imageAlt="KCL customer support and flight operations dispatch desk"
+        buttons={[
+          {
+            label: "Request Flight Support",
+            href: "/request-flight-support",
+            variant: "primary",
+          },
+          {
+            label: "Contact Us",
+            href: "/contact",
+            variant: "outline",
+          },
+        ]}
+      />
 
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">

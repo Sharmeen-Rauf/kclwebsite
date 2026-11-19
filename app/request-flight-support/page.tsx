@@ -3,6 +3,7 @@ import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { SITE_CONFIG } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { InnerHero } from "@/components/sections/InnerHero";
 import { PermitRequestForm } from "@/components/forms/PermitRequestForm";
 import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
 
@@ -80,28 +81,21 @@ export default async function RequestFlightSupportPage({
         ]}
       />
 
-      <section className="kcl-hero-bg text-white py-10 sm:py-14 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="kcl-card max-w-3xl space-y-3 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
-              FLIGHT SUPPORT INQUIRY · {SITE_CONFIG.authorityBadge}
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white">
-              Request Flight Support &amp; Permit Coordination
-            </h1>
-            <p className="text-lg font-semibold text-slate-100">
-              Tell Us About Your Operation. We&apos;ll Help Identify the Next Steps.
-            </p>
-            <p className="text-base text-slate-200 leading-relaxed">
-              Whether your itinerary is confirmed or still being planned, start
-              with the information available. KCL can use your inquiry to
-              understand the requested permission and service coordination
-              scope. This form is not a permit application submitted to an
-              authority.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerHero
+        kicker="Flight support inquiry"
+        title="Request Flight Support & Permit Coordination"
+        subtitle="Tell Us About Your Operation. We'll Help Identify the Next Steps."
+        description="Whether your itinerary is confirmed or still being planned, start with the information available. KCL can use your inquiry to understand the requested permission and service coordination scope. This form is not a permit application submitted to an authority."
+        imageSrc="/img/services/07-dispatch.webp"
+        imageAlt="Flight dispatch officer preparing route and permit coordination"
+        buttons={[
+          {
+            label: "Explore Our Services",
+            href: "/services",
+            variant: "outline",
+          },
+        ]}
+      />
 
       <section className="py-12 sm:py-16 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">

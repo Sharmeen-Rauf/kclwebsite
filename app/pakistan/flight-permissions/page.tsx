@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { InnerHero } from "@/components/sections/InnerHero";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { JsonLd, buildFaqJsonLd } from "@/components/seo/JsonLd";
 
@@ -45,43 +46,26 @@ export default function PakistanFlightPermissionsPage() {
         ]}
       />
 
-      <section className="kcl-hero-bg text-white py-12 sm:py-16 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="kcl-card max-w-3xl space-y-4 bg-black/35 backdrop-blur-md border border-white/15 p-6 sm:p-8 rounded-[2px]">
-            <span className="font-mono text-xs uppercase tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/25 px-3 py-1 inline-block">
-              COUNTRY PERMIT GUIDE · PAKISTAN (OPKR / OPLR)
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white">
-              Flight Permission Services in Pakistan
-            </h1>
-            <p className="text-lg sm:text-xl font-semibold text-slate-100">
-              Flight Permission Services in Pakistan, Explained Clearly.
-            </p>
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-              Planning an operation involving Pakistan? Kashmir Corporation
-              assists eligible aviation operators with flight permission
-              coordination, including applicable overflight, landing and
-              scheduled or non-scheduled requests. This country guide provides
-              local operational context for international operators crossing
-              or landing in Pakistan.
-            </p>
-            <div className="pt-2 flex flex-wrap gap-3">
-              <Link
-                href="/request-flight-support?country=Pakistan"
-                className="kcl-btn-primary min-h-[48px] px-6 py-3 font-bold text-sm inline-flex items-center justify-center rounded-[2px]"
-              >
-                Discuss Pakistan Flight Permissions
-              </Link>
-              <Link
-                href="/permit-directory/pakistan"
-                className="kcl-btn-outline-white min-h-[48px] px-5 py-3 font-semibold text-sm inline-flex items-center justify-center rounded-[2px]"
-              >
-                Pakistan FIR &amp; Airport Reference
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <InnerHero
+        kicker="Country permit guide · Pakistan (OPKR / OPLR)"
+        title="Flight Permission Services in Pakistan"
+        subtitle="Flight Permission Services in Pakistan, Explained Clearly."
+        description="Planning an operation involving Pakistan? Kashmir Corporation assists eligible aviation operators with flight permission coordination, including applicable overflight, landing and scheduled or non-scheduled requests across Karachi (OPKR) and Lahore (OPLR) FIRs."
+        imageSrc="/img/services/01-permits.webp"
+        imageAlt="Pakistan OPKR and OPLR airspace permit navigation display"
+        buttons={[
+          {
+            label: "Discuss Pakistan Flight Permissions",
+            href: "/request-flight-support?country=Pakistan",
+            variant: "primary",
+          },
+          {
+            label: "Pakistan FIR & Airport Reference",
+            href: "/permit-directory/pakistan",
+            variant: "outline",
+          },
+        ]}
+      />
 
       <section className="py-14 sm:py-18 bg-[#F6F8FB] border-b border-[#CBD5E1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
